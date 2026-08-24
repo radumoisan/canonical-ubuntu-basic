@@ -2,10 +2,10 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Structural migration
-- Active page: Ubuntu Basic site foundation
-- Next action: Command-by-command validation
-- No lab machine validation, source-command validation, or MkDocs build has been run.
+- Current phase: Readiness validation complete; Chapter 1 ready for command validation.
+- Active target: Chapter 1.
+- Next action: Validate Chapter 1 command-by-command on the LAB HOST.
+- Two-layer student-environment readiness checks are validated; no source-command validation or MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
 
@@ -22,7 +22,7 @@
 | Page | Status |
 | --- | --- |
 | Home | Structured |
-| Prerequisites | Structured |
+| Prerequisites | Complete (validated two-layer student environment/readiness checks; not chapter validation) |
 | Networking Appendix | Structured |
 | 1. What is Ubuntu | Structured |
 | 2. CLI Environment | Structured |
@@ -52,7 +52,9 @@
 
 ## :material-book-open-page-variant-outline: Open Findings
 
-- No validation results, lab-machine assignments, or command records exist.
+- 2026-08-24: Explicit `qemu:///system` validation found the `cloud` NAT network active and autostarted on `192.168.100.0/24`, and the `ubuntu` domain running and autostarted. Guest SSH at `192.168.100.4`, resources, disks, operating system, and outbound DNS/ICMP connectivity are validated.
+- 2026-08-24: GCP disk tier cannot be verified from the available local evidence.
+- 2026-08-24: Package and service variance is confirmed: `qemu-kvm` and `virtqemud.service` are absent while functional QEMU/KVM packages and active monolithic `libvirtd` are present.
 - 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to `Validation pending; no captured output is available.`, including source-provided fixtures, because no commands have been executed.
 - Deployment artifacts are retained; chart versioning and image tags remain CI-managed.
 - 2026-08-24: The source statement that Ubuntu 23.10 was released in October 2024 requires factual validation before correction. It remains uncorrected in derived documentation because source validation is pending.
@@ -73,3 +75,13 @@
 - Positioned the Prerequisites page immediately after Home and reserved it for validated current lab-environment findings.
 - Next action remains command-by-command validation.
 - No lab commands or MkDocs build were run.
+- Validated the BofA outer GCP host: `n2-standard-4` in `europe-west3-a`, Ubuntu `22.04.5 LTS` (`jammy`), kernel `6.8.0-1066-gcp`, 4 vCPUs, and `16,767,156,224` bytes of memory.
+- Validated root storage: `/dev/sda1` on a 40 GiB (`42,949,672,960` bytes) non-rotational `PersistentDisk`; the GCP disk tier remains unverified.
+- Validated virtualization: `/dev/kvm`, KVM acceleration, `kvm_intel`, active/enabled monolithic `libvirtd`, libvirt/`virsh` `8.0.0`, QEMU `6.2.0`, `virt-install` `4.0.0`, `bridge-utils` `1.7`, and `sshpass` `1.09`.
+- Confirmed variance: functional QEMU/KVM packages are installed, but `qemu-kvm` and `virtqemud.service` are absent; monolithic `libvirtd` provides libvirt.
+- Initial default-URI nested checks were superseded by the explicit system-URI validation recorded below.
+- No source training commands or MkDocs build were run.
+- Narrowed the Prerequisites page to the validated outer initial state shared by students. BofA-specific and nested-environment findings remain internal in this tracker and `playground.md`.
+- Readiness validation queried `qemu:///system`: `cloud` is an active/autostarted NAT network on `192.168.100.0/24`, and `ubuntu` is an active/running/autostarted domain. The guest address was confirmed by SSH at `192.168.100.4`; the lease query returned no entry.
+- Successfully ran the beginner readiness set: outer `lsb_release -d` and `lsblk`; guest `lsb_release -d`, `nproc`, `free -h`, `lsblk`, and `ping -c 3 ubuntu.com`. The Prerequisites page now contains their captured basic checks.
+- Chapter 1 is ready for command-by-command validation on the LAB HOST.
