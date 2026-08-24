@@ -1,0 +1,1133 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Training documentation for Ubuntu Server fundamentals.">
+      
+      
+      
+      
+        <link rel="prev" href="../logging-and-initialization/">
+      
+      
+        <link rel="next" href="../networking/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>⏳ 6. Storage - Canonical Ubuntu Basic</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-storage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Canonical Ubuntu Basic" class="md-header__button md-logo" aria-label="Canonical Ubuntu Basic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Canonical Ubuntu Basic
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⏳ 6. Storage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Canonical Ubuntu Basic" class="md-nav__button md-logo" aria-label="Canonical Ubuntu Basic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Canonical Ubuntu Basic
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 1. What is Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 2. CLI Environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-filesystem-hierarchy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 3. Linux Filesystem Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity-and-ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 4. Identity and Ownership
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging-and-initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 5. Logging and Initialization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ⏳ 6. Storage
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 6. Storage
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.1 Partitioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Partitioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-partitioning-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.1.1 Partitioning Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-file-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.2 File Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 File Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-filesystems-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.2.1 Filesystems Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.3 LVM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 LVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-lvm-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.3.1 LVM Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 7. Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 8. Process Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 9. Backup and Recovery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 10. Software Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking-appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📄 Networking Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📄 Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.1 Partitioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Partitioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-partitioning-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.1.1 Partitioning Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-file-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.2 File Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 File Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-filesystems-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.2.1 Filesystems Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.3 LVM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 LVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-lvm-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       6.3.1 LVM Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="6-storage">6. Storage<a class="headerlink" href="#6-storage" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Structured from the source material. Command validation is pending.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Partition block devices, create and mount ext4 filesystems, and use LVM.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Partitioning, formatting, and LVM commands can destroy data. The source lab reserves the first block device for the host operating system; do not use it for lab activity.</p>
+</div>
+<h2 id="61-partitioning"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 6.1 Partitioning<a class="headerlink" href="#61-partitioning" title="Permanent link">&para;</a></h2>
+<p>A partition is space on a block device allocated to a filesystem. A device can have one partition spanning the device or multiple partitions. The partition table describes the layout and is read before other device data. Linux uses MBR and GPT partition-table schemes.</p>
+<p>MBR supports older hardware, up to four primary partitions, and disks or partitions no larger than 2 TiB. It requires legacy mode with grub-pc and stores GRUB in the MBR. GPT supports more primary partitions, larger disks and partitions, and a redundant partition-information copy for recovery. <code>parted</code> can create, destroy, resize, move, and copy partitions.</p>
+<h3 id="611-partitioning-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 6.1.1 Partitioning Lab<a class="headerlink" href="#611-partitioning-lab" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># List block devices</span>
+sudo<span class="w"> </span>lsblk
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Block devices and partitions are listed. Device names vary.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inspect partition tables</span>
+sudo<span class="w"> </span>fdisk<span class="w"> </span>-l
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Disk and partition-table details are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a GPT table on vdb</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mklabel<span class="w"> </span>gpt
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify the vdb partition table</span>
+sudo<span class="w"> </span>fdisk<span class="w"> </span>-l<span class="w"> </span>/dev/vdb
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The output includes <code>Disklabel type: gpt</code>.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a partition spanning vdb</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show vdb partition details</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>print
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The partition table and the new partition are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create an MBR table on vdc</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mklabel<span class="w"> </span>msdos
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a partition spanning vdc</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show vdc partition details</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>print
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The partition table and the new partition are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove the vdc partition</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>rm<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success. Partition 1 is removed.</p>
+</details>
+<h2 id="62-file-systems"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 6.2 File Systems<a class="headerlink" href="#62-file-systems" title="Permanent link">&para;</a></h2>
+<p>A filesystem provides the methods and data structures used to organize files on a partition. Creating a filesystem initializes the bookkeeping structures. Common concepts include the superblock, inode, data block, directory block, and indirect block.</p>
+<p>This course uses ext4, a journaled filesystem included since kernel 2.6.28 and the default root filesystem format through Ubuntu 24.04. It supports filesystems up to 1 exabyte and files up to 16 TB, is backward-compatible with ext2 and ext3, and supports preallocation, delayed allocation, and multiblock allocation.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create an ext4 filesystem on vdb1</span>
+sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/vdb1
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Filesystem creation details are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable the ext4 ACL mount option</span>
+sudo<span class="w"> </span>tune2fs<span class="w"> </span>-o<span class="w"> </span>acl<span class="w"> </span>/dev/vdb1
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Filesystem tuning details are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mount vdb1 at the mount point</span>
+sudo<span class="w"> </span>mount<span class="w"> </span>/dev/vdb1<span class="w"> </span>/mnt/mymount
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success. The mount point must already exist.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the mount point</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>/mnt/mymount
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. <code>/mnt/mymount</code> is created.</p>
+</details>
+<p><code>/etc/fstab</code> automates mounting at startup and may be used by non-root users. Its fields are <code>&lt;file system&gt; &lt;mount point&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;</code>. Filesystems can be identified by partition, UUID, label, or LVM volume. <code>/etc/mtab</code> lists mounted partitions, including manual mounts.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define an fstab entry by device</span>
+/dev/vdb2<span class="w"> </span>/boot<span class="w"> </span>ext4<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define an fstab entry by UUID</span>
+<span class="nv">UUID</span><span class="o">=</span>1ea4363f-f9ab-45d8-af48-067b05d202b2<span class="w"> </span>/boot<span class="w"> </span>ext4<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define a user-mountable fstab entry by label</span>
+<span class="nv">LABEL</span><span class="o">=</span>mystuff<span class="w"> </span>/mystuff<span class="w"> </span>ext4<span class="w"> </span>noauto,user<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+</details>
+<h3 id="621-filesystems-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 6.2.1 Filesystems Lab<a class="headerlink" href="#621-filesystems-lab" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># List block devices</span>
+sudo<span class="w"> </span>lsblk
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Block devices and partitions are listed. Do not use the host operating-system device.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Format vdb1 as ext4</span>
+sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/vdb1
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Filesystem creation details are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the ext4 mount point</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>/mnt/myext4fs
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. <code>/mnt/myext4fs</code> is created if absent.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mount vdb1</span>
+sudo<span class="w"> </span>mount<span class="w"> </span>/dev/vdb1<span class="w"> </span>/mnt/myext4fs
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify the vdb mount</span>
+mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vdb
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A mounted <code>vdb</code> filesystem entry is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display available filesystem space</span>
+df<span class="w"> </span>-h
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Human-readable filesystem usage is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Edit fstab</span>
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>/etc/fstab</code> opens in nano.</p>
+</details>
+<p>Add this line at the end of the file:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add the vdb1 fstab entry</span>
+/dev/vdb1<span class="w">   </span>/mnt/myext4fs<span class="w">   </span>ext4<span class="w">    </span>defaults<span class="w">    </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Unmount vdb1</span>
+sudo<span class="w"> </span>umount<span class="w"> </span>/dev/vdb1
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mount all fstab filesystems</span>
+sudo<span class="w"> </span>mount<span class="w"> </span>-a
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the fstab mount</span>
+mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vdb
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A mounted <code>vdb</code> filesystem entry is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Unmount the filesystem</span>
+sudo<span class="w"> </span>umount<span class="w"> </span>/dev/vdb1
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<h2 id="63-lvm"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 6.3 LVM<a class="headerlink" href="#63-lvm" title="Permanent link">&para;</a></h2>
+<p>Logical Volume Management is more flexible than fixed disk partitions. LVM needs at least one volume group built from one or more physical volumes. Logical volumes are named, can span disks, and need not be physically contiguous. Leave unused space in a volume group so logical volumes can be enlarged later.</p>
+<p>Use <code>fdisk</code>, <code>pvcreate</code>, <code>vgcreate</code>, and <code>lvcreate</code> to create logical volumes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Partition vdb for LVM</span>
+fdisk<span class="w"> </span>/dev/vdb
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The interactive <code>fdisk</code> prompt opens.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create physical volumes</span>
+pvcreate<span class="w"> </span>/dev/vda3<span class="w"> </span>/dev/vda4
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Physical volume creation results are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a volume group</span>
+vgcreate<span class="w"> </span>ubuntu-vg<span class="w"> </span>/dev/vda3<span class="w"> </span>/dev/vda4
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Volume group creation results are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a logical volume</span>
+lvcreate<span class="w"> </span>-L<span class="w"> </span>100G<span class="w"> </span>-n<span class="w"> </span>UB2<span class="w"> </span>ubuntu-vg
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Logical volume creation results are displayed.</p>
+</details>
+<h3 id="631-lvm-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 6.3.1 LVM Lab<a class="headerlink" href="#631-lvm-lab" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Find 10 GB block devices</span>
+sudo<span class="w"> </span>lsblk<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>-o<span class="w"> </span>name,size<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>10G
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Matching 10 GB device paths are displayed.</p>
+</details>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The next two commands overwrite all data on the specified devices.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Overwrite vdb with zeros</span>
+sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/vdb<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">4096</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>dd</code> reports bytes copied when interrupted or complete.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Overwrite vdc with zeros</span>
+sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/vdc<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">4096</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>dd</code> reports bytes copied when interrupted or complete.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a GPT label on vdb</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mklabel<span class="w"> </span>gpt
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a GPT label on vdc</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mklabel<span class="w"> </span>gpt
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a full vdb partition</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a full vdc partition</span>
+sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install LVM tools</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>lvm2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Package installation completes successfully.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Scan existing volume groups</span>
+sudo<span class="w"> </span>vgscan
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Existing volume groups are reported.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create LVM physical volumes</span>
+sudo<span class="w"> </span>pvcreate<span class="w"> </span>/dev/vdb1<span class="w"> </span>/dev/vdc1
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Physical volume creation is reported.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List physical volumes</span>
+sudo<span class="w"> </span>pvs
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>vdb1</code> and <code>vdc1</code> appear as physical volumes.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the ubuntu-vg volume group</span>
+sudo<span class="w"> </span>vgcreate<span class="w"> </span>ubuntu-vg<span class="w"> </span>/dev/vdb1<span class="w"> </span>/dev/vdc1
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Volume group creation is reported.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List volume groups</span>
+sudo<span class="w"> </span>vgs
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>ubuntu-vg</code> is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the lvmdata logical volume</span>
+sudo<span class="w"> </span>lvcreate<span class="w"> </span>-l<span class="w"> </span><span class="m">100</span>%VG<span class="w"> </span>-n<span class="w"> </span>lvmdata<span class="w"> </span>ubuntu-vg
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Logical volume creation is reported.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List logical volumes</span>
+sudo<span class="w"> </span>lvs
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>lvmdata</code> is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display logical volume details</span>
+sudo<span class="w"> </span>lvdisplay
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Details include the logical volume path.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Format the logical volume as ext4</span>
+sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/ubuntu-vg/lvmdata
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Filesystem creation details are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the LVM mount point</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>/lvmdata
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. <code>/lvmdata</code> is created.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mount the logical volume</span>
+sudo<span class="w"> </span>mount<span class="w"> </span>/dev/ubuntu-vg/lvmdata<span class="w"> </span>/lvmdata
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show mounted logical-volume space</span>
+df<span class="w"> </span>-h<span class="w"> </span>/lvmdata
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Human-readable usage for <code>/lvmdata</code> is displayed.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

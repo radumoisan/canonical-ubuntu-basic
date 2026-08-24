@@ -1,0 +1,1295 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Training documentation for Ubuntu Server fundamentals.">
+      
+      
+      
+      
+        <link rel="prev" href="../cli-environment/">
+      
+      
+        <link rel="next" href="../identity-and-ownership/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>⏳ 3. Linux Filesystem Hierarchy - Canonical Ubuntu Basic</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-linux-filesystem-hierarchy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Canonical Ubuntu Basic" class="md-header__button md-logo" aria-label="Canonical Ubuntu Basic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Canonical Ubuntu Basic
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⏳ 3. Linux Filesystem Hierarchy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Canonical Ubuntu Basic" class="md-nav__button md-logo" aria-label="Canonical Ubuntu Basic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Canonical Ubuntu Basic
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 1. What is Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 2. CLI Environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ⏳ 3. Linux Filesystem Hierarchy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 3. Linux Filesystem Hierarchy
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-the-filesystem-hierarchy-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.1 The Filesystem Hierarchy Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 The Filesystem Hierarchy Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+       Directory Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cd-command" class="md-nav__link">
+    <span class="md-ellipsis">
+       The cd Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-required-root-filesystem-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.2 Required Root Filesystem Directories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Required Root Filesystem Directories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-usr-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+       The /usr Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-var-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+       The /var Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-etc-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+       The /etc Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#321-directory-structure-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.2.1 Directory Structure Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-linux-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.3 Linux File Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Linux File Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+       Determining File Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#331-file-types-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.3.1 File Types Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity-and-ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 4. Identity and Ownership
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging-and-initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 5. Logging and Initialization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 6. Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 7. Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 8. Process Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 9. Backup and Recovery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 10. Software Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking-appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📄 Networking Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📄 Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-the-filesystem-hierarchy-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.1 The Filesystem Hierarchy Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 The Filesystem Hierarchy Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+       Directory Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cd-command" class="md-nav__link">
+    <span class="md-ellipsis">
+       The cd Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-required-root-filesystem-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.2 Required Root Filesystem Directories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Required Root Filesystem Directories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-usr-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+       The /usr Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-var-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+       The /var Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-etc-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+       The /etc Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#321-directory-structure-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.2.1 Directory Structure Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-linux-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.3 Linux File Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Linux File Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+       Determining File Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#331-file-types-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       3.3.1 File Types Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="3-linux-filesystem-hierarchy">3. Linux Filesystem Hierarchy<a class="headerlink" href="#3-linux-filesystem-hierarchy" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Goals</p>
+<p>Define the Linux Filesystem Hierarchy Standard, explain the Ubuntu filesystem hierarchy, and identify Linux file types.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command validation remains pending.</p>
+</div>
+<h2 id="31-the-filesystem-hierarchy-standard"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 3.1 The Filesystem Hierarchy Standard<a class="headerlink" href="#31-the-filesystem-hierarchy-standard" title="Permanent link">&para;</a></h2>
+<h3 id="directory-structure"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h3>
+<p>The Filesystem Hierarchy Standard (FHS), maintained by the Linux Foundation, defines directory structure and contents for Unix and Unix-like operating systems. It is currently used only by Linux distributions. Under the FHS, all files and directories appear below the root directory <code>/</code>, even when stored on different physical or virtual devices.</p>
+<p>The root filesystem must be adequate to boot, restore, recover, or repair the system. It should be as small as reasonably possible because it can be mounted from small media, is less prone to corruption after a system crash, and must not contain application-created or application-required files and subdirectories.</p>
+<p>To boot, the root filesystem must contain enough software and data to mount other filesystems, including utilities, boot-loader configuration, and essential start-up data. To recover or repair a system, it must provide utilities for an experienced maintainer to diagnose and repair issues and reconstruct a damaged system. To restore a system, it must provide backup restoration utilities.</p>
+<h3 id="the-cd-command"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> The <code>cd</code> Command<a class="headerlink" href="#the-cd-command" title="Permanent link">&para;</a></h3>
+<p>The <code>cd</code> command changes the current directory. Its syntax is:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the cd command syntax.</span>
+<span class="nb">cd</span><span class="w"> </span><span class="o">[</span>option<span class="o">]</span><span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>This syntax form is shown for reference; square-bracketed items are optional. Running it literally attempts to change to a directory named <code>[directory]</code>.</p>
+</details>
+<p>Without a directory name, <code>cd</code> returns the user to the previous current directory, which can toggle between two directories. With a directory name, it changes to that directory. The name can be an absolute pathname, relative to <code>/</code>, or a local pathname, relative to the current directory.</p>
+<p>Examples using absolute paths:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the root directory.</span>
+<span class="nb">cd</span><span class="w"> </span>/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes <code>/</code>.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the /usr/sbin directory.</span>
+<span class="nb">cd</span><span class="w"> </span>/usr/sbin
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes <code>/usr/sbin</code>.</p>
+</details>
+<p>To change from the current directory into a subdirectory, use <code>cd</code> followed by its name:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to gconf from within etc.</span>
+<span class="nb">cd</span><span class="w"> </span>gconf
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output when <code>gconf</code> exists in the current directory; otherwise Bash reports that the directory does not exist.</p>
+</details>
+<p>The current directory is represented by <code>.</code>, and its parent directory by <code>..</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the parent directory.</span>
+<span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes its parent.</p>
+</details>
+<p>A tilde returns to the home directory, where a user's personal files, directories, and programs are found.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the home directory.</span>
+<span class="nb">cd</span><span class="w"> </span>~
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes the current user's home directory.</p>
+</details>
+<p>Other options:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move to the previous directory.</span>
+<span class="nb">cd</span><span class="w"> </span>-
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The previous directory path is printed and becomes the current directory.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move two directories up from the current directory.</span>
+<span class="nb">cd</span><span class="w"> </span>../../
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory moves two levels toward <code>/</code>.</p>
+</details>
+<h2 id="32-required-root-filesystem-directories"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 3.2 Required Root Filesystem Directories<a class="headerlink" href="#32-required-root-filesystem-directories" title="Permanent link">&para;</a></h2>
+<p><img alt="Filesystem hierarchy diagram" src="../assets/fs.png" /></p>
+<p>The following directories, or symbolic links to directories, are required in <code>/</code>:</p>
+<div class="highlight"><pre><span></span><code>/bin     - essential command binaries
+/dev     - device files
+/etc     - host-specific system configuration
+/sbin    - essential system binaries
+/usr     - secondary hierarchy
+/var     - variable data hierarchy
+/boot    - static files of the boot loader
+/lib     - essential shared libraries and kernel modules
+/media   - mount point for removable media
+/mnt     - mount point for mounting a filesystem temporarily
+/tmp     - temporary files
+</code></pre></div>
+<p>Modern Linux distributions also include:</p>
+<div class="highlight"><pre><span></span><code>/sys     - Kernel system information virtual filesystem
+/proc    - Kernel process information virtual filesystem
+</code></pre></div>
+<p>Optional root filesystem directories include:</p>
+<div class="highlight"><pre><span></span><code>/home                - User home directories
+/lib64 or /lib32     - Essential system libraries
+/root                - Home directory for the root user
+</code></pre></div>
+<h3 id="the-usr-hierarchy"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> The <code>/usr</code> Hierarchy<a class="headerlink" href="#the-usr-hierarchy" title="Permanent link">&para;</a></h3>
+<p>The second major filesystem section is shareable and should contain only read-only data. Required subdirectories are:</p>
+<div class="highlight"><pre><span></span><code>/usr/bin       - Most user commands
+/usr/lib       - Libraries
+/usr/local     - Local hierarchy
+/usr/sbin      - Non-vital system binaries
+/usr/share     - Architecture independent data
+</code></pre></div>
+<p>Optional subdirectories include:</p>
+<div class="highlight"><pre><span></span><code>/usr/games                  - Games and educational binaries
+/usr/include                - Header files included by C programs
+/usr/libexec                - Binaries run by other programs
+/usr/lib64 or /usr/lib32    - Alternate format libraries
+/usr/src                    - Source code
+</code></pre></div>
+<h3 id="the-var-hierarchy"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> The <code>/var</code> Hierarchy<a class="headerlink" href="#the-var-hierarchy" title="Permanent link">&para;</a></h3>
+<p>The <code>/var</code> directory is designed for files that vary in size:</p>
+<ul>
+<li>Spool directories and files</li>
+<li>Administrative and logging data</li>
+<li>Transient files</li>
+<li>Temporary files</li>
+</ul>
+<p>Required subdirectories are:</p>
+<div class="highlight"><pre><span></span><code>/var/cache     - Application cache data
+/var/lib       - Variable state information
+/var/local     - Variable data for /usr/local
+/var/lock      - Lock files
+/var/log       - Log files and directories
+/var/opt       - Variable data for /opt
+/var/run       - Data relevant to running processes
+/var/spool     - Application spool data
+/var/tmp       - Temporary files preserved between system reboots
+</code></pre></div>
+<h3 id="the-etc-hierarchy"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> The <code>/etc</code> Hierarchy<a class="headerlink" href="#the-etc-hierarchy" title="Permanent link">&para;</a></h3>
+<p>The <code>/etc</code> directory maintains many files, including:</p>
+<div class="highlight"><pre><span></span><code>/etc/passwd - user database with user information such as username and home directory
+/etc/shadow - encrypted file that holds user passwords
+/etc/fstab - lists filesystems mounted automatically at startup by mount -a
+/etc/group - similar to /etc/passwd, but describes groups instead of users
+/etc/inittab - configuration file for init
+/etc/mtab - list of currently mounted filesystems
+/etc/profile, /etc/bash.rc - files executed by BASH at login or startup
+</code></pre></div>
+<h3 id="321-directory-structure-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 3.2.1 Directory Structure Lab<a class="headerlink" href="#321-directory-structure-lab" title="Permanent link">&para;</a></h3>
+<p>This lab examines filesystem directories and their contents.</p>
+<ol>
+<li>Check the current directory, then change to the root directory.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Print the current working directory.</span>
+<span class="nb">pwd</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>/home/ubuntu
+</code></pre></div>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the root directory.</span>
+<span class="nb">cd</span><span class="w"> </span>/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes <code>/</code>.</p>
+</details>
+<ol>
+<li>List the root directory contents and compare them with the preceding directory list.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the root directory contents.</span>
+ls
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Root-level entries are listed. The exact directories and symbolic links vary by system.</p>
+</details>
+<ol>
+<li>Change into <code>/usr</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the /usr directory.</span>
+<span class="nb">cd</span><span class="w"> </span>/usr
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes <code>/usr</code>.</p>
+</details>
+<ol>
+<li>Inspect the listed <code>usr</code> subdirectories.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/lib directory contents.</span>
+ls<span class="w"> </span>lib
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Entries in <code>/usr/lib</code> are listed; content varies by installed packages and architecture.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/games directory contents.</span>
+ls<span class="w"> </span>games
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Entries in <code>/usr/games</code> are listed, or no entries are shown when the directory is empty.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/local directory contents.</span>
+ls<span class="w"> </span><span class="nb">local</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Entries in <code>/usr/local</code> are listed; content varies by system.</p>
+</details>
+<ol>
+<li>Change back to <code>/</code>, then change to <code>/var</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the root directory.</span>
+<span class="nb">cd</span><span class="w"> </span>/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes <code>/</code>.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the /var directory.</span>
+<span class="nb">cd</span><span class="w"> </span>/var
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes <code>/var</code>.</p>
+</details>
+<ol>
+<li>Inspect the <code>var</code> subdirectory listed on the preceding page.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the /var/cache directory contents.</span>
+ls<span class="w"> </span>cache
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Entries in <code>/var/cache</code> are listed; content varies by installed software.</p>
+</details>
+<ol>
+<li>Change to the <code>cache</code> subdirectory, then move two directories up.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the cache subdirectory.</span>
+<span class="nb">cd</span><span class="w"> </span>cache
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes <code>/var/cache</code>.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move two directories up from the current directory.</span>
+<span class="nb">cd</span><span class="w"> </span>../../
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. From <code>/var/cache</code>, the current directory becomes <code>/</code>.</p>
+</details>
+<ol>
+<li>Change to the home directory.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the current user&#39;s home directory.</span>
+<span class="nb">cd</span><span class="w"> </span>~
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes the current user's home directory.</p>
+</details>
+<ol>
+<li>Install <code>tree</code>, then run it from the home directory.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install the tree package without an interactive confirmation prompt.</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>tree<span class="w"> </span>-y
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>APT reports package installation progress and successful installation. Package versions and download details vary.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change to the current user&#39;s home directory.</span>
+<span class="nb">cd</span><span class="w"> </span>~
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The current directory becomes the current user's home directory.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display the home directory in a tree-like format.</span>
+tree
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A tree-like listing of the home directory is displayed. Entries vary.</p>
+</details>
+<ol>
+<li>List <code>/</code> with <code>tree</code> and inspect it.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display one level of the root directory tree.</span>
+tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The root directory and its immediate entries are displayed in a tree-like format. Entries vary.</p>
+</details>
+<ol>
+<li>Go one level deeper and inspect it.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display two levels of the root directory tree.</span>
+tree<span class="w"> </span>-L<span class="w"> </span><span class="m">2</span><span class="w"> </span>/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Two levels of the root directory tree are displayed. Entries vary.</p>
+</details>
+<blockquote>
+<p>End of the lab. Do not continue with the next topic.</p>
+</blockquote>
+<h2 id="33-linux-file-types"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 3.3 Linux File Types<a class="headerlink" href="#33-linux-file-types" title="Permanent link">&para;</a></h2>
+<h3 id="determining-file-types"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Determining File Types<a class="headerlink" href="#determining-file-types" title="Permanent link">&para;</a></h3>
+<p>Use <code>ls</code> to determine a file type.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for /etc/hosts.</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/etc/hosts
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>-rw-r--r-- 1 root root 8 Mar 12 2018 /etc/hostname
+</code></pre></div>
+</details>
+<p>The first character in the output, <code>-</code> in this example, indicates the file type. Linux file types are:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: center;">Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regular</td>
+<td style="text-align: center;"><code>-</code></td>
+<td>Any file that is not a directory or special file type.</td>
+</tr>
+<tr>
+<td>directory</td>
+<td style="text-align: center;"><code>d</code></td>
+<td>The second-most common file type.</td>
+</tr>
+<tr>
+<td>socket</td>
+<td style="text-align: center;"><code>s</code></td>
+<td>Provides inter-process communication.</td>
+</tr>
+<tr>
+<td>block</td>
+<td style="text-align: center;"><code>b</code></td>
+<td>A device file that communicates with a driver in the kernel.</td>
+</tr>
+<tr>
+<td>link</td>
+<td style="text-align: center;"><code>l</code></td>
+<td>A pointer to another file; can be a soft or hard link.</td>
+</tr>
+<tr>
+<td>named pipe</td>
+<td style="text-align: center;"><code>p</code></td>
+<td>Similar to sockets; provides IPC without network sockets.</td>
+</tr>
+<tr>
+<td>character</td>
+<td style="text-align: center;"><code>c</code></td>
+<td>A device file that communicates with a driver in the kernel.</td>
+</tr>
+</tbody>
+</table>
+<p>A <code>regular file</code> is not a directory or special file type. Regular files include binaries or libraries, configuration files, image files, audio or video files, data files, and tar files.</p>
+<p>A <code>directory</code> is the second-most common file type. It organizes other file types and is essentially a file that lists other files.</p>
+<p>A <code>socket</code> provides inter-process communication. When it has a filename, it can be accessed through the filesystem. TCP/IP sockets can be accessed over the network.</p>
+<p>A <code>block file</code> communicates with a kernel driver, which usually communicates with hardware. Data flow is buffered. Block files are used with block storage devices such as disks or memory. Examples include <code>/dev/sda</code> and <code>/dev/ram0</code>.</p>
+<p>A <code>pipe</code> is similar to a socket and lets processes communicate without network socket semantics; the processes do not need to be designed to work together.</p>
+<p>A <code>character</code> file communicates with a kernel driver, which usually communicates with hardware. Data flow is unbuffered: each character is consumed when written and read when provided. Keyboard and mouse files are examples. Character special files include <code>/dev/ttyS0</code> and <code>/dev/console</code>.</p>
+<h3 id="331-file-types-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 3.3.1 File Types Lab<a class="headerlink" href="#331-file-types-lab" title="Permanent link">&para;</a></h3>
+<p>This lab examines file types.</p>
+<ol>
+<li>Run the following commands and identify the file types.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the /etc directory.</span>
+ls<span class="w"> </span>-ld<span class="w"> </span>/etc
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A long listing beginning with <code>d</code> is displayed, identifying <code>/etc</code> as a directory. Permissions and timestamps vary.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for /etc/hosts.</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/etc/hosts
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A long listing beginning with <code>-</code> is displayed, identifying <code>/etc/hosts</code> as a regular file. Details vary.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the controlling terminal.</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/dev/tty
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A long listing beginning with <code>c</code> is displayed, identifying <code>/dev/tty</code> as a character device. Details vary.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the vda block device.</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/dev/vda
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A long listing beginning with <code>b</code> is displayed when <code>/dev/vda</code> exists, identifying it as a block device. Device availability varies.</p>
+</details>
+<ol>
+<li>Inspect the many file types in <code>/dev</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for device files.</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/dev/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Device entries are listed, commonly including character devices, block devices, symbolic links, and sockets. Entries vary.</p>
+</details>
+<ol>
+<li>Create a file and inspect its type.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create an empty regular file.</span>
+touch<span class="w"> </span>file1.txt
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. An empty file named <code>file1.txt</code> is created or its timestamp is updated.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the new file.</span>
+ls<span class="w"> </span>-l<span class="w"> </span>file1.txt
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>-rw-rw-r-- 1 ubuntu ubuntu 0 Feb 12 12:41 file1.tx
+</code></pre></div>
+</details>
+<ol>
+<li>Create a directory and inspect it.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a directory named dirone.</span>
+mkdir<span class="w"> </span>dirone
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. A directory named <code>dirone</code> is created.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the dirone directory entry.</span>
+ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dirone
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>drwxrwxr-x 2 ubuntu ubuntu 4096 Feb 12 12:43 dirone
+</code></pre></div>
+</details>
+<ol>
+<li>Remove the file and directory.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove the empty dirone directory.</span>
+rmdir<span class="w"> </span>dirone/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The empty <code>dirone</code> directory is removed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove the file1.txt file.</span>
+rm<span class="w"> </span>file1.txt
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output. The <code>file1.txt</code> file is removed.</p>
+</details>
+<blockquote>
+<p>End of the lab. Do not continue with the next topic.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

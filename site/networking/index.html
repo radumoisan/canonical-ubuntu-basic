@@ -1,0 +1,1091 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Training documentation for Ubuntu Server fundamentals.">
+      
+      
+      
+      
+        <link rel="prev" href="../storage/">
+      
+      
+        <link rel="next" href="../process-management/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>⏳ 7. Networking - Canonical Ubuntu Basic</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-networking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Canonical Ubuntu Basic" class="md-header__button md-logo" aria-label="Canonical Ubuntu Basic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Canonical Ubuntu Basic
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⏳ 7. Networking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Canonical Ubuntu Basic" class="md-nav__button md-logo" aria-label="Canonical Ubuntu Basic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Canonical Ubuntu Basic
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 1. What is Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 2. CLI Environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-filesystem-hierarchy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 3. Linux Filesystem Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity-and-ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 4. Identity and Ownership
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging-and-initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 5. Logging and Initialization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 6. Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ⏳ 7. Networking
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 7. Networking
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-basic-network-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.1 Basic Network Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1 Basic Network Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#711-ip-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.1.1 ip Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-ethtool-command" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.2 ethtool Command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 ethtool Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721-ethtool-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.2.1 ethtool Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-network-troubleshooting-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.3 Network Troubleshooting Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 Network Troubleshooting Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731-networking-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.3.1 Networking Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 8. Process Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-and-recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 9. Backup and Recovery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⏳ 10. Software Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking-appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📄 Networking Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📄 Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-basic-network-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.1 Basic Network Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1 Basic Network Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#711-ip-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.1.1 ip Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-ethtool-command" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.2 ethtool Command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 ethtool Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721-ethtool-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.2.1 ethtool Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-network-troubleshooting-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.3 Network Troubleshooting Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 Network Troubleshooting Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731-networking-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       7.3.1 Networking Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="7-networking">7. Networking<a class="headerlink" href="#7-networking" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Structured from the source material. Command validation is pending.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Inspect interfaces, use ethtool, and diagnose network connectivity.</p>
+</div>
+<h2 id="71-basic-network-commands"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 7.1 Basic Network Commands<a class="headerlink" href="#71-basic-network-commands" title="Permanent link">&para;</a></h2>
+<p><code>ip</code> and <code>ethtool</code> inspect and modify basic network configuration. <code>ip</code> manages interfaces, addresses, routing, neighbours, and virtual devices. <code>ethtool</code> manages low-level device settings. Any user can usually inspect configuration, but only the superuser can modify it.</p>
+<p><code>ip</code> subcommands include <code>address</code>, <code>neighbour</code>, <code>link</code>, and <code>route</code>. Options include <code>-4</code> for IPv4, <code>-6</code> for IPv6, <code>-s</code> for statistics, <code>-d</code> for extra detail, and <code>-r</code> to resolve host names.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show addresses for ens2</span>
+ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Address information for <code>ens2</code> is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add an address to ens2</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.1.2.3/16<span class="w"> </span>dev<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success. An associated subnet route is added automatically.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show link statistics for ens2</span>
+ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Link and device statistics are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create VLAN 42 above ens2</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>dev<span class="w"> </span>vlan42<span class="w"> </span>link<span class="w"> </span>ens2<span class="w"> </span><span class="nb">type</span><span class="w"> </span>vlan<span class="w"> </span>id<span class="w"> </span><span class="m">42</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success. The <code>vlan42</code> virtual device is created.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change the ens2 MAC address</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>dev<span class="w"> </span>ens2<span class="w"> </span>address<span class="w"> </span><span class="m">02</span>:42:43:44:45:56
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<h3 id="711-ip-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 7.1.1 ip Lab<a class="headerlink" href="#711-ip-lab" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># List network interfaces</span>
+ip<span class="w"> </span>link<span class="w"> </span>show
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Available network interfaces are listed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 addresses</span>
+ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>IP address information for <code>ens2</code> is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add the lab address</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.1.2.3/15<span class="w"> </span>dev<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify the additional address</span>
+ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>10.1.2.3/15</code> appears on <code>ens2</code>.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show basic ens2 statistics</span>
+ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Interface statistics are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show detailed ens2 statistics</span>
+ip<span class="w"> </span>-s<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Extended statistics, including errors, are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove the lab address</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>delete<span class="w"> </span><span class="m">10</span>.1.2.3/15<span class="w"> </span>dev<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the routing table</span>
+ip<span class="w"> </span>route<span class="w"> </span>show
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The system routing table is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show cached neighbour entries</span>
+ip<span class="w"> </span>neigh<span class="w"> </span>show
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Cached neighbour addresses are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the route to 8.8.8.8</span>
+ip<span class="w"> </span>route<span class="w"> </span>get<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The route, selected interface, and source address are displayed.</p>
+</details>
+<h2 id="72-ethtool-command"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 7.2 ethtool Command<a class="headerlink" href="#72-ethtool-command" title="Permanent link">&para;</a></h2>
+<p>Ethernet interfaces are commonly named <code>ethX</code> or <code>ensX</code>; the first is typically <code>eth0</code> or <code>ens2</code>. <code>ethtool</code> can inspect or modify physical link settings, transmit and receive rings, driver information, statistics, and protocol-offload features.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 link settings</span>
+ethtool<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Link speed, duplex, and other interface settings are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set ens2 link speed</span>
+sudo<span class="w"> </span>ethtool<span class="w"> </span>-s<span class="w"> </span>ens2<span class="w"> </span>speed<span class="w"> </span><span class="m">1000</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 ring sizes</span>
+ethtool<span class="w"> </span>-g<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>RX and TX ring parameters are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set the ens2 TX ring size</span>
+sudo<span class="w"> </span>ethtool<span class="w"> </span>-G<span class="w"> </span>ens2<span class="w"> </span>tx<span class="w"> </span><span class="m">1024</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 driver information</span>
+ethtool<span class="w"> </span>-i<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Driver, version, firmware, bus, and capability information are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show extended ens2 statistics</span>
+ethtool<span class="w"> </span>-S<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Extended hardware statistics are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens20 feature settings</span>
+ethtool<span class="w"> </span>-k<span class="w"> </span>ens20
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Device feature settings are displayed if <code>ens20</code> exists.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable generic receive offload on ens2</span>
+ethtool<span class="w"> </span>-K<span class="w"> </span>ens2<span class="w"> </span>gro<span class="w"> </span>on
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output on success.</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Bringing an interface down interrupts its network connection.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Disable ens2</span>
+sudo<span class="w"> </span>ifdown<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The interface is brought down.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable ens2</span>
+sudo<span class="w"> </span>ifup<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The interface is brought up.</p>
+</details>
+<h3 id="721-ethtool-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 7.2.1 ethtool Lab<a class="headerlink" href="#721-ethtool-lab" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install ethtool</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ethtool
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Package installation completes successfully.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 hardware information</span>
+ethtool<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Link settings for <code>ens2</code> are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 driver information</span>
+ethtool<span class="w"> </span>-i<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Driver information is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 statistics</span>
+ethtool<span class="w"> </span>-S<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Interface statistics are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 features</span>
+ethtool<span class="w"> </span>-k<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Current device feature settings are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the permanent ens2 MAC address</span>
+ethtool<span class="w"> </span>-P<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>The permanent hardware address is displayed.</p>
+</details>
+<h2 id="73-network-troubleshooting-commands"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 7.3 Network Troubleshooting Commands<a class="headerlink" href="#73-network-troubleshooting-commands" title="Permanent link">&para;</a></h2>
+<p><code>ping</code> tests reachability by name or address, although ICMP can be blocked by firewalls. <code>traceroute</code> traces the path and latency to a host; use <code>-T</code> for TCP, <code>-U</code> for UDP, and <code>-n</code> to prevent reverse lookups. <code>mtr</code> combines continuous ping and traceroute statistics; <code>-c</code> limits cycles, <code>-T</code> uses TCP, and <code>-u</code> uses UDP.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ping a host by address</span>
+ping<span class="w"> </span><span class="m">10</span>.0.1.98
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>ICMP replies are shown when the host and ICMP are reachable.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ping a host by name</span>
+ping<span class="w"> </span>www.google.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>ICMP replies are shown when DNS, routing, and ICMP are available.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ping canonical.com</span>
+ping<span class="w"> </span>canonical.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Continuous ICMP results are displayed until interrupted.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Send three pings to ubuntu.com</span>
+ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>ubuntu.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Three ICMP results and summary statistics are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Send numeric-only pings to ubuntu.com</span>
+ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>-n<span class="w"> </span>ubuntu.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Three ICMP results and summary statistics are displayed without reverse lookups.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Limit ping runtime to canonical.com</span>
+ping<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span><span class="w"> </span>canonical.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Ping ends after the specified deadline.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Trace the route to google.com</span>
+traceroute<span class="w"> </span>google.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Network hops and latency measurements are displayed; blocked hops may show timeouts.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Trace the route to ubuntu.com continuously</span>
+mtr<span class="w"> </span>ubuntu.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Live route and packet-loss statistics are displayed; press <code>q</code> to exit.</p>
+</details>
+<p><code>nc</code> reads and writes data across TCP or UDP connections. <code>dig</code> queries DNS servers; its output contains QUESTION and ANSWER sections plus query details.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Listen with netcat on port 2389</span>
+nc<span class="w"> </span>-l<span class="w"> </span><span class="m">2389</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Netcat waits for an incoming connection.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Connect to the local netcat listener</span>
+nc<span class="w"> </span>localhost<span class="w"> </span><span class="m">2389</span>
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>A connection is attempted to the listener on port 2389.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Query DNS for ubuntu.com</span>
+dig<span class="w"> </span>ubuntu.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>DNS query output includes QUESTION and ANSWER sections when resolution succeeds.</p>
+</details>
+<h3 id="731-networking-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 7.3.1 Networking Lab<a class="headerlink" href="#731-networking-lab" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install traceroute</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>traceroute
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Package installation completes successfully.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Send four pings to Google</span>
+ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>www.google.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Four ICMP results and packet-loss statistics are displayed when reachable.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Trace the path to Google</span>
+traceroute<span class="w"> </span>www.google.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Route hops and latency measurements are displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run an MTR trace to Google</span>
+mtr<span class="w"> </span>www.google.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Live route statistics are displayed; press <code>q</code> to exit.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Query Google DNS information</span>
+dig<span class="w"> </span>www.google.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>DNS query output is displayed.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check ens2 packet-drop statistics</span>
+ethtool<span class="w"> </span>-S<span class="w"> </span>ens2
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Source fixture: <code>NIC statistics:</code> includes <code>rx_queue_0_drops: 0</code>. Values and field names vary by driver; nonzero drops can indicate that the ring buffer needs increasing.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
