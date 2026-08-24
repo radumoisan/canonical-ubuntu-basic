@@ -2,10 +2,10 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Readiness validation complete; Chapter 1 ready for command validation.
-- Active target: Chapter 1.
-- Next action: Validate Chapter 1 command-by-command on the LAB HOST.
-- Two-layer student-environment readiness checks are validated; no source-command validation or MkDocs build has been run.
+- Current phase: Chapter 1 complete; Chapter 2 ready for validation.
+- Active target: Chapter 2.
+- Next action: Validate Chapter 2 command-by-command on the LAB HOST.
+- Two-layer student-environment readiness checks and Chapter 1 source commands are validated; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
 
@@ -21,10 +21,10 @@
 
 | Page | Status |
 | --- | --- |
-| Home | Structured |
+| Home | Complete |
 | Prerequisites | Complete (validated two-layer student environment/readiness checks; not chapter validation) |
 | Networking Appendix | Structured |
-| 1. What is Ubuntu | Structured |
+| 1. What is Ubuntu | Complete |
 | 2. CLI Environment | Structured |
 | 3. Linux Filesystem Hierarchy | Structured |
 | 4. Identity and Ownership | Structured |
@@ -39,7 +39,7 @@
 
 | Chapter | Source subsections | Status |
 | --- | --- | --- |
-| 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Structured |
+| 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Complete (all source commands validated; `/etc/lsb-release` is present on this LAB HOST, so no portability correction was needed; Ubuntu 23.10 date corrected) |
 | 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Structured |
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Structured |
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Structured |
@@ -57,7 +57,7 @@
 - 2026-08-24: Package and service variance is confirmed: `qemu-kvm` and `virtqemud.service` are absent while functional QEMU/KVM packages and active monolithic `libvirtd` are present.
 - 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to `Validation pending; no captured output is available.`, including source-provided fixtures, because no commands have been executed.
 - Deployment artifacts are retained; chart versioning and image tags remain CI-managed.
-- 2026-08-24: The source statement that Ubuntu 23.10 was released in October 2024 requires factual validation before correction. It remains uncorrected in derived documentation because source validation is pending.
+- 2026-08-24: The derived Chapter 1 page corrects Ubuntu 23.10's release date from October 2024 to October 2023.
 - 2026-08-24: The source `umask` default file-permissions semantics require command or factual validation before correction. They remain uncorrected in derived documentation because source validation is pending.
 - 2026-08-24: The source `umask 000 filename` command syntax requires command validation before correction. It remains uncorrected in derived documentation because source validation is pending.
 - 2026-08-24: The source `visudo /etc/sudoers` syntax requires command validation before correction. It remains uncorrected in derived documentation because source validation is pending.
@@ -85,3 +85,6 @@
 - Readiness validation queried `qemu:///system`: `cloud` is an active/autostarted NAT network on `192.168.100.0/24`, and `ubuntu` is an active/running/autostarted domain. The guest address was confirmed by SSH at `192.168.100.4`; the lease query returned no entry.
 - Successfully ran the beginner readiness set: outer `lsb_release -d` and `lsblk`; guest `lsb_release -d`, `nproc`, `free -h`, `lsblk`, and `ping -c 3 ubuntu.com`. The Prerequisites page now contains their captured basic checks.
 - Chapter 1 is ready for command-by-command validation on the LAB HOST.
+- Validated all five Chapter 1 source commands on the LAB HOST with exit status 0: interactive SSH, `cat /etc/os-release`, `cat /etc/lsb-release`, `uname -a`, and `cat /proc/version_signature`.
+- `/etc/lsb-release` is present and succeeded on this LAB HOST, so its portability fallback was not needed. Corrected the derived Ubuntu 23.10 release date from October 2024 to October 2023.
+- Recorded only safe literal output and excerpts; no authentication prompts, credentials, connection wrappers, outer-host details, or tokens were documented.

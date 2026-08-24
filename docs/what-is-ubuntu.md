@@ -4,17 +4,19 @@
     Differentiate Ubuntu flavours, explain the release cycle and naming convention, and describe the LTS maintenance cycle.
 
 !!! note
-    Command validation remains pending.
+    Commands in this chapter were validated on the LAB HOST on 2026-08-24.
 
 Connect to the `STUDENT HOST` using the public IP and credentials provided for the lab. Then connect to the `LAB HOST` to run the commands in subsequent chapters.
 
 ```bash
-# Connect to the lab host; the source lab password is canonical_lab.
+# Connect to the lab host.
 ssh ubuntu@192.168.100.4
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-53-generic x86_64)
+
+    Welcome text and the shell prompt can differ between lab sessions. Authentication prompts are not shown.
 
 ## :material-book-open-page-variant-outline: 1.1 What Is Linux?
 
@@ -58,7 +60,7 @@ Included modules and kernel configuration determine a kernel's functionality for
 
 Ubuntu is a Linux distribution based on Debian that runs on platforms from IoT to the cloud.
 
-Ubuntu release names use a two-digit year and two-digit release month. For example, Ubuntu 24.04 was released in April 2024 and Ubuntu 23.10 was released in October 2024. Releases also have an `Adjective Animal` code name: Ubuntu 24.04 is `Noble Numbat`, and Ubuntu 24.10 is `Oracular Oriole`.
+Ubuntu release names use a two-digit year and two-digit release month. For example, Ubuntu 24.04 was released in April 2024 and Ubuntu 23.10 was released in October 2023. Releases also have an `Adjective Animal` code name: Ubuntu 24.04 is `Noble Numbat`, and Ubuntu 24.10 is `Oracular Oriole`.
 
 ## :material-book-open-page-variant-outline: 1.4 The Release Cycle
 
@@ -82,7 +84,19 @@ cat /etc/os-release
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    PRETTY_NAME="Ubuntu 24.04.2 LTS"
+    NAME="Ubuntu"
+    VERSION_ID="24.04"
+    VERSION="24.04.2 LTS (Noble Numbat)"
+    VERSION_CODENAME=noble
+    ID=ubuntu
+    ID_LIKE=debian
+    HOME_URL="https://www.ubuntu.com/"
+    SUPPORT_URL="https://help.ubuntu.com/"
+    BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+    PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+    UBUNTU_CODENAME=noble
+    LOGO=ubuntu-logo
 
 Another way to check the Ubuntu distribution version is:
 
@@ -92,7 +106,10 @@ cat /etc/lsb-release
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    DISTRIB_ID=Ubuntu
+    DISTRIB_RELEASE=24.04
+    DISTRIB_CODENAME=noble
+    DISTRIB_DESCRIPTION="Ubuntu 24.04.2 LTS"
 
 2. Check the kernel version.
 
@@ -102,7 +119,9 @@ uname -a
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Linux ubuntu 6.8.0-53-generic #55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+    The kernel version, build timestamp, and system architecture can differ between lab images.
 
 Another way to check the kernel version is:
 
@@ -112,6 +131,8 @@ cat /proc/version_signature
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Ubuntu 6.8.0-53.55-generic 6.8.12
+
+    The package and upstream kernel versions can differ between lab images.
 
 > End of the lab. Do not continue with the next topic.
