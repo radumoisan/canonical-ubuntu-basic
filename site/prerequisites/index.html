@@ -261,18 +261,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#confirmed-facts" class="md-nav__link">
+  <a href="#lab-layout" class="md-nav__link">
     <span class="md-ellipsis">
-       Confirmed facts
+       Lab layout
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-lab-environment-after-validation" class="md-nav__link">
+  <a href="#access" class="md-nav__link">
     <span class="md-ellipsis">
-       Current lab environment after validation
+       Access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-initial-state" class="md-nav__link">
+    <span class="md-ellipsis">
+       Expected initial state
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+       Check your environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety" class="md-nav__link">
+    <span class="md-ellipsis">
+       Safety
     </span>
   </a>
   
@@ -535,18 +562,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#confirmed-facts" class="md-nav__link">
+  <a href="#lab-layout" class="md-nav__link">
     <span class="md-ellipsis">
-       Confirmed facts
+       Lab layout
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-lab-environment-after-validation" class="md-nav__link">
+  <a href="#access" class="md-nav__link">
     <span class="md-ellipsis">
-       Current lab environment after validation
+       Access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-initial-state" class="md-nav__link">
+    <span class="md-ellipsis">
+       Expected initial state
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+       Check your environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety" class="md-nav__link">
+    <span class="md-ellipsis">
+       Safety
     </span>
   </a>
   
@@ -569,28 +623,108 @@
 
 <h1 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
-<p class="admonition-title">Pending validation</p>
-<p>No lab machine or command validation has yet been recorded.
-This page records confirmed prerequisites and the current lab environment after validation.</p>
+<p class="admonition-title">Abstract</p>
+<p>Each learner receives a dedicated outer Ubuntu student host that provides access to a ready LAB HOST.</p>
 </div>
-<h2 id="confirmed-facts"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Confirmed facts<a class="headerlink" href="#confirmed-facts" title="Permanent link">&para;</a></h2>
+<h2 id="lab-layout"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Lab layout<a class="headerlink" href="#lab-layout" title="Permanent link">&para;</a></h2>
+<p>The outer <code>STUDENT HOST</code> is an Ubuntu 22.04 virtual machine. Its nested <code>LAB HOST</code> runs Ubuntu 24.04.2 and is reachable at <code>192.168.100.4</code>. Course staff prepare its network. Run all chapter exercises on the LAB HOST after you sign in.</p>
+<h2 id="access"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h2>
+<p>You receive your individual outer-host address and credentials through the approved channel. Connect to the outer host as <code>ubuntu</code>, then sign in from there as <code>ubuntu@192.168.100.4</code>.</p>
+<h2 id="expected-initial-state"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Expected initial state<a class="headerlink" href="#expected-initial-state" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>ubuntu_basic_lab.md</code> is the authoritative technical source and remains unchanged.</li>
-<li>The source material is organized into ten numbered Ubuntu Basic chapters and an Appendix: Networking.</li>
-<li>The source material describes Ubuntu Server training and includes commands for later validation.</li>
-<li>Confirmed environment requirements will be recorded here after validation.</li>
+<li>STUDENT HOST: Ubuntu 22.04.5, 4 vCPUs, about 16 GB of memory, and 40 GiB root storage.</li>
+<li>LAB HOST: Ubuntu 24.04.2, 2 vCPUs, about 4 GB of memory, and a <code>vda</code> system disk.</li>
+<li>LAB HOST: empty, disposable 10 GB <code>vdb</code> and <code>vdc</code> disks reserved for storage exercises.</li>
 </ul>
-<h2 id="current-lab-environment-after-validation"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Current lab environment after validation<a class="headerlink" href="#current-lab-environment-after-validation" title="Permanent link">&para;</a></h2>
-<p>After validation, record the observed:</p>
-<ul>
-<li>Assigned lab machine and role.</li>
-<li>Ubuntu release.</li>
-<li>Kernel.</li>
-<li>Shell.</li>
-<li>Available storage and network interfaces.</li>
-<li>Installed training dependencies.</li>
-<li>Validated access constraints.</li>
-</ul>
+<h2 id="check-your-environment"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Check your environment<a class="headerlink" href="#check-your-environment" title="Permanent link">&para;</a></h2>
+<p>Run the first two commands on the STUDENT HOST before signing in. Then sign in to the LAB HOST and run the remaining commands.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the STUDENT HOST operating-system release.</span>
+lsb_release<span class="w"> </span>-d
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>Description:   Ubuntu 22.04.5 LTS</code></p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the STUDENT HOST block devices.</span>
+lsblk
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0     7:0    0    74M  1 loop /snap/core22/2437
+loop1     7:1    0  66.8M  1 loop /snap/core24/1643
+loop2     7:2    0 352.3M  1 loop /snap/google-cloud-cli/489
+loop3     7:3    0 115.3M  1 loop /snap/lxd/40338
+loop4     7:4    0  50.1M  1 loop /snap/snapd/27710
+sda       8:0    0    40G  0 disk
+|-sda1    8:1    0  39.9G  0 part /
+|-sda14   8:14   0     4M  0 part
+`-sda15   8:15   0   106M  0 part /boot/efi
+</code></pre></div>
+<p>Device details can vary. Verify the root filesystem is on <code>sda1</code> and the disk is about 40 GB.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the LAB HOST operating-system release.</span>
+lsb_release<span class="w"> </span>-d
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>Description:   Ubuntu 24.04.2 LTS</code></p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the number of LAB HOST processors available.</span>
+nproc
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p><code>2</code></p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show LAB HOST memory use.</span>
+free<span class="w"> </span>-h
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       407Mi       3.4Gi       984Ki       277Mi       3.4Gi
+Swap:             0B          0B          0B
+</code></pre></div>
+<p>Live memory use varies. Verify about 4 GB of memory is available.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># List LAB HOST block devices.</span>
+lsblk
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+vda     253:0    0  3.5G  0 disk
+|-vda1  253:1    0  2.5G  0 part /
+|-vda14 253:14   0    4M  0 part
+|-vda15 253:15   0  106M  0 part /boot/efi
+`-vda16 259:0    0  913M  0 part /boot
+vdb     253:16   0   10G  0 disk
+vdc     253:32   0   10G  0 disk
+</code></pre></div>
+<p>Device details can vary. Verify <code>vda</code> is the system disk and <code>vdb</code> and <code>vdc</code> are 10 GB disks without partitions.</p>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test LAB HOST name resolution and outbound connectivity.</span>
+ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>ubuntu.com
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>PING ubuntu.com (185.125.190.20) 56(84) bytes of data.
+64 bytes from website-content-cache-1.ps5.canonical.com (185.125.190.20): icmp_seq=1 ttl=60 time=13.4 ms
+64 bytes from website-content-cache-1.ps5.canonical.com (185.125.190.20): icmp_seq=2 ttl=60 time=13.4 ms
+64 bytes from website-content-cache-1.ps5.canonical.com (185.125.190.20): icmp_seq=3 ttl=60 time=13.4 ms
+
+--- ubuntu.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 13.421/13.426/13.434/0.005 ms
+</code></pre></div>
+<p>The resolved address and timings vary. Verify three replies and zero packet loss.</p>
+</details>
+<h2 id="safety"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Safety<a class="headerlink" href="#safety" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>/dev/vdb</code> and <code>/dev/vdc</code> are intentionally disposable lab disks. Later storage exercises partition, format, and overwrite them. Do not use them for personal data.</p>
+</div>
 
 
 
