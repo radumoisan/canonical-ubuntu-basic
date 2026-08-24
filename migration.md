@@ -70,5 +70,6 @@
 - Preserved `ubuntu_basic_lab.md`, `docs/assets/`, deployment artifacts, and `Dockerfile`.
 - Updated copied Helm identity labels without changing chart versioning, image tags, or deployment behavior.
 - Reset unvalidated descriptive or assumed expected-result bodies, including source-provided fixtures, to pending notices; no commands were executed and no output was captured.
+- Positioned the Prerequisites page immediately after Home and reserved it for validated current lab-environment findings.
 - Next action remains command-by-command validation.
 - No lab commands or MkDocs build were run.

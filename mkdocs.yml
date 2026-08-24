@@ -10,6 +10,7 @@ theme:
 
 nav:
   - "⏳ Home": index.md
+  - "📄 Prerequisites": prerequisites.md
   - "⏳ 1. What is Ubuntu": what-is-ubuntu.md
   - "⏳ 2. CLI Environment": cli-environment.md
   - "⏳ 3. Linux Filesystem Hierarchy": linux-filesystem-hierarchy.md
@@ -21,7 +22,6 @@ nav:
   - "⏳ 9. Backup and Recovery": backup-and-recovery.md
   - "⏳ 10. Software Management": software-management.md
   - "📄 Networking Appendix": networking-appendix.md
-  - "📄 Prerequisites": prerequisites.md
 
 markdown_extensions:
   - tables

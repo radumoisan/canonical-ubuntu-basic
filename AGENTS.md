@@ -13,7 +13,7 @@ This repository is for the Canonical Ubuntu Basic training site.
 - Improve wording, structure, and consistency where useful.
 - Keep the tone professional and minimal.
 - Do not correct lab assumptions, commands, paths, configuration files, or expected output until validation confirms the required change.
-- Record validation discoveries and confirmed environment requirements in `docs/prerequisites.md`.
+- Record validated current lab-environment details and confirmed requirements in `docs/prerequisites.md`.
 
 ## Agent Routing
 
@@ -55,7 +55,7 @@ This repository is for the Canonical Ubuntu Basic training site.
 - Do not create separate files for subsections unless explicitly requested.
 - Use the source introduction to form `docs/index.md`, the site home page.
 - Keep a separate reference page for the source appendix "Networking".
-- Keep `docs/prerequisites.md` as the reference page for confirmed lab requirements.
+- Keep `docs/prerequisites.md` as the reference page, located immediately after Home in navigation, for validated current lab-environment details and confirmed requirements.
 - Keep `docs/assets/` for training diagrams and other documentation assets.
 - Keep `migration.md` at the repository root as the internal migration tracker.
 - Keep `playground.md` at the repository root as the internal lab machine inventory.
