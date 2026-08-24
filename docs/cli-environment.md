@@ -26,28 +26,28 @@ Secure Shell (SSH) connects to remote computers and allows interactive program e
 ssh remote_host
 ```
 ??? example "Expected result"
-    Connects to `remote_host` and prompts for authentication as required.
+    Validation pending; no captured output is available.
 
 ```bash
 # Connect with a specified remote username
 ssh user@remote_host
 ```
 ??? example "Expected result"
-    Connects to `remote_host` as `user` and prompts for authentication as required.
+    Validation pending; no captured output is available.
 
 ```bash
 # End the current SSH session
 exit
 ```
 ??? example "Expected result"
-    Ends the current shell or SSH session.
+    Validation pending; no captured output is available.
 
 ```bash
 # Run one command on a remote host
 ssh remote_host command_to_run
 ```
 ??? example "Expected result"
-    Authenticates as needed, runs `command_to_run` remotely, and returns its output.
+    Validation pending; no captured output is available.
 
 ## :material-book-open-page-variant-outline: 2.2 CLI Commands
 
@@ -74,7 +74,7 @@ Common CLI commands can also be used in scripts to automate tasks.
 man ls
 ```
 ??? example "Expected result"
-    Opens the `ls` manual page. Useful options include `-a`, `-h`, `-l`, and `-t`.
+    Validation pending; no captured output is available.
 
 `-a, --all` includes entries beginning with `.`, `-h, --human-readable` prints readable sizes with `-l` or `-s`, `-l` uses long format, and `-t` sorts by newest modification time first.
 
@@ -85,42 +85,42 @@ man ls
 mkdir mydir1
 ```
 ??? example "Expected result"
-    No output; creates `mydir1`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Enter mydir1
 cd mydir1
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Create mydir2
 mkdir mydir2
 ```
 ??? example "Expected result"
-    No output; creates `mydir2`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Enter mydir2
 cd mydir2
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Return to the parent of mydir2
 cd ..
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Remove the empty mydir2 directory
 rmdir mydir2
 ```
 ??? example "Expected result"
-    No output; removes `mydir2`.
+    Validation pending; no captured output is available.
 
 3. Create `file1`, copy it to `file2`, return to the parent of `mydir1`, create `mynewdir`, and copy `mydir1` contents into it.
 
@@ -129,35 +129,35 @@ rmdir mydir2
 touch file1
 ```
 ??? example "Expected result"
-    No output; creates `file1`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Copy file1 to file2
 cp file1 file2
 ```
 ??? example "Expected result"
-    No output; creates `file2`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Return to the parent directory
 cd ..
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Create mynewdir
 mkdir mynewdir
 ```
 ??? example "Expected result"
-    No output; creates `mynewdir`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Copy mydir1 contents into mynewdir
 cp -a mydir1/* mynewdir
 ```
 ??? example "Expected result"
-    No output; copies `file1` and `file2` with attributes.
+    Validation pending; no captured output is available.
 
 4. Type `ls my` and press Tab twice to inspect shell completion choices.
 
@@ -166,7 +166,7 @@ cp -a mydir1/* mynewdir
 ls my
 ```
 ??? example "Expected result"
-    Press Tab twice after `my`; the shell displays or completes matching entries such as `mydir1` and `mynewdir`.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue to the next topic.
 
@@ -187,21 +187,21 @@ At the prompt, try `man`, then `man man`; scroll through the page, use the liste
 man
 ```
 ??? example "Expected result"
-    Displays a usage message because no manual-page name was supplied.
+    Validation pending; no captured output is available.
 
 ```bash
 # Open the man manual page
 man man
 ```
 ??? example "Expected result"
-    Opens the manual page for `man`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Open the ls manual page
 man ls
 ```
 ??? example "Expected result"
-    Opens the manual page for `ls`.
+    Validation pending; no captured output is available.
 
 Then find the `rsync -p` option.
 
@@ -210,7 +210,7 @@ Then find the `rsync -p` option.
 man rsync
 ```
 ??? example "Expected result"
-    Opens the `rsync` manual page. Search for `-p` to find its description.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue to the next topic.
 
@@ -225,14 +225,14 @@ To run a command outside `PATH`, precede it with a relative or full path.
 . /mycommand.sh
 ```
 ??? example "Expected result"
-    Runs commands from `mycommand.sh` in the current shell when the file exists and is readable.
+    Validation pending; no captured output is available.
 
 ```bash
 # Run a command using its full path
 /home/myuser/mycommand.sh
 ```
 ??? example "Expected result"
-    Runs the specified script when the path exists and the script is executable.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Naming Variables
 
@@ -243,7 +243,7 @@ By convention, variable names are uppercase. They can use letters, numbers, and 
 export TERM=ansi TERM=xterm-256color
 ```
 ??? example "Expected result"
-    No output; exports `TERM` with the final assigned value `xterm-256color`.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Setting and Unsetting Variables
 
@@ -254,35 +254,35 @@ Define variables with `name=value`; they are local until the shell exits. Use `u
 NAME=Marvin
 ```
 ??? example "Expected result"
-    No output; sets `NAME` in the current shell.
+    Validation pending; no captured output is available.
 
 ```bash
 # Set a variable containing multiple values
 NAMES="Marvin Ford Arthur Trillian"
 ```
 ??? example "Expected result"
-    No output; sets `NAMES` in the current shell.
+    Validation pending; no captured output is available.
 
 ```bash
 # Unset NAME
 unset NAME
 ```
 ??? example "Expected result"
-    No output; removes `NAME` from the current shell.
+    Validation pending; no captured output is available.
 
 ```bash
 # Set NAME to an empty value
 NAME=
 ```
 ??? example "Expected result"
-    No output; `NAME` expands to an empty value.
+    Validation pending; no captured output is available.
 
 ```bash
 # Export NAME to child processes
 export NAME=Marvin
 ```
 ??? example "Expected result"
-    No output; sets and exports `NAME`.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Manipulating Variables
 
@@ -291,21 +291,21 @@ export NAME=Marvin
 echo $NAME
 ```
 ??? example "Expected result"
-    Prints the current value of `NAME`, such as `Marvin` when set above.
+    Validation pending; no captured output is available.
 
 ```bash
 # Append a value to NAMES
 NAMES="$NAMES Zaphod"
 ```
 ??? example "Expected result"
-    No output; appends `Zaphod` to the current value.
+    Validation pending; no captured output is available.
 
 ```bash
 # Mark NAMES as read-only
 readonly NAMES
 ```
 ??? example "Expected result"
-    No output; later attempts to modify `NAMES` fail in the current shell.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Special Variables
 
@@ -316,21 +316,21 @@ Special variables can be referenced but not assigned. `$?` is the exit status of
 $?
 ```
 ??? example "Expected result"
-    The source presents the special variable for reference. Its value is `0` after a successful command and non-zero after failure.
+    Validation pending; no captured output is available.
 
 ```bash
 # Reference the current shell process ID
 $$$
 ```
 ??? example "Expected result"
-    The source presents the shell PID special-variable form. The PID varies by shell.
+    Validation pending; no captured output is available.
 
 ```bash
 # Reference the last background command's process ID
 $!
 ```
 ??? example "Expected result"
-    The source presents the special-variable form for the most recent background command PID.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: 2.4.1 Shell Environment and Variables Lab
 
@@ -341,14 +341,14 @@ $!
 echo $PATH
 ```
 ??? example "Expected result"
-    Displays a colon-separated directory list; the current directory is not normally included.
+    Validation pending; no captured output is available.
 
 ```bash
 # List environment variables
 env
 ```
 ??? example "Expected result"
-    Displays environment-variable assignments. Values vary by session.
+    Validation pending; no captured output is available.
 
 2. Consider the purpose of `SHELL`. Set and view `MYNAME`.
 
@@ -357,14 +357,14 @@ env
 MYNAME="john"
 ```
 ??? example "Expected result"
-    No output; sets `MYNAME` to `john`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display MYNAME
 echo $MYNAME
 ```
 ??? example "Expected result"
-    `john`
+    Validation pending; no captured output is available.
 
 3. Set `PART1` and `PART2`, then display both.
 
@@ -373,28 +373,28 @@ echo $MYNAME
 PART1="My name is"
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Set the second name fragment
 PART2="john"
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display the first fragment
 echo $PART1
 ```
 ??? example "Expected result"
-    `My name is`
+    Validation pending; no captured output is available.
 
 ```bash
 # Display the second fragment
 echo $PART2
 ```
 ??? example "Expected result"
-    `john`
+    Validation pending; no captured output is available.
 
 4. Combine the variables into `STUDENTNAME` and display it.
 
@@ -403,14 +403,14 @@ echo $PART2
 STUDENTNAME=$PART1$PART2
 ```
 ??? example "Expected result"
-    No output; creates a combined value without an additional separator.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display STUDENTNAME
 echo $STUDENTNAME
 ```
 ??? example "Expected result"
-    `My name isjohn`
+    Validation pending; no captured output is available.
 
 5. Undefine the variables, then confirm they are empty.
 
@@ -419,42 +419,42 @@ echo $STUDENTNAME
 unset PART1
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Unset PART2
 unset PART2
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Unset STUDENTNAME
 unset STUDENTNAME
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Confirm PART1 is undefined
 echo $PART1
 ```
 ??? example "Expected result"
-    Prints an empty line.
+    Validation pending; no captured output is available.
 
 ```bash
 # Confirm PART2 is undefined
 echo $PART2
 ```
 ??? example "Expected result"
-    Prints an empty line.
+    Validation pending; no captured output is available.
 
 ```bash
 # Confirm STUDENTNAME is undefined
 echo $STUDENTNAME
 ```
 ??? example "Expected result"
-    Prints an empty line.
+    Validation pending; no captured output is available.
 
 6. Set an unexported variable, create a subshell, and inspect it.
 
@@ -463,35 +463,35 @@ echo $STUDENTNAME
 x=5
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display x in the current shell
 echo $x
 ```
 ??? example "Expected result"
-    `5`
+    Validation pending; no captured output is available.
 
 ```bash
 # Create a subshell
 bash
 ```
 ??? example "Expected result"
-    Starts a child shell.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display x in the subshell
 echo $x
 ```
 ??? example "Expected result"
-    Prints an empty line because `x` was not exported.
+    Validation pending; no captured output is available.
 
 ```bash
 # Exit back to the original shell
 exit
 ```
 ??? example "Expected result"
-    Returns to the original shell.
+    Validation pending; no captured output is available.
 
 7. Export `x` and inspect it in a subshell.
 
@@ -500,35 +500,35 @@ exit
 export x=5
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display exported x
 echo $x
 ```
 ??? example "Expected result"
-    `5`
+    Validation pending; no captured output is available.
 
 ```bash
 # Create a subshell
 bash
 ```
 ??? example "Expected result"
-    Starts a child shell.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display x in the subshell
 echo $x
 ```
 ??? example "Expected result"
-    `5`
+    Validation pending; no captured output is available.
 
 ```bash
 # Exit the subshell
 exit
 ```
 ??? example "Expected result"
-    Returns to the original shell.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue to the next topic.
 
@@ -551,28 +551,28 @@ The output of a command can be sent to a file with `>` followed by a filename. I
 ls -al > ~/all_files.txt
 ```
 ??? example "Expected result"
-    No terminal output; writes the listing to `~/all_files.txt`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Append a /tmp listing to a file
 ls -al /tmp >> ~/all_files.txt
 ```
 ??? example "Expected result"
-    No terminal output; appends the listing to `~/all_files.txt`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Combine file contents into one file
 cat file1.txt file2.txt file3.txt > combined-file.txt
 ```
 ??? example "Expected result"
-    No terminal output; writes combined content when all source files exist.
+    Validation pending; no captured output is available.
 
 ```bash
 # Discard ping output
 ping -c 2 www.xxx.yyy.zzz > /dev/null
 ```
 ??? example "Expected result"
-    Suppresses standard output; success depends on DNS and network availability.
+    Validation pending; no captured output is available.
 
 #### Input Redirection
 
@@ -583,14 +583,14 @@ A command can receive input from a file with `<` followed by a filename. When tw
 wc -l < /etc/passwd
 ```
 ??? example "Expected result"
-    Prints the number of lines in `/etc/passwd`; the count varies.
+    Validation pending; no captured output is available.
 
 ```bash
 # Begin a here-document for wc
 wc -l << EOF
 ```
 ??? example "Expected result"
-    Reads lines until `EOF` is entered, then prints the line count.
+    Validation pending; no captured output is available.
 
 This counts lines one at a time until it reaches the `EOF` delimiter.
 
@@ -603,14 +603,14 @@ The output of one command can be sent directly to another command as input with 
 ls -al | less
 ```
 ??? example "Expected result"
-    Opens the listing in the `less` pager.
+    Validation pending; no captured output is available.
 
 ```bash
 # Filter a detailed listing
 ls -al | grep string
 ```
 ??? example "Expected result"
-    Displays listing lines that contain `string`.
+    Validation pending; no captured output is available.
 
 #### Advanced Redirection
 
@@ -627,14 +627,14 @@ These descriptors can redirect a data stream from its normal destination.
 ls -al /r* > /tmp/list.txt 2>/tmp/errors.txt
 ```
 ??? example "Expected result"
-    Writes standard output to `/tmp/list.txt` and standard error to `/tmp/errors.txt`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Write normal output and errors to one file
 ls -al /r* > /tmp/list.txt 2>&1
 ```
 ??? example "Expected result"
-    Writes both standard output and standard error to `/tmp/list.txt`.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: 2.5.1 Redirection Lab
 
@@ -643,35 +643,35 @@ ls -al /r* > /tmp/list.txt 2>&1
 ls > mylist
 ```
 ??? example "Expected result"
-    No terminal output; `mylist` contains the directory listing.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display the fifth item in /usr/bin listing order
 ls /usr/bin | head -5 | tail -1
 ```
 ??? example "Expected result"
-    Prints one entry from `/usr/bin`; the entry varies.
+    Validation pending; no captured output is available.
 
 ```bash
 # Find list entries in mylist
 grep list mylist
 ```
 ??? example "Expected result"
-    Prints lines in `mylist` containing `list`, if any.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display the newest entries in /usr/bin
 ls -lt /usr/bin | head
 ```
 ??? example "Expected result"
-    Displays a header and the first entries sorted by modification time; output varies.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display the largest directory sizes
 du | sort -nr | head
 ```
 ??? example "Expected result"
-    Displays the ten largest `du` entries in the current tree; values vary.
+    Validation pending; no captured output is available.
 
 ```bash
 # Create redirection.txt with a here-document
@@ -680,14 +680,14 @@ Hello world!
 EOF
 ```
 ??? example "Expected result"
-    No terminal output; creates `redirection.txt` containing `Hello world!`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Find examine references in less help
 less --help | grep -i examine
 ```
 ??? example "Expected result"
-    Displays case-insensitive help lines containing `examine`, if present.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue to the next topic.
 
@@ -700,7 +700,7 @@ Command chaining combines commands on one command line. Operators include `&` fo
 ls; pwd; whoami
 ```
 ??? example "Expected result"
-    Displays a listing, the current directory, and the current username.
+    Validation pending; no captured output is available.
 
 ```bash
 # Report whether a host can be pinged
@@ -708,7 +708,7 @@ ping -c1 google.com && echo "That's good, able to ping google.com" || \
 echo "That's bad unable to ping google.com"
 ```
 ??? example "Expected result"
-    Prints the success message if ping succeeds; otherwise prints the failure message. Network availability varies.
+    Validation pending; no captured output is available.
 
 ## :material-book-open-page-variant-outline: 2.7 Return Values and Expansion
 
@@ -723,35 +723,35 @@ Brace expansion generates strings from comma-separated values or ranges and can 
 echo sp{el,il,al}
 ```
 ??? example "Expected result"
-    `spel spil spal`
+    Validation pending; no captured output is available.
 
 ```bash
 # Create directories using brace ranges
 mkdir {2014..2016}-0{0..9} {2014..2016}-{10..12}
 ```
 ??? example "Expected result"
-    Creates directories for the expanded names, unless names already exist.
+    Validation pending; no captured output is available.
 
 ```bash
 # Create files using brace ranges
 touch file-{A..Z}{a..z}-{0..9}
 ```
 ??? example "Expected result"
-    Creates files for the expanded names.
+    Validation pending; no captured output is available.
 
 ```bash
 # Create text files using brace ranges
 touch {A..Z}{a..z}-{0..9}.txt
 ```
 ??? example "Expected result"
-    Creates `.txt` files for the expanded names.
+    Validation pending; no captured output is available.
 
 ```bash
 # Remove files with selected extensions
 rm filename.{pl,sh,py,c}
 ```
 ??? example "Expected result"
-    Removes each named file when it exists.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Tilde Expansion
 
@@ -762,21 +762,21 @@ Tilde expansion can resolve home directories, the current working directory, and
 cd ~
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Change to ubuntu's home directory
 cd ~ubuntu
 ```
 ??? example "Expected result"
-    Changes directory when the `ubuntu` account exists.
+    Validation pending; no captured output is available.
 
 ```bash
 # Create hello.txt in the current user's home directory
 echo hello >~/hello.txt
 ```
 ??? example "Expected result"
-    No terminal output; writes `hello` to `~/hello.txt`.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Shell Parameter and Variable Expansion
 
@@ -787,42 +787,42 @@ echo hello >~/hello.txt
 echo $SHELL
 ```
 ??? example "Expected result"
-    Displays the shell path, such as `/bin/bash`; it varies by session.
+    Validation pending; no captured output is available.
 
 ```bash
 # Store the current date in D
 D=`date`
 ```
 ??? example "Expected result"
-    No output; assigns the current date string to `D`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display D
 echo $D
 ```
 ??? example "Expected result"
-    Displays the date string assigned to `D`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Compare braced and unbraced variable expansion
 echo ${D}d vs echo $Dd
 ```
 ??? example "Expected result"
-    Expands `${D}` followed by `d`; `$Dd` refers to variable `Dd`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Compare indirect-style variable-name patterns
 echo ${!LC*} vs echo $LC*
 ```
 ??? example "Expected result"
-    `${!LC*}` expands names beginning with `LC`; the unbraced form expands `LC` then appends `*`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Set TODAY during expansion when it is unset
 echo ${TODAY:=`date+%A`}
 ```
 ??? example "Expected result"
-    Displays and sets `TODAY` to the current weekday when it was unset.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Command Substitution
 
@@ -833,28 +833,28 @@ Command substitution replaces a command with its standard output. The forms are 
 echo "The date and time is: $(date)"
 ```
 ??? example "Expected result"
-    Displays `The date and time is:` followed by the current date and time.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display the date using backticks
 echo "The date and time is `date`"
 ```
 ??? example "Expected result"
-    Displays `The date and time is:` followed by the current date and time.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display locale environment assignments
 echo $(env | grep ^LC_)
 ```
 ??? example "Expected result"
-    Displays matching locale assignments on one line, if any.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display locale assignments one per line
 printf "%s\n" $(env | grep ^LC_)
 ```
 ??? example "Expected result"
-    Displays matching locale assignments one per line, if any.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Arithmetic Expansion
 
@@ -908,49 +908,49 @@ The shell provides special characters to specify groups of filenames. These char
 ls -ld *
 ```
 ??? example "Expected result"
-    Displays metadata for entries in the current directory.
+    Validation pending; no captured output is available.
 
 ```bash
 # List metadata for log files
 ls -ld *.log
 ```
 ??? example "Expected result"
-    Displays matching `.log` files; errors if none match under default shell settings.
+    Validation pending; no captured output is available.
 
 ```bash
 # List metadata for names starting with a, b, or c
 ls -ld [abc]*
 ```
 ??? example "Expected result"
-    Displays matching entries, if any.
+    Validation pending; no captured output is available.
 
 ```bash
 # List names with a two-character suffix
 ls -ld *.??
 ```
 ??? example "Expected result"
-    Displays matching entries, if any.
+    Validation pending; no captured output is available.
 
 ```bash
 # List log names ending with a digit extension
 ls -ld *.log.[[:digit:]]
 ```
 ??? example "Expected result"
-    Displays matching entries, if any.
+    Validation pending; no captured output is available.
 
 ```bash
 # List names with digit and two-character extensions
 ls -ld *.[[:digit:]].??
 ```
 ??? example "Expected result"
-    Displays matching entries, if any.
+    Validation pending; no captured output is available.
 
 ```bash
 # List names ending in a non-alphanumeric character
 ls -ld *[![:alnum:]]
 ```
 ??? example "Expected result"
-    Displays matching entries, if any.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: 2.7.1 Chaining and Expansion Lab
 
@@ -961,140 +961,140 @@ Try these chaining examples. `/temp` may not exist; the fallback examples demons
 cd /temp; ls -al
 ```
 ??? example "Expected result"
-    Runs `ls -al` even if `cd /temp` fails.
+    Validation pending; no captured output is available.
 
 ```bash
 # List /temp only after changing to it
 cd /temp && ls -al
 ```
 ??? example "Expected result"
-    Lists `/temp` only if the directory change succeeds.
+    Validation pending; no captured output is available.
 
 ```bash
 # Report a failed directory change
 cd /temp || echo "Could not change to /temp"
 ```
 ??? example "Expected result"
-    Prints the message if `/temp` cannot be entered.
+    Validation pending; no captured output is available.
 
 ```bash
 # List /temp or report failure
 cd /temp && ls -al || echo "Could not change to /temp"
 ```
 ??? example "Expected result"
-    Lists on success; otherwise prints the failure message.
+    Validation pending; no captured output is available.
 
 ```bash
 # Return home after a failed directory change
 cd /temp && ls -al || { echo "Could not change to /temp. Going home instead"; cd ~; pwd; }
 ```
 ??? example "Expected result"
-    On failure, prints the message and then the home-directory path.
+    Validation pending; no captured output is available.
 
 ```bash
 # List /temp or count entries in /tmp
 (cd /temp && ls -al) || (cd /tmp && { ls -al | wc -l; })
 ```
 ??? example "Expected result"
-    Lists `/temp` on success; otherwise prints the `/tmp` listing line count.
+    Validation pending; no captured output is available.
 
 ```bash
 # List uncompressed files in /var/log using extglob
 ls -ld /var/log/!(*.gz)
 ```
 ??? example "Expected result"
-    Requires Bash extended globbing to be enabled; otherwise Bash reports a syntax error.
+    Validation pending; no captured output is available.
 
 ```bash
 # List the last ten entries in /etc sort order
 ls -ltr /etc | tail
 ```
 ??? example "Expected result"
-    Displays the final ten lines of the listing; entries vary.
+    Validation pending; no captured output is available.
 
 ```bash
 # Find ls commands in shell history
 history | grep ls
 ```
 ??? example "Expected result"
-    Displays history entries containing `ls`; history varies by session.
+    Validation pending; no captured output is available.
 
 ```bash
 # Set a filename variable
 file=data.txt
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Remove the shortest suffix beginning with a period
 echo ${file%.*}
 ```
 ??? example "Expected result"
-    `data`
+    Validation pending; no captured output is available.
 
 ```bash
 # Remove the shortest prefix ending with a period
 echo ${file#*.}
 ```
 ??? example "Expected result"
-    `txt`
+    Validation pending; no captured output is available.
 
 ```bash
 # Set X for arithmetic examples
 X=5
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Add one to X
 echo $((X+1))
 ```
 ??? example "Expected result"
-    `6`
+    Validation pending; no captured output is available.
 
 ```bash
 # Add one to X with an explicit variable expansion
 echo $(($X+1))
 ```
 ??? example "Expected result"
-    `6`
+    Validation pending; no captured output is available.
 
 ```bash
 # Compare X with 15
 echo $((X>15))
 ```
 ??? example "Expected result"
-    `0`
+    Validation pending; no captured output is available.
 
 ```bash
 # Change to the command-binary directory
 cd /usr/bin
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # List entries beginning with m
 ls m*
 ```
 ??? example "Expected result"
-    Displays matching `/usr/bin` entries.
+    Validation pending; no captured output is available.
 
 ```bash
 # List entries ending with a three-character extension
 ls *.???
 ```
 ??? example "Expected result"
-    Displays matching `/usr/bin` entries, if any.
+    Validation pending; no captured output is available.
 
 ```bash
 # Return to the home directory
 cd ~
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue to the next topic.
 
@@ -1107,14 +1107,14 @@ cd ~
 nano
 ```
 ??? example "Expected result"
-    Opens the nano editor.
+    Validation pending; no captured output is available.
 
 ```bash
 # Edit an existing file with nano
 nano /path/filename
 ```
 ??? example "Expected result"
-    Opens the specified file, or offers to create it when the path is valid.
+    Validation pending; no captured output is available.
 
 Nano displays commands in its editor window. Press `Ctrl+g` for additional commands.
 
@@ -1127,14 +1127,14 @@ Create and edit files with nano, reviewing the commands available in the editor.
 cd ~
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # Create and edit fileone.txt
 nano fileone.txt
 ```
 ??? example "Expected result"
-    Opens `fileone.txt` in nano.
+    Validation pending; no captured output is available.
 
 Type `The quick brown fox jumped over the lazy dog.`. Copy and paste it ten times using the nano shortcuts:
 
@@ -1156,7 +1156,7 @@ Create `shells.txt`:
 nano shells.txt
 ```
 ??? example "Expected result"
-    Opens `shells.txt` in nano.
+    Validation pending; no captured output is available.
 
 Add `She sells seashells down by the seashore.`, copy and paste the line three times, then save and close the file. Open the original file, indent the first three lines, and replace `fox` with `rabbit`:
 

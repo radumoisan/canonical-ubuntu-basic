@@ -19,7 +19,7 @@ Starting with init, everything a computer does is a process, sometimes called a 
 ps -ef
 ```
 ??? example "Expected result"
-    A process list is displayed. Results vary by system.
+    Validation pending; no captured output is available.
 
 To filter process output, pipe it through `grep`. To list processes by command name:
 
@@ -28,11 +28,7 @@ To filter process output, pipe it through `grep`. To list processes by command n
 ps -C sshd
 ```
 ??? example "Expected result"
-    ```text
-    PID TTY TIME CMD
-    958 ? 00:00:00 sshd
-    ```
-    The PIDs and number of entries vary.
+    Validation pending; no captured output is available.
 
 `top` provides a continuously updated process display, ordered by CPU use by default.
 
@@ -41,7 +37,7 @@ ps -C sshd
 top -s
 ```
 ??? example "Expected result"
-    An interactive process display opens. Press `q` to exit.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Stopping processes
 
@@ -52,7 +48,7 @@ Use `Ctrl+C` to stop a foreground process. For a background process, identify it
 kill option PID
 ```
 ??? example "Expected result"
-    The specified process receives the requested signal.
+    Validation pending; no captured output is available.
 
 If no option is given, `kill` sends a termination signal for a clean shutdown. Common signals are `kill` or `kill -15` for `SIGTERM`, `kill -2` for `SIGINT`, and `kill -9` for `SIGKILL` as a last resort.
 
@@ -69,10 +65,7 @@ A command entered in a terminal runs in the foreground and controls that termina
 programname &
 ```
 ??? example "Expected result"
-    ```text
-    [1] 18531
-    ```
-    The shell reports a job number and PID; values vary.
+    Validation pending; no captured output is available.
 
 Use `jobs` to list the current user's jobs. `-l` includes PIDs, `-r` shows only running jobs, and `-s` shows only stopped jobs.
 
@@ -87,7 +80,7 @@ Processes start at priority 0. The range is `-20` (highest priority) through `19
 nice -n 19 commandname
 ```
 ??? example "Expected result"
-    The command starts with nice value 19.
+    Validation pending; no captured output is available.
 
 To change the priority of a running process, find its PID and use `renice`.
 
@@ -96,21 +89,21 @@ To change the priority of a running process, find its PID and use `renice`.
 renice -10 -p 19365
 ```
 ??? example "Expected result"
-    The process priority is changed to -10 if permitted.
+    Validation pending; no captured output is available.
 
 ```bash
 # Lower priority for a user's processes.
 renice 15 -u greedyuser
 ```
 ??? example "Expected result"
-    Processes owned by `greedyuser` are assigned nice value 15 if permitted.
+    Validation pending; no captured output is available.
 
 ```bash
 # Raise priority for a group's processes.
 renice -18 -g website
 ```
 ??? example "Expected result"
-    Processes in the `website` group are assigned nice value -18 if permitted.
+    Validation pending; no captured output is available.
 
 ## :material-book-open-page-variant-outline: 8.3 Scheduling Processes
 
@@ -144,7 +137,7 @@ Use `at` to schedule one-time work. You do not need to be logged in when it runs
 at now + 7 hours or at HH:MM
 ```
 ??? example "Expected result"
-    An `at>` prompt opens. Input continues until `Ctrl+D` is pressed.
+    Validation pending; no captured output is available.
 
 Use `atq` to list scheduled jobs. Its output includes the job number, scheduled time, queue identifier, and user. Use `atrm` with the job number to remove a job.
 
@@ -167,42 +160,42 @@ done
 nano ~/loop.sh
 ```
 ??? example "Expected result"
-    The nano editor opens for `~/loop.sh`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Make the loop script executable for its owner and group.
 chmod 750 ~/loop.sh
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # List processes owned by ubuntu.
 ps -ef | grep ubuntu
 ```
 ??? example "Expected result"
-    Matching process entries are displayed; values vary.
+    Validation pending; no captured output is available.
 
 ```bash
 # List all running processes.
 ps -ef
 ```
 ??? example "Expected result"
-    A detailed process list is displayed.
+    Validation pending; no captured output is available.
 
 ```bash
 # Monitor processes continuously.
 top
 ```
 ??? example "Expected result"
-    An interactive process display opens. Press `q` to exit.
+    Validation pending; no captured output is available.
 
 ```bash
 # Run the loop script in the foreground.
 ./loop.sh
 ```
 ??? example "Expected result"
-    The script appends `hello world` to `hello.txt` once per second until interrupted.
+    Validation pending; no captured output is available.
 
 Press `Ctrl+C` to stop the foreground `loop.sh` process.
 
@@ -211,49 +204,49 @@ Press `Ctrl+C` to stop the foreground `loop.sh` process.
 ./loop.sh &
 ```
 ??? example "Expected result"
-    The shell reports a background job number and PID.
+    Validation pending; no captured output is available.
 
 ```bash
 # List jobs with their PIDs.
 jobs -l
 ```
 ??? example "Expected result"
-    The background `loop.sh` job and its PID are displayed.
+    Validation pending; no captured output is available.
 
 ```bash
 # Stop the loop job using its PID.
 kill <PID>
 ```
 ??? example "Expected result"
-    The process identified by the supplied PID terminates.
+    Validation pending; no captured output is available.
 
 ```bash
 # Run the loop script in the background with nice value 15.
 nice -n 15 ./loop.sh &
 ```
 ??? example "Expected result"
-    The shell reports a background job; it runs at nice value 15.
+    Validation pending; no captured output is available.
 
 ```bash
 # Find the SSH daemon PID.
 ps aux | grep sshd
 ```
 ??? example "Expected result"
-    An `sshd` process entry, including its PID, is displayed.
+    Validation pending; no captured output is available.
 
 ```bash
 # Set the SSH daemon priority to -5.
 sudo renice -5 -p <PID>
 ```
 ??? example "Expected result"
-    The specified process is assigned nice value -5.
+    Validation pending; no captured output is available.
 
 ```bash
 # Check the current nice value for the process.
 ps -o ni <PID>
 ```
 ??? example "Expected result"
-    The process nice value is displayed.
+    Validation pending; no captured output is available.
 
 !!! danger
     The next command forcefully terminates the process identified by the PID. Confirm the PID before running it.
@@ -263,14 +256,14 @@ ps -o ni <PID>
 sudo kill -9 <PID>
 ```
 ??? example "Expected result"
-    The specified process is forcefully terminated.
+    Validation pending; no captured output is available.
 
 ```bash
 # Edit the current user's crontab.
 crontab -e
 ```
 ??? example "Expected result"
-    The crontab editor opens.
+    Validation pending; no captured output is available.
 
 Add this line to schedule creation of `/tmp/mytest.txt` every five minutes:
 
@@ -283,14 +276,14 @@ Add this line to schedule creation of `/tmp/mytest.txt` every five minutes:
 sudo apt install at -y
 ```
 ??? example "Expected result"
-    The `at` package is installed or reported as already installed.
+    Validation pending; no captured output is available.
 
 ```bash
 # Open an at prompt for 2:00 PM.
 at 14:00
 ```
 ??? example "Expected result"
-    An `at>` prompt opens.
+    Validation pending; no captured output is available.
 
 At the prompt, enter `rm /tmp/*yaml`, then press `Ctrl+D` to submit the job.
 
@@ -299,20 +292,20 @@ At the prompt, enter `rm /tmp/*yaml`, then press `Ctrl+D` to submit the job.
 atq
 ```
 ??? example "Expected result"
-    The scheduled 2:00 PM job is listed.
+    Validation pending; no captured output is available.
 
 ```bash
 # Install htop.
 sudo apt install -y htop
 ```
 ??? example "Expected result"
-    The `htop` package is installed or reported as already installed.
+    Validation pending; no captured output is available.
 
 ```bash
 # Monitor processes with htop.
 htop
 ```
 ??? example "Expected result"
-    An interactive process display opens. Press `q` to exit.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue to the next topic.

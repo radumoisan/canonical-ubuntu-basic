@@ -26,7 +26,7 @@ cd [option] [directory]
 ```
 
 ??? example "Expected result"
-    This syntax form is shown for reference; square-bracketed items are optional. Running it literally attempts to change to a directory named `[directory]`.
+    Validation pending; no captured output is available.
 
 Without a directory name, `cd` returns the user to the previous current directory, which can toggle between two directories. With a directory name, it changes to that directory. The name can be an absolute pathname, relative to `/`, or a local pathname, relative to the current directory.
 
@@ -38,7 +38,7 @@ cd /
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes `/`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Change to the /usr/sbin directory.
@@ -46,7 +46,7 @@ cd /usr/sbin
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes `/usr/sbin`.
+    Validation pending; no captured output is available.
 
 To change from the current directory into a subdirectory, use `cd` followed by its name:
 
@@ -56,7 +56,7 @@ cd gconf
 ```
 
 ??? example "Expected result"
-    No output when `gconf` exists in the current directory; otherwise Bash reports that the directory does not exist.
+    Validation pending; no captured output is available.
 
 The current directory is represented by `.`, and its parent directory by `..`.
 
@@ -66,7 +66,7 @@ cd ..
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes its parent.
+    Validation pending; no captured output is available.
 
 A tilde returns to the home directory, where a user's personal files, directories, and programs are found.
 
@@ -76,7 +76,7 @@ cd ~
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes the current user's home directory.
+    Validation pending; no captured output is available.
 
 Other options:
 
@@ -86,7 +86,7 @@ cd -
 ```
 
 ??? example "Expected result"
-    The previous directory path is printed and becomes the current directory.
+    Validation pending; no captured output is available.
 
 ```bash
 # Move two directories up from the current directory.
@@ -94,7 +94,7 @@ cd ../../
 ```
 
 ??? example "Expected result"
-    No output. The current directory moves two levels toward `/`.
+    Validation pending; no captured output is available.
 
 ## :material-book-open-page-variant-outline: 3.2 Required Root Filesystem Directories
 
@@ -202,9 +202,7 @@ pwd
 ```
 
 ??? example "Expected result"
-    ```text
-    /home/ubuntu
-    ```
+    Validation pending; no captured output is available.
 
 ```bash
 # Change to the root directory.
@@ -212,7 +210,7 @@ cd /
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes `/`.
+    Validation pending; no captured output is available.
 
 2. List the root directory contents and compare them with the preceding directory list.
 
@@ -222,7 +220,7 @@ ls
 ```
 
 ??? example "Expected result"
-    Root-level entries are listed. The exact directories and symbolic links vary by system.
+    Validation pending; no captured output is available.
 
 3. Change into `/usr`.
 
@@ -232,7 +230,7 @@ cd /usr
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes `/usr`.
+    Validation pending; no captured output is available.
 
 4. Inspect the listed `usr` subdirectories.
 
@@ -242,7 +240,7 @@ ls lib
 ```
 
 ??? example "Expected result"
-    Entries in `/usr/lib` are listed; content varies by installed packages and architecture.
+    Validation pending; no captured output is available.
 
 ```bash
 # List the /usr/games directory contents.
@@ -250,7 +248,7 @@ ls games
 ```
 
 ??? example "Expected result"
-    Entries in `/usr/games` are listed, or no entries are shown when the directory is empty.
+    Validation pending; no captured output is available.
 
 ```bash
 # List the /usr/local directory contents.
@@ -258,7 +256,7 @@ ls local
 ```
 
 ??? example "Expected result"
-    Entries in `/usr/local` are listed; content varies by system.
+    Validation pending; no captured output is available.
 
 5. Change back to `/`, then change to `/var`.
 
@@ -268,7 +266,7 @@ cd /
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes `/`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Change to the /var directory.
@@ -276,7 +274,7 @@ cd /var
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes `/var`.
+    Validation pending; no captured output is available.
 
 6. Inspect the `var` subdirectory listed on the preceding page.
 
@@ -286,7 +284,7 @@ ls cache
 ```
 
 ??? example "Expected result"
-    Entries in `/var/cache` are listed; content varies by installed software.
+    Validation pending; no captured output is available.
 
 7. Change to the `cache` subdirectory, then move two directories up.
 
@@ -296,7 +294,7 @@ cd cache
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes `/var/cache`.
+    Validation pending; no captured output is available.
 
 ```bash
 # Move two directories up from the current directory.
@@ -304,7 +302,7 @@ cd ../../
 ```
 
 ??? example "Expected result"
-    No output. From `/var/cache`, the current directory becomes `/`.
+    Validation pending; no captured output is available.
 
 8. Change to the home directory.
 
@@ -314,7 +312,7 @@ cd ~
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes the current user's home directory.
+    Validation pending; no captured output is available.
 
 9. Install `tree`, then run it from the home directory.
 
@@ -324,7 +322,7 @@ sudo apt install tree -y
 ```
 
 ??? example "Expected result"
-    APT reports package installation progress and successful installation. Package versions and download details vary.
+    Validation pending; no captured output is available.
 
 ```bash
 # Change to the current user's home directory.
@@ -332,7 +330,7 @@ cd ~
 ```
 
 ??? example "Expected result"
-    No output. The current directory becomes the current user's home directory.
+    Validation pending; no captured output is available.
 
 ```bash
 # Display the home directory in a tree-like format.
@@ -340,7 +338,7 @@ tree
 ```
 
 ??? example "Expected result"
-    A tree-like listing of the home directory is displayed. Entries vary.
+    Validation pending; no captured output is available.
 
 10. List `/` with `tree` and inspect it.
 
@@ -350,7 +348,7 @@ tree -L 1 /
 ```
 
 ??? example "Expected result"
-    The root directory and its immediate entries are displayed in a tree-like format. Entries vary.
+    Validation pending; no captured output is available.
 
 11. Go one level deeper and inspect it.
 
@@ -360,7 +358,7 @@ tree -L 2 /
 ```
 
 ??? example "Expected result"
-    Two levels of the root directory tree are displayed. Entries vary.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue with the next topic.
 
@@ -376,9 +374,7 @@ ls -l /etc/hosts
 ```
 
 ??? example "Expected result"
-    ```text
-    -rw-r--r-- 1 root root 8 Mar 12 2018 /etc/hostname
-    ```
+    Validation pending; no captured output is available.
 
 The first character in the output, `-` in this example, indicates the file type. Linux file types are:
 
@@ -416,7 +412,7 @@ ls -ld /etc
 ```
 
 ??? example "Expected result"
-    A long listing beginning with `d` is displayed, identifying `/etc` as a directory. Permissions and timestamps vary.
+    Validation pending; no captured output is available.
 
 ```bash
 # List detailed information for /etc/hosts.
@@ -424,7 +420,7 @@ ls -l /etc/hosts
 ```
 
 ??? example "Expected result"
-    A long listing beginning with `-` is displayed, identifying `/etc/hosts` as a regular file. Details vary.
+    Validation pending; no captured output is available.
 
 ```bash
 # List detailed information for the controlling terminal.
@@ -432,7 +428,7 @@ ls -l /dev/tty
 ```
 
 ??? example "Expected result"
-    A long listing beginning with `c` is displayed, identifying `/dev/tty` as a character device. Details vary.
+    Validation pending; no captured output is available.
 
 ```bash
 # List detailed information for the vda block device.
@@ -440,7 +436,7 @@ ls -l /dev/vda
 ```
 
 ??? example "Expected result"
-    A long listing beginning with `b` is displayed when `/dev/vda` exists, identifying it as a block device. Device availability varies.
+    Validation pending; no captured output is available.
 
 2. Inspect the many file types in `/dev`.
 
@@ -450,7 +446,7 @@ ls -l /dev/
 ```
 
 ??? example "Expected result"
-    Device entries are listed, commonly including character devices, block devices, symbolic links, and sockets. Entries vary.
+    Validation pending; no captured output is available.
 
 3. Create a file and inspect its type.
 
@@ -460,7 +456,7 @@ touch file1.txt
 ```
 
 ??? example "Expected result"
-    No output. An empty file named `file1.txt` is created or its timestamp is updated.
+    Validation pending; no captured output is available.
 
 ```bash
 # List detailed information for the new file.
@@ -468,9 +464,7 @@ ls -l file1.txt
 ```
 
 ??? example "Expected result"
-    ```text
-    -rw-rw-r-- 1 ubuntu ubuntu 0 Feb 12 12:41 file1.tx
-    ```
+    Validation pending; no captured output is available.
 
 4. Create a directory and inspect it.
 
@@ -480,7 +474,7 @@ mkdir dirone
 ```
 
 ??? example "Expected result"
-    No output. A directory named `dirone` is created.
+    Validation pending; no captured output is available.
 
 ```bash
 # List the dirone directory entry.
@@ -488,9 +482,7 @@ ls -l | grep dirone
 ```
 
 ??? example "Expected result"
-    ```text
-    drwxrwxr-x 2 ubuntu ubuntu 4096 Feb 12 12:43 dirone
-    ```
+    Validation pending; no captured output is available.
 
 5. Remove the file and directory.
 
@@ -500,7 +492,7 @@ rmdir dirone/
 ```
 
 ??? example "Expected result"
-    No output. The empty `dirone` directory is removed.
+    Validation pending; no captured output is available.
 
 ```bash
 # Remove the file1.txt file.
@@ -508,6 +500,6 @@ rm file1.txt
 ```
 
 ??? example "Expected result"
-    No output. The `file1.txt` file is removed.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue with the next topic.

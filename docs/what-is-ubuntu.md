@@ -14,7 +14,7 @@ ssh ubuntu@192.168.100.4
 ```
 
 ??? example "Expected result"
-    An SSH password prompt appears. After successful authentication, the shell changes to the lab host.
+    Validation pending; no captured output is available.
 
 ## :material-book-open-page-variant-outline: 1.1 What Is Linux?
 
@@ -82,7 +82,7 @@ cat /etc/os-release
 ```
 
 ??? example "Expected result"
-    Ubuntu release metadata is displayed, including fields such as `PRETTY_NAME`, `VERSION_ID`, and `ID`. Values vary by lab image.
+    Validation pending; no captured output is available.
 
 Another way to check the Ubuntu distribution version is:
 
@@ -92,7 +92,7 @@ cat /etc/lsb-release
 ```
 
 ??? example "Expected result"
-    Ubuntu release metadata is displayed, commonly including `DISTRIB_ID`, `DISTRIB_RELEASE`, and `DISTRIB_CODENAME`. Values and file availability vary by image.
+    Validation pending; no captured output is available.
 
 2. Check the kernel version.
 
@@ -102,7 +102,7 @@ uname -a
 ```
 
 ??? example "Expected result"
-    A single line of kernel and system information is displayed. The kernel version, hostname, and architecture vary.
+    Validation pending; no captured output is available.
 
 Another way to check the kernel version is:
 
@@ -112,6 +112,6 @@ cat /proc/version_signature
 ```
 
 ??? example "Expected result"
-    The Ubuntu kernel signature is displayed. The exact version and build information vary by installed kernel.
+    Validation pending; no captured output is available.
 
 > End of the lab. Do not continue with the next topic.

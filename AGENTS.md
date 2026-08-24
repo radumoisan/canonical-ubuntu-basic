@@ -107,13 +107,11 @@ Use Material admonitions when they improve clarity:
 
 - Commands and expected results must remain in pairs.
 - Each command must have its own paired expected-result admonition.
-- Use expected results to show the actual command output or a close representative example of what the output looks like.
-- Do not use redaction placeholders, including `<redacted>`, in student-facing expected results. Use captured actual values when safe; static training fixtures may be shown.
-- For a command that generates a live credential, describe the observable result rather than committing the active credential. Do not introduce live bearer tokens, certificate contents, SSH credentials, or connection values into version-controlled student-facing documentation.
-- For validated temporary-lab output, use captured actual values rather than invented placeholders. Preserve static training fixtures; do not introduce active credentials or external SSH access details into version control.
-- Prefer concrete output over description or interpretation.
-- If a command produces no output, use a placeholder such as `No output.`
-- If exact output may vary, keep the example realistic and focus on the visible success signals in the command output.
+- **Command-result lifecycle:** Before validation, every expected-result block must contain exactly `Validation pending; no captured output is available.` This is a temporary pre-validation notice, not output.
+- Hide source-provided fixtures until successful execution validates them.
+- Only successful execution may replace the pending notice with captured literal output or a faithful literal excerpt. Do not use representative, descriptive, inferred, synthetic, assumed, or unverified output; do not use placeholders, invented values, or redaction placeholders in student-facing results.
+- Use `No output.` only when successful execution proves the command produces no output.
+- For variable output, include safe captured values and a concise variability note only after validation. Do not commit active bearer tokens, certificate contents, SSH credentials, or connection values.
 
 ## Lab Flow
 

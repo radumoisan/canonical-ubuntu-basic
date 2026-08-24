@@ -53,6 +53,7 @@
 ## :material-book-open-page-variant-outline: Open Findings
 
 - No validation results, lab-machine assignments, or command records exist.
+- 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to `Validation pending; no captured output is available.`, including source-provided fixtures, because no commands have been executed.
 - Deployment artifacts are retained; chart versioning and image tags remain CI-managed.
 - 2026-08-24: The source statement that Ubuntu 23.10 was released in October 2024 requires factual validation before correction. It remains uncorrected in derived documentation because source validation is pending.
 - 2026-08-24: The source `umask` default file-permissions semantics require command or factual validation before correction. They remain uncorrected in derived documentation because source validation is pending.
@@ -68,4 +69,6 @@
 - Created unvalidated navigation targets for the ten source chapters, the Networking Appendix, and Prerequisites.
 - Preserved `ubuntu_basic_lab.md`, `docs/assets/`, deployment artifacts, and `Dockerfile`.
 - Updated copied Helm identity labels without changing chart versioning, image tags, or deployment behavior.
+- Reset unvalidated descriptive or assumed expected-result bodies, including source-provided fixtures, to pending notices; no commands were executed and no output was captured.
+- Next action remains command-by-command validation.
 - No lab commands or MkDocs build were run.
