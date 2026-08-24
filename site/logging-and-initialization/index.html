@@ -347,78 +347,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.1 System Logging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logrotate-configuration-options" class="md-nav__link">
-    <span class="md-ellipsis">
-       logrotate Configuration Options
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#511-system-logging-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.1.1 System Logging Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#52-boot-process-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.2 Boot Process Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2 Boot Process Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#521-boot-process-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.2.1 Boot Process Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#53-systemd" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.3 Systemd
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.3 Systemd">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#531-systemd-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.3.1 Systemd Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -604,78 +532,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.1 System Logging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logrotate-configuration-options" class="md-nav__link">
-    <span class="md-ellipsis">
-       logrotate Configuration Options
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#511-system-logging-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.1.1 System Logging Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#52-boot-process-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.2 Boot Process Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2 Boot Process Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#521-boot-process-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.2.1 Boot Process Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#53-systemd" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.3 Systemd
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.3 Systemd">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#531-systemd-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       5.3.1 Systemd Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -710,247 +566,196 @@ grep<span class="w"> </span>NetworkManager<span class="w"> </span>/var/log/syslo
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Matching NetworkManager log entries are displayed; no output means no matches.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search syslog for errors without case sensitivity</span>
 grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Matching error entries are displayed; no output means no matches.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<p><code>dmesg</code> displays the kernel ring buffer. <code>logrotate</code> archives, compresses, deletes, or otherwise processes old logs and creates replacement files. Its main configuration is <code>/etc/logrotate.conf</code>; <code>/etc/logrotate.d</code> contains per-application configuration.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># List per-application logrotate rules</span>
 ls<span class="w"> </span>/etc/logrotate.d/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Source fixture: <code>apport apt aptitude dpkg landscape-client ppp rsyslog ufw unattended-upgrades upstart</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run log rotation using the main configuration</span>
 sudo<span class="w"> </span>logrotate<span class="w"> </span>/etc/logrotate.conf
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success. Configured logs are rotated as applicable.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<p><code>logrotate</code> is activated on a schedule determined by the location of its script in cron directories such as <code>/etc/cron.daily</code> and <code>/etc/cron.hourly</code>. Cron runs scripts in these directories at the interval in the directory name. The <code>logrotate</code> command can also be run from the command line. When it runs, it performs the rotations defined by its included configuration files.</p>
-<h3 id="logrotate-configuration-options"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> logrotate Configuration Options<a class="headerlink" href="#logrotate-configuration-options" title="Permanent link">&para;</a></h3>
-<p>Options in a logrotate configuration file determine the criteria for rotating logs. Inspect the main configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect the main logrotate configuration</span>
 cat<span class="w"> </span>/etc/logrotate.conf
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The source configuration example contains:</p>
-<div class="highlight"><pre><span></span><code># see &quot;man logrotate&quot; for details
-# rotate log files weekly
-weekly
-# use the syslog group by default, since this is the owning group
-# of /var/log/syslog.
-su root syslog
-# keep 4 weeks worth of backlogs
-rotate 4
-# create new (empty) log files after rotating old ones create
-# uncomment this if you want your log files compressed
-#compress
-# packages drop log rotation information into this directory
-include /etc/logrotate.d
-</code></pre></div>
-<p>Local configuration contents may vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<p>Another common option is <code>size</code>, which determines the size a logfile must exceed before it is rotated. This helps prevent sudden, unexpected disk use when, for example, an error produces large volumes of log messages.</p>
-<p>In supplementary configuration files, the first line is the logfile location and precedes a block of options that apply to it. These options are always contained within braces (<code>{}</code>). They can override defaults in <code>logrotate.conf</code> or add options that apply only to that file. Options in <code>logrotate.conf</code> that are not present in a supplementary configuration file still apply because the main file provides the defaults.</p>
-<p>Multiple log files can be configured in one file within the <code>logrotate.d</code> directory. An example dpkg configuration may include the following options:</p>
-<ul>
-<li><code>rotate 12</code>: Determines the number of logfiles to archive and keep. When that number is exceeded, the oldest archived log is deleted.</li>
-<li><code>monthly</code>: Rotates logs after this interval. Other intervals include <code>daily</code> and <code>yearly</code>. A supplementary configuration loaded after the main configuration overrides its <code>weekly</code> setting with <code>monthly</code>.</li>
-<li><code>missingok</code>: Continues without an error if no logfile is present.</li>
-<li><code>notifempty</code>: Does not rotate an empty logfile.</li>
-<li><code>compress</code>: Compresses archived logfiles, using gzip by default.</li>
-<li><code>delaycompress</code>: Delays compression until the next rotation, leaving one rotated log uncompressed. This permits software to continue writing to the first rotated log for a time after rotation.</li>
-<li><code>create &lt;mode&gt; &lt;owner&gt; &lt;group&gt;</code>: Specifies ownership and permissions for the replacement logfile created after rotation.</li>
-</ul>
-<p>Supplementary configuration files commonly use a <code>postrotate</code> block, which ends with <code>endscript</code> and runs after rotation. It is usually used to restart the application so it begins using the newly rotated-in log:</p>
-<div class="highlight"><pre><span></span><code>postrotate
-  invoke-rc.d rsyslog reload &gt;/dev/null 2&gt;&amp;1 || true
-endscript
-</code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect logrotate history</span>
 cat<span class="w"> </span>/var/lib/logrotate/status
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>logrotate state -- version 2</code>
-<code>"/var/log/auth.log" 2016-6-19-6:46:8</code>
-Output varies with local rotation history.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Force verbose log rotation for troubleshooting</span>
 sudo<span class="w"> </span>logrotate<span class="w"> </span>-vf<span class="w"> </span>/etc/logrotate.conf
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Verbose rotation actions are displayed. The <code>-f</code> option forces rotation even when it was recently performed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h3 id="511-system-logging-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 5.1.1 System Logging Lab<a class="headerlink" href="#511-system-logging-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display kernel messages</span>
 dmesg
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Kernel boot and device messages are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Page through kernel messages</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Kernel messages open in <code>less</code>; press <code>q</code> to exit.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find vda device messages</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>vda
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Matching disk-device messages are displayed; device details vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Save vda messages to a file</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vda<span class="w"> </span>&gt;<span class="w"> </span>vda.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. Matching messages are written to <code>vda.txt</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search syslog for errors</span>
 grep<span class="w"> </span>error<span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Matching entries are displayed; errors in this exercise do not stop the lab.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the first ten syslog lines</span>
 head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The first ten syslog entries are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the last ten syslog lines</span>
 tail<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The last ten syslog entries are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List available log files</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/var/log
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A detailed listing of system and application log files is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h2 id="52-boot-process-overview"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 5.2 Boot Process Overview<a class="headerlink" href="#52-boot-process-overview" title="Permanent link">&para;</a></h2>
-<p>Boot activity starts with power-on, firmware (BIOS, EFI, or UEFI), and a boot loader. Ubuntu uses GRUB2. Before the kernel loads, <code>initrd</code> provides a temporary RAM filesystem for early hardware detection and driver loading. The kernel manages hardware and process resources. After it loads, the real root filesystem replaces <code>initrd</code>.</p>
-<p>Ubuntu Server 24.04 uses systemd as init. Init is the first process started by the kernel and loads the foundational processes and tools required for user programs.</p>
-<h3 id="521-boot-process-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 5.2.1 Boot Process Lab<a class="headerlink" href="#521-boot-process-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># List boot files</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/boot/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Source fixture includes <code>config-5.4.0-51-generic</code>, <code>initrd.img</code>, <code>vmlinuz</code>, and the <code>grub</code> directory. Kernel versions and timestamps vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h2 id="53-systemd"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 5.3 Systemd<a class="headerlink" href="#53-systemd" title="Permanent link">&para;</a></h2>
-<p>Systemd is Ubuntu's default init system and manages processes loaded after the kernel. It calls managed processes units. A unit starts when another unit depends on it; boot begins with <code>default.target</code>. Unit definitions are stored in <code>/etc/systemd/system</code>, <code>/lib/systemd/system</code>, and their subdirectories. Scripts can use init-agnostic abstractions such as <code>invoke-rc.d</code>; users interact through systemd commands.</p>
-<p><code>systemctl start $unit</code>, <code>systemctl stop $unit</code>, and <code>systemctl restart $unit</code> control a unit. <code>systemctl status</code> displays service status.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Stopping or restarting services changes the running system. Follow the lab sequence so <code>cron</code> is restarted after inspection.</p>
-</div>
-<h3 id="531-systemd-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 5.3.1 Systemd Lab<a class="headerlink" href="#531-systemd-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Read the systemctl manual</span>
 man<span class="w"> </span>systemctl
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The <code>systemctl</code> manual opens in a pager.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Stop the cron service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect stopped cron service status</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The source fixture shows <code>Active: inactive (dead)</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start the cron service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect running cron service status</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The source fixture shows <code>Active: active (running)</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List service units</span>
 systemctl<span class="w"> </span>list-units<span class="w"> </span>-t<span class="w"> </span>service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Many service units are listed; local services vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show running SSH services</span>
 systemctl<span class="w"> </span>list-units<span class="w"> </span>-t<span class="w"> </span>service<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>ssh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Matching SSH service units are displayed when present.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List failed units</span>
 systemctl<span class="w"> </span>--failed
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Failed units are listed, or no failed units are reported.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Read the journalctl manual</span>
 man<span class="w"> </span>journalctl
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The <code>journalctl</code> manual opens in a pager.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Query the SSH journal</span>
 journalctl<span class="w"> </span>-u<span class="w"> </span>ssh.service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Journal entries for <code>ssh.service</code> are displayed when available.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show SSH service properties</span>
 systemctl<span class="w"> </span>show<span class="w"> </span>ssh.service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Properties for <code>ssh.service</code> are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Restart the SSH service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 
 

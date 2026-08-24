@@ -786,7 +786,7 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>This syntax form is shown for reference; square-bracketed items are optional. Running it literally attempts to change to a directory named <code>[directory]</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Without a directory name, <code>cd</code> returns the user to the previous current directory, which can toggle between two directories. With a directory name, it changes to that directory. The name can be an absolute pathname, relative to <code>/</code>, or a local pathname, relative to the current directory.</p>
 <p>Examples using absolute paths:</p>
@@ -795,14 +795,14 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes <code>/</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the /usr/sbin directory.</span>
 <span class="nb">cd</span><span class="w"> </span>/usr/sbin
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes <code>/usr/sbin</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>To change from the current directory into a subdirectory, use <code>cd</code> followed by its name:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to gconf from within etc.</span>
@@ -810,7 +810,7 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output when <code>gconf</code> exists in the current directory; otherwise Bash reports that the directory does not exist.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>The current directory is represented by <code>.</code>, and its parent directory by <code>..</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the parent directory.</span>
@@ -818,7 +818,7 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes its parent.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>A tilde returns to the home directory, where a user's personal files, directories, and programs are found.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the home directory.</span>
@@ -826,7 +826,7 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes the current user's home directory.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Other options:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move to the previous directory.</span>
@@ -834,14 +834,14 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The previous directory path is printed and becomes the current directory.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move two directories up from the current directory.</span>
 <span class="nb">cd</span><span class="w"> </span>../../
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory moves two levels toward <code>/</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h2 id="32-required-root-filesystem-directories"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 3.2 Required Root Filesystem Directories<a class="headerlink" href="#32-required-root-filesystem-directories" title="Permanent link">&para;</a></h2>
 <p><img alt="Filesystem hierarchy diagram" src="../assets/fs.png" /></p>
@@ -921,15 +921,14 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>/home/ubuntu
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the root directory.</span>
 <span class="nb">cd</span><span class="w"> </span>/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes <code>/</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>List the root directory contents and compare them with the preceding directory list.</li>
@@ -939,7 +938,7 @@ ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Root-level entries are listed. The exact directories and symbolic links vary by system.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Change into <code>/usr</code>.</li>
@@ -949,7 +948,7 @@ ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes <code>/usr</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Inspect the listed <code>usr</code> subdirectories.</li>
@@ -959,21 +958,21 @@ ls<span class="w"> </span>lib
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Entries in <code>/usr/lib</code> are listed; content varies by installed packages and architecture.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/games directory contents.</span>
 ls<span class="w"> </span>games
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Entries in <code>/usr/games</code> are listed, or no entries are shown when the directory is empty.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/local directory contents.</span>
 ls<span class="w"> </span><span class="nb">local</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Entries in <code>/usr/local</code> are listed; content varies by system.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Change back to <code>/</code>, then change to <code>/var</code>.</li>
@@ -983,14 +982,14 @@ ls<span class="w"> </span><span class="nb">local</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes <code>/</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the /var directory.</span>
 <span class="nb">cd</span><span class="w"> </span>/var
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes <code>/var</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Inspect the <code>var</code> subdirectory listed on the preceding page.</li>
@@ -1000,7 +999,7 @@ ls<span class="w"> </span>cache
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Entries in <code>/var/cache</code> are listed; content varies by installed software.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Change to the <code>cache</code> subdirectory, then move two directories up.</li>
@@ -1010,14 +1009,14 @@ ls<span class="w"> </span>cache
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes <code>/var/cache</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move two directories up from the current directory.</span>
 <span class="nb">cd</span><span class="w"> </span>../../
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. From <code>/var/cache</code>, the current directory becomes <code>/</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Change to the home directory.</li>
@@ -1027,7 +1026,7 @@ ls<span class="w"> </span>cache
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes the current user's home directory.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Install <code>tree</code>, then run it from the home directory.</li>
@@ -1037,21 +1036,21 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>APT reports package installation progress and successful installation. Package versions and download details vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the current user&#39;s home directory.</span>
 <span class="nb">cd</span><span class="w"> </span>~
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The current directory becomes the current user's home directory.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the home directory in a tree-like format.</span>
 tree
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A tree-like listing of the home directory is displayed. Entries vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>List <code>/</code> with <code>tree</code> and inspect it.</li>
@@ -1061,7 +1060,7 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The root directory and its immediate entries are displayed in a tree-like format. Entries vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Go one level deeper and inspect it.</li>
@@ -1071,7 +1070,7 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">2</span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Two levels of the root directory tree are displayed. Entries vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue with the next topic.</p>
@@ -1084,8 +1083,7 @@ ls<span class="w"> </span>-l<span class="w"> </span>/etc/hosts
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>-rw-r--r-- 1 root root 8 Mar 12 2018 /etc/hostname
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>The first character in the output, <code>-</code> in this example, indicates the file type. Linux file types are:</p>
 <table>
@@ -1150,28 +1148,28 @@ ls<span class="w"> </span>-ld<span class="w"> </span>/etc
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A long listing beginning with <code>d</code> is displayed, identifying <code>/etc</code> as a directory. Permissions and timestamps vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for /etc/hosts.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/etc/hosts
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A long listing beginning with <code>-</code> is displayed, identifying <code>/etc/hosts</code> as a regular file. Details vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the controlling terminal.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/dev/tty
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A long listing beginning with <code>c</code> is displayed, identifying <code>/dev/tty</code> as a character device. Details vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the vda block device.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/dev/vda
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A long listing beginning with <code>b</code> is displayed when <code>/dev/vda</code> exists, identifying it as a block device. Device availability varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Inspect the many file types in <code>/dev</code>.</li>
@@ -1181,7 +1179,7 @@ ls<span class="w"> </span>-l<span class="w"> </span>/dev/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Device entries are listed, commonly including character devices, block devices, symbolic links, and sockets. Entries vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Create a file and inspect its type.</li>
@@ -1191,15 +1189,14 @@ touch<span class="w"> </span>file1.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. An empty file named <code>file1.txt</code> is created or its timestamp is updated.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the new file.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>file1.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>-rw-rw-r-- 1 ubuntu ubuntu 0 Feb 12 12:41 file1.tx
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Create a directory and inspect it.</li>
@@ -1209,15 +1206,14 @@ mkdir<span class="w"> </span>dirone
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. A directory named <code>dirone</code> is created.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the dirone directory entry.</span>
 ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dirone
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>drwxrwxr-x 2 ubuntu ubuntu 4096 Feb 12 12:43 dirone
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Remove the file and directory.</li>
@@ -1227,14 +1223,14 @@ rmdir<span class="w"> </span>dirone/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The empty <code>dirone</code> directory is removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the file1.txt file.</span>
 rm<span class="w"> </span>file1.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The <code>file1.txt</code> file is removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue with the next topic.</p>

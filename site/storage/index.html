@@ -384,54 +384,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#62-file-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.2 File Systems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2 File Systems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#621-filesystems-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.2.1 Filesystems Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#63-lvm" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.3 LVM
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.3 LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#631-lvm-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.3.1 LVM Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -612,54 +564,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#62-file-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.2 File Systems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2 File Systems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#621-filesystems-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.2.1 Filesystems Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#63-lvm" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.3 LVM
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.3 LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#631-lvm-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       6.3.1 LVM Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -697,385 +601,371 @@ sudo<span class="w"> </span>lsblk
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Block devices and partitions are listed. Device names vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect partition tables</span>
 sudo<span class="w"> </span>fdisk<span class="w"> </span>-l
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Disk and partition-table details are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a GPT table on vdb</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mklabel<span class="w"> </span>gpt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Verify the vdb partition table</span>
 sudo<span class="w"> </span>fdisk<span class="w"> </span>-l<span class="w"> </span>/dev/vdb
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The output includes <code>Disklabel type: gpt</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a partition spanning vdb</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show vdb partition details</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>print
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The partition table and the new partition are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create an MBR table on vdc</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mklabel<span class="w"> </span>msdos
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a partition spanning vdc</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show vdc partition details</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>print
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The partition table and the new partition are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the vdc partition</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>rm<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success. Partition 1 is removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h2 id="62-file-systems"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 6.2 File Systems<a class="headerlink" href="#62-file-systems" title="Permanent link">&para;</a></h2>
-<p>A filesystem provides the methods and data structures used to organize files on a partition. Creating a filesystem initializes the bookkeeping structures. Common concepts include the superblock, inode, data block, directory block, and indirect block.</p>
-<p>This course uses ext4, a journaled filesystem included since kernel 2.6.28 and the default root filesystem format through Ubuntu 24.04. It supports filesystems up to 1 exabyte and files up to 16 TB, is backward-compatible with ext2 and ext3, and supports preallocation, delayed allocation, and multiblock allocation.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create an ext4 filesystem on vdb1</span>
 sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/vdb1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Filesystem creation details are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enable the ext4 ACL mount option</span>
 sudo<span class="w"> </span>tune2fs<span class="w"> </span>-o<span class="w"> </span>acl<span class="w"> </span>/dev/vdb1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Filesystem tuning details are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Mount vdb1 at the mount point</span>
 sudo<span class="w"> </span>mount<span class="w"> </span>/dev/vdb1<span class="w"> </span>/mnt/mymount
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success. The mount point must already exist.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create the mount point</span>
 sudo<span class="w"> </span>mkdir<span class="w"> </span>/mnt/mymount
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. <code>/mnt/mymount</code> is created.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<p><code>/etc/fstab</code> automates mounting at startup and may be used by non-root users. Its fields are <code>&lt;file system&gt; &lt;mount point&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;</code>. Filesystems can be identified by partition, UUID, label, or LVM volume. <code>/etc/mtab</code> lists mounted partitions, including manual mounts.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Define an fstab entry by device</span>
 /dev/vdb2<span class="w"> </span>/boot<span class="w"> </span>ext4<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Define an fstab entry by UUID</span>
 <span class="nv">UUID</span><span class="o">=</span>1ea4363f-f9ab-45d8-af48-067b05d202b2<span class="w"> </span>/boot<span class="w"> </span>ext4<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Define a user-mountable fstab entry by label</span>
 <span class="nv">LABEL</span><span class="o">=</span>mystuff<span class="w"> </span>/mystuff<span class="w"> </span>ext4<span class="w"> </span>noauto,user<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h3 id="621-filesystems-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 6.2.1 Filesystems Lab<a class="headerlink" href="#621-filesystems-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># List block devices</span>
 sudo<span class="w"> </span>lsblk
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Block devices and partitions are listed. Do not use the host operating-system device.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Format vdb1 as ext4</span>
 sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/vdb1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Filesystem creation details are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create the ext4 mount point</span>
 sudo<span class="w"> </span>mkdir<span class="w"> </span>/mnt/myext4fs
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. <code>/mnt/myext4fs</code> is created if absent.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Mount vdb1</span>
 sudo<span class="w"> </span>mount<span class="w"> </span>/dev/vdb1<span class="w"> </span>/mnt/myext4fs
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Verify the vdb mount</span>
 mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vdb
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A mounted <code>vdb</code> filesystem entry is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display available filesystem space</span>
 df<span class="w"> </span>-h
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Human-readable filesystem usage is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Edit fstab</span>
 sudo<span class="w"> </span>nano<span class="w"> </span>/etc/fstab
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>/etc/fstab</code> opens in nano.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<p>Add this line at the end of the file:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add the vdb1 fstab entry</span>
 /dev/vdb1<span class="w">   </span>/mnt/myext4fs<span class="w">   </span>ext4<span class="w">    </span>defaults<span class="w">    </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. This is an <code>/etc/fstab</code> configuration entry.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unmount vdb1</span>
 sudo<span class="w"> </span>umount<span class="w"> </span>/dev/vdb1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Mount all fstab filesystems</span>
 sudo<span class="w"> </span>mount<span class="w"> </span>-a
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm the fstab mount</span>
 mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vdb
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A mounted <code>vdb</code> filesystem entry is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unmount the filesystem</span>
 sudo<span class="w"> </span>umount<span class="w"> </span>/dev/vdb1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h2 id="63-lvm"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 6.3 LVM<a class="headerlink" href="#63-lvm" title="Permanent link">&para;</a></h2>
-<p>Logical Volume Management is more flexible than fixed disk partitions. LVM needs at least one volume group built from one or more physical volumes. Logical volumes are named, can span disks, and need not be physically contiguous. Leave unused space in a volume group so logical volumes can be enlarged later.</p>
-<p>Use <code>fdisk</code>, <code>pvcreate</code>, <code>vgcreate</code>, and <code>lvcreate</code> to create logical volumes.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Partition vdb for LVM</span>
 fdisk<span class="w"> </span>/dev/vdb
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The interactive <code>fdisk</code> prompt opens.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create physical volumes</span>
 pvcreate<span class="w"> </span>/dev/vda3<span class="w"> </span>/dev/vda4
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Physical volume creation results are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a volume group</span>
 vgcreate<span class="w"> </span>ubuntu-vg<span class="w"> </span>/dev/vda3<span class="w"> </span>/dev/vda4
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Volume group creation results are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a logical volume</span>
 lvcreate<span class="w"> </span>-L<span class="w"> </span>100G<span class="w"> </span>-n<span class="w"> </span>UB2<span class="w"> </span>ubuntu-vg
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Logical volume creation results are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h3 id="631-lvm-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 6.3.1 LVM Lab<a class="headerlink" href="#631-lvm-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find 10 GB block devices</span>
 sudo<span class="w"> </span>lsblk<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>-o<span class="w"> </span>name,size<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>10G
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Matching 10 GB device paths are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>The next two commands overwrite all data on the specified devices.</p>
-</div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Overwrite vdb with zeros</span>
 sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/vdb<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">4096</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>dd</code> reports bytes copied when interrupted or complete.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Overwrite vdc with zeros</span>
 sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/vdc<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">4096</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>dd</code> reports bytes copied when interrupted or complete.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a GPT label on vdb</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mklabel<span class="w"> </span>gpt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a GPT label on vdc</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mklabel<span class="w"> </span>gpt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a full vdb partition</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a full vdc partition</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdc<span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">100</span>%
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install LVM tools</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>lvm2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Package installation completes successfully.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Scan existing volume groups</span>
 sudo<span class="w"> </span>vgscan
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Existing volume groups are reported.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create LVM physical volumes</span>
 sudo<span class="w"> </span>pvcreate<span class="w"> </span>/dev/vdb1<span class="w"> </span>/dev/vdc1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Physical volume creation is reported.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List physical volumes</span>
 sudo<span class="w"> </span>pvs
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>vdb1</code> and <code>vdc1</code> appear as physical volumes.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create the ubuntu-vg volume group</span>
 sudo<span class="w"> </span>vgcreate<span class="w"> </span>ubuntu-vg<span class="w"> </span>/dev/vdb1<span class="w"> </span>/dev/vdc1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Volume group creation is reported.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List volume groups</span>
 sudo<span class="w"> </span>vgs
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>ubuntu-vg</code> is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create the lvmdata logical volume</span>
 sudo<span class="w"> </span>lvcreate<span class="w"> </span>-l<span class="w"> </span><span class="m">100</span>%VG<span class="w"> </span>-n<span class="w"> </span>lvmdata<span class="w"> </span>ubuntu-vg
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Logical volume creation is reported.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List logical volumes</span>
 sudo<span class="w"> </span>lvs
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>lvmdata</code> is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display logical volume details</span>
 sudo<span class="w"> </span>lvdisplay
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Details include the logical volume path.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Format the logical volume as ext4</span>
 sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/ubuntu-vg/lvmdata
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Filesystem creation details are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create the LVM mount point</span>
 sudo<span class="w"> </span>mkdir<span class="w"> </span>/lvmdata
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. <code>/lvmdata</code> is created.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Mount the logical volume</span>
 sudo<span class="w"> </span>mount<span class="w"> </span>/dev/ubuntu-vg/lvmdata<span class="w"> </span>/lvmdata
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show mounted logical-volume space</span>
 df<span class="w"> </span>-h<span class="w"> </span>/lvmdata
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Human-readable usage for <code>/lvmdata</code> is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 
 

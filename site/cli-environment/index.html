@@ -1161,28 +1161,28 @@ ssh<span class="w"> </span>remote_host
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Connects to <code>remote_host</code> and prompts for authentication as required.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Connect with a specified remote username</span>
 ssh<span class="w"> </span>user@remote_host
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Connects to <code>remote_host</code> as <code>user</code> and prompts for authentication as required.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># End the current SSH session</span>
 <span class="nb">exit</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Ends the current shell or SSH session.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run one command on a remote host</span>
 ssh<span class="w"> </span>remote_host<span class="w"> </span>command_to_run
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Authenticates as needed, runs <code>command_to_run</code> remotely, and returns its output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h2 id="22-cli-commands"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 2.2 CLI Commands<a class="headerlink" href="#22-cli-commands" title="Permanent link">&para;</a></h2>
 <p>Common CLI commands can also be used in scripts to automate tasks.</p>
@@ -1201,7 +1201,7 @@ man<span class="w"> </span>ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens the <code>ls</code> manual page. Useful options include <code>-a</code>, <code>-h</code>, <code>-l</code>, and <code>-t</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p><code>-a, --all</code> includes entries beginning with <code>.</code>, <code>-h, --human-readable</code> prints readable sizes with <code>-l</code> or <code>-s</code>, <code>-l</code> uses long format, and <code>-t</code> sorts by newest modification time first.</p>
 <ol>
@@ -1212,42 +1212,42 @@ mkdir<span class="w"> </span>mydir1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; creates <code>mydir1</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enter mydir1</span>
 <span class="nb">cd</span><span class="w"> </span>mydir1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create mydir2</span>
 mkdir<span class="w"> </span>mydir2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; creates <code>mydir2</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enter mydir2</span>
 <span class="nb">cd</span><span class="w"> </span>mydir2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return to the parent of mydir2</span>
 <span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the empty mydir2 directory</span>
 rmdir<span class="w"> </span>mydir2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; removes <code>mydir2</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Create <code>file1</code>, copy it to <code>file2</code>, return to the parent of <code>mydir1</code>, create <code>mynewdir</code>, and copy <code>mydir1</code> contents into it.</li>
@@ -1257,35 +1257,35 @@ touch<span class="w"> </span>file1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; creates <code>file1</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Copy file1 to file2</span>
 cp<span class="w"> </span>file1<span class="w"> </span>file2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; creates <code>file2</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return to the parent directory</span>
 <span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create mynewdir</span>
 mkdir<span class="w"> </span>mynewdir
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; creates <code>mynewdir</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Copy mydir1 contents into mynewdir</span>
 cp<span class="w"> </span>-a<span class="w"> </span>mydir1/*<span class="w"> </span>mynewdir
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; copies <code>file1</code> and <code>file2</code> with attributes.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Type <code>ls my</code> and press Tab twice to inspect shell completion choices.</li>
@@ -1295,7 +1295,7 @@ ls<span class="w"> </span>my
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Press Tab twice after <code>my</code>; the shell displays or completes matching entries such as <code>mydir1</code> and <code>mynewdir</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
@@ -1311,21 +1311,21 @@ man
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays a usage message because no manual-page name was supplied.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open the man manual page</span>
 man<span class="w"> </span>man
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens the manual page for <code>man</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open the ls manual page</span>
 man<span class="w"> </span>ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens the manual page for <code>ls</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Then find the <code>rsync -p</code> option.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open the rsync manual page</span>
@@ -1333,7 +1333,7 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens the <code>rsync</code> manual page. Search for <code>-p</code> to find its description.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
@@ -1346,14 +1346,14 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Runs commands from <code>mycommand.sh</code> in the current shell when the file exists and is readable.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run a command using its full path</span>
 /home/myuser/mycommand.sh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Runs the specified script when the path exists and the script is executable.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="naming-variables"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Naming Variables<a class="headerlink" href="#naming-variables" title="Permanent link">&para;</a></h3>
 <p>By convention, variable names are uppercase. They can use letters, numbers, and underscores, but cannot begin with a number.</p>
@@ -1362,7 +1362,7 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; exports <code>TERM</code> with the final assigned value <code>xterm-256color</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="setting-and-unsetting-variables"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Setting and Unsetting Variables<a class="headerlink" href="#setting-and-unsetting-variables" title="Permanent link">&para;</a></h3>
 <p>Define variables with <code>name=value</code>; they are local until the shell exits. Use <code>unset</code> or an empty value to undefine them. Use <code>export</code> to make a variable available to child processes.</p>
@@ -1371,35 +1371,35 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; sets <code>NAME</code> in the current shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set a variable containing multiple values</span>
 <span class="nv">NAMES</span><span class="o">=</span><span class="s2">&quot;Marvin Ford Arthur Trillian&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; sets <code>NAMES</code> in the current shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unset NAME</span>
 <span class="nb">unset</span><span class="w"> </span>NAME
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; removes <code>NAME</code> from the current shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set NAME to an empty value</span>
 <span class="nv">NAME</span><span class="o">=</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; <code>NAME</code> expands to an empty value.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Export NAME to child processes</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">NAME</span><span class="o">=</span>Marvin
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; sets and exports <code>NAME</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="manipulating-variables"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Manipulating Variables<a class="headerlink" href="#manipulating-variables" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display NAME</span>
@@ -1407,21 +1407,21 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints the current value of <code>NAME</code>, such as <code>Marvin</code> when set above.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Append a value to NAMES</span>
 <span class="nv">NAMES</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$NAMES</span><span class="s2"> Zaphod&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; appends <code>Zaphod</code> to the current value.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Mark NAMES as read-only</span>
 <span class="nb">readonly</span><span class="w"> </span>NAMES
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; later attempts to modify <code>NAMES</code> fail in the current shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="special-variables"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Special Variables<a class="headerlink" href="#special-variables" title="Permanent link">&para;</a></h3>
 <p>Special variables can be referenced but not assigned. <code>$?</code> is the exit status of the last command, <code>$$</code> is the PID of the current shell, and <code>$!</code> is the PID of the last background command.</p>
@@ -1430,21 +1430,21 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The source presents the special variable for reference. Its value is <code>0</code> after a successful command and non-zero after failure.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Reference the current shell process ID</span>
 <span class="nv">$$</span>$
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The source presents the shell PID special-variable form. The PID varies by shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Reference the last background command&#39;s process ID</span>
 <span class="nv">$!</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The source presents the special-variable form for the most recent background command PID.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="241-shell-environment-and-variables-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 2.4.1 Shell Environment and Variables Lab<a class="headerlink" href="#241-shell-environment-and-variables-lab" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1455,14 +1455,14 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays a colon-separated directory list; the current directory is not normally included.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List environment variables</span>
 env
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays environment-variable assignments. Values vary by session.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Consider the purpose of <code>SHELL</code>. Set and view <code>MYNAME</code>.</li>
@@ -1472,14 +1472,14 @@ env
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; sets <code>MYNAME</code> to <code>john</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display MYNAME</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$MYNAME</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>john</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Set <code>PART1</code> and <code>PART2</code>, then display both.</li>
@@ -1489,28 +1489,28 @@ env
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set the second name fragment</span>
 <span class="nv">PART2</span><span class="o">=</span><span class="s2">&quot;john&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the first fragment</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PART1</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>My name is</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the second fragment</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PART2</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>john</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Combine the variables into <code>STUDENTNAME</code> and display it.</li>
@@ -1520,14 +1520,14 @@ env
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; creates a combined value without an additional separator.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display STUDENTNAME</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$STUDENTNAME</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>My name isjohn</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Undefine the variables, then confirm they are empty.</li>
@@ -1537,42 +1537,42 @@ env
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unset PART2</span>
 <span class="nb">unset</span><span class="w"> </span>PART2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unset STUDENTNAME</span>
 <span class="nb">unset</span><span class="w"> </span>STUDENTNAME
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm PART1 is undefined</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PART1</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints an empty line.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm PART2 is undefined</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PART2</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints an empty line.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm STUDENTNAME is undefined</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$STUDENTNAME</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints an empty line.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Set an unexported variable, create a subshell, and inspect it.</li>
@@ -1582,35 +1582,35 @@ env
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display x in the current shell</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>5</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a subshell</span>
 bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Starts a child shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display x in the subshell</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints an empty line because <code>x</code> was not exported.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Exit back to the original shell</span>
 <span class="nb">exit</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Returns to the original shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <ol>
 <li>Export <code>x</code> and inspect it in a subshell.</li>
@@ -1620,35 +1620,35 @@ bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display exported x</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>5</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a subshell</span>
 bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Starts a child shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display x in the subshell</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>5</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Exit the subshell</span>
 <span class="nb">exit</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Returns to the original shell.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
@@ -1665,28 +1665,28 @@ ls<span class="w"> </span>-al<span class="w"> </span>&gt;<span class="w"> </span
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No terminal output; writes the listing to <code>~/all_files.txt</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Append a /tmp listing to a file</span>
 ls<span class="w"> </span>-al<span class="w"> </span>/tmp<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/all_files.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No terminal output; appends the listing to <code>~/all_files.txt</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Combine file contents into one file</span>
 cat<span class="w"> </span>file1.txt<span class="w"> </span>file2.txt<span class="w"> </span>file3.txt<span class="w"> </span>&gt;<span class="w"> </span>combined-file.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No terminal output; writes combined content when all source files exist.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Discard ping output</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>www.xxx.yyy.zzz<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Suppresses standard output; success depends on DNS and network availability.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h4 id="input-redirection">Input Redirection<a class="headerlink" href="#input-redirection" title="Permanent link">&para;</a></h4>
 <p>A command can receive input from a file with <code>&lt;</code> followed by a filename. When two less-than characters (<code>&lt;&lt;</code>) are used, a delimiter must be defined immediately after <code>&lt;&lt;</code>. The shell reads input until it reaches a line containing that delimiter.</p>
@@ -1695,14 +1695,14 @@ wc<span class="w"> </span>-l<span class="w"> </span>&lt;<span class="w"> </span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints the number of lines in <code>/etc/passwd</code>; the count varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Begin a here-document for wc</span>
 wc<span class="w"> </span>-l<span class="w"> </span>&lt;&lt;<span class="w"> </span>EOF
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Reads lines until <code>EOF</code> is entered, then prints the line count.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>This counts lines one at a time until it reaches the <code>EOF</code> delimiter.</p>
 <h4 id="piped-redirection">Piped Redirection<a class="headerlink" href="#piped-redirection" title="Permanent link">&para;</a></h4>
@@ -1712,14 +1712,14 @@ ls<span class="w"> </span>-al<span class="w"> </span><span class="p">|</span><sp
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens the listing in the <code>less</code> pager.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Filter a detailed listing</span>
 ls<span class="w"> </span>-al<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>string
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays listing lines that contain <code>string</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h4 id="advanced-redirection">Advanced Redirection<a class="headerlink" href="#advanced-redirection" title="Permanent link">&para;</a></h4>
 <p>The three I/O types have their own identifiers, called file descriptors:</p>
@@ -1734,14 +1734,14 @@ ls<span class="w"> </span>-al<span class="w"> </span>/r*<span class="w"> </span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Writes standard output to <code>/tmp/list.txt</code> and standard error to <code>/tmp/errors.txt</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Write normal output and errors to one file</span>
 ls<span class="w"> </span>-al<span class="w"> </span>/r*<span class="w"> </span>&gt;<span class="w"> </span>/tmp/list.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Writes both standard output and standard error to <code>/tmp/list.txt</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="251-redirection-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 2.5.1 Redirection Lab<a class="headerlink" href="#251-redirection-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Save a directory listing to mylist</span>
@@ -1749,35 +1749,35 @@ ls<span class="w"> </span>&gt;<span class="w"> </span>mylist
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No terminal output; <code>mylist</code> contains the directory listing.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the fifth item in /usr/bin listing order</span>
 ls<span class="w"> </span>/usr/bin<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints one entry from <code>/usr/bin</code>; the entry varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find list entries in mylist</span>
 grep<span class="w"> </span>list<span class="w"> </span>mylist
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints lines in <code>mylist</code> containing <code>list</code>, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the newest entries in /usr/bin</span>
 ls<span class="w"> </span>-lt<span class="w"> </span>/usr/bin<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays a header and the first entries sorted by modification time; output varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the largest directory sizes</span>
 du<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays the ten largest <code>du</code> entries in the current tree; values vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create redirection.txt with a here-document</span>
 cat<span class="w"> </span>&gt;redirection.txt<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
@@ -1786,14 +1786,14 @@ cat<span class="w"> </span>&gt;redirection.txt<span class="w"> </span><span clas
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No terminal output; creates <code>redirection.txt</code> containing <code>Hello world!</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find examine references in less help</span>
 less<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>examine
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays case-insensitive help lines containing <code>examine</code>, if present.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
@@ -1805,7 +1805,7 @@ ls<span class="p">;</span><span class="w"> </span>pwd<span class="p">;</span><sp
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays a listing, the current directory, and the current username.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Report whether a host can be pinged</span>
 ping<span class="w"> </span>-c1<span class="w"> </span>google.com<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;That&#39;s good, able to ping google.com&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="se">\</span>
@@ -1813,7 +1813,7 @@ ping<span class="w"> </span>-c1<span class="w"> </span>google.com<span class="w"
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints the success message if ping succeeds; otherwise prints the failure message. Network availability varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h2 id="27-return-values-and-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 2.7 Return Values and Expansion<a class="headerlink" href="#27-return-values-and-expansion" title="Permanent link">&para;</a></h2>
 <p>Successful commands return exit code <code>0</code>; unsuccessful commands should return a non-zero code. <code>$?</code> stores the last command's exit status. The shell resolves tokens through expansions, including brace, tilde, parameter, command, arithmetic, and wildcard expansion.</p>
@@ -1824,35 +1824,35 @@ ping<span class="w"> </span>-c1<span class="w"> </span>google.com<span class="w"
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>spel spil spal</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create directories using brace ranges</span>
 mkdir<span class="w"> </span><span class="o">{</span><span class="m">2014</span>..2016<span class="o">}</span>-0<span class="o">{</span><span class="m">0</span>..9<span class="o">}</span><span class="w"> </span><span class="o">{</span><span class="m">2014</span>..2016<span class="o">}</span>-<span class="o">{</span><span class="m">10</span>..12<span class="o">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Creates directories for the expanded names, unless names already exist.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create files using brace ranges</span>
 touch<span class="w"> </span>file-<span class="o">{</span>A..Z<span class="o">}{</span>a..z<span class="o">}</span>-<span class="o">{</span><span class="m">0</span>..9<span class="o">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Creates files for the expanded names.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create text files using brace ranges</span>
 touch<span class="w"> </span><span class="o">{</span>A..Z<span class="o">}{</span>a..z<span class="o">}</span>-<span class="o">{</span><span class="m">0</span>..9<span class="o">}</span>.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Creates <code>.txt</code> files for the expanded names.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove files with selected extensions</span>
 rm<span class="w"> </span>filename.<span class="o">{</span>pl,sh,py,c<span class="o">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Removes each named file when it exists.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="tilde-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Tilde Expansion<a class="headerlink" href="#tilde-expansion" title="Permanent link">&para;</a></h3>
 <p>Tilde expansion can resolve home directories, the current working directory, and the previous working directory. It occurs only at the beginning of a word or as a separate word.</p>
@@ -1861,21 +1861,21 @@ rm<span class="w"> </span>filename.<span class="o">{</span>pl,sh,py,c<span class
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to ubuntu&#39;s home directory</span>
 <span class="nb">cd</span><span class="w"> </span>~ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Changes directory when the <code>ubuntu</code> account exists.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create hello.txt in the current user&#39;s home directory</span>
 <span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span>&gt;~/hello.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No terminal output; writes <code>hello</code> to <code>~/hello.txt</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="shell-parameter-and-variable-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Shell Parameter and Variable Expansion<a class="headerlink" href="#shell-parameter-and-variable-expansion" title="Permanent link">&para;</a></h3>
 <p><code>$</code> introduces parameter expansion, command substitution, or arithmetic expansion. Braces protect a variable name from adjacent characters. <code>${!name}</code> performs indirect expansion, and a default can be assigned while expanding an unset variable.</p>
@@ -1884,42 +1884,42 @@ rm<span class="w"> </span>filename.<span class="o">{</span>pl,sh,py,c<span class
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays the shell path, such as <code>/bin/bash</code>; it varies by session.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Store the current date in D</span>
 <span class="nv">D</span><span class="o">=</span><span class="sb">`</span>date<span class="sb">`</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output; assigns the current date string to <code>D</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display D</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$D</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays the date string assigned to <code>D</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Compare braced and unbraced variable expansion</span>
 <span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">D</span><span class="si">}</span>d<span class="w"> </span>vs<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$Dd</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Expands <code>${D}</code> followed by <code>d</code>; <code>$Dd</code> refers to variable <code>Dd</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Compare indirect-style variable-name patterns</span>
 <span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="p">!LC*</span><span class="si">}</span><span class="w"> </span>vs<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$LC</span>*
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>${!LC*}</code> expands names beginning with <code>LC</code>; the unbraced form expands <code>LC</code> then appends <code>*</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set TODAY during expansion when it is unset</span>
 <span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">TODAY</span><span class="p">:=</span><span class="sb">`</span>date+%A<span class="sb">`</span><span class="si">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays and sets <code>TODAY</code> to the current weekday when it was unset.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="command-substitution"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Command Substitution<a class="headerlink" href="#command-substitution" title="Permanent link">&para;</a></h3>
 <p>Command substitution replaces a command with its standard output. The forms are <code>$(command)</code> and backticks; trailing newlines are removed.</p>
@@ -1928,28 +1928,28 @@ rm<span class="w"> </span>filename.<span class="o">{</span>pl,sh,py,c<span class
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays <code>The date and time is:</code> followed by the current date and time.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the date using backticks</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The date and time is `date`&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays <code>The date and time is:</code> followed by the current date and time.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display locale environment assignments</span>
 <span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>^LC_<span class="k">)</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching locale assignments on one line, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display locale assignments one per line</span>
 <span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%s\n&quot;</span><span class="w"> </span><span class="k">$(</span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>^LC_<span class="k">)</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching locale assignments one per line, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="arithmetic-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Arithmetic Expansion<a class="headerlink" href="#arithmetic-expansion" title="Permanent link">&para;</a></h3>
 <p>Arithmetic expansion evaluates an arithmetic expression and substitutes the result. It works with integers. All tokens in the expression undergo parameter expansion, command substitution, and quote removal. Variables within arithmetic expansion can, in some cases, be used with or without <code>$</code>.</p>
@@ -2112,49 +2112,49 @@ ls<span class="w"> </span>-ld<span class="w"> </span>*
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays metadata for entries in the current directory.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List metadata for log files</span>
 ls<span class="w"> </span>-ld<span class="w"> </span>*.log
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching <code>.log</code> files; errors if none match under default shell settings.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List metadata for names starting with a, b, or c</span>
 ls<span class="w"> </span>-ld<span class="w"> </span><span class="o">[</span>abc<span class="o">]</span>*
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching entries, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List names with a two-character suffix</span>
 ls<span class="w"> </span>-ld<span class="w"> </span>*.??
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching entries, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List log names ending with a digit extension</span>
 ls<span class="w"> </span>-ld<span class="w"> </span>*.log.<span class="o">[[</span>:digit:<span class="o">]]</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching entries, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List names with digit and two-character extensions</span>
 ls<span class="w"> </span>-ld<span class="w"> </span>*.<span class="o">[[</span>:digit:<span class="o">]]</span>.??
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching entries, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List names ending in a non-alphanumeric character</span>
 ls<span class="w"> </span>-ld<span class="w"> </span>*<span class="o">[</span>!<span class="o">[</span>:alnum:<span class="o">]]</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching entries, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="271-chaining-and-expansion-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 2.7.1 Chaining and Expansion Lab<a class="headerlink" href="#271-chaining-and-expansion-lab" title="Permanent link">&para;</a></h3>
 <p>Try these chaining examples. <code>/temp</code> may not exist; the fallback examples demonstrate <code>||</code>.</p>
@@ -2163,140 +2163,140 @@ ls<span class="w"> </span>-ld<span class="w"> </span>*<span class="o">[</span>!<
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Runs <code>ls -al</code> even if <code>cd /temp</code> fails.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List /temp only after changing to it</span>
 <span class="nb">cd</span><span class="w"> </span>/temp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Lists <code>/temp</code> only if the directory change succeeds.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Report a failed directory change</span>
 <span class="nb">cd</span><span class="w"> </span>/temp<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not change to /temp&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Prints the message if <code>/temp</code> cannot be entered.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List /temp or report failure</span>
 <span class="nb">cd</span><span class="w"> </span>/temp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not change to /temp&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Lists on success; otherwise prints the failure message.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return home after a failed directory change</span>
 <span class="nb">cd</span><span class="w"> </span>/temp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not change to /temp. Going home instead&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="p">;</span><span class="w"> </span>pwd<span class="p">;</span><span class="w"> </span><span class="o">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>On failure, prints the message and then the home-directory path.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List /temp or count entries in /tmp</span>
 <span class="o">(</span><span class="nb">cd</span><span class="w"> </span>/temp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="o">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="p">;</span><span class="w"> </span><span class="o">})</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Lists <code>/temp</code> on success; otherwise prints the <code>/tmp</code> listing line count.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List uncompressed files in /var/log using extglob</span>
 ls<span class="w"> </span>-ld<span class="w"> </span>/var/log/!<span class="o">(</span>*.gz<span class="o">)</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Requires Bash extended globbing to be enabled; otherwise Bash reports a syntax error.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the last ten entries in /etc sort order</span>
 ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays the final ten lines of the listing; entries vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find ls commands in shell history</span>
 <span class="nb">history</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays history entries containing <code>ls</code>; history varies by session.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set a filename variable</span>
 <span class="nv">file</span><span class="o">=</span>data.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the shortest suffix beginning with a period</span>
 <span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">file</span><span class="p">%.*</span><span class="si">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>data</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the shortest prefix ending with a period</span>
 <span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">file</span><span class="p">#*.</span><span class="si">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>txt</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set X for arithmetic examples</span>
 <span class="nv">X</span><span class="o">=</span><span class="m">5</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add one to X</span>
 <span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">X</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>6</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add one to X with an explicit variable expansion</span>
 <span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$X</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>6</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Compare X with 15</span>
 <span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">X</span><span class="o">&gt;</span><span class="m">15</span><span class="k">))</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>0</code></p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the command-binary directory</span>
 <span class="nb">cd</span><span class="w"> </span>/usr/bin
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List entries beginning with m</span>
 ls<span class="w"> </span>m*
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching <code>/usr/bin</code> entries.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List entries ending with a three-character extension</span>
 ls<span class="w"> </span>*.???
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Displays matching <code>/usr/bin</code> entries, if any.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return to the home directory</span>
 <span class="nb">cd</span><span class="w"> </span>~
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
@@ -2308,14 +2308,14 @@ nano
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens the nano editor.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Edit an existing file with nano</span>
 nano<span class="w"> </span>/path/filename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens the specified file, or offers to create it when the path is valid.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Nano displays commands in its editor window. Press <code>Ctrl+g</code> for additional commands.</p>
 <h3 id="281-nano-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 2.8.1 nano Lab<a class="headerlink" href="#281-nano-lab" title="Permanent link">&para;</a></h3>
@@ -2325,14 +2325,14 @@ nano<span class="w"> </span>/path/filename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create and edit fileone.txt</span>
 nano<span class="w"> </span>fileone.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens <code>fileone.txt</code> in nano.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Type <code>The quick brown fox jumped over the lazy dog.</code>. Copy and paste it ten times using the nano shortcuts:</p>
 <div class="highlight"><pre><span></span><code>Ctrl+K
@@ -2347,7 +2347,7 @@ nano<span class="w"> </span>shells.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Opens <code>shells.txt</code> in nano.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Add <code>She sells seashells down by the seashore.</code>, copy and paste the line three times, then save and close the file. Open the original file, indent the first three lines, and replace <code>fox</code> with <code>rabbit</code>:</p>
 <div class="highlight"><pre><span></span><code>Ctrl+\\

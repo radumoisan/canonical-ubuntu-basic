@@ -387,69 +387,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7.1 Basic Network Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#711-ip-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.1.1 ip Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#72-ethtool-command" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.2 ethtool Command
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.2 ethtool Command">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#721-ethtool-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.2.1 ethtool Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#73-network-troubleshooting-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.3 Network Troubleshooting Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.3 Network Troubleshooting Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#731-networking-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.3.1 Networking Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -595,69 +532,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7.1 Basic Network Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#711-ip-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.1.1 ip Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#72-ethtool-command" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.2 ethtool Command
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.2 ethtool Command">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#721-ethtool-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.2.1 ethtool Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#73-network-troubleshooting-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.3 Network Troubleshooting Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.3 Network Troubleshooting Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#731-networking-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-       7.3.1 Networking Lab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -692,348 +566,336 @@ ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Address information for <code>ens2</code> is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add an address to ens2</span>
 sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.1.2.3/16<span class="w"> </span>dev<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success. An associated subnet route is added automatically.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show link statistics for ens2</span>
 ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Link and device statistics are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create VLAN 42 above ens2</span>
 sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>dev<span class="w"> </span>vlan42<span class="w"> </span>link<span class="w"> </span>ens2<span class="w"> </span><span class="nb">type</span><span class="w"> </span>vlan<span class="w"> </span>id<span class="w"> </span><span class="m">42</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success. The <code>vlan42</code> virtual device is created.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change the ens2 MAC address</span>
 sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>dev<span class="w"> </span>ens2<span class="w"> </span>address<span class="w"> </span><span class="m">02</span>:42:43:44:45:56
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h3 id="711-ip-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 7.1.1 ip Lab<a class="headerlink" href="#711-ip-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># List network interfaces</span>
 ip<span class="w"> </span>link<span class="w"> </span>show
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Available network interfaces are listed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 addresses</span>
 ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>IP address information for <code>ens2</code> is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add the lab address</span>
 sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.1.2.3/15<span class="w"> </span>dev<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Verify the additional address</span>
 ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>10.1.2.3/15</code> appears on <code>ens2</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show basic ens2 statistics</span>
 ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Interface statistics are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show detailed ens2 statistics</span>
 ip<span class="w"> </span>-s<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Extended statistics, including errors, are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the lab address</span>
 sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>delete<span class="w"> </span><span class="m">10</span>.1.2.3/15<span class="w"> </span>dev<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the routing table</span>
 ip<span class="w"> </span>route<span class="w"> </span>show
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The system routing table is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show cached neighbour entries</span>
 ip<span class="w"> </span>neigh<span class="w"> </span>show
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Cached neighbour addresses are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the route to 8.8.8.8</span>
 ip<span class="w"> </span>route<span class="w"> </span>get<span class="w"> </span><span class="m">8</span>.8.8.8
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The route, selected interface, and source address are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h2 id="72-ethtool-command"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 7.2 ethtool Command<a class="headerlink" href="#72-ethtool-command" title="Permanent link">&para;</a></h2>
-<p>Ethernet interfaces are commonly named <code>ethX</code> or <code>ensX</code>; the first is typically <code>eth0</code> or <code>ens2</code>. <code>ethtool</code> can inspect or modify physical link settings, transmit and receive rings, driver information, statistics, and protocol-offload features.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 link settings</span>
 ethtool<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Link speed, duplex, and other interface settings are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set ens2 link speed</span>
 sudo<span class="w"> </span>ethtool<span class="w"> </span>-s<span class="w"> </span>ens2<span class="w"> </span>speed<span class="w"> </span><span class="m">1000</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 ring sizes</span>
 ethtool<span class="w"> </span>-g<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>RX and TX ring parameters are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set the ens2 TX ring size</span>
 sudo<span class="w"> </span>ethtool<span class="w"> </span>-G<span class="w"> </span>ens2<span class="w"> </span>tx<span class="w"> </span><span class="m">1024</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 driver information</span>
 ethtool<span class="w"> </span>-i<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Driver, version, firmware, bus, and capability information are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show extended ens2 statistics</span>
 ethtool<span class="w"> </span>-S<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Extended hardware statistics are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens20 feature settings</span>
 ethtool<span class="w"> </span>-k<span class="w"> </span>ens20
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Device feature settings are displayed if <code>ens20</code> exists.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enable generic receive offload on ens2</span>
 ethtool<span class="w"> </span>-K<span class="w"> </span>ens2<span class="w"> </span>gro<span class="w"> </span>on
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output on success.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Bringing an interface down interrupts its network connection.</p>
-</div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Disable ens2</span>
 sudo<span class="w"> </span>ifdown<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The interface is brought down.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enable ens2</span>
 sudo<span class="w"> </span>ifup<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The interface is brought up.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h3 id="721-ethtool-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 7.2.1 ethtool Lab<a class="headerlink" href="#721-ethtool-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install ethtool</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ethtool
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Package installation completes successfully.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 hardware information</span>
 ethtool<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Link settings for <code>ens2</code> are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 driver information</span>
 ethtool<span class="w"> </span>-i<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Driver information is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 statistics</span>
 ethtool<span class="w"> </span>-S<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Interface statistics are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ens2 features</span>
 ethtool<span class="w"> </span>-k<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Current device feature settings are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the permanent ens2 MAC address</span>
 ethtool<span class="w"> </span>-P<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The permanent hardware address is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h2 id="73-network-troubleshooting-commands"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 7.3 Network Troubleshooting Commands<a class="headerlink" href="#73-network-troubleshooting-commands" title="Permanent link">&para;</a></h2>
-<p><code>ping</code> tests reachability by name or address, although ICMP can be blocked by firewalls. <code>traceroute</code> traces the path and latency to a host; use <code>-T</code> for TCP, <code>-U</code> for UDP, and <code>-n</code> to prevent reverse lookups. <code>mtr</code> combines continuous ping and traceroute statistics; <code>-c</code> limits cycles, <code>-T</code> uses TCP, and <code>-u</code> uses UDP.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ping a host by address</span>
 ping<span class="w"> </span><span class="m">10</span>.0.1.98
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>ICMP replies are shown when the host and ICMP are reachable.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ping a host by name</span>
 ping<span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>ICMP replies are shown when DNS, routing, and ICMP are available.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ping canonical.com</span>
 ping<span class="w"> </span>canonical.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Continuous ICMP results are displayed until interrupted.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Send three pings to ubuntu.com</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>ubuntu.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Three ICMP results and summary statistics are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Send numeric-only pings to ubuntu.com</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>-n<span class="w"> </span>ubuntu.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Three ICMP results and summary statistics are displayed without reverse lookups.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Limit ping runtime to canonical.com</span>
 ping<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span><span class="w"> </span>canonical.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Ping ends after the specified deadline.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Trace the route to google.com</span>
 traceroute<span class="w"> </span>google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Network hops and latency measurements are displayed; blocked hops may show timeouts.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Trace the route to ubuntu.com continuously</span>
 mtr<span class="w"> </span>ubuntu.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Live route and packet-loss statistics are displayed; press <code>q</code> to exit.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<p><code>nc</code> reads and writes data across TCP or UDP connections. <code>dig</code> queries DNS servers; its output contains QUESTION and ANSWER sections plus query details.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Listen with netcat on port 2389</span>
 nc<span class="w"> </span>-l<span class="w"> </span><span class="m">2389</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Netcat waits for an incoming connection.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Connect to the local netcat listener</span>
 nc<span class="w"> </span>localhost<span class="w"> </span><span class="m">2389</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A connection is attempted to the listener on port 2389.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Query DNS for ubuntu.com</span>
 dig<span class="w"> </span>ubuntu.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>DNS query output includes QUESTION and ANSWER sections when resolution succeeds.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
-<h3 id="731-networking-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 7.3.1 Networking Lab<a class="headerlink" href="#731-networking-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install traceroute</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>traceroute
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Package installation completes successfully.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Send four pings to Google</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Four ICMP results and packet-loss statistics are displayed when reachable.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Trace the path to Google</span>
 traceroute<span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Route hops and latency measurements are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run an MTR trace to Google</span>
 mtr<span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Live route statistics are displayed; press <code>q</code> to exit.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Query Google DNS information</span>
 dig<span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>DNS query output is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check ens2 packet-drop statistics</span>
 ethtool<span class="w"> </span>-S<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Source fixture: <code>NIC statistics:</code> includes <code>rx_queue_0_drops: 0</code>. Values and field names vary by driver; nonzero drops can indicate that the ring buffer needs increasing.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 
 

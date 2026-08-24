@@ -765,7 +765,7 @@ ps<span class="w"> </span>-ef
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A process list is displayed. Results vary by system.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>To filter process output, pipe it through <code>grep</code>. To list processes by command name:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># List processes named sshd.</span>
@@ -773,10 +773,7 @@ ps<span class="w"> </span>-C<span class="w"> </span>sshd
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><div class="highlight"><pre><span></span><code>PID TTY TIME CMD
-958 ? 00:00:00 sshd
-</code></pre></div>
-The PIDs and number of entries vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p><code>top</code> provides a continuously updated process display, ordered by CPU use by default.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open the process monitor.</span>
@@ -784,7 +781,7 @@ top<span class="w"> </span>-s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>An interactive process display opens. Press <code>q</code> to exit.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="stopping-processes"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Stopping processes<a class="headerlink" href="#stopping-processes" title="Permanent link">&para;</a></h3>
 <p>Use <code>Ctrl+C</code> to stop a foreground process. For a background process, identify its PID and send a signal with <code>kill</code>.</p>
@@ -793,7 +790,7 @@ top<span class="w"> </span>-s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The specified process receives the requested signal.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>If no option is given, <code>kill</code> sends a termination signal for a clean shutdown. Common signals are <code>kill</code> or <code>kill -15</code> for <code>SIGTERM</code>, <code>kill -2</code> for <code>SIGINT</code>, and <code>kill -9</code> for <code>SIGKILL</code> as a last resort.</p>
 <h3 id="daemons"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Daemons<a class="headerlink" href="#daemons" title="Permanent link">&para;</a></h3>
@@ -805,9 +802,7 @@ programname<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><div class="highlight"><pre><span></span><code>[1] 18531
-</code></pre></div>
-The shell reports a job number and PID; values vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Use <code>jobs</code> to list the current user's jobs. <code>-l</code> includes PIDs, <code>-r</code> shows only running jobs, and <code>-s</code> shows only stopped jobs.</p>
 <p>To move a foreground job to the background, press <code>Ctrl+Z</code> to suspend it, then run <code>bg</code>. Use <code>fg</code> to return the most recent background job to the foreground, or specify a job such as <code>fg %3</code>. End a background job with its PID or a job number such as <code>kill %2</code>.</p>
@@ -818,7 +813,7 @@ nice<span class="w"> </span>-n<span class="w"> </span><span class="m">19</span><
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command starts with nice value 19.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>To change the priority of a running process, find its PID and use <code>renice</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Give a process with PID 19365 a higher priority.</span>
@@ -826,21 +821,21 @@ renice<span class="w"> </span>-10<span class="w"> </span>-p<span class="w"> </sp
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The process priority is changed to -10 if permitted.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Lower priority for a user&#39;s processes.</span>
 renice<span class="w"> </span><span class="m">15</span><span class="w"> </span>-u<span class="w"> </span>greedyuser
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Processes owned by <code>greedyuser</code> are assigned nice value 15 if permitted.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Raise priority for a group&#39;s processes.</span>
 renice<span class="w"> </span>-18<span class="w"> </span>-g<span class="w"> </span>website
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Processes in the <code>website</code> group are assigned nice value -18 if permitted.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h2 id="83-scheduling-processes"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 8.3 Scheduling Processes<a class="headerlink" href="#83-scheduling-processes" title="Permanent link">&para;</a></h2>
 <p>Use <code>cron</code> to run recurring work and <code>at</code> for one-time work. This is useful for work such as overnight backups or CPU-intensive calculations.</p>
@@ -864,7 +859,7 @@ at<span class="w"> </span>now<span class="w"> </span>+<span class="w"> </span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>An <code>at&gt;</code> prompt opens. Input continues until <code>Ctrl+D</code> is pressed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Use <code>atq</code> to list scheduled jobs. Its output includes the job number, scheduled time, queue identifier, and user. Use <code>atrm</code> with the job number to remove a job.</p>
 <h3 id="831-process-management-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 8.3.1 Process Management Lab<a class="headerlink" href="#831-process-management-lab" title="Permanent link">&para;</a></h3>
@@ -882,42 +877,42 @@ nano<span class="w"> </span>~/loop.sh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The nano editor opens for <code>~/loop.sh</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Make the loop script executable for its owner and group.</span>
 chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>~/loop.sh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List processes owned by ubuntu.</span>
 ps<span class="w"> </span>-ef<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Matching process entries are displayed; values vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List all running processes.</span>
 ps<span class="w"> </span>-ef
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A detailed process list is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Monitor processes continuously.</span>
 top
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>An interactive process display opens. Press <code>q</code> to exit.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run the loop script in the foreground.</span>
 ./loop.sh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The script appends <code>hello world</code> to <code>hello.txt</code> once per second until interrupted.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Press <code>Ctrl+C</code> to stop the foreground <code>loop.sh</code> process.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run the loop script in the background.</span>
@@ -925,49 +920,49 @@ top
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The shell reports a background job number and PID.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List jobs with their PIDs.</span>
 <span class="nb">jobs</span><span class="w"> </span>-l
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The background <code>loop.sh</code> job and its PID are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Stop the loop job using its PID.</span>
 <span class="nb">kill</span><span class="w"> </span>&lt;PID&gt;
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The process identified by the supplied PID terminates.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run the loop script in the background with nice value 15.</span>
 nice<span class="w"> </span>-n<span class="w"> </span><span class="m">15</span><span class="w"> </span>./loop.sh<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The shell reports a background job; it runs at nice value 15.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find the SSH daemon PID.</span>
 ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sshd
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>An <code>sshd</code> process entry, including its PID, is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set the SSH daemon priority to -5.</span>
 sudo<span class="w"> </span>renice<span class="w"> </span>-5<span class="w"> </span>-p<span class="w"> </span>&lt;PID&gt;
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The specified process is assigned nice value -5.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check the current nice value for the process.</span>
 ps<span class="w"> </span>-o<span class="w"> </span>ni<span class="w"> </span>&lt;PID&gt;
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The process nice value is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -978,14 +973,14 @@ sudo<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The specified process is forcefully terminated.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Edit the current user&#39;s crontab.</span>
 crontab<span class="w"> </span>-e
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The crontab editor opens.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Add this line to schedule creation of <code>/tmp/mytest.txt</code> every five minutes:</p>
 <div class="highlight"><pre><span></span><code>*/5 * * * * touch /tmp/mytest.txt
@@ -995,14 +990,14 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The <code>at</code> package is installed or reported as already installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open an at prompt for 2:00 PM.</span>
 at<span class="w"> </span><span class="m">14</span>:00
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>An <code>at&gt;</code> prompt opens.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>At the prompt, enter <code>rm /tmp/*yaml</code>, then press <code>Ctrl+D</code> to submit the job.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># List scheduled at jobs.</span>
@@ -1010,21 +1005,21 @@ atq
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The scheduled 2:00 PM job is listed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install htop.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>htop
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The <code>htop</code> package is installed or reported as already installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Monitor processes with htop.</span>
 htop
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>An interactive process display opens. Press <code>q</code> to exit.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>

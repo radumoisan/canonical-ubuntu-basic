@@ -656,21 +656,21 @@ apt-add-repository<span class="w"> </span><span class="s2">&quot;https://pathtor
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The repository is added to the apt configuration.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add a Personal Package Archive.</span>
 apt-add-repository<span class="w"> </span>ppa://shinysoft/devel
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The PPA is added to the apt configuration.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove a Personal Package Archive.</span>
 apt-add-repository<span class="w"> </span>--remove<span class="w"> </span>ppa://shinysoft/devel
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The PPA is removed from the apt configuration.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>Refresh the package list after adding or removing repositories, and before installing or upgrading packages.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Refresh available package metadata.</span>
@@ -678,35 +678,35 @@ apt<span class="w"> </span>update
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Apt fetches package metadata from configured repositories.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install a package and its dependencies.</span>
 apt<span class="w"> </span>install<span class="w"> </span>packagename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The package and required dependencies are installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove a package while retaining configuration files.</span>
 apt<span class="w"> </span>remove<span class="w"> </span>packagename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The package is removed; configuration files are retained.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove unneeded dependencies.</span>
 apt<span class="w"> </span>autoremove
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Apt lists and removes dependencies no longer required by installed packages.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Purge a package and its configuration files.</span>
 apt<span class="w"> </span>purge<span class="w"> </span>packagename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The package and its configuration files are removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p><code>apt upgrade</code> installs newer versions of installed packages. <code>apt dist-upgrade</code> also handles changing dependencies, prioritizing important packages if needed. <code>apt full-upgrade</code> may remove installed packages when required to upgrade the system as a whole.</p>
 <p>For a menu-driven package interface, use <code>aptitude</code>. It can also be used from the command line and automatically removes dependencies when removing a package; with apt, use <code>apt autoremove</code>.</p>
@@ -717,42 +717,42 @@ snap<span class="w"> </span>install<span class="w"> </span>packagename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The requested snap is installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find available snaps.</span>
 snap<span class="w"> </span>find
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Available snaps are listed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search available snaps.</span>
 snap<span class="w"> </span>find<span class="w"> </span>searchterm
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Snaps matching <code>searchterm</code> are listed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List installed snaps.</span>
 snap<span class="w"> </span>list
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Installed snaps are listed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Refresh a snap to its latest release.</span>
 snap<span class="w"> </span>refresh<span class="w"> </span>packagename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The requested snap is refreshed if an update is available.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove an installed snap.</span>
 snap<span class="w"> </span>remove<span class="w"> </span>packagename
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The requested snap is removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="holding-snap-refreshes"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Holding snap refreshes<a class="headerlink" href="#holding-snap-refreshes" title="Permanent link">&para;</a></h3>
 <p><code>snap refresh --hold</code> postpones updates for individual snaps or all snaps, indefinitely or for a duration. Units may be seconds (<code>s</code>), minutes (<code>m</code>), hours (<code>h</code>), or a combination; <code>forever</code> is valid for an indefinite hold.</p>
@@ -761,16 +761,14 @@ snap<span class="w"> </span>refresh<span class="w"> </span>--hold<span class="o"
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Refreshes for the named snaps are held for the requested duration.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Hold Firefox refreshes for 24 hours.</span>
 snap<span class="w"> </span>refresh<span class="w"> </span>--hold<span class="o">=</span>24h<span class="w"> </span>firefox
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><div class="highlight"><pre><span></span><code>General refreshes of &quot;firefox&quot; held until 2022-10-26T14:10:53+01:00
-</code></pre></div>
-The expiry time varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>If no duration is specified, the hold defaults to <code>forever</code>. If no snaps are named, the hold applies to all installed snaps.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Hold automatic refreshes for all snaps for 24 hours.</span>
@@ -778,21 +776,14 @@ snap<span class="w"> </span>refresh<span class="w"> </span>--hold<span class="o"
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><div class="highlight"><pre><span></span><code>Auto-refresh of all snaps held until 2022-10-26T14:25:58+01:00
-</code></pre></div>
-The expiry time varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List installed snaps and their hold status.</span>
 snap<span class="w"> </span>list
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><div class="highlight"><pre><span></span><code>Name         Version  Rev   Tracking       Publisher          Notes
-alacritty    0.8.0    46    latest/stable  snapcrafters       classic
-vlc          3.0.18   3078  latest/stable  videolan           -
-yt-dlp       18       212   latest/edge    morrisong          held
-</code></pre></div>
-Installed snaps and versions vary.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>When snaps are named, the hold blocks their auto-refreshes and general <code>snap refresh</code> requests, but not a targeted refresh. This allows the rest of the system to refresh while a known-problematic snap is held. When no snaps are named, the hold applies to all installed snaps but blocks only auto-refreshes, not general or targeted refresh requests.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove a hold from Firefox.</span>
@@ -800,16 +791,14 @@ snap<span class="w"> </span>refresh<span class="w"> </span>--unhold<span class="
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>Removed general refresh hold of &quot;firefox&quot;
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the automatic refresh hold from all snaps.</span>
 snap<span class="w"> </span>refresh<span class="w"> </span>--unhold
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>Removed auto-refresh hold on all snaps
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="1031-software-management-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 10.3.1 Software Management Lab<a class="headerlink" href="#1031-software-management-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># List active apt source entries.</span>
@@ -817,70 +806,70 @@ cat<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span cl
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Uncommented, non-empty repository entries are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show available MAAS package versions.</span>
 apt-cache<span class="w"> </span>policy<span class="w"> </span>maas
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The installed and candidate MAAS package versions are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install repository management support.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>software-properties-common
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The package is installed or reported as already installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add the Audacious PPA.</span>
 sudo<span class="w"> </span>apt-add-repository<span class="w"> </span>ppa:ubuntuhandbook1/apps
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The PPA is added after confirmation when prompted.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Refresh the package list.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Apt refreshes package metadata.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show available Audacious package versions.</span>
 apt-cache<span class="w"> </span>policy<span class="w"> </span>audacious
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The installed and candidate Audacious package versions are displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the Audacious PPA.</span>
 sudo<span class="w"> </span>apt-add-repository<span class="w"> </span>--remove<span class="w"> </span>ppa:ubuntuhandbook1/apps
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The PPA is removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Refresh package metadata after removing the PPA.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Apt refreshes package metadata.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install nullmailer using default configuration values.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nullmailer
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>nullmailer</code> is installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the nullmailer package status.</span>
 dpkg<span class="w"> </span>-l<span class="w"> </span>nullmailer
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A status line beginning with <code>ii</code> indicates the package is selected for installation and installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>The first status character is the desired state: <code>u</code> unknown, <code>i</code> install, <code>r</code> remove, <code>p</code> purge, or <code>h</code> hold. The second is the current state: <code>n</code> not installed, <code>i</code> installed, <code>c</code> configuration files present, <code>u</code> unpacked, <code>f</code> failed configuration removal, <code>h</code> half-installed, <code>W</code> trigger awaiting, or <code>t</code> trigger pending.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove nullmailer without purging its configuration.</span>
@@ -888,105 +877,105 @@ sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>nullmailer</code> is removed and configuration files remain.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the removed nullmailer package status.</span>
 dpkg<span class="w"> </span>-l<span class="w"> </span>nullmailer
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A status line beginning with <code>rc</code> indicates the package is removed and configuration files remain.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Purge nullmailer and its configuration.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w"> </span>-y<span class="w"> </span>nullmailer
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>nullmailer</code> and its configuration files are removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm nullmailer no longer has a package entry.</span>
 dpkg<span class="w"> </span>-l<span class="w"> </span>nullmailer
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Apt reports that no packages match <code>nullmailer</code>.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search available packages for lynx.</span>
 apt-cache<span class="w"> </span>search<span class="w"> </span>lynx
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Packages matching <code>lynx</code> are listed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show information about the lynx package.</span>
 apt-cache<span class="w"> </span>show<span class="w"> </span>lynx
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Package metadata for <code>lynx</code> is displayed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install snapd.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>snapd<span class="w"> </span>-y
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>snapd</code> is installed or reported as already installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List installed snap applications.</span>
 snap<span class="w"> </span>list
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Installed snaps are listed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find the hello-world snap.</span>
 snap<span class="w"> </span>find<span class="w"> </span>hello-world
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The <code>hello-world</code> snap is listed if available.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install the hello-world snap.</span>
 sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>hello-world
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>hello-world</code> is installed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run the hello-world snap.</span>
 hello-world
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The hello-world application displays its greeting.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Refresh hello-world to the latest version.</span>
 sudo<span class="w"> </span>snap<span class="w"> </span>refresh<span class="w"> </span>hello-world
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>hello-world</code> is refreshed or reported as already current.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Hold hello-world refreshes for 24 hours.</span>
 sudo<span class="w"> </span>snap<span class="w"> </span>refresh<span class="w"> </span>--hold<span class="o">=</span>24h<span class="w"> </span>hello-world
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A message confirms a refresh hold for <code>hello-world</code>; the expiry time varies.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the hello-world refresh hold.</span>
 sudo<span class="w"> </span>snap<span class="w"> </span>refresh<span class="w"> </span>--unhold<span class="w"> </span>hello-world
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>A message confirms the hold was removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the hello-world snap.</span>
 sudo<span class="w"> </span>snap<span class="w"> </span>remove<span class="w"> </span>hello-world
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>hello-world</code> is removed.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
