@@ -1,0 +1,49 @@
+site_name: Canonical Ubuntu Basic
+site_description: Training documentation for Ubuntu Server fundamentals.
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+nav:
+  - "⏳ Home": index.md
+  - "⏳ 1. What is Ubuntu": what-is-ubuntu.md
+  - "⏳ 2. CLI Environment": cli-environment.md
+  - "⏳ 3. Linux Filesystem Hierarchy": linux-filesystem-hierarchy.md
+  - "⏳ 4. Identity and Ownership": identity-and-ownership.md
+  - "⏳ 5. Logging and Initialization": logging-and-initialization.md
+  - "⏳ 6. Storage": storage.md
+  - "⏳ 7. Networking": networking.md
+  - "⏳ 8. Process Management": process-management.md
+  - "⏳ 9. Backup and Recovery": backup-and-recovery.md
+  - "⏳ 10. Software Management": software-management.md
+  - "📄 Networking Appendix": networking-appendix.md
+  - "📄 Prerequisites": prerequisites.md
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - codehilite
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+      title: On this page
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search
