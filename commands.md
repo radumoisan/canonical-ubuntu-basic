@@ -862,3 +862,35 @@ dig ubuntu.com
 ```bash
 dig www.google.com
 ```
+
+## Chapter 8: Process Management
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+ps -ef
+```
+
+```bash
+ps -C sshd
+```
+
+```bash
+top -s
+```
+
+```bash
+top
+```
+
+```bash
+ps -ef | grep ubuntu
+```
+
+```bash
+jobs -l
+```
+
+```bash
+htop
+```

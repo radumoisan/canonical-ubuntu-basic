@@ -4,7 +4,7 @@
     Define the Linux Filesystem Hierarchy Standard, explain the Ubuntu filesystem hierarchy, and identify Linux file types.
 
 !!! note
-    All actionable Chapter 3 commands were validated on the LAB HOST. Directory and device listings vary with host state.
+    The shown results were captured on the prior `LABVM` and are historical only. The replacement `LABVM` requires revalidation; directory and device listings vary by `LABVM` state.
 
 ## :material-book-open-page-variant-outline: 3.1 The Filesystem Hierarchy Standard
 
@@ -181,7 +181,7 @@ ls lib
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LAB HOST; installed packages affect this listing:
+    Literal excerpt from this LABVM; installed packages affect this listing:
 
     ```text
     apparmor
@@ -295,6 +295,14 @@ sudo apt install tree -y
     ```
 
 ```bash
+# Remove downloaded package archives while retaining installed packages.
+sudo apt clean
+```
+
+??? example "Expected result"
+    Validation pending; no captured output is available.
+
+```bash
 # Change to the current user's home directory.
 cd ~
 ```
@@ -308,7 +316,7 @@ tree
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LAB HOST. The full listing contained 13,576 lines and varies with home-directory contents:
+    Literal excerpt from this LABVM. The full listing contained 13,576 lines and varies with home-directory contents:
 
     ```text
     .
@@ -369,7 +377,7 @@ tree -L 2 /
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LAB HOST. The full listing contained 696 lines and varies with installed kernels and host state:
+    Literal excerpt from this LABVM. The full listing contained 696 lines and varies with installed kernels and LABVM state:
 
     ```text
     /
@@ -484,7 +492,7 @@ ls -l /dev/
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LAB HOST; device entries and timestamps vary by host state:
+    Literal excerpt from this LABVM; device entries and timestamps vary by LABVM state:
 
     ```text
     total 0

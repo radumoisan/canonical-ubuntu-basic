@@ -2,29 +2,21 @@
 
 ## :material-book-open-page-variant-outline: BofA Lab Assignment
 
-### :material-application-edit-outline: Validated Outer Host
+### :material-application-edit-outline: Replacement Assignment
 
-- Validation date: 2026-08-24.
-- Hostname: `radumoisan.cloudbase.internal`.
-- Role: GCP nested-virtualization/libvirt host.
-- Public IP: `34.159.241.17`.
-- Machine type and zone: `n2-standard-4`, `europe-west3-a`.
-- Operating system and kernel: Ubuntu `22.04.5 LTS` (`jammy`), `6.8.0-1066-gcp`.
-- Resources: 4 vCPUs and `16,767,156,224` bytes of memory (approximately 16 GB).
-- Root storage: `/dev/sda1` on `/dev/sda`; `PersistentDisk`, `42,949,672,960` bytes (40 GiB), `ROTA=0`.
-- GCP disk tier: not verifiable from local evidence.
-- KVM: `/dev/kvm` exists, KVM acceleration is confirmed, and `kvm_intel` is loaded.
-- Libvirt: `libvirtd` is active and enabled; libvirt and `virsh` are `8.0.0`.
-- Tools: QEMU `6.2.0`, `virt-install` `4.0.0`, `bridge-utils` `1.7`, and `sshpass` `1.09`; functional QEMU/KVM packages are installed.
-- Variance: `qemu-kvm` is absent. `virtqemud.service` is absent because monolithic `libvirtd` is active.
+- Replacement deployment date: 2026-08-25.
+- Role: `LABHOST`, the GCE nested-virtualization/libvirt host.
+- LABHOST SSH: key-based SSH was confirmed.
+- LABHOST operating system: Ubuntu `22.04.5 LTS`.
+- LABHOST capacity: 4 vCPUs, approximately 15 GiB memory, and 34 GiB free on the 39 GiB root filesystem.
+- LABHOST storage: non-rotational 40 GiB `PersistentDisk`; root is on `sda1`.
+- Virtualization: `/dev/kvm` is present, `kvm_intel` is loaded, and `libvirtd` is active and enabled.
+- System libvirt: the persistent `cloud` network is active and autostarted; the persistent `ubuntu` domain is running and autostarted with 2 vCPUs and 4 GiB memory.
+- LABVM endpoint: the running private LABVM is reachable; neither the system-libvirt guest-agent nor DHCP-lease source reported an address.
+- LABVM SSH: the public key was rejected. The course password remains required for the documented tutorial connection and was not tested by this task. LABVM operating-system, capacity, disk, free-space, outbound-connectivity, and `at` checks remain unvalidated.
+- Package-installation viability: not determined because LABVM root capacity could not be inspected.
 
-### :material-application-edit-outline: Nested Guest `ubuntu`
+### :material-application-edit-outline: Superseded Environment History
 
-- Validation date: 2026-08-24.
-- System-libvirt network: `cloud` uses NAT with `192.168.100.0/24` (`192.168.100.1` netmask `255.255.255.0`); it is active, persistent, and autostarted.
-- System-libvirt domain: `ubuntu` is active/running, persistent, and autostarted.
-- Guest address: `192.168.100.4`, confirmed by successful SSH as `ubuntu`. `domifaddr --source lease` returned no lease entry during validation.
-- Resources: 2 vCPUs; `4194304 KiB` maximum and used memory (4 GiB).
-- Guest operating system: Ubuntu `24.04.2 LTS`.
-- Disks: `vda` maps to `noble-server-cloudimg-amd64.img` and reports 3.5G; `vdb` and `vdc` map to `ubuntu-disk1.raw` and `ubuntu-disk2.raw` and each report 10G with no partitions.
-- Guest outbound DNS and ICMP connectivity: validated with three successful replies to `ubuntu.com` and 0% packet loss.
+- The 2026-08-24 `LABHOST` and `LABVM` validation records are superseded by the replacement deployment.
+- The prior `LABVM` captured chapter output must not be treated as validation evidence for the replacement `LABHOST` or `LABVM`.

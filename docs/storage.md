@@ -1,7 +1,7 @@
 # 6. Storage
 
 !!! note
-    Structured from the source material. Command validation is pending.
+    Structured from the source material. Command validation is pending; the shown environment-specific result was captured on the prior `LABVM` and is historical only. The replacement `LABVM` requires revalidation.
 
 !!! abstract
     Partition block devices, create and mount ext4 filesystems, and use LVM.
@@ -45,7 +45,7 @@ sudo fdisk -l
     Disk /dev/vdc: 10 GiB, 10737418240 bytes, 20971520 sectors
     Units: sectors of 1 * 512 = 512 bytes
     ```
-    The full listing also includes the LAB HOST system disk and its mounted partitions.
+    The full listing also includes the LABVM system disk and its mounted partitions.
 
 ```bash
 # Create a GPT table on vdb
@@ -197,7 +197,7 @@ sudo lsblk
     `-vdb1  253:17   0   10G  0 part
     vdc     253:32   0   10G  0 disk
     ```
-    The full listing also includes the LAB HOST system disk and its mounted partitions.
+    The full listing also includes the LABVM system disk and its mounted partitions.
 
 ```bash
 # Format vdb1 as ext4
@@ -261,7 +261,7 @@ sudo umount /dev/vdb1
 ??? example "Expected result"
     No output.
 
-The earlier command-line examples are reference syntax only. Do not apply their `/dev/vda3` or `/dev/vda4` examples to the LAB HOST system disk. The following LVM lab instead uses its dedicated 10 GB `/dev/vdb` and `/dev/vdc` devices.
+The earlier command-line examples are reference syntax only. Do not apply their `/dev/vda3` or `/dev/vda4` examples to the LABVM system disk. The following LVM lab instead uses its dedicated 10 GB `/dev/vdb` and `/dev/vdc` devices.
 
 ```bash
 # Find 10 GB block devices
@@ -348,7 +348,7 @@ sudo apt install -y lvm2
     Error in tempdir(): No space left on device
     debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: No space left on device
     ```
-    The LAB HOST had insufficient root-filesystem space for the package transaction to complete.
+    LABVM had insufficient root-filesystem space for the package transaction to complete.
 
 ```bash
 # Scan existing volume groups

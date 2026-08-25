@@ -3,6 +3,9 @@
 !!! abstract
     Inspect system logs, understand boot initialization, and manage systemd units.
 
+!!! note
+    The shown environment-specific results were captured on the prior `LABVM` and are historical only. The replacement `LABVM` requires revalidation.
+
 ## :material-book-open-page-variant-outline: 5.1 System Logging
 
 Logging records normal operation, state changes, diagnostics, kernel and network events, authentication, user actions, and exceptions. Logs are a first troubleshooting step and support security monitoring. Ubuntu commonly writes local logs under `/var/log/` through `rsyslogd`, including `/var/log/kern.log`, `/var/log/syslog`, and `/var/log/auth.log`. Systems can also send logs to a remote collector.
@@ -14,7 +17,7 @@ Search a log by source or severity:
 grep NetworkManager /var/log/syslog
 ```
 ??? example "Expected result"
-    No output. The command returned exit status 1 because this LAB HOST has no matching `NetworkManager` entries.
+    No output. The command returned exit status 1 because this LABVM has no matching `NetworkManager` entries.
 
 ```bash
 # Search syslog for errors without case sensitivity
@@ -61,7 +64,7 @@ The main configuration is `/etc/logrotate.conf`. Its options and the example con
 cat /var/lib/logrotate/status
 ```
 ??? example "Expected result"
-    No standard output. This LAB HOST returned exit status 1 because the status file is absent.
+    No standard output. This LABVM returned exit status 1 because the status file is absent.
 
 ```bash
 # Force verbose log rotation for troubleshooting
@@ -85,7 +88,7 @@ dmesg
     dmesg: read kernel buffer failed: Operation not permitted
     ```
 
-    This LAB HOST restricts unprivileged kernel-ring-buffer access.
+    This LABVM restricts unprivileged kernel-ring-buffer access.
 
 ```bash
 # Page through kernel messages

@@ -4,19 +4,9 @@
     Differentiate Ubuntu flavours, explain the release cycle and naming convention, and describe the LTS maintenance cycle.
 
 !!! note
-    Commands in this chapter were validated on the LAB HOST on 2026-08-24.
+    The shown results were captured on the prior `LABVM` on 2026-08-24 and are historical only. The replacement `LABVM` requires revalidation.
 
-Connect to the `STUDENT HOST` using the public IP and credentials provided for the lab. Then connect to the `LAB HOST` to run the commands in subsequent chapters.
-
-```bash
-# Connect to the lab host.
-ssh ubuntu@192.168.100.4
-```
-
-??? example "Expected result"
-    Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-53-generic x86_64)
-
-    Welcome text and the shell prompt can differ between lab sessions. Authentication prompts are not shown.
+Follow the two-hop connection steps in [Prerequisites](prerequisites.md): connect from your local computer to `LABHOST`, then connect from `LABHOST` to `LABVM`. Run this chapter's commands on `LABVM`.
 
 ## :material-book-open-page-variant-outline: 1.1 What Is Linux?
 

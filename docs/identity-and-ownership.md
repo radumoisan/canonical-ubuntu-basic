@@ -3,6 +3,9 @@
 !!! abstract
     Manage users, groups, privilege delegation, ownership, and permissions.
 
+!!! note
+    The shown environment-specific results were captured on the prior `LABVM` and are historical only. The replacement `LABVM` requires revalidation.
+
 ## :material-book-open-page-variant-outline: 4.1 User Management
 
 User accounts control access through a login name, password, permissions, and logging. Account records are stored in `/etc/passwd` and `/etc/shadow`; password hashes cannot be read as passwords.
@@ -39,7 +42,7 @@ sudo addgroup students
 ??? example "Expected result"
     `info: Adding group 'students' (GID 1001) ...`
 
-    The numeric GID is assigned by the LAB HOST and can differ.
+    The numeric GID is assigned by LABVM and can differ.
 
 ```bash
 # Verify the group entry
@@ -133,7 +136,7 @@ sudo userdel -r labuser
 ??? example "Expected result"
     `userdel: labuser mail spool (/var/mail/labuser) not found`
 
-    The account and home directory were removed; this LAB HOST had no mail spool for the user.
+    The account and home directory were removed; this LABVM had no mail spool for the user.
 
 ```bash
 # Start a root login shell

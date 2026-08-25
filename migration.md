@@ -2,10 +2,10 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapters 1 through 7 complete.
-- Active target: Chapter 8.
-- Next action: Prepare Chapter 8 for validation.
-- Two-layer student-environment readiness checks and Chapter 1 source commands are validated; no MkDocs build has been run.
+- Current phase: Replacement-environment readiness is partially blocked; Chapters 1 through 8 require revalidation.
+- Active target: Replacement `LABHOST` and `LABVM` readiness validation.
+- Next action: New `LABVM` access/authentication blocks revalidation; resolve it, validate the remaining nested checks, then restart command-by-command validation at Chapter 1.
+- The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
 
@@ -24,14 +24,14 @@
 | Home | Complete |
 | Prerequisites | Complete (validated two-layer student environment/readiness checks; not chapter validation) |
 | Networking Appendix | Complete |
-| 1. What is Ubuntu | Complete |
-| 2. CLI Environment | Complete |
-| 3. Linux Filesystem Hierarchy | Complete |
-| 4. Identity and Ownership | Complete |
-| 5. Logging and Initialization | Complete |
-| 6. Storage | Complete |
-| 7. Networking | Complete |
-| 8. Process Management | Ready for validation |
+| 1. What is Ubuntu | Ready for validation (replacement environment) |
+| 2. CLI Environment | Ready for validation (replacement environment) |
+| 3. Linux Filesystem Hierarchy | Ready for validation (replacement environment) |
+| 4. Identity and Ownership | Ready for validation (replacement environment) |
+| 5. Logging and Initialization | Ready for validation (replacement environment) |
+| 6. Storage | Ready for validation (replacement environment) |
+| 7. Networking | Ready for validation (replacement environment) |
+| 8. Process Management | Ready for validation (replacement environment) |
 | 9. Backup and Recovery | Structured |
 | 10. Software Management | Structured |
 
@@ -39,20 +39,20 @@
 
 | Chapter | Source subsections | Status |
 | --- | --- | --- |
-| 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Complete (all source commands validated; `/etc/lsb-release` is present on this LAB HOST, so no portability correction was needed; Ubuntu 23.10 date corrected) |
-| 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Complete |
-| 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Complete (all actionable source commands validated) |
-| 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete |
-| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Complete |
-| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Complete |
-| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Complete |
-| 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Ready for validation |
+| 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Ready for validation (replacement environment; prior results superseded) |
+| 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Ready for validation (replacement environment; prior results superseded) |
+| 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Ready for validation (replacement environment; prior results superseded) |
+| 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Ready for validation (replacement environment; prior results superseded) |
+| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Ready for validation (replacement environment; prior results superseded) |
+| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Ready for validation (replacement environment; prior results superseded) |
+| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Ready for validation (replacement environment; prior results superseded) |
+| 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Ready for validation (replacement environment; prior results superseded; `at` status is unvalidated) |
 | 9. Backup and Recovery | 9.1 Using Archiving and Compression Utilities; 9.2 Tar archiving; 9.3 Using rsync; 9.4 Backup and Recovery Lab | Structured |
 | 10. Software Management | 10.1 Debian Package Management; 10.2 Advanced Package Tool (Apt); 10.3 Snappy Package Management; 10.3.1 Software Management Lab | Structured |
 
 ## :material-book-open-page-variant-outline: Open Findings
 
-- 2026-08-24: Explicit `qemu:///system` validation found the `cloud` NAT network active and autostarted on `192.168.100.0/24`, and the `ubuntu` domain running and autostarted. Guest SSH at `192.168.100.4`, resources, disks, operating system, and outbound DNS/ICMP connectivity are validated.
+- 2026-08-24: The prior environment's system-libvirt `cloud` network and `ubuntu` domain were active and autostarted. This history is superseded and is not replacement-environment evidence.
 - 2026-08-24: GCP disk tier cannot be verified from the available local evidence.
 - 2026-08-24: Package and service variance is confirmed: `qemu-kvm` and `virtqemud.service` are absent while functional QEMU/KVM packages and active monolithic `libvirtd` are present.
 - 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to the standardized pre-validation notice, including source-provided fixtures, because no commands had been executed.
@@ -67,9 +67,12 @@
 - 2026-08-25: Chapter 4 validation confirmed that the source `umask 000 filename` and `umask 077 filename` forms do not apply a mask to the named file. The derived page uses the valid mask-only forms. The documented `labuser`, `students`, `file01.txt`, `file02.txt`, `test01`, and `test02` fixtures were removed after validation.
 - 2026-08-25: Chapter 6 validation reclassifies raw fstab lines, the uncreated `/dev/vdb2` example, generic LVM syntax, and unsafe `/dev/vda3` and `/dev/vda4` examples as reference content. The fstab edit is also reference guidance: it must be validated with `mount -a` before reboot, but no `/dev/vdb1` entry is retained because the sequential LVM lab wipes and repurposes `/dev/vdb`.
 - 2026-08-25: The source `dd` commands zeroed the complete authorized 10 GiB `/dev/vdb` and `/dev/vdc` devices but ended with the expected end-of-device write error; they are documented but excluded from the successful-command record. The `lvm2` package transaction could not complete because the LAB HOST root filesystem was full, but installed LVM commands remained functional and the documented LVM workflow completed.
-- 2026-08-25: Chapter 7 validation identified `ens2` as the active LAB HOST management interface and did not change its addressing, MAC address, link state, speed, ring settings, offloads, or VLAN configuration. Address and VLAN mutation teaching was safely substituted with a temporary `labdummy0` interface and `198.18.0.0/24` test address; all temporary state was removed.
+- 2026-08-25: Chapter 7 validation identified `ens2` as the active LAB HOST management interface and did not change its addressing, MAC address, link state, speed, ring settings, offloads, or VLAN configuration. Address and VLAN mutation teaching was safely substituted with a temporary `labdummy0` interface and documentation-range test subnet; all temporary state was removed.
 - 2026-08-25: Chapter 7 reclassifies source placeholders, generic and topology-specific probes, unbounded diagnostics, unsupported `ens20`, raw standalone netcat commands, and management-interface mutations as beginner reference guidance. `ethtool` was already installed; the exact documented traceroute installation command succeeded on retry and remains installed. The first traceroute installation attempt installed the package but encountered a post-install no-space warning, so it is not recorded.
 - 2026-08-25: The Networking Appendix is complete. Its IP-address definition now covers IPv4 and IPv6, its network-address example requires a prefix length, and its Ubuntu 24.04 Netplan guidance correctly describes `/etc/netplan/` filename variability and cloud-init regeneration.
+- 2026-08-25: Chapter 8 validation is blocked. The exact `sudo apt install at -y` command failed with `No space left on device`; root had 55 MiB available (98% used) after the attempt. `ubuntu` is also denied both `at` and `atq`, so a harmless one-time job cannot be submitted or inspected. No cleanup, disk, service, or authorization change was made to work around either restriction.
+- 2026-08-25: Replacement deployment readiness validation confirmed outer SSH, Ubuntu 22.04.5, 4 vCPUs, approximately 15 GiB memory, a non-rotational 40 GiB root disk with 34 GiB free, `/dev/kvm`, loaded `kvm_intel`, active/enabled `libvirtd`, and active/autostarted system-libvirt `cloud` network and running/autostarted `ubuntu` domain. System-libvirt agent and DHCP-lease sources did not report a guest address. The documented LAB HOST endpoint was reachable but rejected the inventory-approved credential. Nested OS, CPU/memory, block devices, root free space, outbound DNS/ICMP, and `at`/`atq` checks remain unvalidated; source package-installation viability cannot be determined.
+- 2026-08-25: Chapters 1 through 8 are reset to Ready for validation on the replacement environment. Student-facing Chapter 1 through 8 expected-result bodies still contain prior-environment captures and require a separate documented content reset; they were not mass-replaced during readiness validation.
 
 ## :material-book-open-page-variant-outline: Session Log
 
@@ -90,7 +93,7 @@
 - Initial default-URI nested checks were superseded by the explicit system-URI validation recorded below.
 - No source training commands or MkDocs build were run.
 - Narrowed the Prerequisites page to the validated outer initial state shared by students. BofA-specific and nested-environment findings remain internal in this tracker and `playground.md`.
-- Readiness validation queried `qemu:///system`: `cloud` is an active/autostarted NAT network on `192.168.100.0/24`, and `ubuntu` is an active/running/autostarted domain. The guest address was confirmed by SSH at `192.168.100.4`; the lease query returned no entry.
+- Readiness validation queried `qemu:///system`: `cloud` is an active/autostarted NAT network, and `ubuntu` is an active/running/autostarted domain. The guest address was confirmed by SSH; the lease query returned no entry.
 - Successfully ran the beginner readiness set: outer `lsb_release -d` and `lsblk`; guest `lsb_release -d`, `nproc`, `free -h`, `lsblk`, and `ping -c 3 ubuntu.com`. The Prerequisites page now contains their captured basic checks.
 - Chapter 1 is ready for command-by-command validation on the LAB HOST.
 - Validated all five Chapter 1 source commands on the LAB HOST with exit status 0: interactive SSH, `cat /etc/os-release`, `cat /etc/lsb-release`, `uname -a`, and `cat /proc/version_signature`.
@@ -99,6 +102,8 @@
 
 ### :material-application-edit-outline: 2026-08-25
 
+- Defined `LABHOST` as the assigned GCP VM and `LABVM` as the nested student VM. Normalized student-facing validation notes so prior-environment captures are historical and the replacement `LABVM` requires revalidation; no replacement-`LABVM` validation was performed.
+- Defined canonical student-facing terminology: `LABHOST` is the assigned GCP VM reached from the learner's local computer with configured SSH keys, and `LABVM` is the nested internal VM reached from LABHOST. Normalized student-facing derived documentation so all chapter exercises run on LABVM; the first `exit` returns to LABHOST and the second returns to the local machine.
 - Resumed Chapter 2 validation through the assigned outer host as `ubuntu` and the LAB HOST using the confirmed source credential. The prior `radu` connection attempt was an execution error, not a lab-environment blocker.
 - Validated the pending shell-variable subshell sequence: unexported `x` is empty in a child shell, while exported `x` retains value `5`; both `exit` commands and the `export` assignment produce no output.
 - Completed Chapter 2 command validation. Derived-document corrections were validated for `ls my*`, the single `TERM` assignment, `date +%A`, and `/tmp`; standalone parameter tokens and high-volume glob demonstrations were retained as reference syntax.
@@ -120,3 +125,12 @@
 - Reclassified fstab configuration and unsafe or uncreated-device examples as reference content. Chapter 7 is ready for validation; no MkDocs build was run.
 - Completed Chapter 7 validation on the assigned LAB HOST. Management-interface configuration and outer-host/libvirt networking were not changed. Read-only `ip`, route, neighbour, `ethtool`, resolver, ping, traceroute, MTR, DNS, and local netcat checks were bounded; MTR and netcat used a PTY, and the netcat listener was closed normally.
 - Replaced unsafe `ens2` mutations with a validated temporary dummy-interface exercise, then deleted the dummy interface and test state. Reclassified unsupported, generic, environment-specific, unbounded, and active-management examples as reference guidance. Corrected the validated appendix IPv4/IP-prefix and Netplan facts. Chapter 8 is ready for validation; no MkDocs build was run.
+- Started Chapter 8 validation on the assigned LAB HOST. Captured `ps`, `top`, process priority, job-control, cron-editor, cron, and `htop` results. `top`, `nano`, `crontab -e`, and `htop` were captured in PTYs and exited normally.
+- Replaced generic syntax, placeholder PIDs, destructive cron/at examples, and the SSH-daemon priority/kill exercise with reference guidance or safe disposable-process equivalents. Every validation loop was stopped with `SIGTERM`; the owned disposable `sleep` process was the only `SIGKILL` target. No loop remains running.
+- Installed and removed only a validation-created crontab entry for `/home/ubuntu/chapter8-validation/cron-ran`; it executed successfully and the original empty crontab was restored. No `at` job was created. The isolated Chapter 8 files are retained as documented.
+- The exact source `sudo apt install at -y` failed because the LAB HOST was out of space. `at`/`atq` are additionally denied to `ubuntu`; the source `sudo apt install -y htop` was not retried. Chapter 8 remains Blocked and Chapter 9 remains Structured. No MkDocs build was run.
+- Added the Chapter 3 student-facing `sudo apt clean` cache cleanup immediately after `tree` installation to prevent cache buildup before later package operations; its result remains pending replacement-environment validation.
+- Replacement deployment date: 2026-08-25. Performed read-only readiness validation only; no package, training, cleanup, service, network, disk, libvirt-configuration, MkDocs, or Git operations were run.
+- Confirmed the replacement outer host is ready for nested virtualization and has sufficient observed outer-root capacity. The replacement LAB HOST could not be authenticated with the inventory-approved credential, so its capacity, package-installation viability, and `at` availability/authorization are blocked pending corrected access.
+- Preserved the prior environment as superseded history in `playground.md`; removed sensitive addressing from the current inventory and prerequisites records.
+- Reset Chapter 1 through 8 navigation markers and migration statuses to require replacement-environment revalidation. Chapter 9 and 10 states remain Structured. Prerequisites nested command results are pending because they could not be observed on the replacement LAB HOST.
