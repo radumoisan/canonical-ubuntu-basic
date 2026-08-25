@@ -22,7 +22,7 @@
     
     
       
-        <title>⏳ 5. Logging and Initialization - Canonical Ubuntu Basic</title>
+        <title>📋 5. Logging and Initialization - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⏳ 5. Logging and Initialization
+              📋 5. Logging and Initialization
             
           </span>
         </div>
@@ -326,7 +326,7 @@
           
   
   <span class="md-ellipsis">
-    ⏳ 5. Logging and Initialization
+    📋 5. Logging and Initialization
   </span>
   
 
@@ -337,7 +337,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 5. Logging and Initialization
+    📋 5. Logging and Initialization
   </span>
   
 
@@ -550,10 +550,6 @@
 
 
 <h1 id="5-logging-and-initialization">5. Logging and Initialization<a class="headerlink" href="#5-logging-and-initialization" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Structured from the source material. Command validation is pending.</p>
-</div>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
 <p>Inspect system logs, understand boot initialization, and manage systemd units.</p>
@@ -566,196 +562,211 @@ grep<span class="w"> </span>NetworkManager<span class="w"> </span>/var/log/syslo
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output. The command returned exit status 1 because this LAB HOST has no matching <code>NetworkManager</code> entries.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search syslog for errors without case sensitivity</span>
 grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>2026-08-25T06:14:48.439692+00:00 ubuntu apt.systemd.daily[6738]: OSError: [Errno 28] No space left on device
+</code></pre></div>
+<p>This is a safe literal excerpt; log contents are host-state-dependent.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List per-application logrotate rules</span>
 ls<span class="w"> </span>/etc/logrotate.d/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>alternatives
+apport
+apt
+bootlog
+btmp
+cloud-init
+dpkg
+rsyslog
+ubuntu-pro-client
+ufw
+unattended-upgrades
+wtmp
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run log rotation using the main configuration</span>
 sudo<span class="w"> </span>logrotate<span class="w"> </span>/etc/logrotate.conf
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
-<div class="highlight"><pre><span></span><code><span class="c1"># Inspect the main logrotate configuration</span>
-cat<span class="w"> </span>/etc/logrotate.conf
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
+<p>The main configuration is <code>/etc/logrotate.conf</code>. Its options and the example configuration in the source are reference material; configuration content is host-specific and is not presented as a command result.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect logrotate history</span>
 cat<span class="w"> </span>/var/lib/logrotate/status
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No standard output. This LAB HOST returned exit status 1 because the status file is absent.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Force verbose log rotation for troubleshooting</span>
 sudo<span class="w"> </span>logrotate<span class="w"> </span>-vf<span class="w"> </span>/etc/logrotate.conf
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>reading config file /etc/logrotate.conf
+including /etc/logrotate.d
+Handling 13 logs
+</code></pre></div>
+<p>Safe literal excerpt from the verbose run. Rotation completed successfully; per-log details are intentionally omitted because they may identify host activity.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display kernel messages</span>
 dmesg
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>dmesg: read kernel buffer failed: Operation not permitted
+</code></pre></div>
+<p>This LAB HOST restricts unprivileged kernel-ring-buffer access.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Page through kernel messages</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The pager opened and exited with no displayed messages because <code>dmesg</code> is restricted for this user. Press <code>q</code> to exit an interactive pager.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find vda device messages</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>vda
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output. The command returned exit status 1 because unprivileged <code>dmesg</code> access is restricted.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Save vda messages to a file</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vda<span class="w"> </span>&gt;<span class="w"> </span>vda.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No standard output. The command returned exit status 1 because unprivileged <code>dmesg</code> access is restricted; <code>vda.txt</code> was left in place as documented.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search syslog for errors</span>
 grep<span class="w"> </span>error<span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output. The newly rotated <code>syslog</code> had no lowercase <code>error</code> entries at validation time.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the first ten syslog lines</span>
 head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output. The newly rotated <code>syslog</code> was empty at validation time.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the last ten syslog lines</span>
 tail<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output. The newly rotated <code>syslog</code> was empty at validation time.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List available log files</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/var/log
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The command completed successfully. Log names, ownership, sizes, and timestamps are host-state-dependent and are not reproduced here.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List boot files</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/boot/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The command completed successfully. Kernel image and initrd filenames, sizes, and timestamps are host-state-dependent.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Read the systemctl manual</span>
 man<span class="w"> </span>systemctl
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The installed <code>systemctl</code> manual opened successfully in its pager. Press <code>q</code> to exit.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Stop the cron service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output. <code>cron</code> was active before this command and was restored after validation.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect stopped cron service status</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The service was inactive after the documented stop command. <code>systemctl status</code> returned exit status 3 for the inactive service.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start the cron service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect running cron service status</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>active
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List service units</span>
 systemctl<span class="w"> </span>list-units<span class="w"> </span>-t<span class="w"> </span>service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The command completed successfully; the service list is host-state-dependent.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show running SSH services</span>
 systemctl<span class="w"> </span>list-units<span class="w"> </span>-t<span class="w"> </span>service<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>ssh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The command completed successfully and found the active SSH service.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List failed units</span>
 systemctl<span class="w"> </span>--failed
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The command completed successfully. Failed-unit state is host-state-dependent.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Read the journalctl manual</span>
 man<span class="w"> </span>journalctl
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The installed <code>journalctl</code> manual opened successfully in its pager. Press <code>q</code> to exit.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Query the SSH journal</span>
 journalctl<span class="w"> </span>-u<span class="w"> </span>ssh.service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The command completed successfully. Journal entries can contain host and session data, so no log content is reproduced.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show SSH service properties</span>
 systemctl<span class="w"> </span>show<span class="w"> </span>ssh.service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>The command completed successfully. Service properties are host-state-dependent.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Restart the SSH service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output. The restart completed successfully; a separate post-restart SSH connection confirmed the service remained active.</p>
 </details>
 
 
