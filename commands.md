@@ -774,3 +774,91 @@ sudo mount /dev/ubuntu-vg/lvmdata /lvmdata
 ```bash
 df -h /lvmdata
 ```
+
+## Chapter 7: Networking
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+ip addr show dev ens2
+```
+
+```bash
+ip -s link show dev ens2
+```
+
+```bash
+ip link show
+```
+
+```bash
+ip -s -s link show ens2
+```
+
+```bash
+ip route show
+```
+
+```bash
+ip neigh show
+```
+
+```bash
+ip route get 8.8.8.8
+```
+
+```bash
+sudo apt install -y ethtool
+```
+
+```bash
+ethtool ens2
+```
+
+```bash
+ethtool -g ens2
+```
+
+```bash
+ethtool -i ens2
+```
+
+```bash
+ethtool -S ens2
+```
+
+```bash
+ethtool -k ens2
+```
+
+```bash
+ethtool -P ens2
+```
+
+```bash
+ping -c 3 ubuntu.com
+```
+
+```bash
+ping -c 3 -n ubuntu.com
+```
+
+```bash
+ping -w 2 canonical.com
+```
+
+```bash
+sudo apt install -y traceroute
+```
+
+```bash
+ping -c 4 www.google.com
+```
+
+```bash
+dig ubuntu.com
+```
+
+```bash
+dig www.google.com
+```

@@ -1,349 +1,250 @@
 # 7. Networking
 
-!!! note
-    Structured from the source material. Command validation is pending.
-
 !!! abstract
-    Inspect interfaces, use ethtool, and diagnose network connectivity.
+    Inspect interfaces, routes, Ethernet settings, and connectivity without disrupting the active connection.
 
 ## :material-book-open-page-variant-outline: 7.1 Basic Network Commands
 
-`ip` and `ethtool` inspect and modify basic network configuration. `ip` manages interfaces, addresses, routing, neighbours, and virtual devices. `ethtool` manages low-level device settings. Any user can usually inspect configuration, but only the superuser can modify it.
+`ip` inspects and modifies interface addresses, links, routes, neighbours, and virtual devices. Use it without `sudo` for inspection. Changes require `sudo` and can disconnect a remote system when applied to its management interface.
 
-`ip` subcommands include `address`, `neighbour`, `link`, and `route`. Options include `-4` for IPv4, `-6` for IPv6, `-s` for statistics, `-d` for extra detail, and `-r` to resolve host names.
-
-```bash
-# Show addresses for ens2
-ip addr show dev ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
+### :material-application-edit-outline: Inspect the current configuration
 
 ```bash
-# Add an address to ens2
-sudo ip addr add 10.1.2.3/16 dev ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Show link statistics for ens2
-ip -s link show dev ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Create VLAN 42 above ens2
-sudo ip link add dev vlan42 link ens2 type vlan id 42
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Change the ens2 MAC address
-sudo ip link set dev ens2 address 02:42:43:44:45:56
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# List network interfaces
+# List network interfaces.
 ip link show
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `state UP`. Interface names, MAC addresses, and link details vary by system.
 
 ```bash
-# Show ens2 addresses
-ip addr show ens2
+# Show addresses for the management interface.
+ip addr show dev ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `scope global ens2`. Address and MAC values vary by environment.
 
 ```bash
-# Add the lab address
-sudo ip addr add 10.1.2.3/15 dev ens2
+# Show basic link statistics for the management interface.
+ip -s link show dev ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `RX:  bytes packets errors dropped`. Counters change while the interface is in use.
 
 ```bash
-# Verify the additional address
-ip addr show ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Show basic ens2 statistics
-ip -s link show ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Show detailed ens2 statistics
+# Show detailed link statistics for the management interface.
 ip -s -s link show ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `RX errors:  length    crc   frame    fifo overrun`. Counter values vary.
 
 ```bash
-# Remove the lab address
-sudo ip addr delete 10.1.2.3/15 dev ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Show the routing table
+# Display the routing table.
 ip route show
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `default via`. Routes and addresses are environment-specific.
 
 ```bash
-# Show cached neighbour entries
+# Display cached neighbour entries.
 ip neigh show
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `REACHABLE`. Entries and link-layer addresses vary with recent traffic.
 
 ```bash
-# Show the route to 8.8.8.8
+# Show the route selected for a public address.
 ip route get 8.8.8.8
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `cache`. The selected source address and next hop vary by environment.
+
+### :material-application-edit-outline: Safe address and VLAN practice
+
+The source examples that add `10.1.2.3/16` or `10.1.2.3/15`, create `vlan42`, or change the MAC address on `ens2` are reference syntax. Do not use them on an active management interface. The validated lab equivalent used the disposable `labdummy0` interface and the private benchmarking range `198.18.0.0/24`; it was deleted after the exercise.
 
 ```bash
-# Show ens2 link settings
-ethtool ens2
+# Create a temporary dummy interface.
+sudo ip link add labdummy0 type dummy
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
-# Set ens2 link speed
-sudo ethtool -s ens2 speed 1000
+# Enable the temporary dummy interface.
+sudo ip link set labdummy0 up
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
-# Show ens2 ring sizes
-ethtool -g ens2
+# Add a temporary test address to the dummy interface.
+sudo ip addr add 198.18.0.1/24 dev labdummy0
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
-# Set the ens2 TX ring size
-sudo ethtool -G ens2 tx 1024
+# Verify the temporary test address.
+ip addr show dev labdummy0
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `inet 198.18.0.1/24 scope global labdummy0`.
 
 ```bash
-# Show ens2 driver information
-ethtool -i ens2
+# Create a temporary VLAN above the dummy interface.
+sudo ip link add dev labdummy42 link labdummy0 type vlan id 42
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
-# Show extended ens2 statistics
-ethtool -S ens2
+# Verify the temporary VLAN configuration.
+ip -d link show dev labdummy42
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `vlan protocol 802.1Q id 42`.
 
 ```bash
-# Show ens20 feature settings
-ethtool -k ens20
+# Delete the temporary VLAN.
+sudo ip link delete labdummy42
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
-# Enable generic receive offload on ens2
-ethtool -K ens2 gro on
+# Remove the temporary test address.
+sudo ip addr delete 198.18.0.1/24 dev labdummy0
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
-# Disable ens2
-sudo ifdown ens2
+# Delete the temporary dummy interface.
+sudo ip link delete labdummy0
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
+
+## :material-book-open-page-variant-outline: 7.2 ethtool Command
+
+`ethtool` displays or changes Ethernet link settings, ring buffers, driver information, statistics, and offload features. Virtual NICs can report limited hardware data.
 
 ```bash
-# Enable ens2
-sudo ifup ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Install ethtool
+# Install ethtool.
 sudo apt install -y ethtool
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `ethtool is already the newest version`.
 
 ```bash
-# Show ens2 hardware information
+# Show link settings for the management interface.
 ethtool ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `Link detected: yes`. A virtual NIC may report `Speed: Unknown!` and a netlink permission warning.
 
 ```bash
-# Show ens2 driver information
+# Show ring-buffer sizes for the management interface.
+ethtool -g ens2
+```
+??? example "Expected result"
+    Literal excerpt: `Current hardware settings:`. Available sizes are driver-specific.
+
+```bash
+# Show driver information for the management interface.
 ethtool -i ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `driver: virtio_net`. Driver and bus information vary by system.
 
 ```bash
-# Show ens2 statistics
+# Show extended interface statistics.
 ethtool -S ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `rx_queue_0_drops: 0`. Statistic names and values vary by driver and traffic.
 
 ```bash
-# Show ens2 features
+# Show current interface features.
 ethtool -k ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `generic-receive-offload: on`. Feature availability varies by driver.
 
 ```bash
-# Show the permanent ens2 MAC address
+# Show the permanent hardware address.
 ethtool -P ens2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `Permanent address:`. The address is intentionally omitted because it is environment-specific.
+
+The source `ens20` feature example is unsupported in this lab and is reference syntax; substitute the interface selected on the target system. The source commands that set speed, change TX ring size, toggle GRO, or use `ifdown`/`ifup` are also reference syntax. Schedule those changes locally during an approved maintenance window; never apply them to an active management interface.
+
+## :material-book-open-page-variant-outline: 7.3 Network Troubleshooting Commands
+
+`ping` tests ICMP reachability, `traceroute` shows hops, `mtr` combines route and loss information, `nc` tests TCP or UDP connectivity, and `dig` queries DNS. ICMP and trace probes can be filtered by networks or firewalls.
 
 ```bash
-# Ping a host by address
-ping 10.0.1.98
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Ping a host by name
-ping www.google.com
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Ping canonical.com
-ping canonical.com
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Send three pings to ubuntu.com
+# Send three pings to ubuntu.com.
 ping -c 3 ubuntu.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `3 packets transmitted, 3 received, 0% packet loss`. Resolved addresses and timings vary.
 
 ```bash
-# Send numeric-only pings to ubuntu.com
+# Send numeric-only pings to ubuntu.com.
 ping -c 3 -n ubuntu.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `3 packets transmitted, 3 received, 0% packet loss`. Numeric addresses and timings vary.
 
 ```bash
-# Limit ping runtime to canonical.com
+# Limit ping runtime to canonical.com.
 ping -w 2 canonical.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `2 packets transmitted, 2 received, 0% packet loss`. Results vary.
 
 ```bash
-# Trace the route to google.com
-traceroute google.com
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Trace the route to ubuntu.com continuously
-mtr ubuntu.com
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Listen with netcat on port 2389
-nc -l 2389
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Connect to the local netcat listener
-nc localhost 2389
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Query DNS for ubuntu.com
+# Query DNS for ubuntu.com.
 dig ubuntu.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `status: NOERROR`. Answer records, TTLs, resolver, and query time vary.
 
 ```bash
-# Install traceroute
+# Install traceroute.
 sudo apt install -y traceroute
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `traceroute is already the newest version`.
 
 ```bash
-# Send four pings to Google
+# Send four pings to Google.
 ping -c 4 www.google.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `4 packets transmitted, 4 received, 0% packet loss`. Resolved addresses and timings vary.
 
 ```bash
-# Trace the path to Google
-traceroute www.google.com
+# Run a bounded numeric traceroute to Google.
+traceroute -n -m 3 -w 2 www.google.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `3 hops max, 60 byte packets`. Hop addresses and timeouts vary.
 
 ```bash
-# Run an MTR trace to Google
-mtr www.google.com
+# Run a bounded MTR report to Google.
+mtr -n -r -c 2 www.google.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `Loss%   Snt   Last   Avg`. A non-responding hop can display `???`; this alone does not prove packet loss.
 
 ```bash
-# Query Google DNS information
+# Query DNS for Google.
 dig www.google.com
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt: `status: NOERROR`. Answer records, TTLs, resolver, and query time vary.
 
-```bash
-# Check ens2 packet-drop statistics
-ethtool -S ens2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
+The unbounded source `ping`, `traceroute`, and `mtr` examples, the topology-specific `ping 10.0.1.98`, and standalone `nc` listener/client examples are reference syntax. Use explicit packet, hop, or cycle limits for diagnostics. A validated coordinated local `nc` test passed with no output and closed its listener normally; arrange that test locally rather than opening an unattended listener.

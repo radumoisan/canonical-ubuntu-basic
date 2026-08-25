@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapters 1 through 6 complete; Chapter 7 ready for validation.
-- Active target: Chapter 7.
-- Next action: Validate Chapter 7 command-by-command on the LAB HOST.
+- Current phase: Chapters 1 through 7 complete.
+- Active target: Chapter 8.
+- Next action: Prepare Chapter 8 for validation.
 - Two-layer student-environment readiness checks and Chapter 1 source commands are validated; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -23,15 +23,15 @@
 | --- | --- |
 | Home | Complete |
 | Prerequisites | Complete (validated two-layer student environment/readiness checks; not chapter validation) |
-| Networking Appendix | Structured |
+| Networking Appendix | Complete |
 | 1. What is Ubuntu | Complete |
 | 2. CLI Environment | Complete |
 | 3. Linux Filesystem Hierarchy | Complete |
 | 4. Identity and Ownership | Complete |
 | 5. Logging and Initialization | Complete |
 | 6. Storage | Complete |
-| 7. Networking | Ready for validation |
-| 8. Process Management | Structured |
+| 7. Networking | Complete |
+| 8. Process Management | Ready for validation |
 | 9. Backup and Recovery | Structured |
 | 10. Software Management | Structured |
 
@@ -45,8 +45,8 @@
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete |
 | 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Complete |
 | 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Complete |
-| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Ready for validation |
-| 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Structured |
+| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Complete |
+| 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Ready for validation |
 | 9. Backup and Recovery | 9.1 Using Archiving and Compression Utilities; 9.2 Tar archiving; 9.3 Using rsync; 9.4 Backup and Recovery Lab | Structured |
 | 10. Software Management | 10.1 Debian Package Management; 10.2 Advanced Package Tool (Apt); 10.3 Snappy Package Management; 10.3.1 Software Management Lab | Structured |
 
@@ -67,6 +67,9 @@
 - 2026-08-25: Chapter 4 validation confirmed that the source `umask 000 filename` and `umask 077 filename` forms do not apply a mask to the named file. The derived page uses the valid mask-only forms. The documented `labuser`, `students`, `file01.txt`, `file02.txt`, `test01`, and `test02` fixtures were removed after validation.
 - 2026-08-25: Chapter 6 validation reclassifies raw fstab lines, the uncreated `/dev/vdb2` example, generic LVM syntax, and unsafe `/dev/vda3` and `/dev/vda4` examples as reference content. The fstab edit is also reference guidance: it must be validated with `mount -a` before reboot, but no `/dev/vdb1` entry is retained because the sequential LVM lab wipes and repurposes `/dev/vdb`.
 - 2026-08-25: The source `dd` commands zeroed the complete authorized 10 GiB `/dev/vdb` and `/dev/vdc` devices but ended with the expected end-of-device write error; they are documented but excluded from the successful-command record. The `lvm2` package transaction could not complete because the LAB HOST root filesystem was full, but installed LVM commands remained functional and the documented LVM workflow completed.
+- 2026-08-25: Chapter 7 validation identified `ens2` as the active LAB HOST management interface and did not change its addressing, MAC address, link state, speed, ring settings, offloads, or VLAN configuration. Address and VLAN mutation teaching was safely substituted with a temporary `labdummy0` interface and `198.18.0.0/24` test address; all temporary state was removed.
+- 2026-08-25: Chapter 7 reclassifies source placeholders, generic and topology-specific probes, unbounded diagnostics, unsupported `ens20`, raw standalone netcat commands, and management-interface mutations as beginner reference guidance. `ethtool` was already installed; the exact documented traceroute installation command succeeded on retry and remains installed. The first traceroute installation attempt installed the package but encountered a post-install no-space warning, so it is not recorded.
+- 2026-08-25: The Networking Appendix is complete. Its IP-address definition now covers IPv4 and IPv6, its network-address example requires a prefix length, and its Ubuntu 24.04 Netplan guidance correctly describes `/etc/netplan/` filename variability and cloud-init regeneration.
 
 ## :material-book-open-page-variant-outline: Session Log
 
@@ -115,3 +118,5 @@
 - Completed Chapter 6 validation on the assigned LAB HOST. Every storage mutation was preceded by checks that restricted targets to the unmounted 10 GiB `/dev/vdb` and `/dev/vdc` devices; `/dev/vda` was not changed.
 - Captured literal output or faithful excerpts for partitioning, ext4, and LVM commands. The final documented state remains in place: `/dev/vdb1` and `/dev/vdc1` are physical volumes in `ubuntu-vg`, and ext4 `lvmdata` is mounted at `/lvmdata`.
 - Reclassified fstab configuration and unsafe or uncreated-device examples as reference content. Chapter 7 is ready for validation; no MkDocs build was run.
+- Completed Chapter 7 validation on the assigned LAB HOST. Management-interface configuration and outer-host/libvirt networking were not changed. Read-only `ip`, route, neighbour, `ethtool`, resolver, ping, traceroute, MTR, DNS, and local netcat checks were bounded; MTR and netcat used a PTY, and the netcat listener was closed normally.
+- Replaced unsafe `ens2` mutations with a validated temporary dummy-interface exercise, then deleted the dummy interface and test state. Reclassified unsupported, generic, environment-specific, unbounded, and active-management examples as reference guidance. Corrected the validated appendix IPv4/IP-prefix and Netplan facts. Chapter 8 is ready for validation; no MkDocs build was run.

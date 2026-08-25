@@ -1,7 +1,7 @@
 # Appendix: Networking
 
-!!! abstract "Pending validation"
-    This appendix is structured from the source material. Command validation is pending.
+!!! abstract
+    Reference concepts and Ubuntu 24.04 network configuration guidance.
 
 ## :material-book-open-page-variant-outline: Networking Concepts - TCP/IP
 
@@ -18,10 +18,10 @@ The common configuration elements of TCP/IP and their purposes are as follows:
 - The neighbour subsystem manages information and configuration for L2 (link layer) destinations.
 - Routing is the act of sending traffic originating on one subnet to a second subnet.
 - The routing layer manages information and configuration for L3 protocol forwarding. This allows L3 subnets to communicate with one another.
-- The IP address is a unique string comprised of 4 decimal numbers ranging from 0 (zero) to 255, separated by periods, with each of the four numbers representing 8 bits of the 32 bit address. This dotted quad notation is obtained through static assignment or dynamically via DHCP.
+- An IP address identifies an interface at the network layer. IPv4 addresses use four decimal octets from 0 to 255 (32 bits total), while IPv6 addresses use 128 bits written in colon-separated hexadecimal groups. Addresses can be assigned statically or dynamically, for example through DHCP.
 - A subnet (for this document) is the extent of the L3 (i.e., IPv4 or IPv6) network segment that delineates the set of destinations to which an IP datagram may be delivered without being routed.
 - The Subnet Mask (or netmask) is a local bit mask, or set of flags which separates the portions of an IP address significant to the network from the bits significant to the subnetwork. The standard netmask 255.255.255.0 masks the first 3 bytes and allows the last byte to remain available to specify hosts on the subnetwork.
-- The Network Address represents the bytes comprising the network portion of an IP address. The host 12.128.1.2 would use 12.0.0.0 as the network address, where 12 represents the first byte (the network part) and zeroes (0) in the remaining 3 bytes represent the potential host values.
+- The Network Address represents the address bits selected by the prefix length. For example, `12.128.1.2/8` has network address `12.0.0.0`; the prefix length is required to determine the network address.
 - Gateway is synonymous with router; it is responsible for the connection of two or more subnets by passing L3 protocol traffic between them.
 - The Broadcast Address is an IP address which allows network data to be sent simultaneously to all hosts on a given subnetwork rather than specifying a particular host. For example, on 192.168.1.0, the broadcast address is 192.168.1.255. Broadcast messages are typically produced by network protocols such as the Address Resolution Protocol (ARP) and the Routing Information Protocol (RIP).
 - A Gateway Address is the IP address through which a particular network, or host on a network, may be reached. If one network host wishes to communicate with another network host, and that host is not located on the same network, then a gateway must be used (ex. a router on the same network).
@@ -37,4 +37,4 @@ IP routing is a means of specifying and discovering paths in a TCP/IP network al
 
 ## :material-book-open-page-variant-outline: Network Configuration Files
 
-In Ubuntu 24.04, networking is managed by Netplan. The configuration file to manage the network interfaces is `/etc/netplan/50-cloud-init.yaml` on systems configured with cloud-init and `/etc/netplan/00-installer-config.yaml` or `/etc/netplan/01-netcfg.yaml` on systems installed via ISO media. Here you can configure static, dynamic routing and DNS options.
+In Ubuntu 24.04, Netplan reads YAML configuration files from `/etc/netplan/`. The filename is installation-specific: cloud-init commonly creates `50-cloud-init.yaml`, while an installer or administrator can use another `.yaml` filename. Cloud-init-managed configuration can be regenerated, so make persistent changes using the system's intended Netplan and cloud-init workflow. Netplan can configure addresses, routes, and DNS options.
