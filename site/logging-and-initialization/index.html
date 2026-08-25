@@ -22,7 +22,7 @@
     
     
       
-        <title>📋 5. Logging and Initialization - Canonical Ubuntu Basic</title>
+        <title>⏳ 5. Logging and Initialization - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              📋 5. Logging and Initialization
+              ⏳ 5. Logging and Initialization
             
           </span>
         </div>
@@ -237,7 +237,7 @@
         
   
   <span class="md-ellipsis">
-    📋 1. What is Ubuntu
+    ⏳ 1. What is Ubuntu
   </span>
   
 
@@ -257,7 +257,7 @@
         
   
   <span class="md-ellipsis">
-    📋 2. CLI Environment
+    ⏳ 2. CLI Environment
   </span>
   
 
@@ -277,7 +277,7 @@
         
   
   <span class="md-ellipsis">
-    📋 3. Linux Filesystem Hierarchy
+    ⏳ 3. Linux Filesystem Hierarchy
   </span>
   
 
@@ -297,7 +297,7 @@
         
   
   <span class="md-ellipsis">
-    📋 4. Identity and Ownership
+    ⏳ 4. Identity and Ownership
   </span>
   
 
@@ -326,7 +326,7 @@
           
   
   <span class="md-ellipsis">
-    📋 5. Logging and Initialization
+    ⏳ 5. Logging and Initialization
   </span>
   
 
@@ -337,7 +337,7 @@
         
   
   <span class="md-ellipsis">
-    📋 5. Logging and Initialization
+    ⏳ 5. Logging and Initialization
   </span>
   
 
@@ -388,7 +388,7 @@
         
   
   <span class="md-ellipsis">
-    📋 6. Storage
+    ⏳ 6. Storage
   </span>
   
 
@@ -408,7 +408,7 @@
         
   
   <span class="md-ellipsis">
-    📋 7. Networking
+    ⏳ 7. Networking
   </span>
   
 
@@ -554,6 +554,10 @@
 <p class="admonition-title">Abstract</p>
 <p>Inspect system logs, understand boot initialization, and manage systemd units.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The shown environment-specific results were captured on the prior <code>LABVM</code> and are historical only. The replacement <code>LABVM</code> requires revalidation.</p>
+</div>
 <h2 id="51-system-logging"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 5.1 System Logging<a class="headerlink" href="#51-system-logging" title="Permanent link">&para;</a></h2>
 <p>Logging records normal operation, state changes, diagnostics, kernel and network events, authentication, user actions, and exceptions. Logs are a first troubleshooting step and support security monitoring. Ubuntu commonly writes local logs under <code>/var/log/</code> through <code>rsyslogd</code>, including <code>/var/log/kern.log</code>, <code>/var/log/syslog</code>, and <code>/var/log/auth.log</code>. Systems can also send logs to a remote collector.</p>
 <p>Search a log by source or severity:</p>
@@ -562,7 +566,7 @@ grep<span class="w"> </span>NetworkManager<span class="w"> </span>/var/log/syslo
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The command returned exit status 1 because this LAB HOST has no matching <code>NetworkManager</code> entries.</p>
+<p>No output. The command returned exit status 1 because this LABVM has no matching <code>NetworkManager</code> entries.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search syslog for errors without case sensitivity</span>
 grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>/var/log/syslog
@@ -605,7 +609,7 @@ cat<span class="w"> </span>/var/lib/logrotate/status
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No standard output. This LAB HOST returned exit status 1 because the status file is absent.</p>
+<p>No standard output. This LABVM returned exit status 1 because the status file is absent.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Force verbose log rotation for troubleshooting</span>
 sudo<span class="w"> </span>logrotate<span class="w"> </span>-vf<span class="w"> </span>/etc/logrotate.conf
@@ -625,7 +629,7 @@ dmesg
 <summary>Expected result</summary>
 <div class="highlight"><pre><span></span><code>dmesg: read kernel buffer failed: Operation not permitted
 </code></pre></div>
-<p>This LAB HOST restricts unprivileged kernel-ring-buffer access.</p>
+<p>This LABVM restricts unprivileged kernel-ring-buffer access.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Page through kernel messages</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>less

@@ -22,7 +22,7 @@
     
     
       
-        <title>📋 6. Storage - Canonical Ubuntu Basic</title>
+        <title>⏳ 6. Storage - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              📋 6. Storage
+              ⏳ 6. Storage
             
           </span>
         </div>
@@ -237,7 +237,7 @@
         
   
   <span class="md-ellipsis">
-    📋 1. What is Ubuntu
+    ⏳ 1. What is Ubuntu
   </span>
   
 
@@ -257,7 +257,7 @@
         
   
   <span class="md-ellipsis">
-    📋 2. CLI Environment
+    ⏳ 2. CLI Environment
   </span>
   
 
@@ -277,7 +277,7 @@
         
   
   <span class="md-ellipsis">
-    📋 3. Linux Filesystem Hierarchy
+    ⏳ 3. Linux Filesystem Hierarchy
   </span>
   
 
@@ -297,7 +297,7 @@
         
   
   <span class="md-ellipsis">
-    📋 4. Identity and Ownership
+    ⏳ 4. Identity and Ownership
   </span>
   
 
@@ -317,7 +317,7 @@
         
   
   <span class="md-ellipsis">
-    📋 5. Logging and Initialization
+    ⏳ 5. Logging and Initialization
   </span>
   
 
@@ -346,7 +346,7 @@
           
   
   <span class="md-ellipsis">
-    📋 6. Storage
+    ⏳ 6. Storage
   </span>
   
 
@@ -357,7 +357,7 @@
         
   
   <span class="md-ellipsis">
-    📋 6. Storage
+    ⏳ 6. Storage
   </span>
   
 
@@ -423,7 +423,7 @@
         
   
   <span class="md-ellipsis">
-    📋 7. Networking
+    ⏳ 7. Networking
   </span>
   
 
@@ -582,7 +582,7 @@
 <h1 id="6-storage">6. Storage<a class="headerlink" href="#6-storage" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Structured from the source material. Command validation is pending.</p>
+<p>Structured from the source material. Command validation is pending; the shown environment-specific result was captured on the prior <code>LABVM</code> and is historical only. The replacement <code>LABVM</code> requires revalidation.</p>
 </div>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
@@ -622,7 +622,7 @@ Units: sectors of 1 * 512 = 512 bytes
 Disk /dev/vdc: 10 GiB, 10737418240 bytes, 20971520 sectors
 Units: sectors of 1 * 512 = 512 bytes
 </code></pre></div>
-The full listing also includes the LAB HOST system disk and its mounted partitions.</p>
+The full listing also includes the LABVM system disk and its mounted partitions.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a GPT table on vdb</span>
 sudo<span class="w"> </span>parted<span class="w"> </span>/dev/vdb<span class="w"> </span>mklabel<span class="w"> </span>gpt
@@ -761,7 +761,7 @@ sudo<span class="w"> </span>lsblk
 `-vdb1  253:17   0   10G  0 part
 vdc     253:32   0   10G  0 disk
 </code></pre></div>
-The full listing also includes the LAB HOST system disk and its mounted partitions.</p>
+The full listing also includes the LABVM system disk and its mounted partitions.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Format vdb1 as ext4</span>
 sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/vdb1
@@ -818,7 +818,7 @@ sudo<span class="w"> </span>umount<span class="w"> </span>/dev/vdb1
 <summary>Expected result</summary>
 <p>No output.</p>
 </details>
-<p>The earlier command-line examples are reference syntax only. Do not apply their <code>/dev/vda3</code> or <code>/dev/vda4</code> examples to the LAB HOST system disk. The following LVM lab instead uses its dedicated 10 GB <code>/dev/vdb</code> and <code>/dev/vdc</code> devices.</p>
+<p>The earlier command-line examples are reference syntax only. Do not apply their <code>/dev/vda3</code> or <code>/dev/vda4</code> examples to the LABVM system disk. The following LVM lab instead uses its dedicated 10 GB <code>/dev/vdb</code> and <code>/dev/vdc</code> devices.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find 10 GB block devices</span>
 sudo<span class="w"> </span>lsblk<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>-o<span class="w"> </span>name,size<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>10G
 </code></pre></div>
@@ -896,7 +896,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 Error in tempdir(): No space left on device
 debconf: DbDriver &quot;templatedb&quot;: could not write /var/cache/debconf/templates.dat-new: No space left on device
 </code></pre></div>
-The LAB HOST had insufficient root-filesystem space for the package transaction to complete.</p>
+LABVM had insufficient root-filesystem space for the package transaction to complete.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Scan existing volume groups</span>
 sudo<span class="w"> </span>vgscan
