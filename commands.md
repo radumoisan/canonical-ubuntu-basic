@@ -454,3 +454,107 @@ rmdir dirone/
 ```bash
 rm file1.txt
 ```
+
+## Chapter 4: Identity and Ownership
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+sudo addgroup students
+```
+
+```bash
+grep students /etc/group
+```
+
+```bash
+sudo adduser --ingroup students --disabled-password labuser
+```
+
+```bash
+grep labuser /etc/passwd
+```
+
+```bash
+sudo grep labuser /etc/shadow
+```
+
+```bash
+sudo passwd labuser
+```
+
+```bash
+sudo grep labuser /etc/shadow
+```
+
+```bash
+sudo adduser labuser sudo
+```
+
+```bash
+grep labuser /etc/group
+```
+
+```bash
+sudo su - labuser
+```
+
+```bash
+echo $HOME
+```
+
+```bash
+exit
+```
+
+```bash
+sudo userdel -r labuser
+```
+
+```bash
+sudo -i
+```
+
+```bash
+exit
+```
+
+```bash
+touch file01.txt
+```
+
+```bash
+mkdir test01
+```
+
+```bash
+ls -l
+```
+
+```bash
+umask 077
+```
+
+```bash
+touch file02.txt
+```
+
+```bash
+mkdir test02
+```
+
+```bash
+ls -l
+```
+
+```bash
+chmod 664 file02.txt
+```
+
+```bash
+chmod 775 test02
+```
+
+```bash
+ls -l
+```

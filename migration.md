@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapters 1 through 3 complete; Chapter 4 ready for validation.
-- Active target: Chapter 4.
-- Next action: Validate Chapter 4 command-by-command on the LAB HOST.
+- Current phase: Chapters 1 through 4 complete; Chapter 5 ready for validation.
+- Active target: Chapter 5.
+- Next action: Validate Chapter 5 command-by-command on the LAB HOST.
 - Two-layer student-environment readiness checks and Chapter 1 source commands are validated; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -27,8 +27,8 @@
 | 1. What is Ubuntu | Complete |
 | 2. CLI Environment | Complete |
 | 3. Linux Filesystem Hierarchy | Complete |
-| 4. Identity and Ownership | Ready for validation |
-| 5. Logging and Initialization | Structured |
+| 4. Identity and Ownership | Complete |
+| 5. Logging and Initialization | Ready for validation |
 | 6. Storage | Structured |
 | 7. Networking | Structured |
 | 8. Process Management | Structured |
@@ -42,8 +42,8 @@
 | 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Complete (all source commands validated; `/etc/lsb-release` is present on this LAB HOST, so no portability correction was needed; Ubuntu 23.10 date corrected) |
 | 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Complete |
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Complete (all actionable source commands validated) |
-| 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Structured |
-| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Structured |
+| 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete |
+| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Ready for validation |
 | 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Structured |
 | 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Structured |
 | 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Structured |
@@ -63,6 +63,8 @@
 - 2026-08-24: The source `visudo /etc/sudoers` syntax requires command validation before correction. It remains uncorrected in derived documentation because source validation is pending.
 - 2026-08-24: The Networking appendix IPv4-only IP-address definition requires factual validation before correction. It remains uncorrected in derived documentation because source validation is pending.
 - 2026-08-25: Chapter 3 validation confirmed Ubuntu's merged `/usr` root symlinks and an empty `/usr/games`; directory, device, package, kernel, and home-directory listings are host-state-dependent. No source-derived command or path correction was needed. `tree` was installed as documented and remains installed; the documented file-type fixtures were removed successfully.
+- 2026-08-25: Chapter 4 validation confirmed that `visudo /etc/sudoers` is interactive and cannot be used as a safe automated inspection. The derived page uses validated `sudo visudo -c`, which checks syntax without changing policy.
+- 2026-08-25: Chapter 4 validation confirmed that the source `umask 000 filename` and `umask 077 filename` forms do not apply a mask to the named file. The derived page uses the valid mask-only forms. The documented `labuser`, `students`, `file01.txt`, `file02.txt`, `test01`, and `test02` fixtures were removed after validation.
 
 ## :material-book-open-page-variant-outline: Session Log
 
@@ -100,3 +102,6 @@
 - Captured literal outputs or safe faithful excerpts for all actionable commands. Large `tree` output was captured temporarily: the home listing contained 13,576 lines and the root two-level listing contained 696 lines. Temporary captures were deleted.
 - Installed `tree` using the source command. The package transaction also completed pending kernel-package maintenance; no services, networks, disks, or lab configuration were changed by validation.
 - Recorded successful source-verbatim commands only, excluding generic/reference forms and duplicates. Chapter 4 is ready for validation; no MkDocs build was run.
+- Completed Chapter 4 validation through the assigned outer host and LAB HOST. Captured literal results and safe excerpts for user, group, sudo, shell-transition, umask, and permission commands; interactive password entry was not recorded.
+- Reclassified generic syntax, sudoers policy examples, placeholders, and sample IDs as reference content. Replaced the unsafe interactive sudoers exercise with `sudo visudo -c` and corrected the misleading `umask` forms.
+- Removed the documented Chapter 4 identities and fixtures after validation. Chapter 5 is ready for validation; no MkDocs build was run.
