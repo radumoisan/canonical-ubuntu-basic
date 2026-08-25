@@ -4,9 +4,21 @@
     Differentiate Ubuntu flavours, explain the release cycle and naming convention, and describe the LTS maintenance cycle.
 
 !!! note
-    The shown results were captured on the prior `LABVM` on 2026-08-24 and are historical only. The replacement `LABVM` requires revalidation.
+    The LABVM connection below was validated on the replacement environment. The later chapter results were captured on the prior `LABVM` on 2026-08-24 and are historical only; revalidate them on the replacement `LABVM`.
 
 Follow the two-hop connection steps in [Prerequisites](prerequisites.md): connect from your local computer to `LABHOST`, then connect from `LABHOST` to `LABVM`. Run this chapter's commands on `LABVM`.
+
+From `LABHOST`, run:
+
+```bash
+# password is: canonical_lab
+ssh ubuntu@192.168.100.4
+```
+
+??? example "Expected result"
+    ```shell
+    ubuntu@ubuntu:~$
+    ```
 
 ## :material-book-open-page-variant-outline: 1.1 What Is Linux?
 

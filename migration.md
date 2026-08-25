@@ -102,6 +102,7 @@
 
 ### :material-application-edit-outline: 2026-08-25
 
+- Restored the validated source-required LABVM password comment in Prerequisites and Chapter 1 so students can complete the inner-hop connection; this documentation correction does not complete Chapter 1.
 - Defined `LABHOST` as the assigned GCP VM and `LABVM` as the nested student VM. Normalized student-facing validation notes so prior-environment captures are historical and the replacement `LABVM` requires revalidation; no replacement-`LABVM` validation was performed.
 - Defined canonical student-facing terminology: `LABHOST` is the assigned GCP VM reached from the learner's local computer with configured SSH keys, and `LABVM` is the nested internal VM reached from LABHOST. Normalized student-facing derived documentation so all chapter exercises run on LABVM; the first `exit` returns to LABHOST and the second returns to the local machine.
 - Resumed Chapter 2 validation through the assigned outer host as `ubuntu` and the LAB HOST using the confirmed source credential. The prior `radu` connection attempt was an execution error, not a lab-environment blocker.

@@ -21,10 +21,11 @@
         Expanded Security Maintenance for Applications is not enabled.
         ```
 
-2. From `LABHOST`, connect to `LABVM`. The course password is supplied separately and is never displayed.
+2. From `LABHOST`, connect to `LABVM` using the source-lab LABVM password: `canonical_lab`.
 
     ```bash
     # Connect from LABHOST to LABVM.
+    # password is: canonical_lab
     ssh ubuntu@192.168.100.4
     ```
 
