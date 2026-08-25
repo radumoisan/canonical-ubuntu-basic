@@ -355,7 +355,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 7. Networking
+    📋 7. Networking
   </span>
   
 
@@ -585,8 +585,8 @@
 
 <h1 id="appendix-networking">Appendix: Networking<a class="headerlink" href="#appendix-networking" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
-<p class="admonition-title">Pending validation</p>
-<p>This appendix is structured from the source material. Command validation is pending.</p>
+<p class="admonition-title">Abstract</p>
+<p>Reference concepts and Ubuntu 24.04 network configuration guidance.</p>
 </div>
 <h2 id="networking-concepts-tcpip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Networking Concepts - TCP/IP<a class="headerlink" href="#networking-concepts-tcpip" title="Permanent link">&para;</a></h2>
 <p>The Transmission Control Protocol and Internet Protocol (TCP/IP) is a standard set of protocols developed in the late 1970s by the Defense Advanced Research Projects Agency (DARPA) as a means of communication between different types of computers and computer networks. TCP/IP is the driving force of the Internet, and thus it is the most popular set of network protocols on Earth.</p>
@@ -599,10 +599,10 @@
 <li>The neighbour subsystem manages information and configuration for L2 (link layer) destinations.</li>
 <li>Routing is the act of sending traffic originating on one subnet to a second subnet.</li>
 <li>The routing layer manages information and configuration for L3 protocol forwarding. This allows L3 subnets to communicate with one another.</li>
-<li>The IP address is a unique string comprised of 4 decimal numbers ranging from 0 (zero) to 255, separated by periods, with each of the four numbers representing 8 bits of the 32 bit address. This dotted quad notation is obtained through static assignment or dynamically via DHCP.</li>
+<li>An IP address identifies an interface at the network layer. IPv4 addresses use four decimal octets from 0 to 255 (32 bits total), while IPv6 addresses use 128 bits written in colon-separated hexadecimal groups. Addresses can be assigned statically or dynamically, for example through DHCP.</li>
 <li>A subnet (for this document) is the extent of the L3 (i.e., IPv4 or IPv6) network segment that delineates the set of destinations to which an IP datagram may be delivered without being routed.</li>
 <li>The Subnet Mask (or netmask) is a local bit mask, or set of flags which separates the portions of an IP address significant to the network from the bits significant to the subnetwork. The standard netmask 255.255.255.0 masks the first 3 bytes and allows the last byte to remain available to specify hosts on the subnetwork.</li>
-<li>The Network Address represents the bytes comprising the network portion of an IP address. The host 12.128.1.2 would use 12.0.0.0 as the network address, where 12 represents the first byte (the network part) and zeroes (0) in the remaining 3 bytes represent the potential host values.</li>
+<li>The Network Address represents the address bits selected by the prefix length. For example, <code>12.128.1.2/8</code> has network address <code>12.0.0.0</code>; the prefix length is required to determine the network address.</li>
 <li>Gateway is synonymous with router; it is responsible for the connection of two or more subnets by passing L3 protocol traffic between them.</li>
 <li>The Broadcast Address is an IP address which allows network data to be sent simultaneously to all hosts on a given subnetwork rather than specifying a particular host. For example, on 192.168.1.0, the broadcast address is 192.168.1.255. Broadcast messages are typically produced by network protocols such as the Address Resolution Protocol (ARP) and the Routing Information Protocol (RIP).</li>
 <li>A Gateway Address is the IP address through which a particular network, or host on a network, may be reached. If one network host wishes to communicate with another network host, and that host is not located on the same network, then a gateway must be used (ex. a router on the same network).</li>
@@ -613,7 +613,7 @@
 <p><code>Static routing</code> involves manually adding IP routes to the system's routing table with the route command. It has the advantage of simplicity of implementation on smaller networks, predictability (the routing table is always computed in advance so the route is the same each time), and low overhead on other routers and network links due to the lack of a dynamic routing protocol. The disadvantages are that it is limited to small networks and does not scale well. It also fails completely to adapt to network outages and failures along the route due to the fixed nature of the route.</p>
 <p><code>Dynamic routing</code> depends on large networks with multiple possible IP routes from a source to a destination and makes use of special routing protocols, such as the Router Information Protocol (RIP), which handle the automatic adjustments in routing tables that make dynamic routing possible. It has several advantages over static routing: superior scalability; the ability to adapt to failures and outages along network routes; and less manual configuration of the routing tables (routers learn from one another about their existence and available routes eliminating human errors). The disadvantages are complexity and additional network overhead from router communications, which consumes network bandwidth.</p>
 <h2 id="network-configuration-files"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Network Configuration Files<a class="headerlink" href="#network-configuration-files" title="Permanent link">&para;</a></h2>
-<p>In Ubuntu 24.04, networking is managed by Netplan. The configuration file to manage the network interfaces is <code>/etc/netplan/50-cloud-init.yaml</code> on systems configured with cloud-init and <code>/etc/netplan/00-installer-config.yaml</code> or <code>/etc/netplan/01-netcfg.yaml</code> on systems installed via ISO media. Here you can configure static, dynamic routing and DNS options.</p>
+<p>In Ubuntu 24.04, Netplan reads YAML configuration files from <code>/etc/netplan/</code>. The filename is installation-specific: cloud-init commonly creates <code>50-cloud-init.yaml</code>, while an installer or administrator can use another <code>.yaml</code> filename. Cloud-init-managed configuration can be regenerated, so make persistent changes using the system's intended Netplan and cloud-init workflow. Netplan can configure addresses, routes, and DNS options.</p>
 
 
 
