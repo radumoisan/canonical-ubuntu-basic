@@ -22,7 +22,7 @@
     
     
       
-        <title>⏳ 1. What is Ubuntu - Canonical Ubuntu Basic</title>
+        <title>📋 1. What is Ubuntu - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⏳ 1. What is Ubuntu
+              📋 1. What is Ubuntu
             
           </span>
         </div>
@@ -246,7 +246,7 @@
           
   
   <span class="md-ellipsis">
-    ⏳ 1. What is Ubuntu
+    📋 1. What is Ubuntu
   </span>
   
 
@@ -257,7 +257,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 1. What is Ubuntu
+    📋 1. What is Ubuntu
   </span>
   
 
@@ -626,10 +626,6 @@
 <p class="admonition-title">Goals</p>
 <p>Differentiate Ubuntu flavours, explain the release cycle and naming convention, and describe the LTS maintenance cycle.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The LABVM connection below was validated on the replacement environment. The later chapter results were captured on the prior <code>LABVM</code> on 2026-08-24 and are historical only; revalidate them on the replacement <code>LABVM</code>.</p>
-</div>
 <p>Follow the two-hop connection steps in <a href="../prerequisites/">Prerequisites</a>: connect from your local computer to <code>LABHOST</code>, then connect from <code>LABHOST</code> to <code>LABVM</code>. Run this chapter's commands on <code>LABVM</code>.</p>
 <p>From <code>LABHOST</code>, run:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># password is: canonical_lab</span>
@@ -682,19 +678,20 @@ cat<span class="w"> </span>/etc/os-release
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>PRETTY_NAME="Ubuntu 24.04.2 LTS"
-NAME="Ubuntu"
-VERSION_ID="24.04"
-VERSION="24.04.2 LTS (Noble Numbat)"
-VERSION_CODENAME=noble
-ID=ubuntu
-ID_LIKE=debian
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo</p>
+<div class="highlight"><pre><span></span><code><span class="nv">PRETTY_NAME</span><span class="o">=</span><span class="s2">&quot;Ubuntu 24.04.2 LTS&quot;</span>
+<span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;Ubuntu&quot;</span>
+<span class="nv">VERSION_ID</span><span class="o">=</span><span class="s2">&quot;24.04&quot;</span>
+<span class="nv">VERSION</span><span class="o">=</span><span class="s2">&quot;24.04.2 LTS (Noble Numbat)&quot;</span>
+<span class="nv">VERSION_CODENAME</span><span class="o">=</span>noble
+<span class="nv">ID</span><span class="o">=</span>ubuntu
+<span class="nv">ID_LIKE</span><span class="o">=</span>debian
+<span class="nv">HOME_URL</span><span class="o">=</span><span class="s2">&quot;https://www.ubuntu.com/&quot;</span>
+<span class="nv">SUPPORT_URL</span><span class="o">=</span><span class="s2">&quot;https://help.ubuntu.com/&quot;</span>
+<span class="nv">BUG_REPORT_URL</span><span class="o">=</span><span class="s2">&quot;https://bugs.launchpad.net/ubuntu/&quot;</span>
+<span class="nv">PRIVACY_POLICY_URL</span><span class="o">=</span><span class="s2">&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;</span>
+<span class="nv">UBUNTU_CODENAME</span><span class="o">=</span>noble
+<span class="nv">LOGO</span><span class="o">=</span>ubuntu-logo
+</code></pre></div>
 </details>
 <p>Another way to check the Ubuntu distribution version is:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display legacy Ubuntu release metadata when the file is present.</span>
@@ -702,10 +699,11 @@ cat<span class="w"> </span>/etc/lsb-release
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=24.04
-DISTRIB_CODENAME=noble
-DISTRIB_DESCRIPTION="Ubuntu 24.04.2 LTS"</p>
+<div class="highlight"><pre><span></span><code><span class="nv">DISTRIB_ID</span><span class="o">=</span>Ubuntu
+<span class="nv">DISTRIB_RELEASE</span><span class="o">=</span><span class="m">24</span>.04
+<span class="nv">DISTRIB_CODENAME</span><span class="o">=</span>noble
+<span class="nv">DISTRIB_DESCRIPTION</span><span class="o">=</span><span class="s2">&quot;Ubuntu 24.04.2 LTS&quot;</span>
+</code></pre></div>
 </details>
 <ol>
 <li>Check the kernel version.</li>
@@ -715,18 +713,20 @@ uname<span class="w"> </span>-a
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Linux ubuntu 6.8.0-53-generic #55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p>The kernel version, build timestamp, and system architecture can differ between lab images.</p>
+<div class="highlight"><pre><span></span><code>Linux<span class="w"> </span>ubuntu<span class="w"> </span><span class="m">6</span>.8.0-53-generic<span class="w"> </span><span class="c1">#55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux</span>
+</code></pre></div>
 </details>
+<p>The kernel version, build timestamp, and system architecture can differ between lab images.</p>
 <p>Another way to check the kernel version is:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display Ubuntu&#39;s kernel version signature.</span>
 cat<span class="w"> </span>/proc/version_signature
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Ubuntu 6.8.0-53.55-generic 6.8.12</p>
-<p>The package and upstream kernel versions can differ between lab images.</p>
+<div class="highlight"><pre><span></span><code>Ubuntu<span class="w"> </span><span class="m">6</span>.8.0-53.55-generic<span class="w"> </span><span class="m">6</span>.8.12
+</code></pre></div>
 </details>
+<p>The package and upstream kernel versions can differ between lab images.</p>
 <blockquote>
 <p>End of the lab. Do not continue with the next topic.</p>
 </blockquote>
