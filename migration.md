@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapter 1 complete; Chapter 2 ready for validation.
-- Active target: Chapter 2.
-- Next action: Validate Chapter 2 command-by-command on the LAB HOST.
+- Current phase: Chapters 1 and 2 complete; Chapter 3 ready for validation.
+- Active target: Chapter 3.
+- Next action: Validate Chapter 3 command-by-command on the LAB HOST.
 - Two-layer student-environment readiness checks and Chapter 1 source commands are validated; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -25,8 +25,8 @@
 | Prerequisites | Complete (validated two-layer student environment/readiness checks; not chapter validation) |
 | Networking Appendix | Structured |
 | 1. What is Ubuntu | Complete |
-| 2. CLI Environment | Structured |
-| 3. Linux Filesystem Hierarchy | Structured |
+| 2. CLI Environment | Complete |
+| 3. Linux Filesystem Hierarchy | Ready for validation |
 | 4. Identity and Ownership | Structured |
 | 5. Logging and Initialization | Structured |
 | 6. Storage | Structured |
@@ -40,7 +40,7 @@
 | Chapter | Source subsections | Status |
 | --- | --- | --- |
 | 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Complete (all source commands validated; `/etc/lsb-release` is present on this LAB HOST, so no portability correction was needed; Ubuntu 23.10 date corrected) |
-| 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Structured |
+| 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Complete |
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Structured |
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Structured |
 | 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Structured |
@@ -88,3 +88,10 @@
 - Validated all five Chapter 1 source commands on the LAB HOST with exit status 0: interactive SSH, `cat /etc/os-release`, `cat /etc/lsb-release`, `uname -a`, and `cat /proc/version_signature`.
 - `/etc/lsb-release` is present and succeeded on this LAB HOST, so its portability fallback was not needed. Corrected the derived Ubuntu 23.10 release date from October 2024 to October 2023.
 - Recorded only safe literal output and excerpts; no authentication prompts, credentials, connection wrappers, outer-host details, or tokens were documented.
+
+### :material-application-edit-outline: 2026-08-25
+
+- Resumed Chapter 2 validation through the assigned outer host as `ubuntu` and the LAB HOST using the confirmed source credential. The prior `radu` connection attempt was an execution error, not a lab-environment blocker.
+- Validated the pending shell-variable subshell sequence: unexported `x` is empty in a child shell, while exported `x` retains value `5`; both `exit` commands and the `export` assignment produce no output.
+- Completed Chapter 2 command validation. Derived-document corrections were validated for `ls my*`, the single `TERM` assignment, `date +%A`, and `/tmp`; standalone parameter tokens and high-volume glob demonstrations were retained as reference syntax.
+- Reconciled the Chapter 2 command record with captured successful source-verbatim commands; generic syntax, failed commands, derived corrections, reference syntax, and duplicates remain excluded.
