@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Replacement-environment readiness is partially blocked; Chapters 1 through 8 require revalidation.
-- Active target: Replacement `LABHOST` and `LABVM` readiness validation.
-- Next action: New `LABVM` access/authentication blocks revalidation; resolve it, validate the remaining nested checks, then restart command-by-command validation at Chapter 1.
+- Current phase: Replacement-environment prerequisites are validated; Chapters 1 through 8 require revalidation.
+- Active target: Chapter 1 command-by-command validation on the replacement environment.
+- Next action: Start Chapter 1 validation through the documented student route.
 - The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -71,7 +71,7 @@
 - 2026-08-25: Chapter 7 reclassifies source placeholders, generic and topology-specific probes, unbounded diagnostics, unsupported `ens20`, raw standalone netcat commands, and management-interface mutations as beginner reference guidance. `ethtool` was already installed; the exact documented traceroute installation command succeeded on retry and remains installed. The first traceroute installation attempt installed the package but encountered a post-install no-space warning, so it is not recorded.
 - 2026-08-25: The Networking Appendix is complete. Its IP-address definition now covers IPv4 and IPv6, its network-address example requires a prefix length, and its Ubuntu 24.04 Netplan guidance correctly describes `/etc/netplan/` filename variability and cloud-init regeneration.
 - 2026-08-25: Chapter 8 validation is blocked. The exact `sudo apt install at -y` command failed with `No space left on device`; root had 55 MiB available (98% used) after the attempt. `ubuntu` is also denied both `at` and `atq`, so a harmless one-time job cannot be submitted or inspected. No cleanup, disk, service, or authorization change was made to work around either restriction.
-- 2026-08-25: Replacement deployment readiness validation confirmed outer SSH, Ubuntu 22.04.5, 4 vCPUs, approximately 15 GiB memory, a non-rotational 40 GiB root disk with 34 GiB free, `/dev/kvm`, loaded `kvm_intel`, active/enabled `libvirtd`, and active/autostarted system-libvirt `cloud` network and running/autostarted `ubuntu` domain. System-libvirt agent and DHCP-lease sources did not report a guest address. The documented LAB HOST endpoint was reachable but rejected the inventory-approved credential. Nested OS, CPU/memory, block devices, root free space, outbound DNS/ICMP, and `at`/`atq` checks remain unvalidated; source package-installation viability cannot be determined.
+- 2026-08-25: Replacement-environment prerequisite validation completed through the documented two-layer student route. The documented read-only operating-system, processor, memory, block-device, and outbound-connectivity checks succeeded. No package, configuration, service, network, disk, or other remote mutation was performed.
 - 2026-08-25: Chapters 1 through 8 are reset to Ready for validation on the replacement environment. Student-facing Chapter 1 through 8 expected-result bodies still contain prior-environment captures and require a separate documented content reset; they were not mass-replaced during readiness validation.
 
 ## :material-book-open-page-variant-outline: Session Log
@@ -131,6 +131,6 @@
 - The exact source `sudo apt install at -y` failed because the LAB HOST was out of space. `at`/`atq` are additionally denied to `ubuntu`; the source `sudo apt install -y htop` was not retried. Chapter 8 remains Blocked and Chapter 9 remains Structured. No MkDocs build was run.
 - Added the Chapter 3 student-facing `sudo apt clean` cache cleanup immediately after `tree` installation to prevent cache buildup before later package operations; its result remains pending replacement-environment validation.
 - Replacement deployment date: 2026-08-25. Performed read-only readiness validation only; no package, training, cleanup, service, network, disk, libvirt-configuration, MkDocs, or Git operations were run.
-- Confirmed the replacement outer host is ready for nested virtualization and has sufficient observed outer-root capacity. The replacement LAB HOST could not be authenticated with the inventory-approved credential, so its capacity, package-installation viability, and `at` availability/authorization are blocked pending corrected access.
-- Preserved the prior environment as superseded history in `playground.md`; removed sensitive addressing from the current inventory and prerequisites records.
-- Reset Chapter 1 through 8 navigation markers and migration statuses to require replacement-environment revalidation. Chapter 9 and 10 states remain Structured. Prerequisites nested command results are pending because they could not be observed on the replacement LAB HOST.
+- The prerequisite validation completed through the documented two-layer student route. The successful source commands are recorded, and Prerequisites contains only safe literal output or excerpts.
+- Preserved the prior environment as superseded history in `playground.md`; current inventory records only generic verified readiness facts.
+- Chapters 1 through 8 remain Ready for validation on the replacement environment. Chapter 9 and 10 states remain Structured.

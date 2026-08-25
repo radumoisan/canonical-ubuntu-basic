@@ -1,5 +1,37 @@
 # Ubuntu Basic Command Record
 
+## Prerequisites
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+ssh <LABHOST_USER>@<LABHOST_PUBLIC_IP>
+```
+
+```bash
+ssh ubuntu@192.168.100.4
+```
+
+```bash
+lsb_release -d
+```
+
+```bash
+lsblk
+```
+
+```bash
+nproc
+```
+
+```bash
+free -h
+```
+
+```bash
+ping -c 3 ubuntu.com
+```
+
 ## Chapter 1: What is Ubuntu
 
 Connection wrapper: [redacted; executed against the assigned lab VM]
