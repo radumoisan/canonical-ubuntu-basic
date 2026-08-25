@@ -22,368 +22,446 @@ MBR supports older hardware, up to four primary partitions, and disks or partiti
 sudo lsblk
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+    vda     253:0    0  3.5G  0 disk
+    |-vda1  253:1    0  2.5G  0 part /
+    |-vda14 253:14   0    4M  0 part
+    |-vda15 253:15   0  106M  0 part /boot/efi
+    `-vda16 259:0    0  913M  0 part /boot
+    vdb     253:16   0   10G  0 disk
+    vdc     253:32   0   10G  0 disk
+    ```
 
 ```bash
 # Inspect partition tables
 sudo fdisk -l
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Disk /dev/vdb: 10 GiB, 10737418240 bytes, 20971520 sectors
+    Units: sectors of 1 * 512 = 512 bytes
+
+    Disk /dev/vdc: 10 GiB, 10737418240 bytes, 20971520 sectors
+    Units: sectors of 1 * 512 = 512 bytes
+    ```
+    The full listing also includes the LAB HOST system disk and its mounted partitions.
 
 ```bash
 # Create a GPT table on vdb
 sudo parted /dev/vdb mklabel gpt
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Verify the vdb partition table
 sudo fdisk -l /dev/vdb
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Disk /dev/vdb: 10 GiB, 10737418240 bytes, 20971520 sectors
+    Units: sectors of 1 * 512 = 512 bytes
+    Disklabel type: gpt
+    ```
+    The disk identifier varies.
 
 ```bash
 # Create a partition spanning vdb
 sudo parted /dev/vdb mkpart primary 1 100%
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Show vdb partition details
 sudo parted /dev/vdb print
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Model: Virtio Block Device (virtblk)
+    Disk /dev/vdb: 10.7GB
+    Partition Table: gpt
+
+    Number  Start   End     Size    File system  Name     Flags
+     1      1049kB  10.7GB  10.7GB               primary
+    ```
 
 ```bash
 # Create an MBR table on vdc
 sudo parted /dev/vdc mklabel msdos
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Create a partition spanning vdc
 sudo parted /dev/vdc mkpart primary 1 100%
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Show vdc partition details
 sudo parted /dev/vdc print
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Model: Virtio Block Device (virtblk)
+    Disk /dev/vdc: 10.7GB
+    Partition Table: msdos
+
+    Number  Start   End     Size    Type     File system  Flags
+     1      1049kB  10.7GB  10.7GB  primary
+    ```
 
 ```bash
 # Remove the vdc partition
 sudo parted /dev/vdc rm 1
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Create an ext4 filesystem on vdb1
 sudo mkfs.ext4 /dev/vdb1
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    mke2fs 1.47.0 (5-Feb-2023)
+    Creating filesystem with 2620928 4k blocks and 655360 inodes
+    Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+    Creating journal (16384 blocks): done
+    ```
+    The filesystem UUID varies.
 
 ```bash
 # Enable the ext4 ACL mount option
 sudo tune2fs -o acl /dev/vdb1
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Mount vdb1 at the mount point
-sudo mount /dev/vdb1 /mnt/mymount
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    tune2fs 1.47.0 (5-Feb-2023)
+    ```
 
 ```bash
 # Create the mount point
 sudo mkdir /mnt/mymount
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
-# Define an fstab entry by device
+# Mount vdb1 at the mount point
+sudo mount /dev/vdb1 /mnt/mymount
+```
+??? example "Expected result"
+    No output.
+
+!!! warning
+    The later filesystem lab reformats `/dev/vdb1`. Unmount this earlier illustrative mount first; formatting a mounted filesystem is unsafe.
+
+```bash
+# Unmount vdb1 before the later reformat
+sudo umount /dev/vdb1
+```
+??? example "Expected result"
+    No output.
+
+The following are reference `/etc/fstab` entry formats, not shell commands. The `/dev/vdb2` example is not created in this lab.
+
+```text
 /dev/vdb2 /boot ext4 defaults 0 2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Define an fstab entry by UUID
 UUID=1ea4363f-f9ab-45d8-af48-067b05d202b2 /boot ext4 defaults 0 2
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Define a user-mountable fstab entry by label
 LABEL=mystuff /mystuff ext4 noauto,user 0 0
 ```
-??? example "Expected result"
-    Validation pending; no captured output is available.
 
 ```bash
 # List block devices
 sudo lsblk
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    vdb     253:16   0   10G  0 disk
+    `-vdb1  253:17   0   10G  0 part
+    vdc     253:32   0   10G  0 disk
+    ```
+    The full listing also includes the LAB HOST system disk and its mounted partitions.
 
 ```bash
 # Format vdb1 as ext4
 sudo mkfs.ext4 /dev/vdb1
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    mke2fs 1.47.0 (5-Feb-2023)
+    Creating filesystem with 2620928 4k blocks and 655360 inodes
+    Creating journal (16384 blocks): done
+    ```
+    The filesystem UUID and progress output vary.
 
 ```bash
 # Create the ext4 mount point
 sudo mkdir /mnt/myext4fs
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Mount vdb1
 sudo mount /dev/vdb1 /mnt/myext4fs
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Verify the vdb mount
 mount | grep vdb
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    /dev/vdb1 on /mnt/myext4fs type ext4 (rw,relatime)
+    ```
 
 ```bash
 # Display available filesystem space
 df -h
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Filesystem      Size  Used Avail Use% Mounted on
+    /dev/vda1       2.4G  2.3G   57M  98% /
+    /dev/vdb1       9.8G   24K  9.3G   1% /mnt/myext4fs
+    ```
+    Other temporary and boot filesystems are host-state-dependent.
 
-```bash
-# Edit fstab
-sudo nano /etc/fstab
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
+To persist this filesystem, add an `/etc/fstab` entry with an editor such as `sudo nano /etc/fstab`, then validate the configuration with `sudo mount -a` before rebooting. For example:
 
-```bash
-# Add the vdb1 fstab entry
+```text
 /dev/vdb1   /mnt/myext4fs   ext4    defaults    0 0
 ```
-??? example "Expected result"
-    Validation pending; no captured output is available.
 
-```bash
-# Unmount vdb1
-sudo umount /dev/vdb1
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Mount all fstab filesystems
-sudo mount -a
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Confirm the fstab mount
-mount | grep vdb
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
+This sequential LAB workflow deliberately does not retain that entry: `/dev/vdb` is repurposed and wiped in the following LVM lab, so retaining an entry for `/dev/vdb1` would leave an invalid boot-time mount configuration.
 
 ```bash
 # Unmount the filesystem
 sudo umount /dev/vdb1
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
-```bash
-# Partition vdb for LVM
-fdisk /dev/vdb
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Create physical volumes
-pvcreate /dev/vda3 /dev/vda4
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Create a volume group
-vgcreate ubuntu-vg /dev/vda3 /dev/vda4
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Create a logical volume
-lvcreate -L 100G -n UB2 ubuntu-vg
-```
-??? example "Expected result"
-    Validation pending; no captured output is available.
+The earlier command-line examples are reference syntax only. Do not apply their `/dev/vda3` or `/dev/vda4` examples to the LAB HOST system disk. The following LVM lab instead uses its dedicated 10 GB `/dev/vdb` and `/dev/vdc` devices.
 
 ```bash
 # Find 10 GB block devices
 sudo lsblk -a -p -o name,size | grep 10G
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    /dev/vdb       10G
+    `-/dev/vdb1    10G
+    /dev/vdc       10G
+    ```
 
 ```bash
 # Overwrite vdb with zeros
 sudo dd if=/dev/zero of=/dev/vdb bs=4096
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    dd: error writing '/dev/vdb': No space left on device
+    2621441+0 records in
+    2621440+0 records out
+    10737418240 bytes (11 GB, 10 GiB) copied, 37.0029 s, 290 MB/s
+    ```
+    The transfer rate and duration vary. `dd` reports the expected end-of-device write error after zeroing the complete 10 GiB device.
 
 ```bash
 # Overwrite vdc with zeros
 sudo dd if=/dev/zero of=/dev/vdc bs=4096
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    dd: error writing '/dev/vdc': No space left on device
+    2621441+0 records in
+    2621440+0 records out
+    10737418240 bytes (11 GB, 10 GiB) copied, 42.6583 s, 252 MB/s
+    ```
+    The transfer rate and duration vary. `dd` reports the expected end-of-device write error after zeroing the complete 10 GiB device.
 
 ```bash
 # Create a GPT label on vdb
 sudo parted /dev/vdb mklabel gpt
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Create a GPT label on vdc
 sudo parted /dev/vdc mklabel gpt
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Create a full vdb partition
 sudo parted /dev/vdb mkpart primary 1 100%
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Create a full vdc partition
 sudo parted /dev/vdc mkpart primary 1 100%
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Information: You may need to update /etc/fstab.
+    ```
 
 ```bash
 # Install LVM tools
 sudo apt install -y lvm2
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    The following packages will be upgraded:
+      dmeventd dmsetup libdevmapper-event1.02.1 libdevmapper1.02.1 liblvm2cmd2.03
+      lvm2
+    Error in tempdir(): No space left on device
+    debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: No space left on device
+    ```
+    The LAB HOST had insufficient root-filesystem space for the package transaction to complete.
 
 ```bash
 # Scan existing volume groups
 sudo vgscan
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Create LVM physical volumes
 sudo pvcreate /dev/vdb1 /dev/vdc1
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Physical volume "/dev/vdb1" successfully created.
+    Physical volume "/dev/vdc1" successfully created.
+    ```
 
 ```bash
 # List physical volumes
 sudo pvs
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    PV         VG Fmt  Attr PSize   PFree
+    /dev/vdb1     lvm2 ---  <10.00g <10.00g
+    /dev/vdc1     lvm2 ---  <10.00g <10.00g
+    ```
 
 ```bash
 # Create the ubuntu-vg volume group
 sudo vgcreate ubuntu-vg /dev/vdb1 /dev/vdc1
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Volume group "ubuntu-vg" successfully created
+    ```
 
 ```bash
 # List volume groups
 sudo vgs
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    VG        #PV #LV #SN Attr   VSize  VFree
+    ubuntu-vg   2   0   0 wz--n- 19.99g 19.99g
+    ```
 
 ```bash
 # Create the lvmdata logical volume
 sudo lvcreate -l 100%VG -n lvmdata ubuntu-vg
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Logical volume "lvmdata" created.
+    ```
 
 ```bash
 # List logical volumes
 sudo lvs
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    LV      VG        Attr       LSize
+    lvmdata ubuntu-vg -wi-a----- 19.99g
+    ```
 
 ```bash
 # Display logical volume details
 sudo lvdisplay
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    LV Path                /dev/ubuntu-vg/lvmdata
+    LV Name                lvmdata
+    VG Name                ubuntu-vg
+    LV Status              available
+    LV Size                19.99 GiB
+    ```
+    The logical-volume UUID and creation time vary.
 
 ```bash
 # Format the logical volume as ext4
 sudo mkfs.ext4 /dev/ubuntu-vg/lvmdata
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    mke2fs 1.47.0 (5-Feb-2023)
+    Creating filesystem with 5240832 4k blocks and 1310720 inodes
+    Creating journal (32768 blocks): done
+    ```
+    The filesystem UUID and progress output vary.
 
 ```bash
 # Create the LVM mount point
 sudo mkdir /lvmdata
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Mount the logical volume
 sudo mount /dev/ubuntu-vg/lvmdata /lvmdata
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Show mounted logical-volume space
 df -h /lvmdata
 ```
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    Filesystem                      Size  Used Avail Use% Mounted on
+    /dev/mapper/ubuntu--vg-lvmdata   20G   24K   19G   1% /lvmdata
+    ```

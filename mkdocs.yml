@@ -16,7 +16,7 @@ nav:
   - "📋 3. Linux Filesystem Hierarchy": linux-filesystem-hierarchy.md
   - "📋 4. Identity and Ownership": identity-and-ownership.md
   - "📋 5. Logging and Initialization": logging-and-initialization.md
-  - "⏳ 6. Storage": storage.md
+  - "📋 6. Storage": storage.md
   - "⏳ 7. Networking": networking.md
   - "⏳ 8. Process Management": process-management.md
   - "⏳ 9. Backup and Recovery": backup-and-recovery.md

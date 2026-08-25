@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapters 1 through 5 complete; Chapter 6 ready for validation.
-- Active target: Chapter 6.
-- Next action: Validate Chapter 6 command-by-command on the LAB HOST.
+- Current phase: Chapters 1 through 6 complete; Chapter 7 ready for validation.
+- Active target: Chapter 7.
+- Next action: Validate Chapter 7 command-by-command on the LAB HOST.
 - Two-layer student-environment readiness checks and Chapter 1 source commands are validated; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -29,8 +29,8 @@
 | 3. Linux Filesystem Hierarchy | Complete |
 | 4. Identity and Ownership | Complete |
 | 5. Logging and Initialization | Complete |
-| 6. Storage | Ready for validation |
-| 7. Networking | Structured |
+| 6. Storage | Complete |
+| 7. Networking | Ready for validation |
 | 8. Process Management | Structured |
 | 9. Backup and Recovery | Structured |
 | 10. Software Management | Structured |
@@ -44,8 +44,8 @@
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Complete (all actionable source commands validated) |
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete |
 | 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Complete |
-| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Ready for validation |
-| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Structured |
+| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Complete |
+| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Ready for validation |
 | 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Structured |
 | 9. Backup and Recovery | 9.1 Using Archiving and Compression Utilities; 9.2 Tar archiving; 9.3 Using rsync; 9.4 Backup and Recovery Lab | Structured |
 | 10. Software Management | 10.1 Debian Package Management; 10.2 Advanced Package Tool (Apt); 10.3 Snappy Package Management; 10.3.1 Software Management Lab | Structured |
@@ -55,7 +55,7 @@
 - 2026-08-24: Explicit `qemu:///system` validation found the `cloud` NAT network active and autostarted on `192.168.100.0/24`, and the `ubuntu` domain running and autostarted. Guest SSH at `192.168.100.4`, resources, disks, operating system, and outbound DNS/ICMP connectivity are validated.
 - 2026-08-24: GCP disk tier cannot be verified from the available local evidence.
 - 2026-08-24: Package and service variance is confirmed: `qemu-kvm` and `virtqemud.service` are absent while functional QEMU/KVM packages and active monolithic `libvirtd` are present.
-- 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to `Validation pending; no captured output is available.`, including source-provided fixtures, because no commands have been executed.
+- 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to the standardized pre-validation notice, including source-provided fixtures, because no commands had been executed.
 - Deployment artifacts are retained; chart versioning and image tags remain CI-managed.
 - 2026-08-24: The derived Chapter 1 page corrects Ubuntu 23.10's release date from October 2024 to October 2023.
 - 2026-08-24: The source `umask` default file-permissions semantics require command or factual validation before correction. They remain uncorrected in derived documentation because source validation is pending.
@@ -65,6 +65,8 @@
 - 2026-08-25: Chapter 3 validation confirmed Ubuntu's merged `/usr` root symlinks and an empty `/usr/games`; directory, device, package, kernel, and home-directory listings are host-state-dependent. No source-derived command or path correction was needed. `tree` was installed as documented and remains installed; the documented file-type fixtures were removed successfully.
 - 2026-08-25: Chapter 4 validation confirmed that `visudo /etc/sudoers` is interactive and cannot be used as a safe automated inspection. The derived page uses validated `sudo visudo -c`, which checks syntax without changing policy.
 - 2026-08-25: Chapter 4 validation confirmed that the source `umask 000 filename` and `umask 077 filename` forms do not apply a mask to the named file. The derived page uses the valid mask-only forms. The documented `labuser`, `students`, `file01.txt`, `file02.txt`, `test01`, and `test02` fixtures were removed after validation.
+- 2026-08-25: Chapter 6 validation reclassifies raw fstab lines, the uncreated `/dev/vdb2` example, generic LVM syntax, and unsafe `/dev/vda3` and `/dev/vda4` examples as reference content. The fstab edit is also reference guidance: it must be validated with `mount -a` before reboot, but no `/dev/vdb1` entry is retained because the sequential LVM lab wipes and repurposes `/dev/vdb`.
+- 2026-08-25: The source `dd` commands zeroed the complete authorized 10 GiB `/dev/vdb` and `/dev/vdc` devices but ended with the expected end-of-device write error; they are documented but excluded from the successful-command record. The `lvm2` package transaction could not complete because the LAB HOST root filesystem was full, but installed LVM commands remained functional and the documented LVM workflow completed.
 
 ## :material-book-open-page-variant-outline: Session Log
 
@@ -110,3 +112,6 @@
 - Before the documented `cron` stop/start sequence, `cron` was active. It was inactive after the stop and active again after the start; no recovery beyond the documented sequence was required.
 - Verified two independent SSH sessions before the documented SSH restart. The restart completed and post-restart SSH access remained active. No SSH configuration was changed.
 - Recorded successful source commands only. Chapter 6 is ready for validation; no MkDocs build was run.
+- Completed Chapter 6 validation on the assigned LAB HOST. Every storage mutation was preceded by checks that restricted targets to the unmounted 10 GiB `/dev/vdb` and `/dev/vdc` devices; `/dev/vda` was not changed.
+- Captured literal output or faithful excerpts for partitioning, ext4, and LVM commands. The final documented state remains in place: `/dev/vdb1` and `/dev/vdc1` are physical volumes in `ubuntu-vg`, and ext4 `lvmdata` is mounted at `/lvmdata`.
+- Reclassified fstab configuration and unsafe or uncreated-device examples as reference content. Chapter 7 is ready for validation; no MkDocs build was run.
