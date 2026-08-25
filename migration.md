@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapters 1 through 4 complete; Chapter 5 ready for validation.
-- Active target: Chapter 5.
-- Next action: Validate Chapter 5 command-by-command on the LAB HOST.
+- Current phase: Chapters 1 through 5 complete; Chapter 6 ready for validation.
+- Active target: Chapter 6.
+- Next action: Validate Chapter 6 command-by-command on the LAB HOST.
 - Two-layer student-environment readiness checks and Chapter 1 source commands are validated; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -28,8 +28,8 @@
 | 2. CLI Environment | Complete |
 | 3. Linux Filesystem Hierarchy | Complete |
 | 4. Identity and Ownership | Complete |
-| 5. Logging and Initialization | Ready for validation |
-| 6. Storage | Structured |
+| 5. Logging and Initialization | Complete |
+| 6. Storage | Ready for validation |
 | 7. Networking | Structured |
 | 8. Process Management | Structured |
 | 9. Backup and Recovery | Structured |
@@ -43,8 +43,8 @@
 | 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Complete |
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Complete (all actionable source commands validated) |
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete |
-| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Ready for validation |
-| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Structured |
+| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Complete |
+| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Ready for validation |
 | 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Structured |
 | 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Structured |
 | 9. Backup and Recovery | 9.1 Using Archiving and Compression Utilities; 9.2 Tar archiving; 9.3 Using rsync; 9.4 Backup and Recovery Lab | Structured |
@@ -105,3 +105,8 @@
 - Completed Chapter 4 validation through the assigned outer host and LAB HOST. Captured literal results and safe excerpts for user, group, sudo, shell-transition, umask, and permission commands; interactive password entry was not recorded.
 - Reclassified generic syntax, sudoers policy examples, placeholders, and sample IDs as reference content. Replaced the unsafe interactive sudoers exercise with `sudo visudo -c` and corrected the misleading `umask` forms.
 - Removed the documented Chapter 4 identities and fixtures after validation. Chapter 5 is ready for validation; no MkDocs build was run.
+- Completed Chapter 5 validation on the assigned LAB HOST. The documented non-forced and forced logrotate commands completed successfully; safe excerpts only were retained.
+- The LAB HOST restricted unprivileged `dmesg` access, so the `vda` searches returned no output and `vda.txt` was preserved as created by the documented command. The `/var/lib/logrotate/status` file was initially absent.
+- Before the documented `cron` stop/start sequence, `cron` was active. It was inactive after the stop and active again after the start; no recovery beyond the documented sequence was required.
+- Verified two independent SSH sessions before the documented SSH restart. The restart completed and post-restart SSH access remained active. No SSH configuration was changed.
+- Recorded successful source commands only. Chapter 6 is ready for validation; no MkDocs build was run.
