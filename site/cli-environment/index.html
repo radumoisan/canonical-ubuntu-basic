@@ -22,7 +22,7 @@
     
     
       
-        <title>⏳ 2. CLI Environment - Canonical Ubuntu Basic</title>
+        <title>📋 2. CLI Environment - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⏳ 2. CLI Environment
+              📋 2. CLI Environment
             
           </span>
         </div>
@@ -266,7 +266,7 @@
           
   
   <span class="md-ellipsis">
-    ⏳ 2. CLI Environment
+    📋 2. CLI Environment
   </span>
   
 
@@ -277,7 +277,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 2. CLI Environment
+    📋 2. CLI Environment
   </span>
   
 
@@ -1174,8 +1174,10 @@ man<span class="w"> </span>ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>man</code> opened the <code>ls</code> page and exited normally after <code>q</code>.</p>
-<div class="highlight"><pre><span></span><code>man: can&#39;t set the locale; make sure $LC_* and $LANG are correct
+<div class="highlight"><pre><span></span><code>man:<span class="w"> </span>can<span class="err">&#39;</span>t<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>locale<span class="p">;</span><span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span><span class="nv">$LC_</span>*<span class="w"> </span>and<span class="w"> </span><span class="nv">$LANG</span><span class="w"> </span>are<span class="w"> </span>correct
+ls<span class="w"> </span>-<span class="w"> </span>list<span class="w"> </span>directory<span class="w"> </span>contents
+SYNOPSIS
+ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
 </code></pre></div>
 </details>
 <p><code>-a, --all</code> includes entries beginning with <code>.</code>, <code>-h, --human-readable</code> prints readable sizes with <code>-l</code> or <code>-s</code>, <code>-l</code> uses long format, and <code>-t</code> sorts by newest modification time first.</p>
@@ -1187,42 +1189,48 @@ mkdir<span class="w"> </span>mydir1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enter mydir1</span>
 <span class="nb">cd</span><span class="w"> </span>mydir1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create mydir2</span>
 mkdir<span class="w"> </span>mydir2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enter mydir2</span>
 <span class="nb">cd</span><span class="w"> </span>mydir2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return to the parent of mydir2</span>
 <span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the empty mydir2 directory</span>
 rmdir<span class="w"> </span>mydir2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <ol>
 <li>Create <code>file1</code>, copy it to <code>file2</code>, return to the parent of <code>mydir1</code>, create <code>mynewdir</code>, and copy <code>mydir1</code> contents into it.</li>
@@ -1232,49 +1240,50 @@ touch<span class="w"> </span>file1
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Copy file1 to file2</span>
 cp<span class="w"> </span>file1<span class="w"> </span>file2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return to the parent directory</span>
 <span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create mynewdir</span>
 mkdir<span class="w"> </span>mynewdir
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Copy mydir1 contents into mynewdir</span>
 cp<span class="w"> </span>-a<span class="w"> </span>mydir1/*<span class="w"> </span>mynewdir
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <ol>
-<li>Type <code>ls my</code> and press Tab twice to inspect shell completion choices.</li>
+<li>Type <code>ls my</code> and press Tab twice to inspect shell completion choices. The partial command is canceled after completion rather than invoked.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Begin a listing command for tab completion</span>
-ls<span class="w"> </span>my*
+<div class="highlight"><pre><span></span><code><span class="c1"># Type this text, then press Tab twice</span>
+ls<span class="w"> </span>my&lt;Tab&gt;&lt;Tab&gt;
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>mydir1:
-file1  file2
-
-mynewdir:
-file1  file2
+<div class="highlight"><pre><span></span><code>mydir1/<span class="w">   </span>mynewdir/
 </code></pre></div>
 </details>
 <blockquote>
@@ -1289,21 +1298,17 @@ file1  file2
 <div class="highlight"><pre><span></span><code><span class="c1"># Run man without a page argument</span>
 man
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>man: can&#39;t set the locale; make sure $LC_* and $LANG are correct
-What manual page do you want?
-For example, try &#39;man man&#39;.
-</code></pre></div>
-</details>
+<p>This reference-only form prints a usage prompt rather than opening a manual page.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open the man manual page</span>
 man<span class="w"> </span>man
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The page was opened in the terminal and the help interaction was attempted before normal exit.</p>
-<div class="highlight"><pre><span></span><code>man: can&#39;t set the locale; make sure $LC_* and $LANG are correct
-man: can&#39;t resolve man7/groff_man.7
+<div class="highlight"><pre><span></span><code>man:<span class="w"> </span>can<span class="err">&#39;</span>t<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>locale<span class="p">;</span><span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span><span class="nv">$LC_</span>*<span class="w"> </span>and<span class="w"> </span><span class="nv">$LANG</span><span class="w"> </span>are<span class="w"> </span>correct
+man<span class="w"> </span>-<span class="w"> </span>an<span class="w"> </span>interface<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>system<span class="w"> </span>reference<span class="w"> </span>manuals
+SUMMARY<span class="w"> </span>OF<span class="w"> </span>LESS<span class="w"> </span>COMMANDS
+h<span class="w">  </span>H<span class="w">                  </span>Display<span class="w"> </span>this<span class="w"> </span>help.
+q<span class="w">  </span>...<span class="w">                </span>Exit.
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open the ls manual page</span>
@@ -1311,18 +1316,20 @@ man<span class="w"> </span>ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>man</code> opened the page in the terminal and exited normally after the requested navigation keys.</p>
-<div class="highlight"><pre><span></span><code>man: can&#39;t set the locale; make sure $LC_* and $LANG are correct
+<div class="highlight"><pre><span></span><code>man:<span class="w"> </span>can<span class="err">&#39;</span>t<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>locale<span class="p">;</span><span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span><span class="nv">$LC_</span>*<span class="w"> </span>and<span class="w"> </span><span class="nv">$LANG</span><span class="w"> </span>are<span class="w"> </span>correct
+ls<span class="w"> </span>-<span class="w"> </span>list<span class="w"> </span>directory<span class="w"> </span>contents
+SYNOPSIS
+ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
 </code></pre></div>
 </details>
-<p>Then find the <code>rsync -p</code> option.</p>
+<p>Then search for the <code>rsync -p</code> option. The validated search did not establish that option.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Open the rsync manual page</span>
 man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>man</code> opened the page in the terminal and exited normally after <code>q</code>.</p>
-<div class="highlight"><pre><span></span><code>man: can&#39;t set the locale; make sure $LC_* and $LANG are correct
+<div class="highlight"><pre><span></span><code>man:<span class="w"> </span>can<span class="err">&#39;</span>t<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>locale<span class="p">;</span><span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span><span class="nv">$LC_</span>*<span class="w"> </span>and<span class="w"> </span><span class="nv">$LANG</span><span class="w"> </span>are<span class="w"> </span>correct
+rsync<span class="w"> </span>-<span class="w"> </span>a<span class="w"> </span>fast,<span class="w"> </span>versatile,<span class="w"> </span>remote<span class="w"> </span><span class="o">(</span>and<span class="w"> </span><span class="nb">local</span><span class="o">)</span><span class="w"> </span>file-copying<span class="w"> </span>tool
 </code></pre></div>
 </details>
 <blockquote>
@@ -1338,7 +1345,7 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <h3 id="setting-and-unsetting-variables"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Setting and Unsetting Variables<a class="headerlink" href="#setting-and-unsetting-variables" title="Permanent link">&para;</a></h3>
 <p>Define variables with <code>name=value</code>; they are local until the shell exits. Use <code>unset</code> or an empty value to undefine them. Use <code>export</code> to make a variable available to child processes.</p>
@@ -1347,35 +1354,40 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set a variable containing multiple values</span>
 <span class="nv">NAMES</span><span class="o">=</span><span class="s2">&quot;Marvin Ford Arthur Trillian&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unset NAME</span>
 <span class="nb">unset</span><span class="w"> </span>NAME
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set NAME to an empty value</span>
 <span class="nv">NAME</span><span class="o">=</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Export NAME to child processes</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">NAME</span><span class="o">=</span>Marvin
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <h3 id="manipulating-variables"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Manipulating Variables<a class="headerlink" href="#manipulating-variables" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display NAME</span>
@@ -1391,14 +1403,16 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Mark NAMES as read-only</span>
 <span class="nb">readonly</span><span class="w"> </span>NAMES
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <h3 id="special-variables"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Special Variables<a class="headerlink" href="#special-variables" title="Permanent link">&para;</a></h3>
 <p>Special variables can be referenced but not assigned. <code>$?</code> is the exit status of the last command, <code>$$</code> is the PID of the current shell, and <code>$!</code> is the PID of the last background command. Use them as part of another command, for example <code>echo $?</code>; entering a parameter token alone makes the expanded value a command name.</p>
@@ -1411,7 +1425,7 @@ man<span class="w"> </span>rsync
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+<div class="highlight"><pre><span></span><code>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List environment variables</span>
@@ -1419,14 +1433,14 @@ env
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>SHELL=/bin/bash
-NAME=Marvin
-PWD=/home/ubuntu
-HOME=/home/ubuntu
-TERM=xterm-256color
-USER=ubuntu
+<p><div class="highlight"><pre><span></span><code><span class="nv">SHELL</span><span class="o">=</span>/bin/bash
+<span class="nv">NAME</span><span class="o">=</span>Marvin
+<span class="nv">LANG</span><span class="o">=</span>C
+<span class="nv">TERM</span><span class="o">=</span>xterm-256color
+<span class="nv">USER</span><span class="o">=</span>ubuntu
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 </code></pre></div>
-<p>The environment also includes session-specific variables and locale assignments.</p>
+Additional entries vary by session.</p>
 </details>
 <ol>
 <li>Consider the purpose of <code>SHELL</code>. Set and view <code>MYNAME</code>.</li>
@@ -1436,7 +1450,8 @@ USER=ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display MYNAME</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$MYNAME</span>
@@ -1454,21 +1469,23 @@ USER=ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set the second name fragment</span>
 <span class="nv">PART2</span><span class="o">=</span><span class="s2">&quot;john&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the first fragment</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PART1</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>My name is
+<div class="highlight"><pre><span></span><code>My<span class="w"> </span>name<span class="w"> </span>is
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the second fragment</span>
@@ -1487,14 +1504,15 @@ USER=ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display STUDENTNAME</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$STUDENTNAME</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>My name isjohn
+<div class="highlight"><pre><span></span><code>My<span class="w"> </span>name<span class="w"> </span>isjohn
 </code></pre></div>
 </details>
 <ol>
@@ -1505,42 +1523,48 @@ USER=ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unset PART2</span>
 <span class="nb">unset</span><span class="w"> </span>PART2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unset STUDENTNAME</span>
 <span class="nb">unset</span><span class="w"> </span>STUDENTNAME
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm PART1 is undefined</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PART1</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm PART2 is undefined</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PART2</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm STUDENTNAME is undefined</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$STUDENTNAME</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
 </details>
 <ol>
 <li>Set an unexported variable, create a subshell, and inspect it.</li>
@@ -1550,14 +1574,15 @@ USER=ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display x in the current shell</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>5
+<div class="highlight"><pre><span></span><code><span class="m">5</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a subshell</span>
@@ -1565,7 +1590,7 @@ bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>ubuntu@ubuntu:~$
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display x in the subshell</span>
@@ -1573,14 +1598,16 @@ bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Exit back to the original shell</span>
 <span class="nb">exit</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <ol>
 <li>Export <code>x</code> and inspect it in a subshell.</li>
@@ -1590,14 +1617,15 @@ bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display exported x</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>5
+<div class="highlight"><pre><span></span><code><span class="m">5</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a subshell</span>
@@ -1605,7 +1633,7 @@ bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>ubuntu@ubuntu:~$ exit
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display x in the subshell</span>
@@ -1613,7 +1641,7 @@ bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>5
+<div class="highlight"><pre><span></span><code><span class="m">5</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Exit the subshell</span>
@@ -1621,7 +1649,8 @@ bash
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
@@ -1638,33 +1667,25 @@ ls<span class="w"> </span>-al<span class="w"> </span>&gt;<span class="w"> </span
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Append a /tmp listing to a file</span>
 ls<span class="w"> </span>-al<span class="w"> </span>/tmp<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/all_files.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Combine file contents into one file</span>
 cat<span class="w"> </span>file1.txt<span class="w"> </span>file2.txt<span class="w"> </span>file3.txt<span class="w"> </span>&gt;<span class="w"> </span>combined-file.txt
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>cat: file1.txt: No such file or directory
-cat: file2.txt: No such file or directory
-cat: file3.txt: No such file or directory
-</code></pre></div>
-</details>
+<p>This reference-only form requires the listed input files.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Discard ping output</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>www.xxx.yyy.zzz<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>ping: www.xxx.yyy.zzz: Name or service not known
-</code></pre></div>
-</details>
+<p>This reference-only form uses an intentionally invalid host name.</p>
 <h4 id="input-redirection">Input Redirection<a class="headerlink" href="#input-redirection" title="Permanent link">&para;</a></h4>
 <p>A command can receive input from a file with <code>&lt;</code> followed by a filename. When two less-than characters (<code>&lt;&lt;</code>) are used, a delimiter must be defined immediately after <code>&lt;&lt;</code>. For example, <code>wc -l &lt;&lt; EOF</code> starts a here-document; the shell reads input until it reaches a line containing that delimiter.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Count lines from the passwd file</span>
@@ -1672,10 +1693,10 @@ wc<span class="w"> </span>-l<span class="w"> </span>&lt;<span class="w"> </span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>33
+<div class="highlight"><pre><span></span><code><span class="m">33</span>
 </code></pre></div>
 </details>
-<p>This counts lines one at a time until it reaches the <code>EOF</code> delimiter.</p>
+<p>The standalone <code>wc -l &lt;&lt; EOF</code> form is reference-only because it is incomplete without its here-document content and delimiter.</p>
 <h4 id="piped-redirection">Piped Redirection<a class="headerlink" href="#piped-redirection" title="Permanent link">&para;</a></h4>
 <p>The output of one command can be sent directly to another command as input with <code>|</code>. This is called a pipe or piping.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Page through a detailed listing</span>
@@ -1683,18 +1704,17 @@ ls<span class="w"> </span>-al<span class="w"> </span><span class="p">|</span><sp
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>-rw-rw-r--  1 ubuntu ubuntu 387636 Aug 25 07:23 all_files.txt
--rw-rw-r--  1 ubuntu ubuntu      0 Aug 25 07:23 combined-file.txt
-drwxrwxr-x  2 ubuntu ubuntu   4096 Aug 25 07:10 mydir1
+<p><div class="highlight"><pre><span></span><code>total<span class="w"> </span><span class="m">16</span>
+drwxrwxr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>ubuntu<span class="w"> </span>ubuntu<span class="w"> </span><span class="m">4096</span><span class="w"> </span>...<span class="w"> </span>.
+drwxrwxrwt<span class="w"> </span><span class="m">13</span><span class="w"> </span>root<span class="w">   </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>...<span class="w"> </span>..
+-rw-rw-r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>ubuntu<span class="w"> </span>ubuntu<span class="w"> </span><span class="m">1302</span><span class="w"> </span>...<span class="w"> </span>all_files.txt
 </code></pre></div>
+Paths, timestamps, and sizes vary.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Filter a detailed listing</span>
 ls<span class="w"> </span>-al<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>string
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>No output.</p>
-</details>
+<p>This reference example returns non-zero when no entries match <code>string</code>.</p>
 <h4 id="advanced-redirection">Advanced Redirection<a class="headerlink" href="#advanced-redirection" title="Permanent link">&para;</a></h4>
 <p>The three I/O types have their own identifiers, called file descriptors:</p>
 <ul>
@@ -1706,24 +1726,19 @@ ls<span class="w"> </span>-al<span class="w"> </span><span class="p">|</span><sp
 <div class="highlight"><pre><span></span><code><span class="c1"># Write normal output and errors to separate files</span>
 ls<span class="w"> </span>-al<span class="w"> </span>/r*<span class="w"> </span>&gt;<span class="w"> </span>/tmp/list.txt<span class="w"> </span><span class="m">2</span>&gt;/tmp/errors.txt
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>No output.</p>
-</details>
+<p>This reference example can return non-zero because matches depend on host paths.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Write normal output and errors to one file</span>
 ls<span class="w"> </span>-al<span class="w"> </span>/r*<span class="w"> </span>&gt;<span class="w"> </span>/tmp/list.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>No output.</p>
-</details>
+<p>This reference example can return non-zero because matches depend on host paths.</p>
 <h3 id="251-redirection-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 2.5.1 Redirection Lab<a class="headerlink" href="#251-redirection-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Save a directory listing to mylist</span>
 ls<span class="w"> </span>&gt;<span class="w"> </span>mylist
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the fifth item in /usr/bin listing order</span>
 ls<span class="w"> </span>/usr/bin<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
@@ -1746,19 +1761,18 @@ ls<span class="w"> </span>-lt<span class="w"> </span>/usr/bin<span class="w"> </
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>total 118296
--rwxr-xr-x 1 root root        1622 Jul 31 20:56 acpidbg
--rwxr-xr-x 1 root root        1622 Jul 31 20:56 cpupower
+<p><div class="highlight"><pre><span></span><code>total<span class="w"> </span><span class="m">118296</span>
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">14488</span><span class="w"> </span>Feb<span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">2025</span><span class="w"> </span>locale-check
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2250576</span><span class="w"> </span>Feb<span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">2025</span><span class="w"> </span>bpftrace
 </code></pre></div>
+Package contents and ordering vary.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the largest directory sizes</span>
 du<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>1016    .
-16  ./.local
-12  ./.local/share
+<div class="highlight"><pre><span></span><code><span class="m">20</span><span class="w">  </span>.
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create redirection.txt with a here-document</span>
@@ -1768,15 +1782,18 @@ cat<span class="w"> </span>&gt;redirection.txt<span class="w"> </span><span clas
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find examine references in less help</span>
 less<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>examine
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>  :e [_file]            Examine a new file.
-  :n                *  Examine the (N-th) next file from the command line.
+<div class="highlight"><pre><span></span><code>:e<span class="w"> </span><span class="o">[</span>file<span class="o">]</span><span class="w"> </span>Examine<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>file.
+:n<span class="w"> </span>Examine<span class="w"> </span>the<span class="w"> </span><span class="o">(</span>N-th<span class="o">)</span><span class="w"> </span>next<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line.
+:p<span class="w"> </span>Examine<span class="w"> </span>the<span class="w"> </span><span class="o">(</span>N-th<span class="o">)</span><span class="w"> </span>previous<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line.
+:x<span class="w"> </span>Examine<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span><span class="o">(</span>or<span class="w"> </span>N-th<span class="o">)</span><span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line.
 </code></pre></div>
 </details>
 <blockquote>
@@ -1789,16 +1806,9 @@ ls<span class="p">;</span><span class="w"> </span>pwd<span class="p">;</span><sp
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>2014-00   Dp-4.txt  Hi-7.txt  Lc-0.txt  Ov-3.txt  So-6.txt  Wh-9.txt
-2014-01   Dp-5.txt  Hi-8.txt  Lc-1.txt  Ov-4.txt  So-7.txt  Wi-0.txt
-2014-02   Dp-6.txt  Hi-9.txt  Lc-2.txt  Ov-5.txt  So-8.txt  Wi-1.txt
-2014-03   Dp-7.txt  Hj-0.txt  Lc-3.txt  Ov-6.txt  So-9.txt  Wi-2.txt
-2014-04   Dp-8.txt  Hj-1.txt  Lc-4.txt  Ov-7.txt  Sp-0.txt  Wi-3.txt
-2014-05   Dp-9.txt  Hj-2.txt  Lc-5.txt  Ov-8.txt  Sp-1.txt  Wi-4.txt
-2014-06   Dq-0.txt  Hj-3.txt  Lc-6.txt  Ov-9.txt  Sp-2.txt  Wi-5.txt
-2014-07   Dq-1.txt  Hj-4.txt  Lc-7.txt  Ow-0.txt  Sp-3.txt  Wi-6.txt
+<p><div class="highlight"><pre><span></span><code>ubuntu
 </code></pre></div>
-<p>The complete listing is long and changes as lab files are created; it was followed by <code>/home/ubuntu</code> and <code>ubuntu</code>.</p>
+The isolated workspace listing was empty; working-directory and listing values vary.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Report whether a host can be pinged</span>
 ping<span class="w"> </span>-c1<span class="w"> </span>google.com<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;That&#39;s good, able to ping google.com&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="se">\</span>
@@ -1806,9 +1816,8 @@ ping<span class="w"> </span>-c1<span class="w"> </span>google.com<span class="w"
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>PING google.com (142.251.110.139) 56(84) bytes of data.
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-That&#39;s good, able to ping google.com
+<div class="highlight"><pre><span></span><code><span class="m">1</span><span class="w"> </span>packets<span class="w"> </span>transmitted,<span class="w"> </span><span class="m">1</span><span class="w"> </span>received,<span class="w"> </span><span class="m">0</span>%<span class="w"> </span>packet<span class="w"> </span>loss
+That<span class="err">&#39;</span>s<span class="w"> </span>good,<span class="w"> </span>able<span class="w"> </span>to<span class="w"> </span>ping<span class="w"> </span>google.com
 </code></pre></div>
 </details>
 <h2 id="27-return-values-and-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 2.7 Return Values and Expansion<a class="headerlink" href="#27-return-values-and-expansion" title="Permanent link">&para;</a></h2>
@@ -1820,7 +1829,7 @@ That&#39;s good, able to ping google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>spel spil spal
+<div class="highlight"><pre><span></span><code>spel<span class="w"> </span>spil<span class="w"> </span>spal
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create directories using brace ranges</span>
@@ -1828,37 +1837,22 @@ mkdir<span class="w"> </span><span class="o">{</span><span class="m">2014</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>mkdir: cannot create directory &#39;2014-00&#39;: File exists
-mkdir: cannot create directory &#39;2014-01&#39;: File exists
-mkdir: cannot create directory &#39;2014-02&#39;: File exists
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
 </code></pre></div>
-<p>The remaining requested directories already existed and produced the same error.</p>
 </details>
+<p>This creates 39 directories.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create files using brace ranges</span>
 touch<span class="w"> </span>file-<span class="o">{</span>A..Z<span class="o">}{</span>a..z<span class="o">}</span>-<span class="o">{</span><span class="m">0</span>..9<span class="o">}</span>
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>No output.</p>
-</details>
+<p>This high-volume form is reference-only.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create text files using brace ranges</span>
 touch<span class="w"> </span><span class="o">{</span>A..Z<span class="o">}{</span>a..z<span class="o">}</span>-<span class="o">{</span><span class="m">0</span>..9<span class="o">}</span>.txt
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>No output.</p>
-</details>
+<p>This high-volume form is reference-only.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove files with selected extensions</span>
 rm<span class="w"> </span>filename.<span class="o">{</span>pl,sh,py,c<span class="o">}</span>
 </code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>rm: cannot remove &#39;filename.pl&#39;: No such file or directory
-rm: cannot remove &#39;filename.sh&#39;: No such file or directory
-rm: cannot remove &#39;filename.py&#39;: No such file or directory
-rm: cannot remove &#39;filename.c&#39;: No such file or directory
-</code></pre></div>
-</details>
+<p>This deliberately failing form is reference-only.</p>
 <h3 id="tilde-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Tilde Expansion<a class="headerlink" href="#tilde-expansion" title="Permanent link">&para;</a></h3>
 <p>Tilde expansion can resolve home directories, the current working directory, and the previous working directory. It occurs only at the beginning of a word or as a separate word.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the current user&#39;s home directory</span>
@@ -1866,21 +1860,24 @@ rm: cannot remove &#39;filename.c&#39;: No such file or directory
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to ubuntu&#39;s home directory</span>
 <span class="nb">cd</span><span class="w"> </span>~ubuntu
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create hello.txt in the current user&#39;s home directory</span>
 <span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span>&gt;~/hello.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <h3 id="shell-parameter-and-variable-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Shell Parameter and Variable Expansion<a class="headerlink" href="#shell-parameter-and-variable-expansion" title="Permanent link">&para;</a></h3>
 <p><code>$</code> introduces parameter expansion, command substitution, or arithmetic expansion. Braces protect a variable name from adjacent characters. <code>${!name}</code> performs indirect expansion, and a default can be assigned while expanding an unset variable.</p>
@@ -1897,14 +1894,15 @@ rm: cannot remove &#39;filename.c&#39;: No such file or directory
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display D</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$D</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>Tue Aug 25 07:29:19 UTC 2026
+<div class="highlight"><pre><span></span><code>Tue<span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:32:50<span class="w"> </span>UTC<span class="w"> </span><span class="m">2026</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Compare braced and unbraced variable expansion</span>
@@ -1912,7 +1910,7 @@ rm: cannot remove &#39;filename.c&#39;: No such file or directory
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>Tue Aug 25 07:29:19 UTC 2026d vs echo
+<div class="highlight"><pre><span></span><code>Tue<span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:32:50<span class="w"> </span>UTC<span class="w"> </span>2026d<span class="w"> </span>vs<span class="w"> </span><span class="nb">echo</span>
 </code></pre></div>
 </details>
 <p>The environment-dependent pattern <code>echo ${!LC*} vs echo $LC*</code> compares variable names selected by indirect expansion with their expanded locale values. Its result depends on the session locale configuration.</p>
@@ -1931,7 +1929,7 @@ rm: cannot remove &#39;filename.c&#39;: No such file or directory
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>The date and time is: Tue Aug 25 07:32:38 UTC 2026
+<div class="highlight"><pre><span></span><code>The<span class="w"> </span>date<span class="w"> </span>and<span class="w"> </span><span class="nb">time</span><span class="w"> </span>is:<span class="w"> </span>Tue<span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:32:50<span class="w"> </span>UTC<span class="w"> </span><span class="m">2026</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the date using backticks</span>
@@ -1939,7 +1937,7 @@ rm: cannot remove &#39;filename.c&#39;: No such file or directory
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>The date and time is Tue Aug 25 07:32:38 UTC 2026
+<div class="highlight"><pre><span></span><code>The<span class="w"> </span>date<span class="w"> </span>and<span class="w"> </span><span class="nb">time</span><span class="w"> </span>is<span class="w"> </span>Tue<span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:32:50<span class="w"> </span>UTC<span class="w"> </span><span class="m">2026</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display locale environment assignments</span>
@@ -1947,23 +1945,18 @@ rm: cannot remove &#39;filename.c&#39;: No such file or directory
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>LC_ADDRESS=ro_RO.UTF-8 LC_NAME=ro_RO.UTF-8 LC_MONETARY=ro_RO.UTF-8 LC_PAPER=ro_RO.UTF-8 LC_IDENTIFICATION=ro_RO.UTF-8 LC_TELEPHONE=ro_RO.UTF-8 LC_MEASUREMENT=ro_RO.UTF-8 LC_NUMERIC=ro_RO.UTF-8
+<p><div class="highlight"><pre><span></span><code>
 </code></pre></div>
+No <code>LC_*</code> variables were set in the validated environment.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display locale assignments one per line</span>
 <span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%s\n&quot;</span><span class="w"> </span><span class="k">$(</span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>^LC_<span class="k">)</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>LC_ADDRESS=ro_RO.UTF-8
-LC_NAME=ro_RO.UTF-8
-LC_MONETARY=ro_RO.UTF-8
-LC_PAPER=ro_RO.UTF-8
-LC_IDENTIFICATION=ro_RO.UTF-8
-LC_TELEPHONE=ro_RO.UTF-8
-LC_MEASUREMENT=ro_RO.UTF-8
-LC_NUMERIC=ro_RO.UTF-8
+<p><div class="highlight"><pre><span></span><code>
 </code></pre></div>
+No <code>LC_*</code> variables were set in the validated environment.</p>
 </details>
 <h3 id="arithmetic-expansion"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Arithmetic Expansion<a class="headerlink" href="#arithmetic-expansion" title="Permanent link">&para;</a></h3>
 <p>Arithmetic expansion evaluates an arithmetic expression and substitutes the result. It works with integers. All tokens in the expression undergo parameter expansion, command substitution, and quote removal. Variables within arithmetic expansion can, in some cases, be used with or without <code>$</code>.</p>
@@ -2133,58 +2126,48 @@ LC_NUMERIC=ro_RO.UTF-8
 </ul>
 <h3 id="271-chaining-and-expansion-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 2.7.1 Chaining and Expansion Lab<a class="headerlink" href="#271-chaining-and-expansion-lab" title="Permanent link">&para;</a></h3>
 <p>Try these chaining examples in <code>/tmp</code>; the fallback examples demonstrate <code>||</code>.</p>
+<p>The <code>/tmp</code> listing is host-state-dependent and was intentionally not captured.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to /tmp, then list it</span>
 <span class="nb">cd</span><span class="w"> </span>/tmp<span class="p">;</span><span class="w"> </span>ls<span class="w"> </span>-al
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>total 64
-drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-drwxrwxr-x  2 ubuntu ubuntu 4096 Aug 25 07:05 chapter2-validation
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List /tmp only after changing to it</span>
 <span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>total 64
-drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Report a failed directory change</span>
 <span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not change to /tmp&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List /tmp or report failure</span>
 <span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not change to /tmp&quot;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>total 64
-drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return home after a failed directory change</span>
 <span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Could not change to /tmp. Going home instead&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="p">;</span><span class="w"> </span>pwd<span class="p">;</span><span class="w"> </span><span class="o">}</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>total 64
-drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List /tmp or count entries in /tmp</span>
 <span class="o">(</span><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="o">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="p">;</span><span class="w"> </span><span class="o">})</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>total 64
-drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-</code></pre></div>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <p>The extglob form <code>ls -ld /var/log/!(*.gz)</code> lists uncompressed log files when extended globbing is enabled. Its output varies by host log retention.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the last ten entries in /etc sort order</span>
@@ -2192,23 +2175,32 @@ ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>-rw-r--r-- 1 root root       1716 Feb 19  2025 passwd
--rw-r--r-- 1 root root      22103 Aug 25 06:14 ld.so.cache
+<p><div class="highlight"><pre><span></span><code>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1716</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2025</span><span class="w"> </span>passwd
+drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2025</span><span class="w"> </span>ssh
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2025</span><span class="w"> </span>netplan
 </code></pre></div>
+Ordering and timestamps vary.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find ls commands in shell history</span>
 <span class="nb">history</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<p><div class="highlight"><pre><span></span><code>ls<span class="p">;</span><span class="w"> </span>pwd<span class="p">;</span><span class="w"> </span>whoami
+<span class="nb">cd</span><span class="w"> </span>/tmp<span class="p">;</span><span class="w"> </span>ls<span class="w"> </span>-al
+<span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al
+ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail
+<span class="nb">history</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ls
+</code></pre></div>
+History varies.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set a filename variable</span>
 <span class="nv">file</span><span class="o">=</span>data.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the shortest suffix beginning with a period</span>
 <span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">file</span><span class="p">%.*</span><span class="si">}</span>
@@ -2231,14 +2223,15 @@ ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add one to X</span>
 <span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">X</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>6
+<div class="highlight"><pre><span></span><code><span class="m">6</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add one to X with an explicit variable expansion</span>
@@ -2246,7 +2239,7 @@ ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>6
+<div class="highlight"><pre><span></span><code><span class="m">6</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Compare X with 15</span>
@@ -2254,7 +2247,7 @@ ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>0
+<div class="highlight"><pre><span></span><code><span class="m">0</span>
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the command-binary directory</span>
@@ -2262,7 +2255,8 @@ ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <p>The glob forms <code>ls m*</code> and <code>ls *.???</code> demonstrate prefix and fixed-length-suffix matching in <code>/usr/bin</code>; their results vary with installed packages.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return to the home directory</span>
@@ -2270,7 +2264,8 @@ ls<span class="w"> </span>-ltr<span class="w"> </span>/etc<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue to the next topic.</p>
@@ -2282,32 +2277,34 @@ nano
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>GNU nano 7.2                    New Buffer
-[ Welcome to nano.  For basic help, type Ctrl+G. ]
-^G Help  ^O Write Out  ^W Where Is  ^X Exit
+<div class="highlight"><pre><span></span><code>GNU<span class="w"> </span>nano<span class="w"> </span><span class="m">7</span>.2<span class="w">  </span>New<span class="w"> </span>Buffer
+<span class="o">[</span><span class="w"> </span>Welcome<span class="w"> </span>to<span class="w"> </span>nano.<span class="w"> </span>For<span class="w"> </span>basic<span class="w"> </span>help,<span class="w"> </span><span class="nb">type</span><span class="w"> </span>Ctrl+G.<span class="w"> </span><span class="o">]</span>
 </code></pre></div>
 </details>
+<p>The user completed the interactive editing and save flow on the replacement LABVM.</p>
 <p>To edit an existing file, replace the placeholder in <code>nano /path/filename</code> with its actual path.</p>
 <p>Nano displays commands in its editor window. Press <code>Ctrl+g</code> for additional commands.</p>
 <h3 id="281-nano-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 2.8.1 nano Lab<a class="headerlink" href="#281-nano-lab" title="Permanent link">&para;</a></h3>
 <p>Create and edit files with nano, reviewing the commands available in the editor.</p>
+<p>The user completed the interactive nano lab on the replacement LABVM.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the home directory</span>
 <span class="nb">cd</span><span class="w"> </span>~
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output.</p>
+<div class="highlight"><pre><span></span><code>No<span class="w"> </span>output.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create and edit fileone.txt</span>
 nano<span class="w"> </span>fileone.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>GNU nano 7.2                    fileone.txt
-[ New File ]
-^G Help  ^O Write Out  ^W Where Is  ^X Exit
+<div class="highlight"><pre><span></span><code>GNU<span class="w"> </span>nano<span class="w"> </span><span class="m">7</span>.2<span class="w">  </span>fileone.txt
+<span class="o">[</span><span class="w"> </span>New<span class="w"> </span>File<span class="w"> </span><span class="o">]</span>
 </code></pre></div>
 </details>
+<p>The user completed the interactive editing and save flow on the replacement LABVM.</p>
 <p>Type <code>The quick brown fox jumped over the lazy dog.</code>. Copy and paste it ten times using the nano shortcuts:</p>
 <div class="highlight"><pre><span></span><code>Ctrl+K
 Ctrl+U
@@ -2321,10 +2318,7 @@ nano<span class="w"> </span>shells.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>GNU nano 7.2                    shells.txt
-[ New File ]
-^G Help  ^O Write Out  ^W Where Is  ^X Exit
-</code></pre></div>
+<p>The user confirmed completing the interactive editor workflow on the replacement LABVM; no terminal output was captured.</p>
 </details>
 <p>Add <code>She sells seashells down by the seashore.</code>, copy and paste the line three times, then save and close the file. Open the original file, indent the first three lines, and replace <code>fox</code> with <code>rabbit</code>:</p>
 <div class="highlight"><pre><span></span><code>Ctrl+\\
