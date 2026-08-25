@@ -34,6 +34,8 @@ ping -c 3 ubuntu.com
 
 ## Chapter 1: What is Ubuntu
 
+The following source commands were validated on the replacement LABVM on 2026-08-25.
+
 Connection wrapper: [redacted; executed against the assigned lab VM]
 
 ```bash

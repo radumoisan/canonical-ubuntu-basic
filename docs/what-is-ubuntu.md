@@ -3,9 +3,6 @@
 !!! abstract "Goals"
     Differentiate Ubuntu flavours, explain the release cycle and naming convention, and describe the LTS maintenance cycle.
 
-!!! note
-    The LABVM connection below was validated on the replacement environment. The later chapter results were captured on the prior `LABVM` on 2026-08-24 and are historical only; revalidate them on the replacement `LABVM`.
-
 Follow the two-hop connection steps in [Prerequisites](prerequisites.md): connect from your local computer to `LABHOST`, then connect from `LABHOST` to `LABVM`. Run this chapter's commands on `LABVM`.
 
 From `LABHOST`, run:
@@ -86,6 +83,7 @@ cat /etc/os-release
 ```
 
 ??? example "Expected result"
+    ```shell
     PRETTY_NAME="Ubuntu 24.04.2 LTS"
     NAME="Ubuntu"
     VERSION_ID="24.04"
@@ -99,6 +97,7 @@ cat /etc/os-release
     PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
     UBUNTU_CODENAME=noble
     LOGO=ubuntu-logo
+    ```
 
 Another way to check the Ubuntu distribution version is:
 
@@ -108,10 +107,12 @@ cat /etc/lsb-release
 ```
 
 ??? example "Expected result"
+    ```shell
     DISTRIB_ID=Ubuntu
     DISTRIB_RELEASE=24.04
     DISTRIB_CODENAME=noble
     DISTRIB_DESCRIPTION="Ubuntu 24.04.2 LTS"
+    ```
 
 2. Check the kernel version.
 
@@ -121,9 +122,11 @@ uname -a
 ```
 
 ??? example "Expected result"
+    ```shell
     Linux ubuntu 6.8.0-53-generic #55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+    ```
 
-    The kernel version, build timestamp, and system architecture can differ between lab images.
+The kernel version, build timestamp, and system architecture can differ between lab images.
 
 Another way to check the kernel version is:
 
@@ -133,8 +136,10 @@ cat /proc/version_signature
 ```
 
 ??? example "Expected result"
+    ```shell
     Ubuntu 6.8.0-53.55-generic 6.8.12
+    ```
 
-    The package and upstream kernel versions can differ between lab images.
+The package and upstream kernel versions can differ between lab images.
 
 > End of the lab. Do not continue with the next topic.

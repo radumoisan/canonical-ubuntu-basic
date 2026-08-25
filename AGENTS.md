@@ -58,8 +58,9 @@ This repository is for the Canonical Ubuntu Basic training site.
 - Keep `docs/prerequisites.md` as the reference page, located immediately after Home in navigation, for validated current lab-environment details and confirmed requirements.
 - Keep `docs/assets/` for training diagrams and other documentation assets.
 - Keep `migration.md` at the repository root as the internal migration tracker.
-- Keep `playground.md` at the repository root as the internal lab machine inventory.
-- Keep `commands.md` at the repository root as the internal record of successfully executed training commands.
+- Keep `playground.md` at the repository root as the authoritative current lab-assignment source to use before lab execution. It must remain a compact, few-lines-per-student Markdown equivalent of `students_bofa_ubuntu_basic.json` and contain nothing beyond those student fields and values. `students_bofa_ubuntu_basic.json` is the synchronization/reference input and cannot override a synchronized `playground.md` except when deliberately resynchronizing it.
+- The SSH username for lab VMs is always `ubuntu`; never derive it from a student name, email, or other student identity field.
+- Keep `commands.md` at the repository root as internal historical reference only. It must never provide current connection targets, credentials, machine state, assignment information, or validation evidence.
 - Treat `lab_commands/` as read-only supporting command-reference material. Its commands are not successful training commands and must not be recorded in `commands.md` unless they also appear in the source training material and are successfully executed.
 
 ## Navigation Status Markers
@@ -152,8 +153,7 @@ Use Material admonitions when they improve clarity:
 - Use these migration statuses: `Not started`, `Structured`, `Formatting`, `Ready for validation`, `Validating`, `Blocked`, and `Complete`.
 - Mark a chapter as `Complete` only after all commands in that chapter have been run and their results have been documented.
 - Keep unvalidated pages marked `⏳` in `mkdocs.yml`; use `📋` only for completed or currently validated pages.
-- Update `playground.md` whenever a lab machine is added, changed, or reassigned.
-- Use `playground.md` for internal execution context only; it is not part of the training content.
+- Deliberately resynchronize `playground.md` from `students_bofa_ubuntu_basic.json` whenever a lab assignment is added, changed, or reassigned. Use the synchronized `playground.md` as the current execution context; it is not part of the training content.
 - Update `commands.md` for successful training commands executed by the agent locally or remotely, including during live interactive training sessions.
 - Record only commands from the training material that actually succeeded.
 - Record the exact command string that was actually executed successfully, except redact external SSH connection wrappers and credentials as `Connection wrapper: [redacted; executed against the assigned lab VM]` while retaining the exact student/source command. This internal-record redaction does not apply to student-facing expected results.
