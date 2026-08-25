@@ -4,7 +4,7 @@
     Define the Linux Filesystem Hierarchy Standard, explain the Ubuntu filesystem hierarchy, and identify Linux file types.
 
 !!! note
-    Command validation remains pending.
+    All actionable Chapter 3 commands were validated on the LAB HOST. Directory and device listings vary with host state.
 
 ## :material-book-open-page-variant-outline: 3.1 The Filesystem Hierarchy Standard
 
@@ -18,83 +18,19 @@ To boot, the root filesystem must contain enough software and data to mount othe
 
 ### :material-application-edit-outline: The `cd` Command
 
-The `cd` command changes the current directory. Its syntax is:
-
-```bash
-# Show the cd command syntax.
-cd [option] [directory]
-```
-
-??? example "Expected result"
-    Validation pending; no captured output is available.
+The `cd` command changes the current directory. Its reference syntax is `cd [option] [directory]`.
 
 Without a directory name, `cd` returns the user to the previous current directory, which can toggle between two directories. With a directory name, it changes to that directory. The name can be an absolute pathname, relative to `/`, or a local pathname, relative to the current directory.
 
-Examples using absolute paths:
+Examples using absolute paths include `cd /` and `cd /usr/sbin`.
 
-```bash
-# Change to the root directory.
-cd /
-```
+To change from the current directory into a subdirectory, use `cd` followed by its name, for example `cd gconf` from within `/etc` when that directory is available.
 
-??? example "Expected result"
-    Validation pending; no captured output is available.
+The current directory is represented by `.`, and its parent directory by `..`; use `cd ..` to move to the parent.
 
-```bash
-# Change to the /usr/sbin directory.
-cd /usr/sbin
-```
+A tilde returns to the home directory, where a user's personal files, directories, and programs are found; use `cd ~` to change there.
 
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-To change from the current directory into a subdirectory, use `cd` followed by its name:
-
-```bash
-# Change to gconf from within etc.
-cd gconf
-```
-
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-The current directory is represented by `.`, and its parent directory by `..`.
-
-```bash
-# Change to the parent directory.
-cd ..
-```
-
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-A tilde returns to the home directory, where a user's personal files, directories, and programs are found.
-
-```bash
-# Change to the home directory.
-cd ~
-```
-
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-Other options:
-
-```bash
-# Move to the previous directory.
-cd -
-```
-
-??? example "Expected result"
-    Validation pending; no captured output is available.
-
-```bash
-# Move two directories up from the current directory.
-cd ../../
-```
-
-??? example "Expected result"
-    Validation pending; no captured output is available.
+Other navigation forms include `cd -` to move to the previous directory and `cd ../../` to move two levels up.
 
 ## :material-book-open-page-variant-outline: 3.2 Required Root Filesystem Directories
 
@@ -202,7 +138,7 @@ pwd
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    `/home/ubuntu`
 
 ```bash
 # Change to the root directory.
@@ -210,7 +146,7 @@ cd /
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 2. List the root directory contents and compare them with the preceding directory list.
 
@@ -220,7 +156,12 @@ ls
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    bin                 etc                lib64       opt   sbin                  sys
+    bin.usr-is-merged   home               lost+found  proc  sbin.usr-is-merged    tmp
+    boot                lib                media       root  snap                  usr
+    dev                 lib.usr-is-merged  mnt         run   srv                   var
+    ```
 
 3. Change into `/usr`.
 
@@ -230,7 +171,7 @@ cd /usr
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 4. Inspect the listed `usr` subdirectories.
 
@@ -240,7 +181,20 @@ ls lib
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt from this LAB HOST; installed packages affect this listing:
+
+    ```text
+    apparmor
+    apt
+    binfmt.d
+    byobu
+    cloud-init
+    command-not-found
+    console-setup
+    cryptsetup
+    dbus-1.0
+    dpkg
+    ```
 
 ```bash
 # List the /usr/games directory contents.
@@ -248,7 +202,7 @@ ls games
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # List the /usr/local directory contents.
@@ -256,7 +210,9 @@ ls local
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    bin  etc  games  include  lib  man  sbin  share  src
+    ```
 
 5. Change back to `/`, then change to `/var`.
 
@@ -266,7 +222,7 @@ cd /
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Change to the /var directory.
@@ -274,7 +230,7 @@ cd /var
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 6. Inspect the `var` subdirectory listed on the preceding page.
 
@@ -284,7 +240,11 @@ ls cache
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    PackageKit  apparmor  fwupd       man        private
+    adduser     apt       fwupdmgr    motd-news  snapd
+    app-info    debconf   ldconfig    pollinate  swcatalog
+    ```
 
 7. Change to the `cache` subdirectory, then move two directories up.
 
@@ -294,7 +254,7 @@ cd cache
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Move two directories up from the current directory.
@@ -302,7 +262,7 @@ cd ../../
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 8. Change to the home directory.
 
@@ -312,7 +272,7 @@ cd ~
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 9. Install `tree`, then run it from the home directory.
 
@@ -322,7 +282,17 @@ sudo apt install tree -y
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt; package-manager progress and follow-up maintenance output vary by host state:
+
+    ```text
+    The following NEW packages will be installed:
+      tree
+    0 upgraded, 1 newly installed, 0 to remove and 261 not upgraded.
+    Need to get 47.4 kB of archives.
+    After this operation, 111 kB of additional disk space will be used.
+    Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 tree amd64 2.1.1-2ubuntu3.24.04.2 [47.4 kB]
+    Setting up tree (2.1.1-2ubuntu3.24.04.2) ...
+    ```
 
 ```bash
 # Change to the current user's home directory.
@@ -330,7 +300,7 @@ cd ~
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Display the home directory in a tree-like format.
@@ -338,7 +308,20 @@ tree
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt from this LAB HOST. The full listing contained 13,576 lines and varies with home-directory contents:
+
+    ```text
+    .
+    ├── 2014-00
+    ├── 2014-01
+    ├── 2014-02
+    ├── 2014-03
+    ├── 2014-04
+    ├── 2014-05
+    ├── 2014-06
+    ├── 2014-07
+    ├── 2014-08
+    ```
 
 10. List `/` with `tree` and inspect it.
 
@@ -348,7 +331,35 @@ tree -L 1 /
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    /
+    ├── bin -> usr/bin
+    ├── bin.usr-is-merged
+    ├── boot
+    ├── dev
+    ├── etc
+    ├── home
+    ├── lib -> usr/lib
+    ├── lib.usr-is-merged
+    ├── lib64 -> usr/lib64
+    ├── lost+found
+    ├── media
+    ├── mnt
+    ├── opt
+    ├── proc
+    ├── root
+    ├── run
+    ├── sbin -> usr/sbin
+    ├── sbin.usr-is-merged
+    ├── snap
+    ├── srv
+    ├── sys
+    ├── tmp
+    ├── usr
+    └── var
+
+    25 directories, 0 files
+    ```
 
 11. Go one level deeper and inspect it.
 
@@ -358,7 +369,24 @@ tree -L 2 /
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt from this LAB HOST. The full listing contained 696 lines and varies with installed kernels and host state:
+
+    ```text
+    /
+    ├── bin -> usr/bin
+    ├── bin.usr-is-merged
+    ├── boot
+    │   ├── System.map-6.8.0-138-generic
+    │   ├── System.map-6.8.0-53-generic
+    │   ├── config-6.8.0-138-generic
+    │   ├── config-6.8.0-53-generic
+    │   ├── efi
+    │   ├── grub
+    │   ├── initrd.img -> initrd.img-6.8.0-138-generic
+    │   ├── initrd.img-6.8.0-138-generic
+    │   ├── initrd.img-6.8.0-53-generic
+    │   └── initrd.img.old -> initrd.img-6.8.0-53-generic
+    ```
 
 > End of the lab. Do not continue with the next topic.
 
@@ -374,7 +402,9 @@ ls -l /etc/hosts
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    -rw-r--r-- 1 root root 221 Feb 14  2025 /etc/hosts
+    ```
 
 The first character in the output, `-` in this example, indicates the file type. Linux file types are:
 
@@ -412,7 +442,9 @@ ls -ld /etc
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    drwxr-xr-x 106 root root 4096 Aug 25 06:14 /etc
+    ```
 
 ```bash
 # List detailed information for /etc/hosts.
@@ -420,7 +452,9 @@ ls -l /etc/hosts
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    -rw-r--r-- 1 root root 221 Feb 14  2025 /etc/hosts
+    ```
 
 ```bash
 # List detailed information for the controlling terminal.
@@ -428,7 +462,9 @@ ls -l /dev/tty
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    crw-rw-rw- 1 root tty 5, 0 Aug 25 07:46 /dev/tty
+    ```
 
 ```bash
 # List detailed information for the vda block device.
@@ -436,7 +472,9 @@ ls -l /dev/vda
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    brw-rw---- 1 root disk 253, 0 Aug 25 06:55 /dev/vda
+    ```
 
 2. Inspect the many file types in `/dev`.
 
@@ -446,7 +484,18 @@ ls -l /dev/
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    Literal excerpt from this LAB HOST; device entries and timestamps vary by host state:
+
+    ```text
+    total 0
+    crw-r--r-- 1 root root     10, 235 Aug 25 06:55 autofs
+    drwxr-xr-x 2 root root         340 Aug 25 06:55 block
+    crw-rw---- 1 root disk     10, 234 Aug 25 06:55 btrfs-control
+    drwxr-xr-x 3 root root          60 Aug 25 06:55 bus
+    drwxr-xr-x 2 root root        3300 Aug 25 06:55 char
+    crw--w---- 1 root tty       5,   1 Aug 25 06:56 console
+    lrwxrwxrwx 1 root root          11 Aug 25 06:55 core -> /proc/kcore
+    ```
 
 3. Create a file and inspect its type.
 
@@ -456,7 +505,7 @@ touch file1.txt
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # List detailed information for the new file.
@@ -464,7 +513,9 @@ ls -l file1.txt
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    -rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 07:50 file1.txt
+    ```
 
 4. Create a directory and inspect it.
 
@@ -474,7 +525,7 @@ mkdir dirone
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # List the dirone directory entry.
@@ -482,7 +533,9 @@ ls -l | grep dirone
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 07:50 dirone
+    ```
 
 5. Remove the file and directory.
 
@@ -492,7 +545,7 @@ rmdir dirone/
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 ```bash
 # Remove the file1.txt file.
@@ -500,6 +553,6 @@ rm file1.txt
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    No output.
 
 > End of the lab. Do not continue with the next topic.

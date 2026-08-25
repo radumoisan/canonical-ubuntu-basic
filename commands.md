@@ -346,3 +346,111 @@ ls -ltr /etc | tail
 ```bash
 cd /usr/bin
 ```
+
+## Chapter 3: Linux Filesystem Hierarchy
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+pwd
+```
+
+```bash
+cd /
+```
+
+```bash
+ls
+```
+
+```bash
+cd /usr
+```
+
+```bash
+ls lib
+```
+
+```bash
+ls games
+```
+
+```bash
+ls local
+```
+
+```bash
+cd /var
+```
+
+```bash
+ls cache
+```
+
+```bash
+cd cache
+```
+
+```bash
+cd ../../
+```
+
+```bash
+sudo apt install tree -y
+```
+
+```bash
+tree
+```
+
+```bash
+tree -L 1 /
+```
+
+```bash
+tree -L 2 /
+```
+
+```bash
+ls -l /etc/hosts
+```
+
+```bash
+ls -ld /etc
+```
+
+```bash
+ls -l /dev/tty
+```
+
+```bash
+ls -l /dev/vda
+```
+
+```bash
+ls -l /dev/
+```
+
+```bash
+touch file1.txt
+```
+
+```bash
+ls -l file1.txt
+```
+
+```bash
+mkdir dirone
+```
+
+```bash
+ls -l | grep dirone
+```
+
+```bash
+rmdir dirone/
+```
+
+```bash
+rm file1.txt
+```
