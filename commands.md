@@ -63,83 +63,15 @@ cat /proc/version_signature
 Connection wrapper: [redacted; executed against the assigned lab VM]
 
 ```bash
+man ls
+```
+
+```bash
 mkdir mydir1
 ```
 
 ```bash
 cd mydir1
-```
-
-```bash
-touch file1
-```
-
-```bash
-cp file1 file2
-```
-
-```bash
-ls -al > ~/all_files.txt
-```
-
-```bash
-wc -l < /etc/passwd
-```
-
-```bash
-echo sp{el,il,al}
-```
-
-```bash
-echo $SHELL
-```
-
-```bash
-file=data.txt
-```
-
-```bash
-echo ${file%.*}
-```
-
-```bash
-echo ${file#*.}
-```
-
-```bash
-X=5
-```
-
-```bash
-echo $((X+1))
-```
-
-```bash
-echo $(($X+1))
-```
-
-```bash
-echo $((X>15))
-```
-
-```bash
-cd ~
-```
-
-```bash
-nano
-```
-
-```bash
-nano fileone.txt
-```
-
-```bash
-nano shells.txt
-```
-
-```bash
-man ls
 ```
 
 ```bash
@@ -159,11 +91,39 @@ rmdir mydir2
 ```
 
 ```bash
+touch file1
+```
+
+```bash
+cp file1 file2
+```
+
+```bash
 mkdir mynewdir
 ```
 
 ```bash
 cp -a mydir1/* mynewdir
+```
+
+```bash
+ls -al > ~/all_files.txt
+```
+
+```bash
+ls -al /tmp >> ~/all_files.txt
+```
+
+```bash
+wc -l < /etc/passwd
+```
+
+```bash
+ls -al | less
+```
+
+```bash
+ls > mylist
 ```
 
 ```bash
@@ -291,11 +251,7 @@ export x=5
 ```
 
 ```bash
-ls -al | less
-```
-
-```bash
-ls > mylist
+echo $x
 ```
 
 ```bash
@@ -325,16 +281,28 @@ less --help | grep -i examine
 ```
 
 ```bash
+ls; pwd; whoami
+```
+
+```bash
+echo sp{el,il,al}
+```
+
+```bash
 ping -c1 google.com && echo "That's good, able to ping google.com" || \
 echo "That's bad unable to ping google.com"
 ```
 
 ```bash
-touch file-{A..Z}{a..z}-{0..9}
+mkdir {2014..2016}-0{0..9} {2014..2016}-{10..12}
 ```
 
 ```bash
-touch {A..Z}{a..z}-{0..9}.txt
+cd ~
+```
+
+```bash
+echo $SHELL
 ```
 
 ```bash
@@ -358,6 +326,10 @@ echo ${D}d vs echo $Dd
 ```
 
 ```bash
+echo ${TODAY:=`date +%A`}
+```
+
+```bash
 echo "The date and time is: $(date)"
 ```
 
@@ -375,6 +347,38 @@ printf "%s\n" $(env | grep ^LC_)
 
 ```bash
 ls -ltr /etc | tail
+```
+
+```bash
+history | grep ls
+```
+
+```bash
+file=data.txt
+```
+
+```bash
+echo ${file%.*}
+```
+
+```bash
+echo ${file#*.}
+```
+
+```bash
+X=5
+```
+
+```bash
+echo $((X+1))
+```
+
+```bash
+echo $(($X+1))
+```
+
+```bash
+echo $((X>15))
 ```
 
 ```bash

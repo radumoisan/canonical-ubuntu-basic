@@ -12,7 +12,7 @@ nav:
   - "📋 Home": index.md
   - "📋 Prerequisites": prerequisites.md
   - "📋 1. What is Ubuntu": what-is-ubuntu.md
-  - "⏳ 2. CLI Environment": cli-environment.md
+  - "📋 2. CLI Environment": cli-environment.md
   - "⏳ 3. Linux Filesystem Hierarchy": linux-filesystem-hierarchy.md
   - "⏳ 4. Identity and Ownership": identity-and-ownership.md
   - "⏳ 5. Logging and Initialization": logging-and-initialization.md

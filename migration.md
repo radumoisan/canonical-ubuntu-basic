@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Replacement-environment prerequisites and Chapter 1 are validated; Chapters 2 through 8 require revalidation.
-- Active target: Chapter 2 command-by-command validation on the replacement environment.
-- Next action: Start Chapter 2 validation through the documented student route.
+- Current phase: Replacement-environment prerequisites and Chapters 1 and 2 are complete; Chapters 3 through 8 require revalidation.
+- Active target: Chapter 3 validation through the documented student route.
+- Next action: Validate Chapter 3 through the documented student route.
 - The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -25,7 +25,7 @@
 | Prerequisites | Complete (validated two-layer student environment/readiness checks; not chapter validation) |
 | Networking Appendix | Complete |
 | 1. What is Ubuntu | Complete (replacement environment) |
-| 2. CLI Environment | Ready for validation (replacement environment) |
+| 2. CLI Environment | Complete (replacement environment) |
 | 3. Linux Filesystem Hierarchy | Ready for validation (replacement environment) |
 | 4. Identity and Ownership | Ready for validation (replacement environment) |
 | 5. Logging and Initialization | Ready for validation (replacement environment) |
@@ -40,7 +40,7 @@
 | Chapter | Source subsections | Status |
 | --- | --- | --- |
 | 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Complete (all source commands validated on replacement environment) |
-| 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Ready for validation (replacement environment; prior results superseded) |
+| 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Complete (replacement environment) |
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Ready for validation (replacement environment; prior results superseded) |
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Ready for validation (replacement environment; prior results superseded) |
 | 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Ready for validation (replacement environment; prior results superseded) |
@@ -72,7 +72,10 @@
 - 2026-08-25: The Networking Appendix is complete. Its IP-address definition now covers IPv4 and IPv6, its network-address example requires a prefix length, and its Ubuntu 24.04 Netplan guidance correctly describes `/etc/netplan/` filename variability and cloud-init regeneration.
 - 2026-08-25: Chapter 8 validation is blocked. The exact `sudo apt install at -y` command failed with `No space left on device`; root had 55 MiB available (98% used) after the attempt. `ubuntu` is also denied both `at` and `atq`, so a harmless one-time job cannot be submitted or inspected. No cleanup, disk, service, or authorization change was made to work around either restriction.
 - 2026-08-25: Replacement-environment prerequisite validation completed through the documented two-layer student route. The documented read-only operating-system, processor, memory, block-device, and outbound-connectivity checks succeeded. No package, configuration, service, network, disk, or other remote mutation was performed.
-- 2026-08-25: Chapters 2 through 8 require replacement-environment revalidation. Their student-facing expected-result bodies still contain prior-environment captures and require a separate documented content reset; they were not mass-replaced during readiness validation.
+- 2026-08-25: Chapters 3 through 8 require replacement-environment revalidation. Their student-facing expected-result bodies still contain prior-environment captures and require a separate documented content reset; they were not mass-replaced during readiness validation.
+- 2026-08-25: Sections 2.1 through 2.7 successful results were captured in isolated workspaces and cleaned. Fixed `/tmp/list.txt` and `/tmp/errors.txt` were safely removed.
+- 2026-08-25: `man` without an argument and the `grep string` and `/r*` examples returned non-zero and are reference-only. The source TERM form mismatch remains pending.
+- 2026-08-25: Interactive nano validation was completed by the user on the replacement LABVM; no terminal transcript was captured.
 
 ## :material-book-open-page-variant-outline: Session Log
 
@@ -135,8 +138,12 @@
 - Replacement deployment date: 2026-08-25. Performed read-only readiness validation only; no package, training, cleanup, service, network, disk, libvirt-configuration, MkDocs, or Git operations were run.
 - The prerequisite validation completed through the documented two-layer student route. The successful source commands are recorded, and Prerequisites contains only safe literal output or excerpts.
 - `playground.md` contains only the compact JSON-synchronized current assignment; superseded history belongs in this tracker.
-- Chapters 2 through 8 remain Ready for validation on the replacement environment. Chapter 9 and 10 states remain Structured.
+- Chapter 2 validation is in progress on the replacement environment; Chapters 3 through 8 remain Ready for validation. Chapter 9 and 10 states remain Structured.
 - Validated all five Chapter 1 source commands on the replacement environment with exit status 0: interactive SSH, `cat /etc/os-release`, `cat /etc/lsb-release`, `uname -a`, and `cat /proc/version_signature`.
 - Added literal student-facing shell result blocks for all five successful Chapter 1 commands.
 - No remote mutation was performed during Chapter 1 validation.
 - Chapter 2 is the next validation target.
+- Stale Chapter 2 results were reset to the standard pending notice before replacement validation; no Chapter 2 command has yet been executed in this validation pass.
+- Applied partial Chapter 2 replacement-environment evidence for sections 2.1 through 2.7. Successful source-verbatim commands were added to the historical record; reference-only, failed, derived, duplicate, and skipped commands were excluded.
+- Retained pending results for the source TERM mismatch, host-state-dependent `/tmp` chaining examples, and all user-deferred nano items. Chapter 2 remains Validating (replacement environment); navigation remains in progress.
+- User-confirmed interactive nano completion finalized Chapter 2 on the replacement LABVM; no terminal transcript was captured and no MkDocs build was run.

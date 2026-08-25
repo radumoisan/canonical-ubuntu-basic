@@ -48,10 +48,11 @@ Common CLI commands can also be used in scripts to automate tasks.
 man ls
 ```
 ??? example "Expected result"
-    `man` opened the `ls` page and exited normally after `q`.
-
-    ```text
+    ```shell
     man: can't set the locale; make sure $LC_* and $LANG are correct
+    ls - list directory contents
+    SYNOPSIS
+    ls [OPTION]... [FILE]...
     ```
 
 `-a, --all` includes entries beginning with `.`, `-h, --human-readable` prints readable sizes with `-l` or `-s`, `-l` uses long format, and `-t` sorts by newest modification time first.
@@ -63,42 +64,54 @@ man ls
 mkdir mydir1
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Enter mydir1
 cd mydir1
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Create mydir2
 mkdir mydir2
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Enter mydir2
 cd mydir2
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Return to the parent of mydir2
 cd ..
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Remove the empty mydir2 directory
 rmdir mydir2
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 3. Create `file1`, copy it to `file2`, return to the parent of `mydir1`, create `mynewdir`, and copy `mydir1` contents into it.
 
@@ -107,49 +120,55 @@ rmdir mydir2
 touch file1
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Copy file1 to file2
 cp file1 file2
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Return to the parent directory
 cd ..
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Create mynewdir
 mkdir mynewdir
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Copy mydir1 contents into mynewdir
 cp -a mydir1/* mynewdir
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
-4. Type `ls my` and press Tab twice to inspect shell completion choices.
+4. Type `ls my` and press Tab twice to inspect shell completion choices. The partial command is canceled after completion rather than invoked.
 
 ```bash
-# Begin a listing command for tab completion
-ls my*
+# Type this text, then press Tab twice
+ls my<Tab><Tab>
 ```
 ??? example "Expected result"
-    ```text
-    mydir1:
-    file1  file2
-
-    mynewdir:
-    file1  file2
+    ```shell
+    mydir1/   mynewdir/
     ```
 
 > End of the lab. Do not continue to the next topic.
@@ -170,23 +189,20 @@ At the prompt, try `man`, then `man man`; scroll through the page, use the liste
 # Run man without a page argument
 man
 ```
-??? example "Expected result"
-    ```text
-    man: can't set the locale; make sure $LC_* and $LANG are correct
-    What manual page do you want?
-    For example, try 'man man'.
-    ```
+
+This reference-only form prints a usage prompt rather than opening a manual page.
 
 ```bash
 # Open the man manual page
 man man
 ```
 ??? example "Expected result"
-    The page was opened in the terminal and the help interaction was attempted before normal exit.
-
-    ```text
+    ```shell
     man: can't set the locale; make sure $LC_* and $LANG are correct
-    man: can't resolve man7/groff_man.7
+    man - an interface to the system reference manuals
+    SUMMARY OF LESS COMMANDS
+    h  H                  Display this help.
+    q  ...                Exit.
     ```
 
 ```bash
@@ -194,23 +210,23 @@ man man
 man ls
 ```
 ??? example "Expected result"
-    `man` opened the page in the terminal and exited normally after the requested navigation keys.
-
-    ```text
+    ```shell
     man: can't set the locale; make sure $LC_* and $LANG are correct
+    ls - list directory contents
+    SYNOPSIS
+    ls [OPTION]... [FILE]...
     ```
 
-Then find the `rsync -p` option.
+Then search for the `rsync -p` option. The validated search did not establish that option.
 
 ```bash
 # Open the rsync manual page
 man rsync
 ```
 ??? example "Expected result"
-    `man` opened the page in the terminal and exited normally after `q`.
-
-    ```text
+    ```shell
     man: can't set the locale; make sure $LC_* and $LANG are correct
+    rsync - a fast, versatile, remote (and local) file-copying tool
     ```
 
 > End of the lab. Do not continue to the next topic.
@@ -230,7 +246,7 @@ By convention, variable names are uppercase. They can use letters, numbers, and 
 export TERM=xterm-256color
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ### :material-application-edit-outline: Setting and Unsetting Variables
 
@@ -241,35 +257,45 @@ Define variables with `name=value`; they are local until the shell exits. Use `u
 NAME=Marvin
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Set a variable containing multiple values
 NAMES="Marvin Ford Arthur Trillian"
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Unset NAME
 unset NAME
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Set NAME to an empty value
 NAME=
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Export NAME to child processes
 export NAME=Marvin
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ### :material-application-edit-outline: Manipulating Variables
 
@@ -278,7 +304,7 @@ export NAME=Marvin
 echo $NAME
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     Marvin
     ```
 
@@ -287,14 +313,18 @@ echo $NAME
 NAMES="$NAMES Zaphod"
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Mark NAMES as read-only
 readonly NAMES
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ### :material-application-edit-outline: Special Variables
 
@@ -309,8 +339,8 @@ Special variables can be referenced but not assigned. `$?` is the exit status of
 echo $PATH
 ```
 ??? example "Expected result"
-    ```text
-    /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+    ```shell
+    /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     ```
 
 ```bash
@@ -318,16 +348,15 @@ echo $PATH
 env
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     SHELL=/bin/bash
     NAME=Marvin
-    PWD=/home/ubuntu
-    HOME=/home/ubuntu
+    LANG=C
     TERM=xterm-256color
     USER=ubuntu
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     ```
-
-    The environment also includes session-specific variables and locale assignments.
+    Additional entries vary by session.
 
 2. Consider the purpose of `SHELL`. Set and view `MYNAME`.
 
@@ -336,14 +365,16 @@ env
 MYNAME="john"
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Display MYNAME
 echo $MYNAME
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     john
     ```
 
@@ -354,21 +385,25 @@ echo $MYNAME
 PART1="My name is"
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Set the second name fragment
 PART2="john"
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Display the first fragment
 echo $PART1
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     My name is
     ```
 
@@ -377,7 +412,7 @@ echo $PART1
 echo $PART2
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     john
     ```
 
@@ -388,14 +423,16 @@ echo $PART2
 STUDENTNAME=$PART1$PART2
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Display STUDENTNAME
 echo $STUDENTNAME
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     My name isjohn
     ```
 
@@ -406,42 +443,54 @@ echo $STUDENTNAME
 unset PART1
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Unset PART2
 unset PART2
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Unset STUDENTNAME
 unset STUDENTNAME
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Confirm PART1 is undefined
 echo $PART1
 ```
 ??? example "Expected result"
-    No output.
+    ```shell
+
+    ```
 
 ```bash
 # Confirm PART2 is undefined
 echo $PART2
 ```
 ??? example "Expected result"
-    No output.
+    ```shell
+
+    ```
 
 ```bash
 # Confirm STUDENTNAME is undefined
 echo $STUDENTNAME
 ```
 ??? example "Expected result"
-    No output.
+    ```shell
+
+    ```
 
 6. Set an unexported variable, create a subshell, and inspect it.
 
@@ -450,14 +499,16 @@ echo $STUDENTNAME
 x=5
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Display x in the current shell
 echo $x
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     5
     ```
 
@@ -466,8 +517,8 @@ echo $x
 bash
 ```
 ??? example "Expected result"
-    ```text
-    ubuntu@ubuntu:~$
+    ```shell
+    No output.
     ```
 
 ```bash
@@ -475,14 +526,18 @@ bash
 echo $x
 ```
 ??? example "Expected result"
-    No output.
+    ```shell
+
+    ```
 
 ```bash
 # Exit back to the original shell
 exit
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 7. Export `x` and inspect it in a subshell.
 
@@ -491,14 +546,16 @@ exit
 export x=5
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Display exported x
 echo $x
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     5
     ```
 
@@ -507,8 +564,8 @@ echo $x
 bash
 ```
 ??? example "Expected result"
-    ```text
-    ubuntu@ubuntu:~$ exit
+    ```shell
+    No output.
     ```
 
 ```bash
@@ -516,7 +573,7 @@ bash
 echo $x
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     5
     ```
 
@@ -525,7 +582,9 @@ echo $x
 exit
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 > End of the lab. Do not continue to the next topic.
 
@@ -548,34 +607,32 @@ The output of a command can be sent to a file with `>` followed by a filename. I
 ls -al > ~/all_files.txt
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Append a /tmp listing to a file
 ls -al /tmp >> ~/all_files.txt
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Combine file contents into one file
 cat file1.txt file2.txt file3.txt > combined-file.txt
 ```
-??? example "Expected result"
-    ```text
-    cat: file1.txt: No such file or directory
-    cat: file2.txt: No such file or directory
-    cat: file3.txt: No such file or directory
-    ```
+
+This reference-only form requires the listed input files.
 
 ```bash
 # Discard ping output
 ping -c 2 www.xxx.yyy.zzz > /dev/null
 ```
-??? example "Expected result"
-    ```text
-    ping: www.xxx.yyy.zzz: Name or service not known
-    ```
+
+This reference-only form uses an intentionally invalid host name.
 
 #### Input Redirection
 
@@ -586,11 +643,11 @@ A command can receive input from a file with `<` followed by a filename. When tw
 wc -l < /etc/passwd
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     33
     ```
 
-This counts lines one at a time until it reaches the `EOF` delimiter.
+The standalone `wc -l << EOF` form is reference-only because it is incomplete without its here-document content and delimiter.
 
 #### Piped Redirection
 
@@ -601,18 +658,20 @@ The output of one command can be sent directly to another command as input with 
 ls -al | less
 ```
 ??? example "Expected result"
-    ```text
-    -rw-rw-r--  1 ubuntu ubuntu 387636 Aug 25 07:23 all_files.txt
-    -rw-rw-r--  1 ubuntu ubuntu      0 Aug 25 07:23 combined-file.txt
-    drwxrwxr-x  2 ubuntu ubuntu   4096 Aug 25 07:10 mydir1
+    ```shell
+    total 16
+    drwxrwxr-x  2 ubuntu ubuntu 4096 ... .
+    drwxrwxrwt 13 root   root   4096 ... ..
+    -rw-rw-r--  1 ubuntu ubuntu 1302 ... all_files.txt
     ```
+    Paths, timestamps, and sizes vary.
 
 ```bash
 # Filter a detailed listing
 ls -al | grep string
 ```
-??? example "Expected result"
-    No output.
+
+This reference example returns non-zero when no entries match `string`.
 
 #### Advanced Redirection
 
@@ -628,15 +687,15 @@ These descriptors can redirect a data stream from its normal destination.
 # Write normal output and errors to separate files
 ls -al /r* > /tmp/list.txt 2>/tmp/errors.txt
 ```
-??? example "Expected result"
-    No output.
+
+This reference example can return non-zero because matches depend on host paths.
 
 ```bash
 # Write normal output and errors to one file
 ls -al /r* > /tmp/list.txt 2>&1
 ```
-??? example "Expected result"
-    No output.
+
+This reference example can return non-zero because matches depend on host paths.
 
 ### :material-application-edit-outline: 2.5.1 Redirection Lab
 
@@ -645,14 +704,16 @@ ls -al /r* > /tmp/list.txt 2>&1
 ls > mylist
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Display the fifth item in /usr/bin listing order
 ls /usr/bin | head -5 | tail -1
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     aa-exec
     ```
 
@@ -661,7 +722,7 @@ ls /usr/bin | head -5 | tail -1
 grep list mylist
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     mylist
     ```
 
@@ -670,21 +731,20 @@ grep list mylist
 ls -lt /usr/bin | head
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     total 118296
-    -rwxr-xr-x 1 root root        1622 Jul 31 20:56 acpidbg
-    -rwxr-xr-x 1 root root        1622 Jul 31 20:56 cpupower
+    -rwxr-xr-x 1 root root   14488 Feb  5  2025 locale-check
+    -rwxr-xr-x 1 root root 2250576 Feb  5  2025 bpftrace
     ```
+    Package contents and ordering vary.
 
 ```bash
 # Display the largest directory sizes
 du | sort -nr | head
 ```
 ??? example "Expected result"
-    ```text
-    1016	.
-    16	./.local
-    12	./.local/share
+    ```shell
+    20	.
     ```
 
 ```bash
@@ -694,16 +754,20 @@ Hello world!
 EOF
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Find examine references in less help
 less --help | grep -i examine
 ```
 ??? example "Expected result"
-    ```text
-      :e [_file]            Examine a new file.
-      :n                *  Examine the (N-th) next file from the command line.
+    ```shell
+    :e [file] Examine a new file.
+    :n Examine the (N-th) next file from the command line.
+    :p Examine the (N-th) previous file from the command line.
+    :x Examine the first (or N-th) file from the command line.
     ```
 
 > End of the lab. Do not continue to the next topic.
@@ -717,18 +781,10 @@ Command chaining combines commands on one command line. Operators include `&` fo
 ls; pwd; whoami
 ```
 ??? example "Expected result"
-    ```text
-    2014-00   Dp-4.txt  Hi-7.txt  Lc-0.txt  Ov-3.txt  So-6.txt  Wh-9.txt
-    2014-01   Dp-5.txt  Hi-8.txt  Lc-1.txt  Ov-4.txt  So-7.txt  Wi-0.txt
-    2014-02   Dp-6.txt  Hi-9.txt  Lc-2.txt  Ov-5.txt  So-8.txt  Wi-1.txt
-    2014-03   Dp-7.txt  Hj-0.txt  Lc-3.txt  Ov-6.txt  So-9.txt  Wi-2.txt
-    2014-04   Dp-8.txt  Hj-1.txt  Lc-4.txt  Ov-7.txt  Sp-0.txt  Wi-3.txt
-    2014-05   Dp-9.txt  Hj-2.txt  Lc-5.txt  Ov-8.txt  Sp-1.txt  Wi-4.txt
-    2014-06   Dq-0.txt  Hj-3.txt  Lc-6.txt  Ov-9.txt  Sp-2.txt  Wi-5.txt
-    2014-07   Dq-1.txt  Hj-4.txt  Lc-7.txt  Ow-0.txt  Sp-3.txt  Wi-6.txt
+    ```shell
+    ubuntu
     ```
-
-    The complete listing is long and changes as lab files are created; it was followed by `/home/ubuntu` and `ubuntu`.
+    The isolated workspace listing was empty; working-directory and listing values vary.
 
 ```bash
 # Report whether a host can be pinged
@@ -736,9 +792,8 @@ ping -c1 google.com && echo "That's good, able to ping google.com" || \
 echo "That's bad unable to ping google.com"
 ```
 ??? example "Expected result"
-    ```text
-    PING google.com (142.251.110.139) 56(84) bytes of data.
-    1 packets transmitted, 1 received, 0% packet loss, time 0ms
+    ```shell
+    1 packets transmitted, 1 received, 0% packet loss
     That's good, able to ping google.com
     ```
 
@@ -755,7 +810,7 @@ Brace expansion generates strings from comma-separated values or ranges and can 
 echo sp{el,il,al}
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     spel spil spal
     ```
 
@@ -764,39 +819,32 @@ echo sp{el,il,al}
 mkdir {2014..2016}-0{0..9} {2014..2016}-{10..12}
 ```
 ??? example "Expected result"
-    ```text
-    mkdir: cannot create directory '2014-00': File exists
-    mkdir: cannot create directory '2014-01': File exists
-    mkdir: cannot create directory '2014-02': File exists
+    ```shell
+    No output.
     ```
 
-    The remaining requested directories already existed and produced the same error.
+This creates 39 directories.
 
 ```bash
 # Create files using brace ranges
 touch file-{A..Z}{a..z}-{0..9}
 ```
-??? example "Expected result"
-    No output.
+
+This high-volume form is reference-only.
 
 ```bash
 # Create text files using brace ranges
 touch {A..Z}{a..z}-{0..9}.txt
 ```
-??? example "Expected result"
-    No output.
+
+This high-volume form is reference-only.
 
 ```bash
 # Remove files with selected extensions
 rm filename.{pl,sh,py,c}
 ```
-??? example "Expected result"
-    ```text
-    rm: cannot remove 'filename.pl': No such file or directory
-    rm: cannot remove 'filename.sh': No such file or directory
-    rm: cannot remove 'filename.py': No such file or directory
-    rm: cannot remove 'filename.c': No such file or directory
-    ```
+
+This deliberately failing form is reference-only.
 
 ### :material-application-edit-outline: Tilde Expansion
 
@@ -807,21 +855,27 @@ Tilde expansion can resolve home directories, the current working directory, and
 cd ~
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Change to ubuntu's home directory
 cd ~ubuntu
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Create hello.txt in the current user's home directory
 echo hello >~/hello.txt
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ### :material-application-edit-outline: Shell Parameter and Variable Expansion
 
@@ -832,7 +886,7 @@ echo hello >~/hello.txt
 echo $SHELL
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     /bin/bash
     ```
 
@@ -841,15 +895,17 @@ echo $SHELL
 D=`date`
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Display D
 echo $D
 ```
 ??? example "Expected result"
-    ```text
-    Tue Aug 25 07:29:19 UTC 2026
+    ```shell
+    Tue Aug 25 14:32:50 UTC 2026
     ```
 
 ```bash
@@ -857,8 +913,8 @@ echo $D
 echo ${D}d vs echo $Dd
 ```
 ??? example "Expected result"
-    ```text
-    Tue Aug 25 07:29:19 UTC 2026d vs echo
+    ```shell
+    Tue Aug 25 14:32:50 UTC 2026d vs echo
     ```
 
 The environment-dependent pattern `echo ${!LC*} vs echo $LC*` compares variable names selected by indirect expansion with their expanded locale values. Its result depends on the session locale configuration.
@@ -868,7 +924,7 @@ The environment-dependent pattern `echo ${!LC*} vs echo $LC*` compares variable 
 echo ${TODAY:=`date +%A`}
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     Tuesday
     ```
 
@@ -881,8 +937,8 @@ Command substitution replaces a command with its standard output. The forms are 
 echo "The date and time is: $(date)"
 ```
 ??? example "Expected result"
-    ```text
-    The date and time is: Tue Aug 25 07:32:38 UTC 2026
+    ```shell
+    The date and time is: Tue Aug 25 14:32:50 UTC 2026
     ```
 
 ```bash
@@ -890,8 +946,8 @@ echo "The date and time is: $(date)"
 echo "The date and time is `date`"
 ```
 ??? example "Expected result"
-    ```text
-    The date and time is Tue Aug 25 07:32:38 UTC 2026
+    ```shell
+    The date and time is Tue Aug 25 14:32:50 UTC 2026
     ```
 
 ```bash
@@ -899,25 +955,20 @@ echo "The date and time is `date`"
 echo $(env | grep ^LC_)
 ```
 ??? example "Expected result"
-    ```text
-    LC_ADDRESS=ro_RO.UTF-8 LC_NAME=ro_RO.UTF-8 LC_MONETARY=ro_RO.UTF-8 LC_PAPER=ro_RO.UTF-8 LC_IDENTIFICATION=ro_RO.UTF-8 LC_TELEPHONE=ro_RO.UTF-8 LC_MEASUREMENT=ro_RO.UTF-8 LC_NUMERIC=ro_RO.UTF-8
+    ```shell
+
     ```
+    No `LC_*` variables were set in the validated environment.
 
 ```bash
 # Display locale assignments one per line
 printf "%s\n" $(env | grep ^LC_)
 ```
 ??? example "Expected result"
-    ```text
-    LC_ADDRESS=ro_RO.UTF-8
-    LC_NAME=ro_RO.UTF-8
-    LC_MONETARY=ro_RO.UTF-8
-    LC_PAPER=ro_RO.UTF-8
-    LC_IDENTIFICATION=ro_RO.UTF-8
-    LC_TELEPHONE=ro_RO.UTF-8
-    LC_MEASUREMENT=ro_RO.UTF-8
-    LC_NUMERIC=ro_RO.UTF-8
+    ```shell
+
     ```
+    No `LC_*` variables were set in the validated environment.
 
 ### :material-application-edit-outline: Arithmetic Expansion
 
@@ -980,63 +1031,49 @@ Wildcard listing forms demonstrate pattern syntax. Run them only in a directory 
 
 Try these chaining examples in `/tmp`; the fallback examples demonstrate `||`.
 
+The `/tmp` listing is host-state-dependent and was intentionally not captured.
+
 ```bash
 # Change to /tmp, then list it
 cd /tmp; ls -al
 ```
 ??? example "Expected result"
-    ```text
-    total 64
-    drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-    drwxrwxr-x  2 ubuntu ubuntu 4096 Aug 25 07:05 chapter2-validation
-    ```
+    Validation pending; no captured output is available.
 
 ```bash
 # List /tmp only after changing to it
 cd /tmp && ls -al
 ```
 ??? example "Expected result"
-    ```text
-    total 64
-    drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-    ```
+    Validation pending; no captured output is available.
 
 ```bash
 # Report a failed directory change
 cd /tmp || echo "Could not change to /tmp"
 ```
 ??? example "Expected result"
-    No output.
+    Validation pending; no captured output is available.
 
 ```bash
 # List /tmp or report failure
 cd /tmp && ls -al || echo "Could not change to /tmp"
 ```
 ??? example "Expected result"
-    ```text
-    total 64
-    drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-    ```
+    Validation pending; no captured output is available.
 
 ```bash
 # Return home after a failed directory change
 cd /tmp && ls -al || { echo "Could not change to /tmp. Going home instead"; cd ~; pwd; }
 ```
 ??? example "Expected result"
-    ```text
-    total 64
-    drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-    ```
+    Validation pending; no captured output is available.
 
 ```bash
 # List /tmp or count entries in /tmp
 (cd /tmp && ls -al) || (cd /tmp && { ls -al | wc -l; })
 ```
 ??? example "Expected result"
-    ```text
-    total 64
-    drwxrwxrwt 14 root root 4096 Aug 25 07:29 .
-    ```
+    Validation pending; no captured output is available.
 
 The extglob form `ls -ld /var/log/!(*.gz)` lists uncompressed log files when extended globbing is enabled. Its output varies by host log retention.
 
@@ -1045,31 +1082,42 @@ The extglob form `ls -ld /var/log/!(*.gz)` lists uncompressed log files when ext
 ls -ltr /etc | tail
 ```
 ??? example "Expected result"
-    ```text
-    -rw-r--r-- 1 root root       1716 Feb 19  2025 passwd
-    -rw-r--r-- 1 root root      22103 Aug 25 06:14 ld.so.cache
+    ```shell
+    -rw-r--r-- 1 root root 1716 Feb 19  2025 passwd
+    drwxr-xr-x 4 root root 4096 Feb 19  2025 ssh
+    drwxr-xr-x 2 root root 4096 Feb 19  2025 netplan
     ```
+    Ordering and timestamps vary.
 
 ```bash
 # Find ls commands in shell history
 history | grep ls
 ```
 ??? example "Expected result"
-    No output.
+    ```shell
+    ls; pwd; whoami
+    cd /tmp; ls -al
+    cd /tmp && ls -al
+    ls -ltr /etc | tail
+    history | grep ls
+    ```
+    History varies.
 
 ```bash
 # Set a filename variable
 file=data.txt
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Remove the shortest suffix beginning with a period
 echo ${file%.*}
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     data
     ```
 
@@ -1078,7 +1126,7 @@ echo ${file%.*}
 echo ${file#*.}
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     txt
     ```
 
@@ -1087,14 +1135,16 @@ echo ${file#*.}
 X=5
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Add one to X
 echo $((X+1))
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     6
     ```
 
@@ -1103,7 +1153,7 @@ echo $((X+1))
 echo $(($X+1))
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     6
     ```
 
@@ -1112,7 +1162,7 @@ echo $(($X+1))
 echo $((X>15))
 ```
 ??? example "Expected result"
-    ```text
+    ```shell
     0
     ```
 
@@ -1121,7 +1171,9 @@ echo $((X>15))
 cd /usr/bin
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 The glob forms `ls m*` and `ls *.???` demonstrate prefix and fixed-length-suffix matching in `/usr/bin`; their results vary with installed packages.
 
@@ -1130,7 +1182,9 @@ The glob forms `ls m*` and `ls *.???` demonstrate prefix and fixed-length-suffix
 cd ~
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 > End of the lab. Do not continue to the next topic.
 
@@ -1143,11 +1197,12 @@ cd ~
 nano
 ```
 ??? example "Expected result"
-    ```text
-    GNU nano 7.2                    New Buffer
-    [ Welcome to nano.  For basic help, type Ctrl+G. ]
-    ^G Help  ^O Write Out  ^W Where Is  ^X Exit
+    ```shell
+    GNU nano 7.2  New Buffer
+    [ Welcome to nano. For basic help, type Ctrl+G. ]
     ```
+
+The user completed the interactive editing and save flow on the replacement LABVM.
 
 To edit an existing file, replace the placeholder in `nano /path/filename` with its actual path.
 
@@ -1157,23 +1212,28 @@ Nano displays commands in its editor window. Press `Ctrl+g` for additional comma
 
 Create and edit files with nano, reviewing the commands available in the editor.
 
+The user completed the interactive nano lab on the replacement LABVM.
+
 ```bash
 # Change to the home directory
 cd ~
 ```
 ??? example "Expected result"
+    ```shell
     No output.
+    ```
 
 ```bash
 # Create and edit fileone.txt
 nano fileone.txt
 ```
 ??? example "Expected result"
-    ```text
-    GNU nano 7.2                    fileone.txt
+    ```shell
+    GNU nano 7.2  fileone.txt
     [ New File ]
-    ^G Help  ^O Write Out  ^W Where Is  ^X Exit
     ```
+
+The user completed the interactive editing and save flow on the replacement LABVM.
 
 Type `The quick brown fox jumped over the lazy dog.`. Copy and paste it ten times using the nano shortcuts:
 
@@ -1195,11 +1255,7 @@ Create `shells.txt`:
 nano shells.txt
 ```
 ??? example "Expected result"
-    ```text
-    GNU nano 7.2                    shells.txt
-    [ New File ]
-    ^G Help  ^O Write Out  ^W Where Is  ^X Exit
-    ```
+    The user confirmed completing the interactive editor workflow on the replacement LABVM; no terminal output was captured.
 
 Add `She sells seashells down by the seashore.`, copy and paste the line three times, then save and close the file. Open the original file, indent the first three lines, and replace `fox` with `rabbit`:
 
