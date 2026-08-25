@@ -22,7 +22,7 @@
     
     
       
-        <title>⏳ 3. Linux Filesystem Hierarchy - Canonical Ubuntu Basic</title>
+        <title>📋 3. Linux Filesystem Hierarchy - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⏳ 3. Linux Filesystem Hierarchy
+              📋 3. Linux Filesystem Hierarchy
             
           </span>
         </div>
@@ -286,7 +286,7 @@
           
   
   <span class="md-ellipsis">
-    ⏳ 3. Linux Filesystem Hierarchy
+    📋 3. Linux Filesystem Hierarchy
   </span>
   
 
@@ -297,7 +297,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 3. Linux Filesystem Hierarchy
+    📋 3. Linux Filesystem Hierarchy
   </span>
   
 
@@ -772,7 +772,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Command validation remains pending.</p>
+<p>All actionable Chapter 3 commands were validated on the LAB HOST. Directory and device listings vary with host state.</p>
 </div>
 <h2 id="31-the-filesystem-hierarchy-standard"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 3.1 The Filesystem Hierarchy Standard<a class="headerlink" href="#31-the-filesystem-hierarchy-standard" title="Permanent link">&para;</a></h2>
 <h3 id="directory-structure"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h3>
@@ -780,69 +780,13 @@
 <p>The root filesystem must be adequate to boot, restore, recover, or repair the system. It should be as small as reasonably possible because it can be mounted from small media, is less prone to corruption after a system crash, and must not contain application-created or application-required files and subdirectories.</p>
 <p>To boot, the root filesystem must contain enough software and data to mount other filesystems, including utilities, boot-loader configuration, and essential start-up data. To recover or repair a system, it must provide utilities for an experienced maintainer to diagnose and repair issues and reconstruct a damaged system. To restore a system, it must provide backup restoration utilities.</p>
 <h3 id="the-cd-command"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> The <code>cd</code> Command<a class="headerlink" href="#the-cd-command" title="Permanent link">&para;</a></h3>
-<p>The <code>cd</code> command changes the current directory. Its syntax is:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show the cd command syntax.</span>
-<span class="nb">cd</span><span class="w"> </span><span class="o">[</span>option<span class="o">]</span><span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
+<p>The <code>cd</code> command changes the current directory. Its reference syntax is <code>cd [option] [directory]</code>.</p>
 <p>Without a directory name, <code>cd</code> returns the user to the previous current directory, which can toggle between two directories. With a directory name, it changes to that directory. The name can be an absolute pathname, relative to <code>/</code>, or a local pathname, relative to the current directory.</p>
-<p>Examples using absolute paths:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Change to the root directory.</span>
-<span class="nb">cd</span><span class="w"> </span>/
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
-<div class="highlight"><pre><span></span><code><span class="c1"># Change to the /usr/sbin directory.</span>
-<span class="nb">cd</span><span class="w"> </span>/usr/sbin
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
-<p>To change from the current directory into a subdirectory, use <code>cd</code> followed by its name:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Change to gconf from within etc.</span>
-<span class="nb">cd</span><span class="w"> </span>gconf
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
-<p>The current directory is represented by <code>.</code>, and its parent directory by <code>..</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Change to the parent directory.</span>
-<span class="nb">cd</span><span class="w"> </span>..
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
-<p>A tilde returns to the home directory, where a user's personal files, directories, and programs are found.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Change to the home directory.</span>
-<span class="nb">cd</span><span class="w"> </span>~
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
-<p>Other options:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Move to the previous directory.</span>
-<span class="nb">cd</span><span class="w"> </span>-
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
-<div class="highlight"><pre><span></span><code><span class="c1"># Move two directories up from the current directory.</span>
-<span class="nb">cd</span><span class="w"> </span>../../
-</code></pre></div>
-<details class="example">
-<summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
-</details>
+<p>Examples using absolute paths include <code>cd /</code> and <code>cd /usr/sbin</code>.</p>
+<p>To change from the current directory into a subdirectory, use <code>cd</code> followed by its name, for example <code>cd gconf</code> from within <code>/etc</code> when that directory is available.</p>
+<p>The current directory is represented by <code>.</code>, and its parent directory by <code>..</code>; use <code>cd ..</code> to move to the parent.</p>
+<p>A tilde returns to the home directory, where a user's personal files, directories, and programs are found; use <code>cd ~</code> to change there.</p>
+<p>Other navigation forms include <code>cd -</code> to move to the previous directory and <code>cd ../../</code> to move two levels up.</p>
 <h2 id="32-required-root-filesystem-directories"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 3.2 Required Root Filesystem Directories<a class="headerlink" href="#32-required-root-filesystem-directories" title="Permanent link">&para;</a></h2>
 <p><img alt="Filesystem hierarchy diagram" src="../assets/fs.png" /></p>
 <p>The following directories, or symbolic links to directories, are required in <code>/</code>:</p>
@@ -921,14 +865,14 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p><code>/home/ubuntu</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the root directory.</span>
 <span class="nb">cd</span><span class="w"> </span>/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <ol>
 <li>List the root directory contents and compare them with the preceding directory list.</li>
@@ -938,7 +882,11 @@ ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>bin                 etc                lib64       opt   sbin                  sys
+bin.usr-is-merged   home               lost+found  proc  sbin.usr-is-merged    tmp
+boot                lib                media       root  snap                  usr
+dev                 lib.usr-is-merged  mnt         run   srv                   var
+</code></pre></div>
 </details>
 <ol>
 <li>Change into <code>/usr</code>.</li>
@@ -948,7 +896,7 @@ ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <ol>
 <li>Inspect the listed <code>usr</code> subdirectories.</li>
@@ -958,21 +906,33 @@ ls<span class="w"> </span>lib
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>Literal excerpt from this LAB HOST; installed packages affect this listing:</p>
+<div class="highlight"><pre><span></span><code>apparmor
+apt
+binfmt.d
+byobu
+cloud-init
+command-not-found
+console-setup
+cryptsetup
+dbus-1.0
+dpkg
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/games directory contents.</span>
 ls<span class="w"> </span>games
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/local directory contents.</span>
 ls<span class="w"> </span><span class="nb">local</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>bin  etc  games  include  lib  man  sbin  share  src
+</code></pre></div>
 </details>
 <ol>
 <li>Change back to <code>/</code>, then change to <code>/var</code>.</li>
@@ -982,14 +942,14 @@ ls<span class="w"> </span><span class="nb">local</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the /var directory.</span>
 <span class="nb">cd</span><span class="w"> </span>/var
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <ol>
 <li>Inspect the <code>var</code> subdirectory listed on the preceding page.</li>
@@ -999,7 +959,10 @@ ls<span class="w"> </span>cache
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>PackageKit  apparmor  fwupd       man        private
+adduser     apt       fwupdmgr    motd-news  snapd
+app-info    debconf   ldconfig    pollinate  swcatalog
+</code></pre></div>
 </details>
 <ol>
 <li>Change to the <code>cache</code> subdirectory, then move two directories up.</li>
@@ -1009,14 +972,14 @@ ls<span class="w"> </span>cache
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move two directories up from the current directory.</span>
 <span class="nb">cd</span><span class="w"> </span>../../
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <ol>
 <li>Change to the home directory.</li>
@@ -1026,7 +989,7 @@ ls<span class="w"> </span>cache
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <ol>
 <li>Install <code>tree</code>, then run it from the home directory.</li>
@@ -1036,21 +999,40 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>Literal excerpt; package-manager progress and follow-up maintenance output vary by host state:</p>
+<div class="highlight"><pre><span></span><code>The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 261 not upgraded.
+Need to get 47.4 kB of archives.
+After this operation, 111 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 tree amd64 2.1.1-2ubuntu3.24.04.2 [47.4 kB]
+Setting up tree (2.1.1-2ubuntu3.24.04.2) ...
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the current user&#39;s home directory.</span>
 <span class="nb">cd</span><span class="w"> </span>~
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the home directory in a tree-like format.</span>
 tree
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>Literal excerpt from this LAB HOST. The full listing contained 13,576 lines and varies with home-directory contents:</p>
+<div class="highlight"><pre><span></span><code>.
+├── 2014-00
+├── 2014-01
+├── 2014-02
+├── 2014-03
+├── 2014-04
+├── 2014-05
+├── 2014-06
+├── 2014-07
+├── 2014-08
+</code></pre></div>
 </details>
 <ol>
 <li>List <code>/</code> with <code>tree</code> and inspect it.</li>
@@ -1060,7 +1042,34 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>/
+├── bin -&gt; usr/bin
+├── bin.usr-is-merged
+├── boot
+├── dev
+├── etc
+├── home
+├── lib -&gt; usr/lib
+├── lib.usr-is-merged
+├── lib64 -&gt; usr/lib64
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin -&gt; usr/sbin
+├── sbin.usr-is-merged
+├── snap
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+25 directories, 0 files
+</code></pre></div>
 </details>
 <ol>
 <li>Go one level deeper and inspect it.</li>
@@ -1070,7 +1079,22 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">2</span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>Literal excerpt from this LAB HOST. The full listing contained 696 lines and varies with installed kernels and host state:</p>
+<div class="highlight"><pre><span></span><code>/
+├── bin -&gt; usr/bin
+├── bin.usr-is-merged
+├── boot
+│   ├── System.map-6.8.0-138-generic
+│   ├── System.map-6.8.0-53-generic
+│   ├── config-6.8.0-138-generic
+│   ├── config-6.8.0-53-generic
+│   ├── efi
+│   ├── grub
+│   ├── initrd.img -&gt; initrd.img-6.8.0-138-generic
+│   ├── initrd.img-6.8.0-138-generic
+│   ├── initrd.img-6.8.0-53-generic
+│   └── initrd.img.old -&gt; initrd.img-6.8.0-53-generic
+</code></pre></div>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue with the next topic.</p>
@@ -1083,7 +1107,8 @@ ls<span class="w"> </span>-l<span class="w"> </span>/etc/hosts
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>-rw-r--r-- 1 root root 221 Feb 14  2025 /etc/hosts
+</code></pre></div>
 </details>
 <p>The first character in the output, <code>-</code> in this example, indicates the file type. Linux file types are:</p>
 <table>
@@ -1148,28 +1173,32 @@ ls<span class="w"> </span>-ld<span class="w"> </span>/etc
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>drwxr-xr-x 106 root root 4096 Aug 25 06:14 /etc
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for /etc/hosts.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/etc/hosts
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>-rw-r--r-- 1 root root 221 Feb 14  2025 /etc/hosts
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the controlling terminal.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/dev/tty
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>crw-rw-rw- 1 root tty 5, 0 Aug 25 07:46 /dev/tty
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the vda block device.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/dev/vda
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>brw-rw---- 1 root disk 253, 0 Aug 25 06:55 /dev/vda
+</code></pre></div>
 </details>
 <ol>
 <li>Inspect the many file types in <code>/dev</code>.</li>
@@ -1179,7 +1208,16 @@ ls<span class="w"> </span>-l<span class="w"> </span>/dev/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>Literal excerpt from this LAB HOST; device entries and timestamps vary by host state:</p>
+<div class="highlight"><pre><span></span><code>total 0
+crw-r--r-- 1 root root     10, 235 Aug 25 06:55 autofs
+drwxr-xr-x 2 root root         340 Aug 25 06:55 block
+crw-rw---- 1 root disk     10, 234 Aug 25 06:55 btrfs-control
+drwxr-xr-x 3 root root          60 Aug 25 06:55 bus
+drwxr-xr-x 2 root root        3300 Aug 25 06:55 char
+crw--w---- 1 root tty       5,   1 Aug 25 06:56 console
+lrwxrwxrwx 1 root root          11 Aug 25 06:55 core -&gt; /proc/kcore
+</code></pre></div>
 </details>
 <ol>
 <li>Create a file and inspect its type.</li>
@@ -1189,14 +1227,15 @@ touch<span class="w"> </span>file1.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the new file.</span>
 ls<span class="w"> </span>-l<span class="w"> </span>file1.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>-rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 07:50 file1.txt
+</code></pre></div>
 </details>
 <ol>
 <li>Create a directory and inspect it.</li>
@@ -1206,14 +1245,15 @@ mkdir<span class="w"> </span>dirone
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the dirone directory entry.</span>
 ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dirone
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 07:50 dirone
+</code></pre></div>
 </details>
 <ol>
 <li>Remove the file and directory.</li>
@@ -1223,14 +1263,14 @@ rmdir<span class="w"> </span>dirone/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove the file1.txt file.</span>
 rm<span class="w"> </span>file1.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<p>No output.</p>
 </details>
 <blockquote>
 <p>End of the lab. Do not continue with the next topic.</p>
