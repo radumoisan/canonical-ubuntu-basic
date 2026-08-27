@@ -4,7 +4,7 @@
     Define the Linux Filesystem Hierarchy Standard, explain the Ubuntu filesystem hierarchy, and identify Linux file types.
 
 !!! note
-    The shown results were captured on the prior `LABVM` and are historical only. The replacement `LABVM` requires revalidation; directory and device listings vary by `LABVM` state.
+    Results were captured on this `LABVM`. Directory listings vary with its state.
 
 ## :material-book-open-page-variant-outline: 3.1 The Filesystem Hierarchy Standard
 
@@ -138,7 +138,9 @@ pwd
 ```
 
 ??? example "Expected result"
-    `/home/ubuntu`
+    ```text
+    /home/ubuntu
+    ```
 
 ```bash
 # Change to the root directory.
@@ -156,11 +158,29 @@ ls
 ```
 
 ??? example "Expected result"
+    Literal excerpt from this LABVM:
+
     ```text
-    bin                 etc                lib64       opt   sbin                  sys
-    bin.usr-is-merged   home               lost+found  proc  sbin.usr-is-merged    tmp
-    boot                lib                media       root  snap                  usr
-    dev                 lib.usr-is-merged  mnt         run   srv                   var
+    bin
+    bin.usr-is-merged
+    boot
+    dev
+    etc
+    home
+    lib
+    lib.usr-is-merged
+    lib64
+    lost+found
+    media
+    mnt
+    opt
+    proc
+    root
+    run
+    sbin
+    sbin.usr-is-merged
+    snap
+    srv
     ```
 
 3. Change into `/usr`.
@@ -181,7 +201,7 @@ ls lib
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM; installed packages affect this listing:
+    Literal excerpt from this LABVM:
 
     ```text
     apparmor
@@ -189,11 +209,21 @@ ls lib
     binfmt.d
     byobu
     cloud-init
+    cnf-update-db
     command-not-found
     console-setup
     cryptsetup
     dbus-1.0
+    dhcpcd
     dpkg
+    dracut
+    environment.d
+    file
+    finalrd
+    girepository-1.0
+    git-core
+    gnupg
+    gnupg2
     ```
 
 ```bash
@@ -211,7 +241,15 @@ ls local
 
 ??? example "Expected result"
     ```text
-    bin  etc  games  include  lib  man  sbin  share  src
+    bin
+    etc
+    games
+    include
+    lib
+    man
+    sbin
+    share
+    src
     ```
 
 5. Change back to `/`, then change to `/var`.
@@ -240,10 +278,24 @@ ls cache
 ```
 
 ??? example "Expected result"
+    Literal excerpt from this LABVM:
+
     ```text
-    PackageKit  apparmor  fwupd       man        private
-    adduser     apt       fwupdmgr    motd-news  snapd
-    app-info    debconf   ldconfig    pollinate  swcatalog
+    PackageKit
+    adduser
+    app-info
+    apparmor
+    apt
+    debconf
+    fwupd
+    fwupdmgr
+    ldconfig
+    man
+    motd-news
+    pollinate
+    private
+    snapd
+    swcatalog
     ```
 
 7. Change to the `cache` subdirectory, then move two directories up.
@@ -282,17 +334,20 @@ sudo apt install tree -y
 ```
 
 ??? example "Expected result"
-    Literal excerpt; package-manager progress and follow-up maintenance output vary by host state:
+    Literal excerpt from this LABVM:
 
     ```text
+    WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
     The following NEW packages will be installed:
       tree
-    0 upgraded, 1 newly installed, 0 to remove and 261 not upgraded.
-    Need to get 47.4 kB of archives.
-    After this operation, 111 kB of additional disk space will be used.
-    Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 tree amd64 2.1.1-2ubuntu3.24.04.2 [47.4 kB]
+    0 upgraded, 1 newly installed, 0 to remove and 113 not upgraded.
     Setting up tree (2.1.1-2ubuntu3.24.04.2) ...
     ```
+
+    Package versions and upgrade counts can vary.
+
+    If installation reports insufficient disk space or incomplete packages, use the end-of-chapter troubleshooting steps before returning here.
 
 ```bash
 # Remove downloaded package archives while retaining installed packages.
@@ -300,7 +355,9 @@ sudo apt clean
 ```
 
 ??? example "Expected result"
-    Validation pending; no captured output is available.
+    ```text
+    WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+    ```
 
 ```bash
 # Change to the current user's home directory.
@@ -316,19 +373,10 @@ tree
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM. The full listing contained 13,576 lines and varies with home-directory contents:
-
     ```text
     .
-    ├── 2014-00
-    ├── 2014-01
-    ├── 2014-02
-    ├── 2014-03
-    ├── 2014-04
-    ├── 2014-05
-    ├── 2014-06
-    ├── 2014-07
-    ├── 2014-08
+
+    0 directories, 0 files
     ```
 
 10. List `/` with `tree` and inspect it.
@@ -339,6 +387,8 @@ tree -L 1 /
 ```
 
 ??? example "Expected result"
+    Literal first-20-line excerpt from this LABVM:
+
     ```text
     /
     ├── bin -> usr/bin
@@ -360,13 +410,6 @@ tree -L 1 /
     ├── sbin -> usr/sbin
     ├── sbin.usr-is-merged
     ├── snap
-    ├── srv
-    ├── sys
-    ├── tmp
-    ├── usr
-    └── var
-
-    25 directories, 0 files
     ```
 
 11. Go one level deeper and inspect it.
@@ -377,7 +420,7 @@ tree -L 2 /
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM. The full listing contained 696 lines and varies with installed kernels and LABVM state:
+    Literal first-20-line excerpt from this LABVM:
 
     ```text
     /
@@ -393,7 +436,13 @@ tree -L 2 /
     │   ├── initrd.img -> initrd.img-6.8.0-138-generic
     │   ├── initrd.img-6.8.0-138-generic
     │   ├── initrd.img-6.8.0-53-generic
-    │   └── initrd.img.old -> initrd.img-6.8.0-53-generic
+    │   ├── initrd.img.old -> initrd.img-6.8.0-53-generic
+    │   ├── lost+found
+    │   ├── vmlinuz -> vmlinuz-6.8.0-138-generic
+    │   ├── vmlinuz-6.8.0-138-generic
+    │   ├── vmlinuz-6.8.0-53-generic
+    │   └── vmlinuz.old -> vmlinuz-6.8.0-53-generic
+    ├── dev
     ```
 
 > End of the lab. Do not continue with the next topic.
@@ -451,7 +500,7 @@ ls -ld /etc
 
 ??? example "Expected result"
     ```text
-    drwxr-xr-x 106 root root 4096 Aug 25 06:14 /etc
+    drwxr-xr-x 106 root root 4096 Aug 26 06:32 /etc
     ```
 
 ```bash
@@ -471,7 +520,7 @@ ls -l /dev/tty
 
 ??? example "Expected result"
     ```text
-    crw-rw-rw- 1 root tty 5, 0 Aug 25 07:46 /dev/tty
+    crw-rw-rw- 1 root tty 5, 0 Aug 25 11:29 /dev/tty
     ```
 
 ```bash
@@ -481,7 +530,7 @@ ls -l /dev/vda
 
 ??? example "Expected result"
     ```text
-    brw-rw---- 1 root disk 253, 0 Aug 25 06:55 /dev/vda
+    brw-rw---- 1 root disk 253, 0 Aug 26 06:30 /dev/vda
     ```
 
 2. Inspect the many file types in `/dev`.
@@ -492,17 +541,28 @@ ls -l /dev/
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM; device entries and timestamps vary by LABVM state:
+    Literal excerpt from this LABVM:
 
     ```text
     total 0
-    crw-r--r-- 1 root root     10, 235 Aug 25 06:55 autofs
-    drwxr-xr-x 2 root root         340 Aug 25 06:55 block
-    crw-rw---- 1 root disk     10, 234 Aug 25 06:55 btrfs-control
-    drwxr-xr-x 3 root root          60 Aug 25 06:55 bus
-    drwxr-xr-x 2 root root        3300 Aug 25 06:55 char
-    crw--w---- 1 root tty       5,   1 Aug 25 06:56 console
-    lrwxrwxrwx 1 root root          11 Aug 25 06:55 core -> /proc/kcore
+    crw-r--r-- 1 root root     10, 235 Aug 25 11:29 autofs
+    drwxr-xr-x 2 root root         340 Aug 26 06:32 block
+    crw-rw---- 1 root disk     10, 234 Aug 25 11:29 btrfs-control
+    drwxr-xr-x 3 root root          60 Aug 25 11:29 bus
+    drwxr-xr-x 2 root root        3300 Aug 25 11:29 char
+    crw--w---- 1 root tty       5,   1 Aug 25 11:30 console
+    lrwxrwxrwx 1 root root          11 Aug 25 11:29 core -> /proc/kcore
+    drwxr-xr-x 4 root root          80 Aug 25 11:29 cpu
+    crw------- 1 root root     10, 123 Aug 25 11:29 cpu_dma_latency
+    crw------- 1 root root     10, 203 Aug 25 11:29 cuse
+    drwxr-xr-x 7 root root         140 Aug 25 11:29 disk
+    drwxr-xr-x 2 root root          60 Aug 25 11:29 dma_heap
+    crw------- 1 root root     10, 125 Aug 25 11:29 ecryptfs
+    lrwxrwxrwx 1 root root          13 Aug 25 11:29 fd -> /proc/self/fd
+    crw-rw-rw- 1 root root      1,   7 Aug 25 11:29 full
+    crw-rw-rw- 1 root root     10, 229 Aug 26 06:32 fuse
+    crw------- 1 root root     10, 228 Aug 25 11:29 hpet
+    drwxr-xr-x 2 root root           0 Aug 25 11:29 hugepages
     ```
 
 3. Create a file and inspect its type.
@@ -522,7 +582,7 @@ ls -l file1.txt
 
 ??? example "Expected result"
     ```text
-    -rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 07:50 file1.txt
+    -rw-rw-r-- 1 ubuntu ubuntu 0 Aug 27 19:05 file1.txt
     ```
 
 4. Create a directory and inspect it.
@@ -542,7 +602,7 @@ ls -l | grep dirone
 
 ??? example "Expected result"
     ```text
-    drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 07:50 dirone
+    drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 27 19:05 dirone
     ```
 
 5. Remove the file and directory.
@@ -564,3 +624,54 @@ rm file1.txt
     No output.
 
 > End of the lab. Do not continue with the next topic.
+
+## :material-book-open-page-variant-outline: Package Troubleshooting
+
+!!! warning
+    Use these steps only if the existing `tree` installation step reports insufficient disk space or incomplete packages. Do not remove packages or files. After the checks succeed, return to the existing `tree` installation step.
+
+```bash
+# Show available space on the root filesystem.
+df -h /
+```
+
+??? example "Expected result"
+    ```text
+    Filesystem      Size  Used Avail Use% Mounted on
+    /dev/vda1       2.4G  2.1G  328M  87% /
+    ```
+
+```bash
+# Remove downloaded package archives while retaining installed packages.
+sudo apt clean
+```
+
+??? example "Expected result"
+    ```text
+    WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+    ```
+
+```bash
+# Complete any interrupted package configuration.
+sudo apt-get --fix-broken install -y
+```
+
+??? example "Expected result"
+    Literal excerpt from this LABVM:
+
+    ```text
+    Correcting dependencies... Done
+    The following additional packages will be installed:
+      linux-modules-6.8.0-138-generic linux-tools-6.8.0-138
+    0 upgraded, 2 newly installed, 0 to remove and 113 not upgraded.
+    Setting up linux-modules-6.8.0-138-generic (6.8.0-138.138) ...
+    Setting up linux-tools-6.8.0-138 (6.8.0-138.138) ...
+    ```
+
+```bash
+# Check for packages that remain only partially configured.
+sudo dpkg --audit
+```
+
+??? example "Expected result"
+    No output.

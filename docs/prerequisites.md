@@ -39,7 +39,7 @@ Run `exit` once to return from `LABVM` to `LABHOST`. Run `exit` a second time to
 ## :material-book-open-page-variant-outline: Expected initial state
 
 - `LABHOST`: Ubuntu 22.04.5, 4 vCPUs, about 16 GB of memory, and 40 GiB root storage.
-- `LABVM` capacity and disk layout are validated separately for each assigned environment.
+- `LABVM` root filesystem had 328 MiB available (87% used) after the Chapter 3 package repair; capacity and disk layout are validated separately for each assigned environment.
 
 ## :material-book-open-page-variant-outline: Check your environment
 

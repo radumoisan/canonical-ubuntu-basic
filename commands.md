@@ -434,7 +434,19 @@ cd ../../
 ```
 
 ```bash
+cd ~
+```
+
+```bash
 sudo apt install tree -y
+```
+
+```bash
+sudo apt clean
+```
+
+```bash
+cd ~
 ```
 
 ```bash

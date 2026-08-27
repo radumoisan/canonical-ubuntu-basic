@@ -61,6 +61,7 @@ This repository is for the Canonical Ubuntu Basic training site.
 - Keep `playground.md` at the repository root as the authoritative current lab-assignment source to use before lab execution. It must remain a compact, few-lines-per-student Markdown equivalent of `students_bofa_ubuntu_basic.json` and contain nothing beyond those student fields and values. `students_bofa_ubuntu_basic.json` is the synchronization/reference input and cannot override a synchronized `playground.md` except when deliberately resynchronizing it.
 - The SSH username for lab VMs is always `ubuntu`; never derive it from a student name, email, or other student identity field.
 - Keep `commands.md` at the repository root as internal historical reference only. It must never provide current connection targets, credentials, machine state, assignment information, or validation evidence.
+- Keep `validation.md` as the credential-free internal access and validation runbook. It uses placeholders only, contains no active target or credential values, and is distinct from `playground.md` current assignments and `commands.md` historical records.
 - Treat `lab_commands/` as read-only supporting command-reference material. Its commands are not successful training commands and must not be recorded in `commands.md` unless they also appear in the source training material and are successfully executed.
 
 ## Navigation Status Markers
