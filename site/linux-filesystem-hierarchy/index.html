@@ -22,7 +22,7 @@
     
     
       
-        <title>⏳ 3. Linux Filesystem Hierarchy - Canonical Ubuntu Basic</title>
+        <title>📋 3. Linux Filesystem Hierarchy - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⏳ 3. Linux Filesystem Hierarchy
+              📋 3. Linux Filesystem Hierarchy
             
           </span>
         </div>
@@ -286,7 +286,7 @@
           
   
   <span class="md-ellipsis">
-    ⏳ 3. Linux Filesystem Hierarchy
+    📋 3. Linux Filesystem Hierarchy
   </span>
   
 
@@ -297,7 +297,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 3. Linux Filesystem Hierarchy
+    📋 3. Linux Filesystem Hierarchy
   </span>
   
 
@@ -434,6 +434,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+       Package Troubleshooting
+    </span>
+  </a>
   
 </li>
       
@@ -750,6 +759,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#package-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+       Package Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -772,7 +790,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The shown results were captured on the prior <code>LABVM</code> and are historical only. The replacement <code>LABVM</code> requires revalidation; directory and device listings vary by <code>LABVM</code> state.</p>
+<p>Results were captured on this <code>LABVM</code>. Directory listings vary with its state.</p>
 </div>
 <h2 id="31-the-filesystem-hierarchy-standard"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 3.1 The Filesystem Hierarchy Standard<a class="headerlink" href="#31-the-filesystem-hierarchy-standard" title="Permanent link">&para;</a></h2>
 <h3 id="directory-structure"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h3>
@@ -865,7 +883,8 @@
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>/home/ubuntu</code></p>
+<div class="highlight"><pre><span></span><code>/home/ubuntu
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the root directory.</span>
 <span class="nb">cd</span><span class="w"> </span>/
@@ -882,10 +901,27 @@ ls
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>bin                 etc                lib64       opt   sbin                  sys
-bin.usr-is-merged   home               lost+found  proc  sbin.usr-is-merged    tmp
-boot                lib                media       root  snap                  usr
-dev                 lib.usr-is-merged  mnt         run   srv                   var
+<p>Literal excerpt from this LABVM:</p>
+<div class="highlight"><pre><span></span><code>bin
+bin.usr-is-merged
+boot
+dev
+etc
+home
+lib
+lib.usr-is-merged
+lib64
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+sbin.usr-is-merged
+snap
+srv
 </code></pre></div>
 </details>
 <ol>
@@ -906,17 +942,27 @@ ls<span class="w"> </span>lib
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt from this LABVM; installed packages affect this listing:</p>
+<p>Literal excerpt from this LABVM:</p>
 <div class="highlight"><pre><span></span><code>apparmor
 apt
 binfmt.d
 byobu
 cloud-init
+cnf-update-db
 command-not-found
 console-setup
 cryptsetup
 dbus-1.0
+dhcpcd
 dpkg
+dracut
+environment.d
+file
+finalrd
+girepository-1.0
+git-core
+gnupg
+gnupg2
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the /usr/games directory contents.</span>
@@ -931,7 +977,15 @@ ls<span class="w"> </span><span class="nb">local</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>bin  etc  games  include  lib  man  sbin  share  src
+<div class="highlight"><pre><span></span><code>bin
+etc
+games
+include
+lib
+man
+sbin
+share
+src
 </code></pre></div>
 </details>
 <ol>
@@ -959,9 +1013,22 @@ ls<span class="w"> </span>cache
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>PackageKit  apparmor  fwupd       man        private
-adduser     apt       fwupdmgr    motd-news  snapd
-app-info    debconf   ldconfig    pollinate  swcatalog
+<p>Literal excerpt from this LABVM:</p>
+<div class="highlight"><pre><span></span><code>PackageKit
+adduser
+app-info
+apparmor
+apt
+debconf
+fwupd
+fwupdmgr
+ldconfig
+man
+motd-news
+pollinate
+private
+snapd
+swcatalog
 </code></pre></div>
 </details>
 <ol>
@@ -999,22 +1066,24 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt; package-manager progress and follow-up maintenance output vary by host state:</p>
-<div class="highlight"><pre><span></span><code>The following NEW packages will be installed:
+<p>Literal excerpt from this LABVM:</p>
+<div class="highlight"><pre><span></span><code>WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+The following NEW packages will be installed:
   tree
-0 upgraded, 1 newly installed, 0 to remove and 261 not upgraded.
-Need to get 47.4 kB of archives.
-After this operation, 111 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 tree amd64 2.1.1-2ubuntu3.24.04.2 [47.4 kB]
+0 upgraded, 1 newly installed, 0 to remove and 113 not upgraded.
 Setting up tree (2.1.1-2ubuntu3.24.04.2) ...
 </code></pre></div>
+<p>Package versions and upgrade counts can vary.</p>
+<p>If installation reports insufficient disk space or incomplete packages, use the end-of-chapter troubleshooting steps before returning here.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove downloaded package archives while retaining installed packages.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>clean
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Validation pending; no captured output is available.</p>
+<div class="highlight"><pre><span></span><code>WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Change to the current user&#39;s home directory.</span>
 <span class="nb">cd</span><span class="w"> </span>~
@@ -1028,17 +1097,9 @@ tree
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt from this LABVM. The full listing contained 13,576 lines and varies with home-directory contents:</p>
 <div class="highlight"><pre><span></span><code>.
-├── 2014-00
-├── 2014-01
-├── 2014-02
-├── 2014-03
-├── 2014-04
-├── 2014-05
-├── 2014-06
-├── 2014-07
-├── 2014-08
+
+0 directories, 0 files
 </code></pre></div>
 </details>
 <ol>
@@ -1049,6 +1110,7 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
+<p>Literal first-20-line excerpt from this LABVM:</p>
 <div class="highlight"><pre><span></span><code>/
 ├── bin -&gt; usr/bin
 ├── bin.usr-is-merged
@@ -1069,13 +1131,6 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><s
 ├── sbin -&gt; usr/sbin
 ├── sbin.usr-is-merged
 ├── snap
-├── srv
-├── sys
-├── tmp
-├── usr
-└── var
-
-25 directories, 0 files
 </code></pre></div>
 </details>
 <ol>
@@ -1086,7 +1141,7 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">2</span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt from this LABVM. The full listing contained 696 lines and varies with installed kernels and LABVM state:</p>
+<p>Literal first-20-line excerpt from this LABVM:</p>
 <div class="highlight"><pre><span></span><code>/
 ├── bin -&gt; usr/bin
 ├── bin.usr-is-merged
@@ -1100,7 +1155,13 @@ tree<span class="w"> </span>-L<span class="w"> </span><span class="m">2</span><s
 │   ├── initrd.img -&gt; initrd.img-6.8.0-138-generic
 │   ├── initrd.img-6.8.0-138-generic
 │   ├── initrd.img-6.8.0-53-generic
-│   └── initrd.img.old -&gt; initrd.img-6.8.0-53-generic
+│   ├── initrd.img.old -&gt; initrd.img-6.8.0-53-generic
+│   ├── lost+found
+│   ├── vmlinuz -&gt; vmlinuz-6.8.0-138-generic
+│   ├── vmlinuz-6.8.0-138-generic
+│   ├── vmlinuz-6.8.0-53-generic
+│   └── vmlinuz.old -&gt; vmlinuz-6.8.0-53-generic
+├── dev
 </code></pre></div>
 </details>
 <blockquote>
@@ -1180,7 +1241,7 @@ ls<span class="w"> </span>-ld<span class="w"> </span>/etc
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>drwxr-xr-x 106 root root 4096 Aug 25 06:14 /etc
+<div class="highlight"><pre><span></span><code>drwxr-xr-x 106 root root 4096 Aug 26 06:32 /etc
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for /etc/hosts.</span>
@@ -1196,7 +1257,7 @@ ls<span class="w"> </span>-l<span class="w"> </span>/dev/tty
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>crw-rw-rw- 1 root tty 5, 0 Aug 25 07:46 /dev/tty
+<div class="highlight"><pre><span></span><code>crw-rw-rw- 1 root tty 5, 0 Aug 25 11:29 /dev/tty
 </code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List detailed information for the vda block device.</span>
@@ -1204,7 +1265,7 @@ ls<span class="w"> </span>-l<span class="w"> </span>/dev/vda
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>brw-rw---- 1 root disk 253, 0 Aug 25 06:55 /dev/vda
+<div class="highlight"><pre><span></span><code>brw-rw---- 1 root disk 253, 0 Aug 26 06:30 /dev/vda
 </code></pre></div>
 </details>
 <ol>
@@ -1215,15 +1276,26 @@ ls<span class="w"> </span>-l<span class="w"> </span>/dev/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt from this LABVM; device entries and timestamps vary by LABVM state:</p>
+<p>Literal excerpt from this LABVM:</p>
 <div class="highlight"><pre><span></span><code>total 0
-crw-r--r-- 1 root root     10, 235 Aug 25 06:55 autofs
-drwxr-xr-x 2 root root         340 Aug 25 06:55 block
-crw-rw---- 1 root disk     10, 234 Aug 25 06:55 btrfs-control
-drwxr-xr-x 3 root root          60 Aug 25 06:55 bus
-drwxr-xr-x 2 root root        3300 Aug 25 06:55 char
-crw--w---- 1 root tty       5,   1 Aug 25 06:56 console
-lrwxrwxrwx 1 root root          11 Aug 25 06:55 core -&gt; /proc/kcore
+crw-r--r-- 1 root root     10, 235 Aug 25 11:29 autofs
+drwxr-xr-x 2 root root         340 Aug 26 06:32 block
+crw-rw---- 1 root disk     10, 234 Aug 25 11:29 btrfs-control
+drwxr-xr-x 3 root root          60 Aug 25 11:29 bus
+drwxr-xr-x 2 root root        3300 Aug 25 11:29 char
+crw--w---- 1 root tty       5,   1 Aug 25 11:30 console
+lrwxrwxrwx 1 root root          11 Aug 25 11:29 core -&gt; /proc/kcore
+drwxr-xr-x 4 root root          80 Aug 25 11:29 cpu
+crw------- 1 root root     10, 123 Aug 25 11:29 cpu_dma_latency
+crw------- 1 root root     10, 203 Aug 25 11:29 cuse
+drwxr-xr-x 7 root root         140 Aug 25 11:29 disk
+drwxr-xr-x 2 root root          60 Aug 25 11:29 dma_heap
+crw------- 1 root root     10, 125 Aug 25 11:29 ecryptfs
+lrwxrwxrwx 1 root root          13 Aug 25 11:29 fd -&gt; /proc/self/fd
+crw-rw-rw- 1 root root      1,   7 Aug 25 11:29 full
+crw-rw-rw- 1 root root     10, 229 Aug 26 06:32 fuse
+crw------- 1 root root     10, 228 Aug 25 11:29 hpet
+drwxr-xr-x 2 root root           0 Aug 25 11:29 hugepages
 </code></pre></div>
 </details>
 <ol>
@@ -1241,7 +1313,7 @@ ls<span class="w"> </span>-l<span class="w"> </span>file1.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>-rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 07:50 file1.txt
+<div class="highlight"><pre><span></span><code>-rw-rw-r-- 1 ubuntu ubuntu 0 Aug 27 19:05 file1.txt
 </code></pre></div>
 </details>
 <ol>
@@ -1259,7 +1331,7 @@ ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 07:50 dirone
+<div class="highlight"><pre><span></span><code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 27 19:05 dirone
 </code></pre></div>
 </details>
 <ol>
@@ -1282,6 +1354,49 @@ rm<span class="w"> </span>file1.txt
 <blockquote>
 <p>End of the lab. Do not continue with the next topic.</p>
 </blockquote>
+<h2 id="package-troubleshooting"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> Package Troubleshooting<a class="headerlink" href="#package-troubleshooting" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use these steps only if the existing <code>tree</code> installation step reports insufficient disk space or incomplete packages. Do not remove packages or files. After the checks succeed, return to the existing <code>tree</code> installation step.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show available space on the root filesystem.</span>
+df<span class="w"> </span>-h<span class="w"> </span>/
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1       2.4G  2.1G  328M  87% /
+</code></pre></div>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove downloaded package archives while retaining installed packages.</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>clean
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<div class="highlight"><pre><span></span><code>WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+</code></pre></div>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Complete any interrupted package configuration.</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>--fix-broken<span class="w"> </span>install<span class="w"> </span>-y
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>Literal excerpt from this LABVM:</p>
+<div class="highlight"><pre><span></span><code>Correcting dependencies... Done
+The following additional packages will be installed:
+  linux-modules-6.8.0-138-generic linux-tools-6.8.0-138
+0 upgraded, 2 newly installed, 0 to remove and 113 not upgraded.
+Setting up linux-modules-6.8.0-138-generic (6.8.0-138.138) ...
+Setting up linux-tools-6.8.0-138 (6.8.0-138.138) ...
+</code></pre></div>
+</details>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check for packages that remain only partially configured.</span>
+sudo<span class="w"> </span>dpkg<span class="w"> </span>--audit
+</code></pre></div>
+<details class="example">
+<summary>Expected result</summary>
+<p>No output.</p>
+</details>
 
 
 
