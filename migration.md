@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapter 4 validation is complete on the replacement nested VM; Chapters 5 through 8 require revalidation.
-- Active target: Chapter 5 validation through the documented replacement nested-VM student route.
-- Next action: Validate Chapter 5 through the documented replacement nested-VM student route.
+- Current phase: Chapter 5 replacement nested-VM validation is Blocked because `journalctl -u ssh.service` has no publishable safe literal result; Chapters 6 through 8 require revalidation.
+- Active target: Chapter 5 safe SSH-journal result resolution.
+- Next action: Establish an authorized student-facing form or safe literal result for the SSH journal query, then complete Chapter 5 result documentation.
 - The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -28,7 +28,7 @@
 | 2. CLI Environment | Complete (replacement environment) |
 | 3. Linux Filesystem Hierarchy | Complete (replacement environment) |
 | 4. Identity and Ownership | Complete (replacement environment) |
-| 5. Logging and Initialization | Ready for validation (replacement environment) |
+| 5. Logging and Initialization | Blocked (replacement environment) |
 | 6. Storage | Ready for validation (replacement environment) |
 | 7. Networking | Ready for validation (replacement environment) |
 | 8. Process Management | Ready for validation (replacement environment) |
@@ -43,7 +43,7 @@
 | 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Complete (replacement environment) |
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Complete (all source commands validated on replacement environment) |
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete (all source commands validated on replacement environment) |
-| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Ready for validation (replacement environment; prior results superseded) |
+| 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Blocked (replacement environment; prior results superseded) |
 | 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Ready for validation (replacement environment; prior results superseded) |
 | 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Ready for validation (replacement environment; prior results superseded) |
 | 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Ready for validation (replacement environment; prior results superseded; `at` status is unvalidated) |
@@ -160,6 +160,8 @@
 
 ### :material-application-edit-outline: 2026-08-28
 
+- The full 27-command current-page sequence ran; normal/forced rotation were authorized and run; expected nonzero observational statuses occurred for two no-match greps and inactive cron status; `vda.txt` was removed; cron was restored active/enabled; SSH restart and separate recovery passed; all expected results except `journalctl` were captured; no journal output was published; user-authorized sudo changes remain documented while source is unchanged.
+- Chapter 5 was reset to pending captured results, missing source section structure was restored, and replacement-environment validation is active; no Chapter 5 source-command history was added at this preparation stage.
 - Reset obsolete prior-environment Chapter 4 captures to pending and began controlled replacement-VM validation; validation is not complete.
 - Chapter 4 replacement-VM preflight passed: the nested environment was `ubuntu` in `/home/ubuntu`, non-interactive sudo worked, sufficient package-free workspace was available, `sshpass` was available on LABHOST, the original umask was captured as `0002`, and no requested group, account, home-directory, or fixture collision existed.
 - `sudo visudo -c`, group creation and verification, user creation, passwd-entry verification, and disabled-password inspection ran before the password step. The documented `sudo passwd labuser` command did not complete because the available PTY transport echoed password input before the password prompt, making capture unsafe. Dependent Chapter 4 commands were not run; page results remain pending and no source-command record was added.
@@ -168,3 +170,8 @@
 - Removed the session-created `labuser` account, `students` group, and any Chapter 4 permission fixtures after the stopped run. Verified that the account, home directory, group, and fixtures are absent and restored the ordinary-shell umask to `0002`.
 - A further full retry again passed preflight and collision detection and safely completed the password-update prompt exchange without echoed input. The PTY timed out while verifying the subsequent `labuser` login-shell output, so dependent commands were not documented. Cleanup was independently rerun and verified: the session-created account, home directory, group, and fixtures are absent and the ordinary-shell umask is `0002`. Chapter 4 remains Blocked; all page results and command-history entries remain pending.
 - The final Chapter 4 retry completed from clean preflight through cleanup. The password input was sent only after each verified prompt with terminal echo disabled; nonsecret forced-TTY transcripts verified the `labuser` home and root transition. ANSI display controls were stripped only in-memory before parsing the three literal `ls -l` excerpts. All four fixtures, the session-created user and home, and the group were removed, and the original umask was restored and verified. Chapter 4 and all listed subsections are Complete; Chapter 5 is next. No MkDocs build was run.
+- Chapter 5 replacement-LABVM preflight succeeded through LABHOST `sshpass` availability but stopped before every Chapter 5 source command because `/var/lib/logrotate/status` is not readable by the fixed student user `ubuntu`; the authoritative unprivileged `cat /var/lib/logrotate/status` command cannot succeed unchanged. No source command, service/log/file state change, or source-command history entry occurred, and all expected results remain pending.
+- The user authorized the replacement-LABVM documentation adjustment from `cat /var/lib/logrotate/status` to `sudo cat /var/lib/logrotate/status` after validation confirmed the original was unreadable; the source is unchanged and full validation resumed.
+- Replacement-LABVM preflight confirmed unprivileged kernel messages are restricted. The user authorized documented `sudo` prefixes for the four `dmesg` commands; the source remains unchanged and validation continues.
+- Chapter 5 forced-logrotate preflight measured `/var/log` apparent size at 162031 KiB and available space at 222092 KiB, below the required 375262 KiB safety minimum (`2 * apparent size + 51200`); the condition failed. No source command, service, log rotation, or file-state action occurred, and no destructive cleanup was performed.
+- User-authorized removal of only APT cache and package-index contents succeeded. Root free capacity changed from 222076 KiB to 532116 KiB, exceeding the 375262 KiB safety threshold. No Chapter 5 source command, logrotate operation, service change, or command-history entry occurred. Full preflight must resume.

@@ -4,7 +4,7 @@
     Inspect system logs, understand boot initialization, and manage systemd units.
 
 !!! note
-    The shown environment-specific results were captured on the prior `LABVM` and are historical only. The replacement `LABVM` requires revalidation.
+    Replacement-LABVM validation captured all results except the direct SSH journal query, whose output remains pending because no safe literal excerpt can be published. `sudo` is required for the logrotate status-file and kernel-message commands.
 
 ## :material-book-open-page-variant-outline: 5.1 System Logging
 
@@ -17,18 +17,16 @@ Search a log by source or severity:
 grep NetworkManager /var/log/syslog
 ```
 ??? example "Expected result"
-    No output. The command returned exit status 1 because this LABVM has no matching `NetworkManager` entries.
+    No output. The command returned exit status 1 because no matching `NetworkManager` entry was present.
 
 ```bash
 # Search syslog for errors without case sensitivity
 grep -i "error" /var/log/syslog
 ```
 ??? example "Expected result"
-    ```text
-    2026-08-25T06:14:48.439692+00:00 ubuntu apt.systemd.daily[6738]: OSError: [Errno 28] No space left on device
-    ```
+    `error`
 
-    This is a safe literal excerpt; log contents are host-state-dependent.
+    Safe literal excerpt from a matching current log entry; log contents vary.
 
 ```bash
 # List per-application logrotate rules
@@ -60,112 +58,124 @@ sudo logrotate /etc/logrotate.conf
 The main configuration is `/etc/logrotate.conf`. Its options and the example configuration in the source are reference material; configuration content is host-specific and is not presented as a command result.
 
 ```bash
-# Inspect logrotate history
-cat /var/lib/logrotate/status
+# Inspect logrotate history with required privilege
+sudo cat /var/lib/logrotate/status
 ```
 ??? example "Expected result"
-    No standard output. This LABVM returned exit status 1 because the status file is absent.
+    `logrotate state -- version 2`
 
 ```bash
 # Force verbose log rotation for troubleshooting
 sudo logrotate -vf /etc/logrotate.conf
 ```
 ??? example "Expected result"
-    ```text
-    reading config file /etc/logrotate.conf
-    including /etc/logrotate.d
-    Handling 13 logs
-    ```
+    `reading config file /etc/logrotate.conf`
 
-    Safe literal excerpt from the verbose run. Rotation completed successfully; per-log details are intentionally omitted because they may identify host activity.
+### :material-application-edit-outline: 5.1.1 System Logging Lab
 
 ```bash
-# Display kernel messages
-dmesg
+# Display kernel messages with required privilege
+sudo dmesg
 ```
 ??? example "Expected result"
-    ```text
-    dmesg: read kernel buffer failed: Operation not permitted
-    ```
-
-    This LABVM restricts unprivileged kernel-ring-buffer access.
+    `[    1.861209] virtio_blk virtio1: [vda] 7340032 512-byte logical blocks (3.76 GB/3.50 GiB)`
 
 ```bash
-# Page through kernel messages
-dmesg | less
+# Page through kernel messages with required privilege
+sudo dmesg | less
 ```
 ??? example "Expected result"
-    The pager opened and exited with no displayed messages because `dmesg` is restricted for this user. Press `q` to exit an interactive pager.
+    The pager opened and closed with `q`.
 
 ```bash
-# Find vda device messages
-dmesg | grep -i vda
+# Find vda device messages with required privilege
+sudo dmesg | grep -i vda
 ```
 ??? example "Expected result"
-    No output. The command returned exit status 1 because unprivileged `dmesg` access is restricted.
+    `[    1.861209] virtio_blk virtio1: [vda] 7340032 512-byte logical blocks (3.76 GB/3.50 GiB)`
 
 ```bash
-# Save vda messages to a file
-dmesg | grep vda > vda.txt
+# Save vda messages to a file with required privilege
+sudo dmesg | grep vda > vda.txt
 ```
 ??? example "Expected result"
-    No standard output. The command returned exit status 1 because unprivileged `dmesg` access is restricted; `vda.txt` was left in place as documented.
+    No output. `vda.txt` was created and removed after validation.
 
 ```bash
 # Search syslog for errors
 grep error /var/log/syslog
 ```
 ??? example "Expected result"
-    No output. The newly rotated `syslog` had no lowercase `error` entries at validation time.
+    No output. The command returned exit status 1 because no lowercase `error` entry was present.
 
 ```bash
 # Show the first ten syslog lines
 head -n 10 /var/log/syslog
 ```
 ??? example "Expected result"
-    No output. The newly rotated `syslog` was empty at validation time.
+    `rsyslogd`
+
+    Safe literal excerpt from the current first-ten-lines output; log contents vary.
 
 ```bash
 # Show the last ten syslog lines
 tail -n 10 /var/log/syslog
 ```
 ??? example "Expected result"
-    No output. The newly rotated `syslog` was empty at validation time.
+    `systemd`
+
+    Safe literal excerpt from the current last-ten-lines output; log contents vary.
 
 ```bash
 # List available log files
 ls -l /var/log
 ```
 ??? example "Expected result"
-    The command completed successfully. Log names, ownership, sizes, and timestamps are host-state-dependent and are not reproduced here.
+    `-rw-r-----  1 syslog    adm                3624 Aug 28 15:32 auth.log`
+
+## :material-book-open-page-variant-outline: 5.2 Boot Process Overview
+
+Firmware starts first, then GRUB transfers control to the operating system. The initrd prepares required hardware and drivers before the real root filesystem is available. The kernel manages system resources, and Ubuntu Server 24.04 uses systemd as its init system.
+
+![Boot process](assets/boot.png)
+
+### :material-application-edit-outline: 5.2.1 Boot Process Lab
 
 ```bash
 # List boot files
 ls -l /boot/
 ```
 ??? example "Expected result"
-    The command completed successfully. Kernel image and initrd filenames, sizes, and timestamps are host-state-dependent.
+    `drwxr-xr-x 6 root root     4096 Aug 27 19:24 grub`
+
+## :material-book-open-page-variant-outline: 5.3 Systemd
+
+systemd is the default init system. It manages units and their dependencies. Unit definitions reside in `/etc/systemd/system` or `/lib/systemd/system`.
+
+### :material-application-edit-outline: 5.3.1 Systemd Lab
 
 ```bash
 # Read the systemctl manual
 man systemctl
 ```
 ??? example "Expected result"
-    The installed `systemctl` manual opened successfully in its pager. Press `q` to exit.
+    The pager opened and closed with `q`.
 
 ```bash
 # Stop the cron service
 sudo systemctl stop cron
 ```
 ??? example "Expected result"
-    No output. `cron` was active before this command and was restored after validation.
+    No output.
 
 ```bash
 # Inspect stopped cron service status
 sudo systemctl status cron
 ```
 ??? example "Expected result"
-    The service was inactive after the documented stop command. `systemctl status` returned exit status 3 for the inactive service.
+    `inactive (dead)`
+
+    The inactive status returned exit status 3.
 
 ```bash
 # Start the cron service
@@ -179,55 +189,56 @@ sudo systemctl start cron
 sudo systemctl status cron
 ```
 ??? example "Expected result"
-    ```text
-    active
-    ```
+    `active (running)`
 
 ```bash
 # List service units
 systemctl list-units -t service
 ```
 ??? example "Expected result"
-    The command completed successfully; the service list is host-state-dependent.
+    ```text
+    UNIT LOAD ACTIVE SUB DESCRIPTION
+    ssh.service loaded active running OpenBSD Secure Shell server
+    ```
 
 ```bash
 # Show running SSH services
 systemctl list-units -t service | grep -i ssh
 ```
 ??? example "Expected result"
-    The command completed successfully and found the active SSH service.
+    `ssh.service loaded active running OpenBSD Secure Shell server`
 
 ```bash
 # List failed units
 systemctl --failed
 ```
 ??? example "Expected result"
-    The command completed successfully. Failed-unit state is host-state-dependent.
+    `UNIT LOAD ACTIVE SUB DESCRIPTION`
 
 ```bash
 # Read the journalctl manual
 man journalctl
 ```
 ??? example "Expected result"
-    The installed `journalctl` manual opened successfully in its pager. Press `q` to exit.
+    The pager opened and closed with `q`.
 
 ```bash
 # Query the SSH journal
 journalctl -u ssh.service
 ```
 ??? example "Expected result"
-    The command completed successfully. Journal entries can contain host and session data, so no log content is reproduced.
+    Validation pending; no captured output is available.
 
 ```bash
 # Show SSH service properties
 systemctl show ssh.service
 ```
 ??? example "Expected result"
-    The command completed successfully. Service properties are host-state-dependent.
+    `Id=ssh.service`
 
 ```bash
 # Restart the SSH service
 sudo systemctl restart ssh
 ```
 ??? example "Expected result"
-    No output. The restart completed successfully; a separate post-restart SSH connection confirmed the service remained active.
+    No output. A fresh separate connection confirmed `ssh.service` was active after the restart.
