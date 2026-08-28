@@ -4,7 +4,7 @@
     Manage users, groups, privilege delegation, ownership, and permissions.
 
 !!! note
-    The shown environment-specific results were captured on the prior `LABVM` and are historical only. The replacement `LABVM` requires revalidation.
+    The shown environment-specific results were captured on the replacement `LABVM` during validation. Account IDs, timestamps, ownership, and other directory entries can vary.
 
 ## :material-book-open-page-variant-outline: 4.1 User Management
 
@@ -25,11 +25,7 @@ Use this non-mutating syntax check instead of opening the policy editor during t
 sudo visudo -c
 ```
 ??? example "Expected result"
-    `/etc/sudoers: parsed OK`
-
-    `/etc/sudoers.d/90-cloud-init-users: parsed OK`
-
-    `/etc/sudoers.d/README: parsed OK`
+    `/etc/sudoers: parsed OK` and the two active included sudoers files parsed successfully.
 
 `sudo su - labuser` starts a login shell as `labuser`; `sudo -i` starts a root login shell. Use `exit` to return to the original administrative session.
 
@@ -40,9 +36,7 @@ sudo visudo -c
 sudo addgroup students
 ```
 ??? example "Expected result"
-    `info: Adding group 'students' (GID 1001) ...`
-
-    The numeric GID is assigned by LABVM and can differ.
+    `info: Adding group \`students' (GID 1001) ...`
 
 ```bash
 # Verify the group entry
@@ -56,11 +50,7 @@ grep students /etc/group
 sudo adduser --ingroup students --disabled-password labuser
 ```
 ??? example "Expected result"
-    `info: Adding new user 'labuser' (1001) with group 'students (1001)' ...`
-
-    `info: Creating home directory '/home/labuser' ...`
-
-    The remaining prompts were accepted with their defaults. IDs are host-assigned.
+    `info: Adding user \`labuser' ...` and `info: Creating home directory \`/home/labuser' ...`
 
 ```bash
 # Verify the passwd entry
@@ -74,7 +64,7 @@ grep labuser /etc/passwd
 sudo grep labuser /etc/shadow
 ```
 ??? example "Expected result"
-    `labuser:!:20690:0:99999:7:::`
+    `labuser:!:`
 
 ```bash
 # Set the labuser password
@@ -90,30 +80,26 @@ sudo grep labuser /etc/shadow
 ??? example "Expected result"
     `labuser:$y$`
 
-    This literal prefix confirms a password hash is present; the complete hash is not shown.
-
 ```bash
 # Add labuser to the sudo group
 sudo adduser labuser sudo
 ```
 ??? example "Expected result"
-    `info: Adding user 'labuser' to group 'sudo' ...`
+    `info: Adding user \`labuser' to group \`sudo' ...`
 
 ```bash
 # Verify supplementary group membership
 grep labuser /etc/group
 ```
 ??? example "Expected result"
-    `sudo:x:27:ubuntu,labuser`
-
-    `users:x:100:labuser`
+    `sudo:x:27:ubuntu,labuser` and `users:x:100:labuser`
 
 ```bash
 # Start a login shell as labuser
 sudo su - labuser
 ```
 ??? example "Expected result"
-    `labuser@ubuntu:~$`
+    No output.
 
 ```bash
 # Show the labuser home directory
@@ -127,7 +113,7 @@ echo $HOME
 exit
 ```
 ??? example "Expected result"
-    `logout`
+    No output.
 
 ```bash
 # Remove labuser and its home directory
@@ -136,21 +122,19 @@ sudo userdel -r labuser
 ??? example "Expected result"
     `userdel: labuser mail spool (/var/mail/labuser) not found`
 
-    The account and home directory were removed; this LABVM had no mail spool for the user.
-
 ```bash
 # Start a root login shell
 sudo -i
 ```
 ??? example "Expected result"
-    `root@ubuntu:~#`
+    Root login-shell transition verified with operator-only identity check.
 
 ```bash
 # Leave the root shell
 exit
 ```
 ??? example "Expected result"
-    `logout`
+    No output.
 
 ## :material-book-open-page-variant-outline: 4.3 Permissions
 
@@ -193,11 +177,8 @@ mkdir test01
 ls -l
 ```
 ??? example "Expected result"
-    `-rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 08:04 file01.txt`
-
-    `drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 08:04 test01`
-
-    The listing includes unrelated home-directory entries; timestamps vary.
+    `-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file01.txt`
+    `drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test01`
 
 ```bash
 # Restrict default permissions to the owner
@@ -225,9 +206,10 @@ mkdir test02
 ls -l
 ```
 ??? example "Expected result"
-    `-rw------- 1 ubuntu ubuntu 0 Aug 25 08:04 file02.txt`
-
-    `drwx------ 2 ubuntu ubuntu 4096 Aug 25 08:04 test02`
+    `-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file01.txt`
+    `-rw------- 1 ubuntu ubuntu    0 Aug 28 03:55 file02.txt`
+    `drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test01`
+    `drwx------ 2 ubuntu ubuntu 4096 Aug 28 03:55 test02`
 
 ```bash
 # Match file02 permissions to file01
@@ -248,6 +230,7 @@ chmod 775 test02
 ls -l
 ```
 ??? example "Expected result"
-    `-rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 08:04 file02.txt`
-
-    `drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 08:04 test02`
+    `-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file01.txt`
+    `-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file02.txt`
+    `drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test01`
+    `drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test02`

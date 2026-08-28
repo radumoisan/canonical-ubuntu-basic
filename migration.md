@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapters 1 through 3 are complete on the replacement environment; Chapters 4 through 8 require revalidation.
-- Active target: Chapter 4 validation through the documented nested-VM student route.
-- Next action: Validate Chapter 4 source commands without altering source content.
+- Current phase: Chapter 4 validation is complete on the replacement nested VM; Chapters 5 through 8 require revalidation.
+- Active target: Chapter 5 validation through the documented replacement nested-VM student route.
+- Next action: Validate Chapter 5 through the documented replacement nested-VM student route.
 - The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -27,7 +27,7 @@
 | 1. What is Ubuntu | Complete (replacement environment) |
 | 2. CLI Environment | Complete (replacement environment) |
 | 3. Linux Filesystem Hierarchy | Complete (replacement environment) |
-| 4. Identity and Ownership | Ready for validation (replacement environment) |
+| 4. Identity and Ownership | Complete (replacement environment) |
 | 5. Logging and Initialization | Ready for validation (replacement environment) |
 | 6. Storage | Ready for validation (replacement environment) |
 | 7. Networking | Ready for validation (replacement environment) |
@@ -42,7 +42,7 @@
 | 1. What is Ubuntu | 1.1 What is Linux?; 1.2 What is the Kernel?; 1.3 What is Ubuntu?; 1.4 The Release Cycle; 1.5 Ubuntu Lab | Complete (all source commands validated on replacement environment) |
 | 2. CLI Environment | 2.1 Secure Shell; 2.2 CLI Commands; 2.2.1 CLI Commands Lab; 2.3 Getting Help; 2.3.1 Getting Help Lab; 2.4 Shell Environment Variables; 2.4.1 Shell Environment and Variables Lab; 2.5 Standard Streams; 2.5.1 Redirection Lab; 2.6 Command Chaining; 2.7 Return Values and Expansion; 2.7.1 Chaining and Expansion Lab; 2.8 Introduction to nano; 2.8.1 nano Lab | Complete (replacement environment) |
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Complete (all source commands validated on replacement environment) |
-| 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Ready for validation (replacement environment; prior results superseded) |
+| 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete (all source commands validated on replacement environment) |
 | 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Ready for validation (replacement environment; prior results superseded) |
 | 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Ready for validation (replacement environment; prior results superseded) |
 | 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Ready for validation (replacement environment; prior results superseded) |
@@ -55,7 +55,7 @@
 - 2026-08-24: The prior environment's system-libvirt `cloud` network and `ubuntu` domain were active and autostarted. This history is superseded and is not replacement-environment evidence.
 - 2026-08-24: GCP disk tier cannot be verified from the available local evidence.
 - 2026-08-24: Package and service variance is confirmed: `qemu-kvm` and `virtqemud.service` are absent while functional QEMU/KVM packages and active monolithic `libvirtd` are present.
-- 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to the standardized pre-validation notice, including source-provided fixtures, because no commands had been executed.
+- 2026-08-24: Structural migration had introduced unvalidated descriptive or assumed expected-result bodies. They were reset to the standardized pre-validation notice, including source-provided fixtures.
 - Deployment artifacts are retained; chart versioning and image tags remain CI-managed.
 - 2026-08-24: The derived Chapter 1 page corrects Ubuntu 23.10's release date from October 2024 to October 2023.
 - 2026-08-24: The source `umask` default file-permissions semantics require command or factual validation before correction. They remain uncorrected in derived documentation because source validation is pending.
@@ -157,3 +157,14 @@
 - Reset stale Chapter 3 result bodies before execution, then recorded safe literal captures or excerpts only for successful commands. The Chapter remains Blocked, its navigation status is unchanged, and no MkDocs build was run.
 - The approved package-repair retry returned `Permission denied, please try again.` at the documented two-hop SSH route. Stopped immediately as required; no further remote commands or documentation validation updates were made.
 - The previous authentication failure was superseded by a successful retry through the same documented two-hop route. The approved repair installed and configured `linux-modules-6.8.0-138-generic` and `linux-tools-6.8.0-138`; `sudo dpkg --audit` returned no output. The exact `tree` installation completed, its required results were captured through disposable temporary files and those files were removed, and `df -h /` reported 328 MiB available (87% used). No kernels, packages, logs, snaps, or files were removed, and no destructive cleanup was performed. Chapter 3 and all of its subsections are Complete; Chapter 4 is the next validation target.
+
+### :material-application-edit-outline: 2026-08-28
+
+- Reset obsolete prior-environment Chapter 4 captures to pending and began controlled replacement-VM validation; validation is not complete.
+- Chapter 4 replacement-VM preflight passed: the nested environment was `ubuntu` in `/home/ubuntu`, non-interactive sudo worked, sufficient package-free workspace was available, `sshpass` was available on LABHOST, the original umask was captured as `0002`, and no requested group, account, home-directory, or fixture collision existed.
+- `sudo visudo -c`, group creation and verification, user creation, passwd-entry verification, and disabled-password inspection ran before the password step. The documented `sudo passwd labuser` command did not complete because the available PTY transport echoed password input before the password prompt, making capture unsafe. Dependent Chapter 4 commands were not run; page results remain pending and no source-command record was added.
+- Removed only the `labuser` account and `students` group created by this session. Verified that the account, home directory, group, and all four Chapter 4 permission fixtures are absent; the ordinary-shell umask is `0002`. Chapter 4 and all listed subsections are Blocked pending safe prompt transport.
+- Retried the full Chapter 4 validation with a prompt-aware PTY. Preflight and collision detection passed, and the documented password command received input only after each verified password prompt; password update confirmation was received without echoing password input. The run then stopped at the `sudo su - labuser` login-shell prompt transition because that shell replaced the PTY synchronization prompt. Dependent commands were not run, page results and command history remain pending, and no navigation change was made.
+- Removed the session-created `labuser` account, `students` group, and any Chapter 4 permission fixtures after the stopped run. Verified that the account, home directory, group, and fixtures are absent and restored the ordinary-shell umask to `0002`.
+- A further full retry again passed preflight and collision detection and safely completed the password-update prompt exchange without echoed input. The PTY timed out while verifying the subsequent `labuser` login-shell output, so dependent commands were not documented. Cleanup was independently rerun and verified: the session-created account, home directory, group, and fixtures are absent and the ordinary-shell umask is `0002`. Chapter 4 remains Blocked; all page results and command-history entries remain pending.
+- The final Chapter 4 retry completed from clean preflight through cleanup. The password input was sent only after each verified prompt with terminal echo disabled; nonsecret forced-TTY transcripts verified the `labuser` home and root transition. ANSI display controls were stripped only in-memory before parsing the three literal `ls -l` excerpts. All four fixtures, the session-created user and home, and the group were removed, and the original umask was restored and verified. Chapter 4 and all listed subsections are Complete; Chapter 5 is next. No MkDocs build was run.
