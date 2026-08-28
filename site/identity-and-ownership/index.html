@@ -22,7 +22,7 @@
     
     
       
-        <title>⏳ 4. Identity and Ownership - Canonical Ubuntu Basic</title>
+        <title>📋 4. Identity and Ownership - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⏳ 4. Identity and Ownership
+              📋 4. Identity and Ownership
             
           </span>
         </div>
@@ -306,7 +306,7 @@
           
   
   <span class="md-ellipsis">
-    ⏳ 4. Identity and Ownership
+    📋 4. Identity and Ownership
   </span>
   
 
@@ -317,7 +317,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 4. Identity and Ownership
+    📋 4. Identity and Ownership
   </span>
   
 
@@ -652,7 +652,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The shown environment-specific results were captured on the prior <code>LABVM</code> and are historical only. The replacement <code>LABVM</code> requires revalidation.</p>
+<p>The shown environment-specific results were captured on the replacement <code>LABVM</code> during validation. Account IDs, timestamps, ownership, and other directory entries can vary.</p>
 </div>
 <h2 id="41-user-management"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 4.1 User Management<a class="headerlink" href="#41-user-management" title="Permanent link">&para;</a></h2>
 <p>User accounts control access through a login name, password, permissions, and logging. Account records are stored in <code>/etc/passwd</code> and <code>/etc/shadow</code>; password hashes cannot be read as passwords.</p>
@@ -666,9 +666,7 @@ sudo<span class="w"> </span>visudo<span class="w"> </span>-c
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>/etc/sudoers: parsed OK</code></p>
-<p><code>/etc/sudoers.d/90-cloud-init-users: parsed OK</code></p>
-<p><code>/etc/sudoers.d/README: parsed OK</code></p>
+<p><code>/etc/sudoers: parsed OK</code> and the two active included sudoers files parsed successfully.</p>
 </details>
 <p><code>sudo su - labuser</code> starts a login shell as <code>labuser</code>; <code>sudo -i</code> starts a root login shell. Use <code>exit</code> to return to the original administrative session.</p>
 <h3 id="421-user-management-and-privileges-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 4.2.1 User Management and Privileges Lab<a class="headerlink" href="#421-user-management-and-privileges-lab" title="Permanent link">&para;</a></h3>
@@ -677,8 +675,7 @@ sudo<span class="w"> </span>addgroup<span class="w"> </span>students
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>info: Adding group 'students' (GID 1001) ...</code></p>
-<p>The numeric GID is assigned by LABVM and can differ.</p>
+<p><code>info: Adding group \</code>students' (GID 1001) ...`</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Verify the group entry</span>
 grep<span class="w"> </span>students<span class="w"> </span>/etc/group
@@ -692,9 +689,7 @@ sudo<span class="w"> </span>adduser<span class="w"> </span>--ingroup<span class=
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>info: Adding new user 'labuser' (1001) with group 'students (1001)' ...</code></p>
-<p><code>info: Creating home directory '/home/labuser' ...</code></p>
-<p>The remaining prompts were accepted with their defaults. IDs are host-assigned.</p>
+<p><code>info: Adding user \</code>labuser' ...<code>and</code>info: Creating home directory `/home/labuser' ...`</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Verify the passwd entry</span>
 grep<span class="w"> </span>labuser<span class="w"> </span>/etc/passwd
@@ -708,7 +703,7 @@ sudo<span class="w"> </span>grep<span class="w"> </span>labuser<span class="w"> 
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>labuser:!:20690:0:99999:7:::</code></p>
+<p><code>labuser:!:</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set the labuser password</span>
 sudo<span class="w"> </span>passwd<span class="w"> </span>labuser
@@ -723,29 +718,27 @@ sudo<span class="w"> </span>grep<span class="w"> </span>labuser<span class="w"> 
 <details class="example">
 <summary>Expected result</summary>
 <p><code>labuser:$y$</code></p>
-<p>This literal prefix confirms a password hash is present; the complete hash is not shown.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add labuser to the sudo group</span>
 sudo<span class="w"> </span>adduser<span class="w"> </span>labuser<span class="w"> </span>sudo
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>info: Adding user 'labuser' to group 'sudo' ...</code></p>
+<p><code>info: Adding user \</code>labuser' to group `sudo' ...`</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Verify supplementary group membership</span>
 grep<span class="w"> </span>labuser<span class="w"> </span>/etc/group
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>sudo:x:27:ubuntu,labuser</code></p>
-<p><code>users:x:100:labuser</code></p>
+<p><code>sudo:x:27:ubuntu,labuser</code> and <code>users:x:100:labuser</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start a login shell as labuser</span>
 sudo<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>labuser
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>labuser@ubuntu:~$</code></p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the labuser home directory</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span>
@@ -759,7 +752,7 @@ sudo<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>l
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>logout</code></p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Remove labuser and its home directory</span>
 sudo<span class="w"> </span>userdel<span class="w"> </span>-r<span class="w"> </span>labuser
@@ -767,21 +760,20 @@ sudo<span class="w"> </span>userdel<span class="w"> </span>-r<span class="w"> </
 <details class="example">
 <summary>Expected result</summary>
 <p><code>userdel: labuser mail spool (/var/mail/labuser) not found</code></p>
-<p>The account and home directory were removed; this LABVM had no mail spool for the user.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start a root login shell</span>
 sudo<span class="w"> </span>-i
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>root@ubuntu:~#</code></p>
+<p>Root login-shell transition verified with operator-only identity check.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Leave the root shell</span>
 <span class="nb">exit</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>logout</code></p>
+<p>No output.</p>
 </details>
 <h2 id="43-permissions"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 4.3 Permissions<a class="headerlink" href="#43-permissions" title="Permanent link">&para;</a></h2>
 <p><code>r</code>, <code>w</code>, and <code>x</code> mean read, write, and execute. They apply separately to the owner (<code>u</code>), group (<code>g</code>), and other users (<code>o</code>). Numeric modes such as <code>755</code> and symbolic modes such as <code>g-w</code> are reference syntax for existing files.</p>
@@ -820,9 +812,8 @@ ls<span class="w"> </span>-l
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>-rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 08:04 file01.txt</code></p>
-<p><code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 08:04 test01</code></p>
-<p>The listing includes unrelated home-directory entries; timestamps vary.</p>
+<p><code>-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file01.txt</code>
+<code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test01</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Restrict default permissions to the owner</span>
 <span class="nb">umask</span><span class="w"> </span><span class="m">077</span>
@@ -850,8 +841,10 @@ ls<span class="w"> </span>-l
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>-rw------- 1 ubuntu ubuntu 0 Aug 25 08:04 file02.txt</code></p>
-<p><code>drwx------ 2 ubuntu ubuntu 4096 Aug 25 08:04 test02</code></p>
+<p><code>-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file01.txt</code>
+<code>-rw------- 1 ubuntu ubuntu    0 Aug 28 03:55 file02.txt</code>
+<code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test01</code>
+<code>drwx------ 2 ubuntu ubuntu 4096 Aug 28 03:55 test02</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Match file02 permissions to file01</span>
 chmod<span class="w"> </span><span class="m">664</span><span class="w"> </span>file02.txt
@@ -872,8 +865,10 @@ ls<span class="w"> </span>-l
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p><code>-rw-rw-r-- 1 ubuntu ubuntu 0 Aug 25 08:04 file02.txt</code></p>
-<p><code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 25 08:04 test02</code></p>
+<p><code>-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file01.txt</code>
+<code>-rw-rw-r-- 1 ubuntu ubuntu    0 Aug 28 03:55 file02.txt</code>
+<code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test01</code>
+<code>drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 28 03:55 test02</code></p>
 </details>
 
 
