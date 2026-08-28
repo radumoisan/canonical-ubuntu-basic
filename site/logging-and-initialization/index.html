@@ -367,6 +367,69 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="5.1 System Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-system-logging-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.1.1 System Logging Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-boot-process-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.2 Boot Process Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Boot Process Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-boot-process-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.2.1 Boot Process Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.3 Systemd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Systemd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-systemd-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.3.1 Systemd Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -532,6 +595,69 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="5.1 System Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-system-logging-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.1.1 System Logging Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-boot-process-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.2 Boot Process Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Boot Process Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-boot-process-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.2.1 Boot Process Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.3 Systemd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Systemd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-systemd-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+       5.3.1 Systemd Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -556,7 +682,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The shown environment-specific results were captured on the prior <code>LABVM</code> and are historical only. The replacement <code>LABVM</code> requires revalidation.</p>
+<p>Replacement-LABVM validation captured all results except the direct SSH journal query, whose output remains pending because no safe literal excerpt can be published. <code>sudo</code> is required for the logrotate status-file and kernel-message commands.</p>
 </div>
 <h2 id="51-system-logging"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 5.1 System Logging<a class="headerlink" href="#51-system-logging" title="Permanent link">&para;</a></h2>
 <p>Logging records normal operation, state changes, diagnostics, kernel and network events, authentication, user actions, and exceptions. Logs are a first troubleshooting step and support security monitoring. Ubuntu commonly writes local logs under <code>/var/log/</code> through <code>rsyslogd</code>, including <code>/var/log/kern.log</code>, <code>/var/log/syslog</code>, and <code>/var/log/auth.log</code>. Systems can also send logs to a remote collector.</p>
@@ -566,16 +692,15 @@ grep<span class="w"> </span>NetworkManager<span class="w"> </span>/var/log/syslo
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The command returned exit status 1 because this LABVM has no matching <code>NetworkManager</code> entries.</p>
+<p>No output. The command returned exit status 1 because no matching <code>NetworkManager</code> entry was present.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search syslog for errors without case sensitivity</span>
 grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>2026-08-25T06:14:48.439692+00:00 ubuntu apt.systemd.daily[6738]: OSError: [Errno 28] No space left on device
-</code></pre></div>
-<p>This is a safe literal excerpt; log contents are host-state-dependent.</p>
+<p><code>error</code></p>
+<p>Safe literal excerpt from a matching current log entry; log contents vary.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List per-application logrotate rules</span>
 ls<span class="w"> </span>/etc/logrotate.d/
@@ -604,109 +729,114 @@ sudo<span class="w"> </span>logrotate<span class="w"> </span>/etc/logrotate.conf
 <p>No output.</p>
 </details>
 <p>The main configuration is <code>/etc/logrotate.conf</code>. Its options and the example configuration in the source are reference material; configuration content is host-specific and is not presented as a command result.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Inspect logrotate history</span>
-cat<span class="w"> </span>/var/lib/logrotate/status
+<div class="highlight"><pre><span></span><code><span class="c1"># Inspect logrotate history with required privilege</span>
+sudo<span class="w"> </span>cat<span class="w"> </span>/var/lib/logrotate/status
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No standard output. This LABVM returned exit status 1 because the status file is absent.</p>
+<p><code>logrotate state -- version 2</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Force verbose log rotation for troubleshooting</span>
 sudo<span class="w"> </span>logrotate<span class="w"> </span>-vf<span class="w"> </span>/etc/logrotate.conf
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>reading config file /etc/logrotate.conf
-including /etc/logrotate.d
-Handling 13 logs
-</code></pre></div>
-<p>Safe literal excerpt from the verbose run. Rotation completed successfully; per-log details are intentionally omitted because they may identify host activity.</p>
+<p><code>reading config file /etc/logrotate.conf</code></p>
 </details>
-<div class="highlight"><pre><span></span><code><span class="c1"># Display kernel messages</span>
-dmesg
+<h3 id="511-system-logging-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 5.1.1 System Logging Lab<a class="headerlink" href="#511-system-logging-lab" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display kernel messages with required privilege</span>
+sudo<span class="w"> </span>dmesg
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>dmesg: read kernel buffer failed: Operation not permitted
-</code></pre></div>
-<p>This LABVM restricts unprivileged kernel-ring-buffer access.</p>
+<p><code>[    1.861209] virtio_blk virtio1: [vda] 7340032 512-byte logical blocks (3.76 GB/3.50 GiB)</code></p>
 </details>
-<div class="highlight"><pre><span></span><code><span class="c1"># Page through kernel messages</span>
-dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+<div class="highlight"><pre><span></span><code><span class="c1"># Page through kernel messages with required privilege</span>
+sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The pager opened and exited with no displayed messages because <code>dmesg</code> is restricted for this user. Press <code>q</code> to exit an interactive pager.</p>
+<p>The pager opened and closed with <code>q</code>.</p>
 </details>
-<div class="highlight"><pre><span></span><code><span class="c1"># Find vda device messages</span>
-dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>vda
+<div class="highlight"><pre><span></span><code><span class="c1"># Find vda device messages with required privilege</span>
+sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>vda
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The command returned exit status 1 because unprivileged <code>dmesg</code> access is restricted.</p>
+<p><code>[    1.861209] virtio_blk virtio1: [vda] 7340032 512-byte logical blocks (3.76 GB/3.50 GiB)</code></p>
 </details>
-<div class="highlight"><pre><span></span><code><span class="c1"># Save vda messages to a file</span>
-dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vda<span class="w"> </span>&gt;<span class="w"> </span>vda.txt
+<div class="highlight"><pre><span></span><code><span class="c1"># Save vda messages to a file with required privilege</span>
+sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vda<span class="w"> </span>&gt;<span class="w"> </span>vda.txt
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No standard output. The command returned exit status 1 because unprivileged <code>dmesg</code> access is restricted; <code>vda.txt</code> was left in place as documented.</p>
+<p>No output. <code>vda.txt</code> was created and removed after validation.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Search syslog for errors</span>
 grep<span class="w"> </span>error<span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The newly rotated <code>syslog</code> had no lowercase <code>error</code> entries at validation time.</p>
+<p>No output. The command returned exit status 1 because no lowercase <code>error</code> entry was present.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the first ten syslog lines</span>
 head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The newly rotated <code>syslog</code> was empty at validation time.</p>
+<p><code>rsyslogd</code></p>
+<p>Safe literal excerpt from the current first-ten-lines output; log contents vary.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the last ten syslog lines</span>
 tail<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>/var/log/syslog
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The newly rotated <code>syslog</code> was empty at validation time.</p>
+<p><code>systemd</code></p>
+<p>Safe literal excerpt from the current last-ten-lines output; log contents vary.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List available log files</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/var/log
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command completed successfully. Log names, ownership, sizes, and timestamps are host-state-dependent and are not reproduced here.</p>
+<p><code>-rw-r-----  1 syslog    adm                3624 Aug 28 15:32 auth.log</code></p>
 </details>
+<h2 id="52-boot-process-overview"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 5.2 Boot Process Overview<a class="headerlink" href="#52-boot-process-overview" title="Permanent link">&para;</a></h2>
+<p>Firmware starts first, then GRUB transfers control to the operating system. The initrd prepares required hardware and drivers before the real root filesystem is available. The kernel manages system resources, and Ubuntu Server 24.04 uses systemd as its init system.</p>
+<p><img alt="Boot process" src="../assets/boot.png" /></p>
+<h3 id="521-boot-process-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 5.2.1 Boot Process Lab<a class="headerlink" href="#521-boot-process-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># List boot files</span>
 ls<span class="w"> </span>-l<span class="w"> </span>/boot/
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command completed successfully. Kernel image and initrd filenames, sizes, and timestamps are host-state-dependent.</p>
+<p><code>drwxr-xr-x 6 root root     4096 Aug 27 19:24 grub</code></p>
 </details>
+<h2 id="53-systemd"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 5.3 Systemd<a class="headerlink" href="#53-systemd" title="Permanent link">&para;</a></h2>
+<p>systemd is the default init system. It manages units and their dependencies. Unit definitions reside in <code>/etc/systemd/system</code> or <code>/lib/systemd/system</code>.</p>
+<h3 id="531-systemd-lab"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> 5.3.1 Systemd Lab<a class="headerlink" href="#531-systemd-lab" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Read the systemctl manual</span>
 man<span class="w"> </span>systemctl
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The installed <code>systemctl</code> manual opened successfully in its pager. Press <code>q</code> to exit.</p>
+<p>The pager opened and closed with <code>q</code>.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Stop the cron service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. <code>cron</code> was active before this command and was restored after validation.</p>
+<p>No output.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inspect stopped cron service status</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>cron
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The service was inactive after the documented stop command. <code>systemctl status</code> returned exit status 3 for the inactive service.</p>
+<p><code>inactive (dead)</code></p>
+<p>The inactive status returned exit status 3.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start the cron service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>cron
@@ -720,57 +850,58 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<div class="highlight"><pre><span></span><code>active
-</code></pre></div>
+<p><code>active (running)</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List service units</span>
 systemctl<span class="w"> </span>list-units<span class="w"> </span>-t<span class="w"> </span>service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command completed successfully; the service list is host-state-dependent.</p>
+<div class="highlight"><pre><span></span><code>UNIT LOAD ACTIVE SUB DESCRIPTION
+ssh.service loaded active running OpenBSD Secure Shell server
+</code></pre></div>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show running SSH services</span>
 systemctl<span class="w"> </span>list-units<span class="w"> </span>-t<span class="w"> </span>service<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>ssh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command completed successfully and found the active SSH service.</p>
+<p><code>ssh.service loaded active running OpenBSD Secure Shell server</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># List failed units</span>
 systemctl<span class="w"> </span>--failed
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command completed successfully. Failed-unit state is host-state-dependent.</p>
+<p><code>UNIT LOAD ACTIVE SUB DESCRIPTION</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Read the journalctl manual</span>
 man<span class="w"> </span>journalctl
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The installed <code>journalctl</code> manual opened successfully in its pager. Press <code>q</code> to exit.</p>
+<p>The pager opened and closed with <code>q</code>.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Query the SSH journal</span>
 journalctl<span class="w"> </span>-u<span class="w"> </span>ssh.service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command completed successfully. Journal entries can contain host and session data, so no log content is reproduced.</p>
+<p>Validation pending; no captured output is available.</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show SSH service properties</span>
 systemctl<span class="w"> </span>show<span class="w"> </span>ssh.service
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>The command completed successfully. Service properties are host-state-dependent.</p>
+<p><code>Id=ssh.service</code></p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Restart the SSH service</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>No output. The restart completed successfully; a separate post-restart SSH connection confirmed the service remained active.</p>
+<p>No output. A fresh separate connection confirmed <code>ssh.service</code> was active after the restart.</p>
 </details>
 
 
