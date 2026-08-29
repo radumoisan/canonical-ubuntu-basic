@@ -22,7 +22,7 @@
     
     
       
-        <title>⏳ 7. Networking - Canonical Ubuntu Basic</title>
+        <title>📋 7. Networking - Canonical Ubuntu Basic</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ⏳ 7. Networking
+              📋 7. Networking
             
           </span>
         </div>
@@ -366,7 +366,7 @@
           
   
   <span class="md-ellipsis">
-    ⏳ 7. Networking
+    📋 7. Networking
   </span>
   
 
@@ -377,7 +377,7 @@
         
   
   <span class="md-ellipsis">
-    ⏳ 7. Networking
+    📋 7. Networking
   </span>
   
 
@@ -646,49 +646,66 @@ ip<span class="w"> </span>link<span class="w"> </span>show
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>state UP</code>. Interface names, MAC addresses, and link details vary by system.</p>
+<p>ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show addresses for the management interface.</span>
 ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>scope global ens2</code>. Address and MAC values vary by environment.</p>
+<p>ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+altname enp0s2</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show basic link statistics for the management interface.</span>
 ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>RX:  bytes packets errors dropped</code>. Counters change while the interface is in use.</p>
+<p>ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+RX:  bytes packets errors dropped  missed   mcast
+ 368363847  216111      0  185579       0       0
+TX:  bytes packets errors dropped carrier collsns
+   2857444   24323      0       0       0       0
+altname enp0s2</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show detailed link statistics for the management interface.</span>
 ip<span class="w"> </span>-s<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>RX errors:  length    crc   frame    fifo overrun</code>. Counter values vary.</p>
+<p>ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+RX:  bytes packets errors dropped  missed   mcast
+ 368365269  216120      0  185579       0       0
+RX errors:  length    crc   frame    fifo overrun
+                 0      0       0       0       0
+TX:  bytes packets errors dropped carrier collsns
+   2858614   24330      0       0       0       0
+TX errors: aborted   fifo  window heartbt transns
+                 0      0       0       0       2
+altname enp0s2</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the routing table.</span>
 ip<span class="w"> </span>route<span class="w"> </span>show
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>default via</code>. Routes and addresses are environment-specific.</p>
+<p>default via</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display cached neighbour entries.</span>
 ip<span class="w"> </span>neigh<span class="w"> </span>show
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>REACHABLE</code>. Entries and link-layer addresses vary with recent traffic.</p>
+<p>REACHABLE</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the route selected for a public address.</span>
 ip<span class="w"> </span>route<span class="w"> </span>get<span class="w"> </span><span class="m">8</span>.8.8.8
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>cache</code>. The selected source address and next hop vary by environment.</p>
+<div class="codehilite"><pre><span></span><code>cache
+</code></pre></div>
+
 </details>
 <h3 id="safe-address-and-vlan-practice"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20v2H3c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8.1l-.2-.2c-.5-.5-1.1-.8-1.8-.8V6H3v14h8m10.4-6.7 1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2s.3.1.4.2m-.3 3.6-6 6.1H13v-2.1l6.1-6.1 2 2.1Z"/></svg></span> Safe address and VLAN practice<a class="headerlink" href="#safe-address-and-vlan-practice" title="Permanent link">&para;</a></h3>
 <p>The source examples that add <code>10.1.2.3/16</code> or <code>10.1.2.3/15</code>, create <code>vlan42</code>, or change the MAC address on <code>ens2</code> are reference syntax. Do not use them on an active management interface. The validated lab equivalent used the disposable <code>labdummy0</code> interface and the private benchmarking range <code>198.18.0.0/24</code>; it was deleted after the exercise.</p>
@@ -718,7 +735,7 @@ ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </spa
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>inet 198.18.0.1/24 scope global labdummy0</code>.</p>
+<p>labdummy0: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a temporary VLAN above the dummy interface.</span>
 sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>dev<span class="w"> </span>labdummy42<span class="w"> </span>link<span class="w"> </span>labdummy0<span class="w"> </span><span class="nb">type</span><span class="w"> </span>vlan<span class="w"> </span>id<span class="w"> </span><span class="m">42</span>
@@ -732,7 +749,8 @@ ip<span class="w"> </span>-d<span class="w"> </span>link<span class="w"> </span>
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>vlan protocol 802.1Q id 42</code>.</p>
+<p>labdummy42@labdummy0: <BROADCAST,NOARP> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+vlan protocol 802.1Q id 42 <REORDER_HDR> addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Delete the temporary VLAN.</span>
 sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>delete<span class="w"> </span>labdummy42
@@ -762,49 +780,89 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>ethtool is already the newest version</code>.</p>
+<p>Reading package lists...
+Building dependency tree...
+Reading state information...
+ethtool is already the newest version (1:6.7-1build1).</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show link settings for the management interface.</span>
 ethtool<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>Link detected: yes</code>. A virtual NIC may report <code>Speed: Unknown!</code> and a netlink permission warning.</p>
+<p>Settings for ens2:
+Supported ports: [  ]
+Supported link modes:   Not reported
+Supports auto-negotiation: No
+Speed: Unknown!
+Duplex: Unknown! (255)
+Auto-negotiation: off
+Link detected: yes</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show ring-buffer sizes for the management interface.</span>
 ethtool<span class="w"> </span>-g<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>Current hardware settings:</code>. Available sizes are driver-specific.</p>
+<p>Ring parameters for ens2:
+Pre-set maximums:
+RX:         256
+TX:         256
+Current hardware settings:
+RX:         256
+TX:         256
+TX Push:        off
+RX Push:        off</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show driver information for the management interface.</span>
 ethtool<span class="w"> </span>-i<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>driver: virtio_net</code>. Driver and bus information vary by system.</p>
+<p>driver: virtio_net
+version: 1.0.0
+firmware-version:
+expansion-rom-version:
+bus-info: 0000:00:02.0
+supports-statistics: yes
+supports-test: no</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show extended interface statistics.</span>
 ethtool<span class="w"> </span>-S<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>rx_queue_0_drops: 0</code>. Statistic names and values vary by driver and traffic.</p>
+<p>NIC statistics:
+     rx_queue_0_packets: 216591
+     rx_queue_0_bytes: 368437855
+     rx_queue_0_drops: 0
+     tx_queue_0_packets: 24634
+     tx_queue_0_bytes: 2918992
+     tx_queue_0_xdp_tx_drops: 0
+     tx_queue_0_tx_timeouts: 0</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show current interface features.</span>
 ethtool<span class="w"> </span>-k<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>generic-receive-offload: on</code>. Feature availability varies by driver.</p>
+<p>Features for ens2:
+rx-checksumming: on [fixed]
+tx-checksumming: on
+tx-checksum-ipv4: off [fixed]
+tx-checksum-ip-generic: on
+scatter-gather: on
+tcp-segmentation-offload: on
+generic-segmentation-offload: on
+generic-receive-offload: on
+rx-vlan-filter: on [fixed]</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Show the permanent hardware address.</span>
 ethtool<span class="w"> </span>-P<span class="w"> </span>ens2
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>Permanent address:</code>. The address is intentionally omitted because it is environment-specific.</p>
+<p>Permanent address:</p>
 </details>
 <p>The source <code>ens20</code> feature example is unsupported in this lab and is reference syntax; substitute the interface selected on the target system. The source commands that set speed, change TX ring size, toggle GRO, or use <code>ifdown</code>/<code>ifup</code> are also reference syntax. Schedule those changes locally during an approved maintenance window; never apply them to an active management interface.</p>
 <h2 id="73-network-troubleshooting-commands"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5V1m2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63 1.36 0 2.59.23 3.5.63v11.28Z"/></svg></span> 7.3 Network Troubleshooting Commands<a class="headerlink" href="#73-network-troubleshooting-commands" title="Permanent link">&para;</a></h2>
@@ -814,63 +872,67 @@ ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><s
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>3 packets transmitted, 3 received, 0% packet loss</code>. Resolved addresses and timings vary.</p>
+<p>3 packets transmitted, 3 received, 0% packet loss, time 2003ms</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Send numeric-only pings to ubuntu.com.</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>-n<span class="w"> </span>ubuntu.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>3 packets transmitted, 3 received, 0% packet loss</code>. Numeric addresses and timings vary.</p>
+<p>3 packets transmitted, 3 received, 0% packet loss, time 2002ms</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Limit ping runtime to canonical.com.</span>
 ping<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span><span class="w"> </span>canonical.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>2 packets transmitted, 2 received, 0% packet loss</code>. Results vary.</p>
+<p>2 packets transmitted, 2 received, 0% packet loss, time 1001ms</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Query DNS for ubuntu.com.</span>
 dig<span class="w"> </span>ubuntu.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>status: NOERROR</code>. Answer records, TTLs, resolver, and query time vary.</p>
+<p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 32597
+;; Query time: 0 msec</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install traceroute.</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>traceroute
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>traceroute is already the newest version</code>.</p>
+<p>Reading package lists...
+Building dependency tree...
+Reading state information...</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Send four pings to Google.</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>4 packets transmitted, 4 received, 0% packet loss</code>. Resolved addresses and timings vary.</p>
+<p>4 packets transmitted, 4 received, 0% packet loss, time 3030ms</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run a bounded numeric traceroute to Google.</span>
 traceroute<span class="w"> </span>-n<span class="w"> </span>-m<span class="w"> </span><span class="m">3</span><span class="w"> </span>-w<span class="w"> </span><span class="m">2</span><span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>3 hops max, 60 byte packets</code>. Hop addresses and timeouts vary.</p>
+<p>traceroute</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run a bounded MTR report to Google.</span>
 mtr<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>Loss%   Snt   Last   Avg</code>. A non-responding hop can display <code>???</code>; this alone does not prove packet loss.</p>
+<p>Start:</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="c1"># Query DNS for Google.</span>
 dig<span class="w"> </span>www.google.com
 </code></pre></div>
 <details class="example">
 <summary>Expected result</summary>
-<p>Literal excerpt: <code>status: NOERROR</code>. Answer records, TTLs, resolver, and query time vary.</p>
+<p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 62617
+;; Query time: 1 msec</p>
 </details>
 <p>The unbounded source <code>ping</code>, <code>traceroute</code>, and <code>mtr</code> examples, the topology-specific <code>ping 10.0.1.98</code>, and standalone <code>nc</code> listener/client examples are reference syntax. Use explicit packet, hop, or cycle limits for diagnostics. A validated coordinated local <code>nc</code> test passed with no output and closed its listener normally; arrange that test locally rather than opening an unattended listener.</p>
 
