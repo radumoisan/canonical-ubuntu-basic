@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapter 5 replacement nested-VM validation is Blocked because `journalctl -u ssh.service` has no publishable safe literal result; Chapters 6 through 8 require revalidation.
-- Active target: Chapter 5 safe SSH-journal result resolution.
-- Next action: Establish an authorized student-facing form or safe literal result for the SSH journal query, then complete Chapter 5 result documentation.
+- Current phase: Chapter 6 replacement-LABVM validation is complete.
+- Active target: Chapter 6 Storage is complete; Chapter 7 is the next validation target.
+- Next action: Validate Chapter 7 on the replacement LABVM.
 - The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -29,7 +29,7 @@
 | 3. Linux Filesystem Hierarchy | Complete (replacement environment) |
 | 4. Identity and Ownership | Complete (replacement environment) |
 | 5. Logging and Initialization | Blocked (replacement environment) |
-| 6. Storage | Ready for validation (replacement environment) |
+| 6. Storage | Complete (replacement-LABVM; all page commands captured) |
 | 7. Networking | Ready for validation (replacement environment) |
 | 8. Process Management | Ready for validation (replacement environment) |
 | 9. Backup and Recovery | Structured |
@@ -44,7 +44,7 @@
 | 3. Linux Filesystem Hierarchy | 3.1 The Filesystem Hierarchy Standard; 3.2 Required Root Filesystem Directories; 3.2.1 Directory Structure Lab; 3.3 Linux File Types; 3.3.1 File Types Lab | Complete (all source commands validated on replacement environment) |
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete (all source commands validated on replacement environment) |
 | 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Blocked (replacement environment; prior results superseded) |
-| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Ready for validation (replacement environment; prior results superseded) |
+| 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Complete (replacement-LABVM; all page commands captured) |
 | 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Ready for validation (replacement environment; prior results superseded) |
 | 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Ready for validation (replacement environment; prior results superseded; `at` status is unvalidated) |
 | 9. Backup and Recovery | 9.1 Using Archiving and Compression Utilities; 9.2 Tar archiving; 9.3 Using rsync; 9.4 Backup and Recovery Lab | Structured |
@@ -175,3 +175,16 @@
 - Replacement-LABVM preflight confirmed unprivileged kernel messages are restricted. The user authorized documented `sudo` prefixes for the four `dmesg` commands; the source remains unchanged and validation continues.
 - Chapter 5 forced-logrotate preflight measured `/var/log` apparent size at 162031 KiB and available space at 222092 KiB, below the required 375262 KiB safety minimum (`2 * apparent size + 51200`); the condition failed. No source command, service, log rotation, or file-state action occurred, and no destructive cleanup was performed.
 - User-authorized removal of only APT cache and package-index contents succeeded. Root free capacity changed from 222076 KiB to 532116 KiB, exceeding the 375262 KiB safety threshold. No Chapter 5 source command, logrotate operation, service change, or command-history entry occurred. Full preflight must resume.
+
+### :material-application-edit-outline: 2026-08-29
+
+- Chapter 6 result capture was reset to pending and source subsection headings were restored for replacement-LABVM validation. No replacement-LABVM command has run yet. The fstab exercise remains reference-only because the LVM workflow wipes `/dev/vdb`.
+- Repeated the Chapter 6 storage safety gates before the capture replay: noninteractive sudo worked; `/dev/vda1` remained root; `/dev/vdb` and `/dev/vdc` were distinct unmounted 10 GiB disposable disks; `/dev/vdb1` was unmounted; `/dev/vdc1`, LVM state, and conflicting fstab entries were absent. The session-created `/mnt/mymount` was initially empty and unmounted; `/mnt/myext4fs` and `/lvmdata` were absent.
+- Two local PTY wrapper failures occurred during the first execution before command 17 was invoked. They did not change the documented capture result.
+- After the clean gate, the empty unmounted `/mnt/mymount` directory was removed with operational `rmdir`. After command 15 proved `/dev/vdb1` unmounted, its lab-created filesystem signature was removed with operational `wipefs -a`; root and the `/dev/vdb` GPT partition table were verified unchanged. Neither operational action is a student command or command-history entry.
+- The exact student-facing Chapter 6 commands 1-22 then succeeded in page order with literal captures. Overwrite confirmations required by the retained device state were supplied through a local PTY only for the exact prompting commands; every sudo student command was preceded by an unrecorded `sudo -n true` and destructive or mount actions had state guards.
+- Final storage state: `/dev/vdb1` is unmounted, `/dev/vdc1` is absent, and no LVM or fstab collision exists. LVM and `dd` remain deferred. Chapter 6 remains Validating; no MkDocs build was run.
+- Chapter 6 LVM preflight repeated all required read-only facts: noninteractive sudo succeeded; root remained on `/dev/vda1`; `/dev/vdb` and `/dev/vdc` remained separate unmounted 10 GiB devices; `/dev/vdb1` remained unmounted ext4; `/dev/vdc` had no partition; no LVM or matching fstab state existed; `/mnt/mymount` and `/mnt/myext4fs` were empty, unmounted directories; and `/lvmdata` was absent. `dpkg --audit` was clean, root capacity was checked, and `lvm2` was installed with an available candidate.
+- The exact LVM command 23 completed as a read-only pipeline with the expected three 10 GiB device lines. The initial capture harness stopped immediately after that command without reaching `dd`; a corrected harness returned no transcript and its read-only state check confirmed no change. A direct retry then failed before `dd` because transport quoting corrupted its read-only guard and produced a false block-device assertion. No `dd`, partitioning, package, LVM, formatting, directory, or mount command from the LVM phase ran. The follow-up read-only inspection confirmed `/dev/vda1` root, the original `/dev/vdb1` ext4 state, no `/dev/vdc1`, no LVM state, and no `/lvmdata` mount. Chapter 6 is Blocked pending a safe literal-command capture transport; no MkDocs build was run.
+- The resumed LVM phase repeated the minimal read-only gate successfully. Commands 24 and 25 each wrote exactly 10 GiB to their separately rechecked authorized target, then ended with the intended `No space left on device` result; they remain excluded from command history. The post-write topology check passed. Commands 26-38 completed successfully in order: GPT labels and full partitions, the exact `lvm2` package transaction, empty volume-group scan, PV creation, `ubuntu-vg` creation, and `lvmdata` LV creation. Before command 39, a malformed pre-format guard expanded before remote invocation and reported an unexpected local LVM lookup error. Stopped immediately; commands 39-42 were not invoked. The remote read-only post-failure state confirms root remains `/dev/vda1`, both authorized PVs are active in `ubuntu-vg`, the 19.99 GiB `lvmdata` LV is available and unformatted, and `/lvmdata` remains absent and unmounted. No automatic cleanup was performed. Chapter 6 remains Blocked; no MkDocs build was run.
+- The final partial-LVM gate confirmed noninteractive sudo, `/dev/vda1` root, the exact available `ubuntu-vg/lvmdata` LV, no filesystem or mount on that LV, absent `/lvmdata`, and no matching fstab entry. Commands 39-42 succeeded in order: ext4 creation, mount-point creation, mount, and space verification. The final state is ext4 `lvmdata` mounted at `/lvmdata`; no fstab entry or cleanup was made by user decision. The intentional `dd` ENOSPC results are documented but excluded from command history. The earlier local wrapper and guard failures occurred before their relevant remote commands and did not alter the documented final state. Chapter 6 and all its subsections are Complete; no MkDocs build was run.

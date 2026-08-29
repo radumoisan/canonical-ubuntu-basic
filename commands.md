@@ -1041,6 +1041,170 @@ sudo mount /dev/ubuntu-vg/lvmdata /lvmdata
 df -h /lvmdata
 ```
 
+## Chapter 6: Storage Replacement Validation
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+sudo lsblk
+```
+
+```bash
+sudo fdisk -l
+```
+
+```bash
+sudo parted /dev/vdb mklabel gpt
+```
+
+```bash
+sudo fdisk -l /dev/vdb
+```
+
+```bash
+sudo parted /dev/vdb mkpart primary 1 100%
+```
+
+```bash
+sudo parted /dev/vdb print
+```
+
+```bash
+sudo parted /dev/vdc mklabel msdos
+```
+
+```bash
+sudo parted /dev/vdc mkpart primary 1 100%
+```
+
+```bash
+sudo parted /dev/vdc print
+```
+
+```bash
+sudo parted /dev/vdc rm 1
+```
+
+```bash
+sudo mkfs.ext4 /dev/vdb1
+```
+
+```bash
+sudo tune2fs -o acl /dev/vdb1
+```
+
+```bash
+sudo mkdir /mnt/mymount
+```
+
+```bash
+sudo mount /dev/vdb1 /mnt/mymount
+```
+
+```bash
+sudo umount /dev/vdb1
+```
+
+```bash
+sudo lsblk
+```
+
+```bash
+sudo mkfs.ext4 /dev/vdb1
+```
+
+```bash
+sudo mkdir /mnt/myext4fs
+```
+
+```bash
+sudo mount /dev/vdb1 /mnt/myext4fs
+```
+
+```bash
+mount | grep vdb
+```
+
+```bash
+df -h
+```
+
+```bash
+sudo umount /dev/vdb1
+```
+
+```bash
+sudo lsblk -a -p -o name,size | grep 10G
+```
+
+```bash
+sudo parted /dev/vdb mklabel gpt
+```
+
+```bash
+sudo parted /dev/vdc mklabel gpt
+```
+
+```bash
+sudo parted /dev/vdb mkpart primary 1 100%
+```
+
+```bash
+sudo parted /dev/vdc mkpart primary 1 100%
+```
+
+```bash
+sudo apt install -y lvm2
+```
+
+```bash
+sudo vgscan
+```
+
+```bash
+sudo pvcreate /dev/vdb1 /dev/vdc1
+```
+
+```bash
+sudo pvs
+```
+
+```bash
+sudo vgcreate ubuntu-vg /dev/vdb1 /dev/vdc1
+```
+
+```bash
+sudo vgs
+```
+
+```bash
+sudo lvcreate -l 100%VG -n lvmdata ubuntu-vg
+```
+
+```bash
+sudo lvs
+```
+
+```bash
+sudo lvdisplay
+```
+
+```bash
+sudo mkfs.ext4 /dev/ubuntu-vg/lvmdata
+```
+
+```bash
+sudo mkdir /lvmdata
+```
+
+```bash
+sudo mount /dev/ubuntu-vg/lvmdata /lvmdata
+```
+
+```bash
+df -h /lvmdata
+```
+
 ## Chapter 7: Networking
 
 Connection wrapper: [redacted; executed against the assigned lab VM]
