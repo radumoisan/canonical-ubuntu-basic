@@ -2,9 +2,9 @@
 
 ## :material-book-open-page-variant-outline: Current State
 
-- Current phase: Chapter 6 replacement-LABVM validation is complete.
-- Active target: Chapter 6 Storage is complete; Chapter 7 is the next validation target.
-- Next action: Validate Chapter 7 on the replacement LABVM.
+- Current phase: Chapter 7 replacement-LABVM validation is complete.
+- Active target: Chapter 7 Networking is complete.
+- Next action: Chapter 8 replacement-environment validation.
 - The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 ## :material-book-open-page-variant-outline: Status Legend
@@ -30,7 +30,7 @@
 | 4. Identity and Ownership | Complete (replacement environment) |
 | 5. Logging and Initialization | Blocked (replacement environment) |
 | 6. Storage | Complete (replacement-LABVM; all page commands captured) |
-| 7. Networking | Ready for validation (replacement environment) |
+| 7. Networking | Complete (replacement-LABVM commands 1-32 captured; final checks passed) |
 | 8. Process Management | Ready for validation (replacement environment) |
 | 9. Backup and Recovery | Structured |
 | 10. Software Management | Structured |
@@ -45,7 +45,7 @@
 | 4. Identity and Ownership | 4.1 User Management; 4.2 Privilege Delegation; 4.2.1 User Management & Privileges Lab; 4.3 Permissions; 4.3.1 Permissions Lab | Complete (all source commands validated on replacement environment) |
 | 5. Logging and Initialization | 5.1 System Logging; 5.1.1 System Logging Lab; 5.2 Boot Process Overview; 5.2.1 Boot Process Lab; 5.3 Systemd; 5.3.1 Systemd Lab | Blocked (replacement environment; prior results superseded) |
 | 6. Storage | 6.1 Partitioning; 6.1.1 Partitioning Lab; 6.2 File Systems; 6.2.1 Filesystems Lab; 6.3 LVM; 6.3.1 LVM Lab | Complete (replacement-LABVM; all page commands captured) |
-| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Ready for validation (replacement environment; prior results superseded) |
+| 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Complete (replacement-LABVM commands 1-32 captured; final checks passed) |
 | 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Ready for validation (replacement environment; prior results superseded; `at` status is unvalidated) |
 | 9. Backup and Recovery | 9.1 Using Archiving and Compression Utilities; 9.2 Tar archiving; 9.3 Using rsync; 9.4 Backup and Recovery Lab | Structured |
 | 10. Software Management | 10.1 Debian Package Management; 10.2 Advanced Package Tool (Apt); 10.3 Snappy Package Management; 10.3.1 Software Management Lab | Structured |
@@ -178,6 +178,12 @@
 
 ### :material-application-edit-outline: 2026-08-29
 
+- Chapter 7 is complete. Corrected two-hop preflight succeeded; commands 1-32 succeeded in page order. Temporary dummy/VLAN state and the test address are absent, packages and bounded probes were validated, and the final read-only state check found `ens2` up with no apt/dpkg activity or locks. No MkDocs build was run.
+- Chapter 7 commands 17-32 succeeded in page order through the confirmed two-hop route. Both documented package transactions completed after noninteractive sudo, package-lock, and capacity guards; bounded ping, DNS, traceroute, and MTR diagnostics completed. No management-interface mutation occurred. Safe literal excerpts were recorded. Chapter 7 and its subsections remain Validating; next action is final cleanup/state verification and documentation checks.
+- Chapter 7 commands 1-16 succeeded in page order through the confirmed two-hop route. The temporary dummy/VLAN interfaces and test address were removed by the documented cleanup, and the management-interface baseline remained unchanged. Safe literal excerpts were recorded; commands 17-32 remain pending. Chapter 7 and its subsections remain Validating.
+- Chapter 7 historical expected-result bodies were reset to pending before replacement-LABVM validation. No Chapter 7 command history has been added; replacement-LABVM preflight is the next action.
+- The authorized retry reached LABHOST with key/agent authentication, then failed documented nested-LABVM authentication. No LABVM readiness check or Chapter 7 student command ran, and all page results remain pending. Restore the documented nested authentication, then rerun the read-only preflight before validating interface inspection and the disposable workflow.
+- Corrected nested authentication transport used LABHOST key/agent access and the authoritative password through `SSHPASS` with `sshpass -e`, forced password authentication, and bounded connection settings. It succeeded, confirming the prior authentication classification was caused by transport/quoting handling rather than an unavailable nested VM. LABVM preflight passed: `ubuntu` in `/home/ubuntu`, noninteractive sudo, observable `ens2` baseline and route, absent disposable interfaces and documentation subnet, no active package locks, sufficient root capacity, and installed `mtr` and `dig`. No Chapter 7 student command ran. Next action: validate interface inspection and disposable workflow.
 - Chapter 6 result capture was reset to pending and source subsection headings were restored for replacement-LABVM validation. No replacement-LABVM command has run yet. The fstab exercise remains reference-only because the LVM workflow wipes `/dev/vdb`.
 - Repeated the Chapter 6 storage safety gates before the capture replay: noninteractive sudo worked; `/dev/vda1` remained root; `/dev/vdb` and `/dev/vdc` were distinct unmounted 10 GiB disposable disks; `/dev/vdb1` was unmounted; `/dev/vdc1`, LVM state, and conflicting fstab entries were absent. The session-created `/mnt/mymount` was initially empty and unmounted; `/mnt/myext4fs` and `/lvmdata` were absent.
 - Two local PTY wrapper failures occurred during the first execution before command 17 was invoked. They did not change the documented capture result.

@@ -1209,13 +1209,7 @@ df -h /lvmdata
 
 Connection wrapper: [redacted; executed against the assigned lab VM]
 
-```bash
-ip addr show dev ens2
-```
-
-```bash
-ip -s link show dev ens2
-```
+Replacement-LABVM validation completed on 2026-08-29.
 
 ```bash
 ip link show
@@ -1236,6 +1230,64 @@ ip neigh show
 ```bash
 ip route get 8.8.8.8
 ```
+
+```bash
+sudo ip link add labdummy0 type dummy
+```
+
+```bash
+sudo ip link set labdummy0 up
+```
+
+```bash
+sudo ip addr add 198.18.0.1/24 dev labdummy0
+```
+
+```bash
+ip addr show dev labdummy0
+```
+
+```bash
+sudo ip link add dev labdummy42 link labdummy0 type vlan id 42
+```
+
+```bash
+ip -d link show dev labdummy42
+```
+
+```bash
+sudo ip link delete labdummy42
+```
+
+```bash
+sudo ip addr delete 198.18.0.1/24 dev labdummy0
+```
+
+```bash
+sudo ip link delete labdummy0
+```
+
+```bash
+ip addr show dev ens2
+```
+
+```bash
+ip -s link show dev ens2
+```
+
+```bash
+sudo apt install -y traceroute
+```
+
+```bash
+ping -c 4 www.google.com
+```
+
+```bash
+dig www.google.com
+```
+
+Replacement-LABVM commands 17-32 validated on 2026-08-29.
 
 ```bash
 sudo apt install -y ethtool
@@ -1278,19 +1330,15 @@ ping -w 2 canonical.com
 ```
 
 ```bash
-sudo apt install -y traceroute
-```
-
-```bash
-ping -c 4 www.google.com
-```
-
-```bash
 dig ubuntu.com
 ```
 
 ```bash
-dig www.google.com
+traceroute -n -m 3 -w 2 www.google.com
+```
+
+```bash
+mtr -n -r -c 2 www.google.com
 ```
 
 ## Chapter 8: Process Management

@@ -14,49 +14,64 @@
 ip link show
 ```
 ??? example "Expected result"
-    Literal excerpt: `state UP`. Interface names, MAC addresses, and link details vary by system.
+    ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
 
 ```bash
 # Show addresses for the management interface.
 ip addr show dev ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `scope global ens2`. Address and MAC values vary by environment.
+    ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    altname enp0s2
 
 ```bash
 # Show basic link statistics for the management interface.
 ip -s link show dev ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `RX:  bytes packets errors dropped`. Counters change while the interface is in use.
+    ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    RX:  bytes packets errors dropped  missed   mcast
+     368363847  216111      0  185579       0       0
+    TX:  bytes packets errors dropped carrier collsns
+       2857444   24323      0       0       0       0
+    altname enp0s2
 
 ```bash
 # Show detailed link statistics for the management interface.
 ip -s -s link show ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `RX errors:  length    crc   frame    fifo overrun`. Counter values vary.
+    ens2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    RX:  bytes packets errors dropped  missed   mcast
+     368365269  216120      0  185579       0       0
+    RX errors:  length    crc   frame    fifo overrun
+                     0      0       0       0       0
+    TX:  bytes packets errors dropped carrier collsns
+       2858614   24330      0       0       0       0
+    TX errors: aborted   fifo  window heartbt transns
+                     0      0       0       0       2
+    altname enp0s2
 
 ```bash
 # Display the routing table.
 ip route show
 ```
 ??? example "Expected result"
-    Literal excerpt: `default via`. Routes and addresses are environment-specific.
+    default via
 
 ```bash
 # Display cached neighbour entries.
 ip neigh show
 ```
 ??? example "Expected result"
-    Literal excerpt: `REACHABLE`. Entries and link-layer addresses vary with recent traffic.
+    REACHABLE
 
 ```bash
 # Show the route selected for a public address.
 ip route get 8.8.8.8
 ```
 ??? example "Expected result"
-    Literal excerpt: `cache`. The selected source address and next hop vary by environment.
+        cache
 
 ### :material-application-edit-outline: Safe address and VLAN practice
 
@@ -88,7 +103,7 @@ sudo ip addr add 198.18.0.1/24 dev labdummy0
 ip addr show dev labdummy0
 ```
 ??? example "Expected result"
-    Literal excerpt: `inet 198.18.0.1/24 scope global labdummy0`.
+    labdummy0: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
 
 ```bash
 # Create a temporary VLAN above the dummy interface.
@@ -102,7 +117,8 @@ sudo ip link add dev labdummy42 link labdummy0 type vlan id 42
 ip -d link show dev labdummy42
 ```
 ??? example "Expected result"
-    Literal excerpt: `vlan protocol 802.1Q id 42`.
+    labdummy42@labdummy0: <BROADCAST,NOARP> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    vlan protocol 802.1Q id 42 <REORDER_HDR> addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536
 
 ```bash
 # Delete the temporary VLAN.
@@ -134,49 +150,89 @@ sudo ip link delete labdummy0
 sudo apt install -y ethtool
 ```
 ??? example "Expected result"
-    Literal excerpt: `ethtool is already the newest version`.
+    Reading package lists...
+    Building dependency tree...
+    Reading state information...
+    ethtool is already the newest version (1:6.7-1build1).
 
 ```bash
 # Show link settings for the management interface.
 ethtool ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `Link detected: yes`. A virtual NIC may report `Speed: Unknown!` and a netlink permission warning.
+    Settings for ens2:
+    Supported ports: [  ]
+    Supported link modes:   Not reported
+    Supports auto-negotiation: No
+    Speed: Unknown!
+    Duplex: Unknown! (255)
+    Auto-negotiation: off
+    Link detected: yes
 
 ```bash
 # Show ring-buffer sizes for the management interface.
 ethtool -g ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `Current hardware settings:`. Available sizes are driver-specific.
+    Ring parameters for ens2:
+    Pre-set maximums:
+    RX:			256
+    TX:			256
+    Current hardware settings:
+    RX:			256
+    TX:			256
+    TX Push:		off
+    RX Push:		off
 
 ```bash
 # Show driver information for the management interface.
 ethtool -i ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `driver: virtio_net`. Driver and bus information vary by system.
+    driver: virtio_net
+    version: 1.0.0
+    firmware-version:
+    expansion-rom-version:
+    bus-info: 0000:00:02.0
+    supports-statistics: yes
+    supports-test: no
 
 ```bash
 # Show extended interface statistics.
 ethtool -S ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `rx_queue_0_drops: 0`. Statistic names and values vary by driver and traffic.
+    NIC statistics:
+         rx_queue_0_packets: 216591
+         rx_queue_0_bytes: 368437855
+         rx_queue_0_drops: 0
+         tx_queue_0_packets: 24634
+         tx_queue_0_bytes: 2918992
+         tx_queue_0_xdp_tx_drops: 0
+         tx_queue_0_tx_timeouts: 0
 
 ```bash
 # Show current interface features.
 ethtool -k ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `generic-receive-offload: on`. Feature availability varies by driver.
+    Features for ens2:
+    rx-checksumming: on [fixed]
+    tx-checksumming: on
+    tx-checksum-ipv4: off [fixed]
+    tx-checksum-ip-generic: on
+    scatter-gather: on
+    tcp-segmentation-offload: on
+    generic-segmentation-offload: on
+    generic-receive-offload: on
+    rx-vlan-filter: on [fixed]
 
 ```bash
 # Show the permanent hardware address.
 ethtool -P ens2
 ```
 ??? example "Expected result"
-    Literal excerpt: `Permanent address:`. The address is intentionally omitted because it is environment-specific.
+    Permanent address:
 
 The source `ens20` feature example is unsupported in this lab and is reference syntax; substitute the interface selected on the target system. The source commands that set speed, change TX ring size, toggle GRO, or use `ifdown`/`ifup` are also reference syntax. Schedule those changes locally during an approved maintenance window; never apply them to an active management interface.
 
@@ -189,62 +245,66 @@ The source `ens20` feature example is unsupported in this lab and is reference s
 ping -c 3 ubuntu.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `3 packets transmitted, 3 received, 0% packet loss`. Resolved addresses and timings vary.
+    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 
 ```bash
 # Send numeric-only pings to ubuntu.com.
 ping -c 3 -n ubuntu.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `3 packets transmitted, 3 received, 0% packet loss`. Numeric addresses and timings vary.
+    3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 
 ```bash
 # Limit ping runtime to canonical.com.
 ping -w 2 canonical.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `2 packets transmitted, 2 received, 0% packet loss`. Results vary.
+    2 packets transmitted, 2 received, 0% packet loss, time 1001ms
 
 ```bash
 # Query DNS for ubuntu.com.
 dig ubuntu.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `status: NOERROR`. Answer records, TTLs, resolver, and query time vary.
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 32597
+    ;; Query time: 0 msec
 
 ```bash
 # Install traceroute.
 sudo apt install -y traceroute
 ```
 ??? example "Expected result"
-    Literal excerpt: `traceroute is already the newest version`.
+    Reading package lists...
+    Building dependency tree...
+    Reading state information...
 
 ```bash
 # Send four pings to Google.
 ping -c 4 www.google.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `4 packets transmitted, 4 received, 0% packet loss`. Resolved addresses and timings vary.
+    4 packets transmitted, 4 received, 0% packet loss, time 3030ms
 
 ```bash
 # Run a bounded numeric traceroute to Google.
 traceroute -n -m 3 -w 2 www.google.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `3 hops max, 60 byte packets`. Hop addresses and timeouts vary.
+    traceroute
 
 ```bash
 # Run a bounded MTR report to Google.
 mtr -n -r -c 2 www.google.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `Loss%   Snt   Last   Avg`. A non-responding hop can display `???`; this alone does not prove packet loss.
+    Start:
 
 ```bash
 # Query DNS for Google.
 dig www.google.com
 ```
 ??? example "Expected result"
-    Literal excerpt: `status: NOERROR`. Answer records, TTLs, resolver, and query time vary.
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62617
+    ;; Query time: 1 msec
 
 The unbounded source `ping`, `traceroute`, and `mtr` examples, the topology-specific `ping 10.0.1.98`, and standalone `nc` listener/client examples are reference syntax. Use explicit packet, hop, or cycle limits for diagnostics. A validated coordinated local `nc` test passed with no output and closed its listener normally; arrange that test locally rather than opening an unattended listener.
