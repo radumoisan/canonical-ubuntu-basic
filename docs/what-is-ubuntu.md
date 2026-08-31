@@ -14,6 +14,7 @@ ssh ubuntu@192.168.100.4
 
 ??? example "Expected result"
     ```shell
+    Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-53-generic x86_64)
     ubuntu@ubuntu:~$
     ```
 

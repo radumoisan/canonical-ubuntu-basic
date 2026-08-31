@@ -1648,3 +1648,29 @@ sudo rm -rf ~/chapter9-validation
 ```bash
 cd ~
 ```
+
+## Chapter 1: What is Ubuntu Replacement-Machine Validation (2026-08-31)
+
+The following source commands were validated on the user-approved replacement LABVM on 2026-08-31.
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+ssh ubuntu@192.168.100.4
+```
+
+```bash
+cat /etc/os-release
+```
+
+```bash
+cat /etc/lsb-release
+```
+
+```bash
+uname -a
+```
+
+```bash
+cat /proc/version_signature
+```
