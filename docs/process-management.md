@@ -1,7 +1,7 @@
 # 8. Process management
 
 !!! note
-    The shown Chapter 8 results and `at` restrictions were captured on the prior `LABVM` and are historical only. The replacement `LABVM` requires revalidation; process IDs, process listings, load, and memory values vary between sessions.
+    Chapter 8 requires replacement-LABVM validation. Process IDs, process listings, load, memory values, and scheduling authorization vary between sessions.
 
 !!! abstract
     Define and manage processes, job control, priorities, and scheduled work with cron and at.
@@ -21,12 +21,10 @@ ps -ef
 ??? example "Expected result"
     ```text
     UID          PID    PPID  C STIME TTY          TIME CMD
-    root           1       0  0 06:55 ?        00:00:05 /sbin/init
-    root       31305       1  0 08:17 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-    ubuntu     39534   39528  0 09:03 pts/5    00:00:00 ps -ef
+    root           1       0  0 Aug25 ?        00:00:34 /usr/lib/systemd/systemd --system --deserialize=67
+    root       67065       1  0 Aug28 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+    ubuntu     84250   84249  0 22:21 pts/0    00:00:00 ps -ef
     ```
-
-    This is a literal excerpt; the full listing is host-state-dependent.
 
 To filter process output, pipe it through `grep`. To list processes by command name:
 
@@ -37,28 +35,23 @@ ps -C sshd
 ??? example "Expected result"
     ```text
         PID TTY          TIME CMD
-      31305 ?        00:00:00 sshd
-      39527 ?        00:00:00 sshd
+      67065 ?        00:00:00 sshd
+      71979 ?        00:00:00 sshd
+      72042 ?        00:00:00 sshd
+      84251 ?        00:00:00 sshd
+      84299 ?        00:00:00 sshd
     ```
-
-    This is a literal excerpt; connected SSH sessions change the result.
 
 `top` provides a continuously updated process display, ordered by CPU use by default.
 
 ```bash
-# Open the process monitor.
-top -s
+# Capture one secure-mode process-monitor snapshot.
+top -b -n1 -s
 ```
 ??? example "Expected result"
     ```text
-    top - 09:05:21 up  2:09,  7 users,  load average: 0.01, 0.01, 0.02
-    Tasks: 135 total,   1 running, 134 sleeping,   0 stopped,   0 zombie
-    MiB Mem :   3916.0 total,   3157.8 free,    444.8 used,    550.9 buff/cache
-        PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-          1 root      20   0   22592  13432   9464 S   0.0   0.3   0:05.51 systemd
+    %Cpu(s):  0.0 us,  4.5 sy,  0.0 ni, 95.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
     ```
-
-    Captured in a PTY and exited normally with `q`; values vary by session.
 
 ### :material-application-edit-outline: Stopping processes
 
@@ -119,13 +112,13 @@ Use an isolated LABVM-owned target when learning cron. The source deletion examp
 
 Use `at` to schedule one-time work. You do not need to be logged in when it runs.
 
-`at now + 7 hours` and `at HH:MM` are generic reference syntax. A safe one-time exercise would submit `touch /home/ubuntu/chapter8-validation/at-ran`, confirm it with `atq`, then remove it with `atrm JOB_ID`. On LABVM, `ubuntu` is not permitted to use either `at` or `atq`, so no job was submitted.
+`at now + 7 hours` and `at HH:MM` are generic reference syntax. A safe one-time exercise would submit `touch /home/ubuntu/chapter8-validation/at-ran`, confirm it with `atq`, then remove it with `atrm JOB_ID`. Confirm that `ubuntu` is authorized to use `at` and `atq` before attempting this exercise.
 
 Use `atq` to list scheduled jobs. Its output includes the job number, scheduled time, queue identifier, and user. Use `atrm` with the job number to remove a job.
 
 ### :material-application-edit-outline: 8.3.1 Process Management Lab
 
-Create `~/chapter8-validation/loop.sh` with nano, then enter this script. The dedicated directory confines this validation exercise.
+Create `~/chapter8-validation/loop.sh` with nano, then enter this script. The dedicated directory confines this validation exercise. `nano ~/chapter8-validation/loop.sh` remains the interactive lesson reference; validation used the equivalent noninteractive creation command below.
 
 ```text
 #!/bin/bash
@@ -138,11 +131,11 @@ done
 ```
 
 ```bash
-# Create the isolated loop script.
-nano ~/chapter8-validation/loop.sh
+# Create the isolated loop script noninteractively.
+printf '%s\n' '#!/bin/bash' '' 'while true' 'do' '    echo "hello world" >> hello.txt' '    sleep 1' 'done' > ~/chapter8-validation/loop.sh
 ```
 ??? example "Expected result"
-    Nano opened and saved the script in a PTY, then exited normally. The validation script was created at `/home/ubuntu/chapter8-validation/loop.sh`.
+    No output. The written bytes were compared with the documented loop content.
 
 ```bash
 # Make the isolated loop script executable for its owner and group.
@@ -150,7 +143,7 @@ chmod 750 ~/chapter8-validation/loop.sh
 ```
 ??? example "Expected result"
     ```text
-    -rwxr-x--- 750 /home/ubuntu/chapter8-validation/loop.sh
+    -rwxr-x--- loop.sh
     ```
 
 ```bash
@@ -158,60 +151,41 @@ chmod 750 ~/chapter8-validation/loop.sh
 ps -ef | grep ubuntu
 ```
 ??? example "Expected result"
-    ```text
-    ubuntu     39755   39698  0 09:06 ?        00:00:00 sshd: ubuntu@notty
-    ubuntu     39756   39755  0 09:06 ?        00:00:00 bash -s
-    ubuntu     39772   39756  0 09:06 ?        00:00:00 ps -ef
-    ```
-
-    Literal excerpt; PIDs and active sessions vary.
+    The process list is session-specific and was inspected without recording process identities.
 
 ```bash
 # List all running processes.
 ps -ef
 ```
 ??? example "Expected result"
-    ```text
-    UID          PID    PPID  C STIME TTY          TIME CMD
-    root           1       0  0 06:55 ?        00:00:05 /sbin/init
-    root       31305       1  0 08:17 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-    ubuntu     39772   39756  0 09:06 ?        00:00:00 ps -ef
-    ```
-
-    Literal excerpt; the complete listing varies.
+    The process list is session-specific and was inspected without recording process identities.
 
 ```bash
-# Monitor processes continuously.
-top
+# Capture one bounded process-monitor snapshot.
+top -b -n1
 ```
 ??? example "Expected result"
     ```text
-    top - 09:11:49 up  2:16,  7 users,  load average: 0.00, 0.00, 0.00
-    Tasks: 134 total,   1 running, 133 sleeping,   0 stopped,   0 zombie
-    MiB Mem :   3916.0 total,   3170.6 free,    484.3 used,    498.2 buff/cache
+    %Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
     ```
 
-    Captured in a PTY and exited normally with `q`; values vary.
-
 ```bash
-# Run the isolated loop script in the foreground.
-cd ~/chapter8-validation && ./loop.sh
+# Run the loop in a dedicated session and interrupt its verified process group from a second session.
+setsid bash -c 'cd ~/chapter8-validation && exec ./loop.sh'
 ```
 ??? example "Expected result"
-    No output.
+    No output. The verified owned loop process group exited normally after `SIGINT`.
 
-Press `Ctrl+C` to stop the foreground `loop.sh` process normally. Validation confirmed it exited and left no loop process running.
+Press `Ctrl+C` to stop the foreground `loop.sh` process normally.
 
 ```bash
-# Run the isolated loop script in the background.
+# Run the isolated loop script in the background and retain its PID.
 cd ~/chapter8-validation && ./loop.sh &
+LOOP_SCRIPT_PID=$!
+echo "$LOOP_SCRIPT_PID"
 ```
 ??? example "Expected result"
-    ```text
-    [1] 39891
-    ```
-
-    The job number and PID vary.
+    The PID is session-specific and was retained only for verified cleanup.
 
 ```bash
 # List jobs with their PIDs.
@@ -219,87 +193,73 @@ jobs -l
 ```
 ??? example "Expected result"
     ```text
-    [1]+ 39891 Running                 ./loop.sh &
+    [1]+ Running ./loop.sh
     ```
 
 ```bash
-# Stop the validation loop job using the PID shown by jobs.
-kill 39891
+# Stop the validation loop job using its retained PID.
+kill "$LOOP_SCRIPT_PID"
 ```
 ??? example "Expected result"
-    No output. The validation-owned `loop.sh` process terminated with the default `SIGTERM`.
+    No output. The verified owned loop exited cleanly.
 
 ```bash
 # Run the isolated loop script in the background with nice value 15.
 cd ~/chapter8-validation && nice -n 15 ./loop.sh &
 ```
 ??? example "Expected result"
-    ```text
-      39814  15 loop.sh
-    ```
-
-    The validation-owned process had nice value `15` and was then terminated with `SIGTERM`; its PID varies.
+    The loop ran at nice value 15 and was then terminated cleanly.
 
 The source SSH-daemon exercise is unsafe: changing or terminating `sshd` can disconnect users and disrupt LABVM. Use an owned disposable process instead. `ps aux | grep sshd` remains reference guidance for inspection only.
+
+!!! note
+    Run the following linked commands in the same shell session. They must target only the freshly created, owned disposable process.
 
 ```bash
 # Start a disposable owned process and retain its PID.
 sleep 600 &
-LOOP_PID=$!
-echo "$LOOP_PID"
+SLEEP_PID=$!
+echo "$SLEEP_PID"
 ```
 ??? example "Expected result"
-    ```text
-    39974
-    ```
-
-    The PID varies. This process is owned by `ubuntu` and is the only process targeted in the following examples.
+    The PID is session-specific and was retained only for verified cleanup.
 
 ```bash
 # Set the disposable process priority to -5.
-sudo renice -5 -p 39974
+sudo renice -5 -p "$SLEEP_PID"
 ```
 ??? example "Expected result"
     ```text
-    39974 (process ID) old priority 0, new priority -5
+    old priority 0, new priority -5
     ```
-
-    The PID varies.
 
 ```bash
 # Check the current nice value for the disposable process.
-ps -o pid=,ni=,comm= -p 39974
+ps -o pid=,ni=,comm= -p "$SLEEP_PID"
 ```
 ??? example "Expected result"
     ```text
-      39974  -5 sleep
+    -5 sleep
     ```
-
-    The PID varies.
 
 !!! danger
     `SIGKILL` cannot be handled or cleaned up by the target. Use it only as a last resort, and only for a disposable process you own. Never target `sshd`, PID 1, `cron`, or another existing process.
 
 ```bash
 # Forcefully terminate the disposable process as a last-resort demonstration.
-sudo kill -9 39974
+sudo kill -9 "$SLEEP_PID"
 ```
 ??? example "Expected result"
-    No output. The validation-owned disposable process no longer existed after the command. The PID varies.
+    No output. The verified owned `sleep` process was terminated.
 
 ```bash
-# Edit the current user's crontab.
-crontab -e
+# Install the isolated cron entry noninteractively.
+printf '%s\n' '* * * * * touch /home/ubuntu/chapter8-validation/cron-ran' | crontab -
 ```
 ??? example "Expected result"
     ```text
-      GNU nano 7.2               /tmp/crontab.bXkqM2/crontab
-    # Edit this file to introduce tasks to be run by cron.
-    #
-    # Each task to run has to be defined through a single line
+    * * * * * touch /home/ubuntu/chapter8-validation/cron-ran
     ```
-
-    Captured in a PTY and exited normally without saving.
 
 Add this isolated test line instead of scheduling changes under `/tmp` or a user path:
 
@@ -307,26 +267,51 @@ Add this isolated test line instead of scheduling changes under `/tmp` or a user
 * * * * * touch /home/ubuntu/chapter8-validation/cron-ran
 ```
 
-Validation installed this entry, captured it, confirmed the target file, and restored the prior crontab. The validation-created entry no longer exists.
+During validation, install this entry only in the current user's crontab, verify its target, then remove the validation-created entry and restore the prior crontab state.
 
-The exact `sudo apt install at -y` source command was attempted but failed with `No space left on device`; it is not a successful validated command. Although `/usr/bin/at` is present, LABVM policy returns `You do not have permission to use at.` and `You do not have permission to use atq.` for `ubuntu`. The source `at 14:00` and `rm /tmp/*yaml` examples are therefore reference guidance only: never schedule wildcard deletion of `/tmp`.
-
-The exact `sudo apt install -y htop` command was not retried after the disk-space failure. `/usr/bin/htop` was already available for the monitor exercise.
+The `at` availability and authorization on the replacement LABVM require validation before use. The source `at 14:00` and `rm /tmp/*yaml` examples are reference guidance only: never schedule wildcard deletion of `/tmp`.
 
 ```bash
-# Monitor processes with htop.
-htop
+# Install at using the source package command.
+sudo apt install at -y
+```
+??? example "Expected result"
+    The package installation completed successfully.
+
+```bash
+# Submit the isolated one-time marker job.
+printf '%s\n' 'touch /home/ubuntu/chapter8-validation/at-ran' | at now + 1 minute
 ```
 ??? example "Expected result"
     ```text
-        0[                            0.0%] Tasks: 46, 25 thr, 87 kthr; 1 running
-        1[|                           0.7%] Load average: 0.00 0.00 0.00
-      Mem[||||||||              219M/3.82G] Uptime: 02:15:01
-      Swp[                           0K/0K]
+    warning: commands will be executed using /bin/sh
     ```
 
-    Captured in a PTY and exited normally with `q`; values vary by session.
+```bash
+# List the pending one-time job.
+atq
+```
+??? example "Expected result"
+    A pending job was listed and then completed; dynamic job details are not recorded.
 
-The retained `~/chapter8-validation/` directory contains the documented loop and harmless scheduler targets. No loop jobs, validation crontab entry, or `at` job remains.
+```bash
+# Install htop using the source package command.
+sudo apt install -y htop
+```
+??? example "Expected result"
+    The package installation completed successfully.
+
+The availability of `htop` on the replacement LABVM requires validation before this monitor exercise.
+
+```bash
+# Check htop availability after the bounded top snapshots validated monitoring.
+htop --version
+```
+??? example "Expected result"
+    ```text
+    htop 3.3.0
+    ```
+
+The `~/chapter8-validation/` directory is the intended location for the documented loop and harmless scheduler targets. Confirm its final state during replacement-LABVM validation.
 
 > End of the lab. Do not continue to the next topic.

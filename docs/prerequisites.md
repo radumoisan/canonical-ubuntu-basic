@@ -135,3 +135,7 @@ ping -c 3 ubuntu.com
 
 !!! warning
     `/dev/vdb` and `/dev/vdc` are intentionally disposable lab disks. Later storage exercises partition, format, and overwrite them. Do not use them for personal data.
+
+## :material-book-open-page-variant-outline: Validated tools
+
+- `bzip2` is available after the user-approved `sudo apt install -y bzip2` dependency installation.

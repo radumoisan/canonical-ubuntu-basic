@@ -80,9 +80,9 @@ Public navigation markers: `⏳` in `mkdocs.yml` before validation begins or whi
 
 # Current Validation State
 
-- Current phase: Chapter 10 Software Management validation is Blocked pending absence of LABVM package-management activity.
+- Current phase: Chapter 10 Software Management validation is Blocked: LABVM package-management activity (active `unattended-upgrades` service and unattended-upgrade process) persisted through the full approved 45-minute read-only monitoring gate at 20-second intervals.
 - Active target: Chapter 10 package-management activity preflight gate.
-- Next action: After LABVM package-management activity is absent, rerun the full read-only Chapter 10 preflight before any lab command.
+- Next action: After LABVM package-management activity is absent (unattended-upgrades processing has ended), rerun the full read-only Chapter 10 preflight before any lab command.
 - The prior `LABHOST` was destroyed. Its captured results are historical only and must not be used as replacement-environment validation evidence; no MkDocs build has been run.
 
 # Page Status
@@ -101,7 +101,7 @@ Public navigation markers: `⏳` in `mkdocs.yml` before validation begins or whi
 | 7. Networking | Complete (replacement-LABVM commands 1-32 captured; final checks passed) |
 | 8. Process Management | Complete (replacement-LABVM; approved equivalents validated and cleaned) |
 | 9. Backup and Recovery | Blocked (9.1, 9.2, 9.3 local examples, and 9.4 complete; generic rsync syntax and seven remote transfer blocks deferred) |
-| 10. Software Management | Blocked (pending absence of LABVM package-management activity) |
+| 10. Software Management | Blocked (LABVM unattended-upgrades activity persisted through the full 45-minute monitoring gate) |
 
 # Chapter Subsection Status
 
@@ -116,11 +116,12 @@ Public navigation markers: `⏳` in `mkdocs.yml` before validation begins or whi
 | 7. Networking | 7.1 Basic network commands; 7.1.1 ip Lab; 7.2 ethtool Command; 7.2.1 ethtool lab; 7.3 Network Troubleshooting Commands; 7.3.1 Networking Lab | Complete (replacement-LABVM commands 1-32 captured; final checks passed) |
 | 8. Process Management | 8.1 Process Administration; 8.2 Background Processes and priority; 8.3 Scheduling Processes; 8.3.1 Process Management Lab | Complete (replacement-LABVM; approved equivalents validated and cleaned) |
 | 9. Backup and Recovery | 9.1 Using Archiving and Compression Utilities - Complete; 9.2 Tar archiving - Complete; 9.3 Using rsync - local examples Complete, generic syntax and seven remote transfer examples Blocked by authorized-second-endpoint requirement; 9.4 Backup and Recovery Lab - Complete | Blocked |
-| 10. Software Management | 10.1 Debian Package Management; 10.2 Advanced Package Tool (Apt); 10.3 Snappy Package Management; 10.3.1 Software Management Lab | Blocked (pending absence of LABVM package-management activity) |
+| 10. Software Management | 10.1 Debian Package Management; 10.2 Advanced Package Tool (Apt); 10.3 Snappy Package Management; 10.3.1 Software Management Lab | Blocked (LABVM unattended-upgrades activity persisted through the full 45-minute monitoring gate) |
 
 # Open Findings
 
 - 2026-08-31: Approved unattended Chapter 10 validation established a silent two-hop LABVM shell connection, then stopped at the read-only package-management activity gate before any source command, package, repository, snap, or service change. No cleanup was needed. Rerun the complete preflight only after package-management activity is absent.
+- 2026-08-31: The unattended Chapter 10 rerun passed a silent read-only two-hop connection probe and then polled package-management activity and apt/dpkg locks read-only every 20 seconds for the full approved 45-minute window. The gate never cleared: the `unattended-upgrades` service remained active with an unattended-upgrade package-management process present throughout, confirmed busy at the window end. Lock-file holders were not held continuously; the process/service gate is the blocking condition. No Chapter 10 source or equivalent command ran, no LABVM state changed, and no cleanup was needed. Treated as a persistent operational blocker. Rerun condition: absence of the unattended-upgrades process/service activity, then the full read-only Chapter 10 preflight.
 - 2026-08-24: The prior environment's system-libvirt `cloud` network and `ubuntu` domain were active and autostarted. This history is superseded and is not replacement-environment evidence.
 - 2026-08-24: GCP disk tier cannot be verified from the available local evidence.
 - 2026-08-24: Package and service variance is confirmed: `qemu-kvm` and `virtqemud.service` are absent while functional QEMU/KVM packages and active monolithic `libvirtd` are present.
@@ -287,4 +288,5 @@ Public navigation markers: `⏳` in `mkdocs.yml` before validation begins or whi
 ## 2026-08-31
 
 - User-authorized Chapter 10 validation established silent two-hop LABVM access, then stopped at the required active package-management-process preflight gate. No Chapter 10 source lab command ran, no LABVM state changed, and no cleanup was needed. Chapter 10 remains Blocked pending absence of LABVM package-management activity; rerun the complete read-only preflight only after that condition is met.
+- The approved unattended Chapter 10 rerun began with a silent read-only two-hop connection probe, which succeeded. Read-only polling of package-management activity and apt/dpkg locks then ran every 20 seconds for the full 45-minute bound and the gate never cleared: the `unattended-upgrades` service remained `active (running)` with an unattended-upgrade package-management process present, reconfirmed busy at the window end. Per instruction this was treated as a persistent operational blocker: no process was killed, no lock was removed, no reboot, no package-state change, no disk remediation, and no Chapter 10 source or equivalent command ran; no cleanup was needed. All Chapter 10 expected-result blocks remain pending, `commands.md` gained no entry, and the navigation marker remains `⏳`. Rerun condition: `unattended-upgrades` activity fully absent, then the full read-only Chapter 10 preflight and the guarded 25-command sequence. No MkDocs build was run.
 - Policy and tracker split applied: all validation state, statuses, open findings, and session-log evidence previously recorded in `migration.md` were moved into this file without deletion; `migration.md` now tracks only the initial source-material migration.

@@ -1345,6 +1345,16 @@ mtr -n -r -c 2 www.google.com
 
 Connection wrapper: [redacted; executed against the assigned lab VM]
 
+### Replacement-LABVM retry 2026-08-30
+
+```bash
+ps -ef
+```
+
+```bash
+ps -C sshd
+```
+
 ```bash
 ps -ef
 ```
@@ -1371,4 +1381,270 @@ jobs -l
 
 ```bash
 htop
+```
+
+### Replacement-LABVM completion 2026-08-30
+
+```bash
+top -b -n1 -s
+```
+
+```bash
+top -b -n1
+```
+
+```bash
+printf '%s\n' '#!/bin/bash' '' 'while true' 'do' '    echo "hello world" >> hello.txt' '    sleep 1' 'done' > ~/chapter8-validation/loop.sh
+```
+
+```bash
+chmod 750 ~/chapter8-validation/loop.sh
+```
+
+```bash
+ps -ef | grep ubuntu
+```
+
+```bash
+cd ~/chapter8-validation && ./loop.sh &
+```
+
+```bash
+jobs -l
+```
+
+```bash
+kill "$LOOP_SCRIPT_PID"
+```
+
+```bash
+cd ~/chapter8-validation && nice -n 15 ./loop.sh &
+```
+
+```bash
+sleep 600 &
+```
+
+```bash
+sudo renice -5 -p "$SLEEP_PID"
+```
+
+```bash
+ps -o pid=,ni=,comm= -p "$SLEEP_PID"
+```
+
+```bash
+sudo kill -9 "$SLEEP_PID"
+```
+
+```bash
+printf '%s\n' '* * * * * touch /home/ubuntu/chapter8-validation/cron-ran' | crontab -
+```
+
+```bash
+sudo apt install at -y
+```
+
+```bash
+printf '%s\n' 'touch /home/ubuntu/chapter8-validation/at-ran' | at now + 1 minute
+```
+
+```bash
+atq
+```
+
+```bash
+sudo apt install -y htop
+```
+
+```bash
+htop --version
+```
+
+## Chapter 9: Backup and Recovery Replacement-LABVM 9.1-9.2 Validation (2026-08-30)
+
+```bash
+gzip myfile
+```
+
+```bash
+gzip -d myfile.gz
+```
+
+```bash
+gzip -l myfile.gz
+```
+
+```bash
+bzip2 myfile
+```
+
+```bash
+bzip2 -d myfile.bz2
+```
+
+```bash
+bzip2 -1 myfile
+```
+
+```bash
+xz myfile
+```
+
+```bash
+xz -d myfile.xz
+```
+
+```bash
+xz -e -9 myfile
+```
+
+```bash
+xz -l myfile.xz
+```
+
+```bash
+tar cvf myfiles.tar myfile1 myfile2
+```
+
+```bash
+tar xvf myfiles.tar
+```
+
+```bash
+tar tvf myfiles.tar
+```
+
+```bash
+tar xvf isolated-path-source/mydir.tar -C isolated-path-destination
+```
+
+```bash
+tar czvf myfile.tar.gz myfile
+```
+
+```bash
+tar tzvf myfile.tar.gz
+```
+
+```bash
+tar xzvf myfile.tar.gz
+```
+
+```bash
+tar cjvf myfile.tar.bz2 myfile
+```
+
+```bash
+tar tjvf myfile.tar.bz2
+```
+
+```bash
+tar xjvf myfile.tar.bz2
+```
+
+```bash
+tar cJvf myfile.tar.xz myfile
+```
+
+```bash
+tar tJvf myfile.tar.xz
+```
+
+```bash
+tar xJvf myfile.tar.xz
+```
+
+## Chapter 9: Backup and Recovery Replacement-LABVM 9.3 Local rsync Validation (2026-08-30)
+
+```bash
+rsync -avP ~/chapter9-validation/rsync-local-20260830/file-source/file.tar ~/chapter9-validation/rsync-local-20260830/file-backups/
+```
+
+```bash
+rsync -avP ~/chapter9-validation/rsync-local-20260830/directory-source/ ~/chapter9-validation/rsync-local-20260830/directory-backups/
+```
+
+```bash
+rsync -avP --delete ~/chapter9-validation/rsync-local-20260830/delete-source/ ~/chapter9-validation/rsync-local-20260830/delete-backups/
+```
+
+```bash
+rsync -azvP --remove-source-files ~/chapter9-validation/rsync-local-20260830/remove-source/file.txt ~/chapter9-validation/rsync-local-20260830/remove-backups/
+```
+
+```bash
+rsync -azvP --dry-run ~/chapter9-validation/rsync-local-20260830/dry-run-source/file.txt ~/chapter9-validation/rsync-local-20260830/dry-run-backups/
+```
+
+## Chapter 9: Backup and Recovery Replacement-LABVM 9.4 Fixture Validation (2026-08-30)
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+LC_ALL=C MANPAGER=cat man tar 2>/dev/null | col -b | grep -m 1 'TAR'
+```
+
+```bash
+tar cf ~/chapter9-validation/myetc.tar -C ~/chapter9-validation/source etc
+```
+
+```bash
+tar tf ~/chapter9-validation/myetc.tar
+```
+
+```bash
+sudo tar uvf ~/chapter9-validation/myetc.tar -C ~/chapter9-validation/source root/.bashrc
+```
+
+```bash
+tar tf ~/chapter9-validation/myetc.tar | grep root/.bashrc
+```
+
+```bash
+sudo tar --delete -f ~/chapter9-validation/myetc.tar root/.bashrc
+```
+
+```bash
+if tar tf ~/chapter9-validation/myetc.tar | grep -q root/.bashrc; then exit 1; else [ "${PIPESTATUS[1]}" -eq 1 ]; fi
+```
+
+```bash
+cd ~/chapter9-validation
+```
+
+```bash
+tar xvf ~/chapter9-validation/myetc.tar -C ~/chapter9-validation/selective etc/hostname
+```
+
+```bash
+mkdir ~/chapter9-validation/full
+```
+
+```bash
+tar xvf ~/chapter9-validation/myetc.tar -C ~/chapter9-validation/full
+```
+
+```bash
+gzip ~/chapter9-validation/myetc.tar
+```
+
+```bash
+tar czvf ~/chapter9-validation/myetc2.tgz -C ~/chapter9-validation/source etc
+```
+
+```bash
+mkdir ~/chapter9-validation/tgz
+```
+
+```bash
+tar xzvf ~/chapter9-validation/myetc2.tgz -C ~/chapter9-validation/tgz
+```
+
+```bash
+sudo rm -rf ~/chapter9-validation
+```
+
+```bash
+cd ~
 ```
