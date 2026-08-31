@@ -23,7 +23,7 @@ Linux began as a clone of MINIX, a Unix-like system intended for academic use. I
 
 Linux is also commonly used to mean an operating system: a set of programs, tools, and services bundled with the Linux kernel to provide the components of an operating system.
 
-Linux is the largest and most widespread open-source software project. The Linux Foundation fosters kernel development. Linux runs on systems from embedded devices to supercomputers. Examples from the source material include:
+Linux is the largest and most widespread open-source software project. The Linux Foundation fosters kernel development. Linux runs on systems from embedded devices to supercomputers. For example:
 
 - 95% of domains use Linux as the operating system.
 - 80% of smartphones run Android, which is based on the Linux kernel.
@@ -63,7 +63,7 @@ Ubuntu release names use a two-digit year and two-digit release month. For examp
 
 ## :material-book-open-page-variant-outline: 1.4 The Release Cycle
 
-LTS (`Long Term Support`) releases are published every two years in April. They are Ubuntu's enterprise-grade releases and are the most widely used; the source estimates that 95% of Ubuntu installations use LTS releases.
+LTS (`Long Term Support`) releases are published every two years in April. They are Ubuntu's enterprise-grade releases and are the most widely used; an estimated 95% of Ubuntu installations use LTS releases.
 
 Canonical publishes an interim release every six months between LTS versions. Ubuntu 24.10 is an example. Interim releases are production-quality and supported for nine months, allowing time to update, but they do not have the long-term commitment of LTS releases.
 
@@ -77,69 +77,69 @@ For more information, visit <http://www.ubuntu.com>.
 
 1. Check the Ubuntu distribution version.
 
-```bash
-# Display operating system release metadata.
-cat /etc/os-release
-```
-
-??? example "Expected result"
-    ```shell
-    PRETTY_NAME="Ubuntu 24.04.2 LTS"
-    NAME="Ubuntu"
-    VERSION_ID="24.04"
-    VERSION="24.04.2 LTS (Noble Numbat)"
-    VERSION_CODENAME=noble
-    ID=ubuntu
-    ID_LIKE=debian
-    HOME_URL="https://www.ubuntu.com/"
-    SUPPORT_URL="https://help.ubuntu.com/"
-    BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-    PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-    UBUNTU_CODENAME=noble
-    LOGO=ubuntu-logo
+    ```bash
+    # Display operating system release metadata.
+    cat /etc/os-release
     ```
 
-Another way to check the Ubuntu distribution version is:
+    ??? example "Expected result"
+        ```shell
+        PRETTY_NAME="Ubuntu 24.04.2 LTS"
+        NAME="Ubuntu"
+        VERSION_ID="24.04"
+        VERSION="24.04.2 LTS (Noble Numbat)"
+        VERSION_CODENAME=noble
+        ID=ubuntu
+        ID_LIKE=debian
+        HOME_URL="https://www.ubuntu.com/"
+        SUPPORT_URL="https://help.ubuntu.com/"
+        BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+        PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+        UBUNTU_CODENAME=noble
+        LOGO=ubuntu-logo
+        ```
 
-```bash
-# Display legacy Ubuntu release metadata when the file is present.
-cat /etc/lsb-release
-```
+    Another way to check the Ubuntu distribution version is:
 
-??? example "Expected result"
-    ```shell
-    DISTRIB_ID=Ubuntu
-    DISTRIB_RELEASE=24.04
-    DISTRIB_CODENAME=noble
-    DISTRIB_DESCRIPTION="Ubuntu 24.04.2 LTS"
+    ```bash
+    # Display legacy Ubuntu release metadata when the file is present.
+    cat /etc/lsb-release
     ```
+
+    ??? example "Expected result"
+        ```shell
+        DISTRIB_ID=Ubuntu
+        DISTRIB_RELEASE=24.04
+        DISTRIB_CODENAME=noble
+        DISTRIB_DESCRIPTION="Ubuntu 24.04.2 LTS"
+        ```
 
 2. Check the kernel version.
 
-```bash
-# Display kernel and system information.
-uname -a
-```
-
-??? example "Expected result"
-    ```shell
-    Linux ubuntu 6.8.0-53-generic #55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+    ```bash
+    # Display kernel and system information.
+    uname -a
     ```
 
-The kernel version, build timestamp, and system architecture can differ between lab images.
+    ??? example "Expected result"
+        ```shell
+        Linux ubuntu 6.8.0-53-generic #55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+        ```
 
-Another way to check the kernel version is:
+    The kernel version, build timestamp, and system architecture can differ between lab images.
 
-```bash
-# Display Ubuntu's kernel version signature.
-cat /proc/version_signature
-```
+    Another way to check the kernel version is:
 
-??? example "Expected result"
-    ```shell
-    Ubuntu 6.8.0-53.55-generic 6.8.12
+    ```bash
+    # Display Ubuntu's kernel version signature.
+    cat /proc/version_signature
     ```
 
-The package and upstream kernel versions can differ between lab images.
+    ??? example "Expected result"
+        ```shell
+        Ubuntu 6.8.0-53.55-generic 6.8.12
+        ```
+
+    The package and upstream kernel versions can differ between lab images.
 
 > End of the lab. Do not continue with the next topic.
