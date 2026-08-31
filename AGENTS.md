@@ -13,7 +13,15 @@ This repository is for the Canonical Ubuntu Basic training site.
 - Improve wording, structure, and consistency where useful.
 - Keep the tone professional and minimal.
 - Do not correct lab assumptions, commands, paths, configuration files, or expected output until validation confirms the required change.
-- Record validated current lab-environment details and confirmed requirements in `docs/prerequisites.md`.
+- Record validated current lab-environment details and confirmed requirements in `docs/prerequisites.md`, phrased as student-facing prerequisites, limitations, or safe reproducible guidance.
+
+## Public Documentation Standards
+
+- Public-facing docs (`docs/` pages and any student-facing content) must never contain internal notes. Explicitly prohibited in public pages: validation attempt history, agent or operator actions, retries, connection wrappers, cleanup evidence, machine or environment history, blockers, tracker state, and internal instructions.
+- Public pages must follow a reproducible student/tutorial pattern: teach the reader how and why each step is performed, provide the necessary prerequisites and safety notes, use student-runnable commands, and give learner-useful verification steps and expected outcomes.
+- Rewrite validation discoveries that affect students as student-facing prerequisites, limitations, or safe reproducible guidance in the public page. Keep the details and evidence internal in `validation.md`.
+- The only permitted pre-validation public content is the standard expected-result pending notice defined in Command Formatting and the approved navigation markers defined in Navigation Status Markers.
+- Apply these public-doc standards to every chapter review and every material change to a public page.
 
 ## Agent Routing
 
@@ -57,19 +65,19 @@ This repository is for the Canonical Ubuntu Basic training site.
 - Keep a separate reference page for the source appendix "Networking".
 - Keep `docs/prerequisites.md` as the reference page, located immediately after Home in navigation, for validated current lab-environment details and confirmed requirements.
 - Keep `docs/assets/` for training diagrams and other documentation assets.
-- Keep `migration.md` at the repository root as the internal migration tracker.
+- Keep `migration.md` at the repository root as the internal tracker for the initial migration from `ubuntu_basic_lab.md` only: chapter/source coverage, structure and formatting readiness, source-material migration work, and migration history. It must not track validation activity, validation results, validation status, blockers, attempts, environment facts, ongoing lab state, or a validation session log.
 - Keep `playground.md` at the repository root as the authoritative current lab-assignment source to use before lab execution. It must remain a compact, few-lines-per-student Markdown equivalent of `students_bofa_ubuntu_basic.json` and contain nothing beyond those student fields and values. `students_bofa_ubuntu_basic.json` is the synchronization/reference input and cannot override a synchronized `playground.md` except when deliberately resynchronizing it.
 - The SSH username for lab VMs is always `ubuntu`; never derive it from a student name, email, or other student identity field.
 - Keep `commands.md` at the repository root as internal historical reference only. It must never provide current connection targets, credentials, machine state, assignment information, or validation evidence.
-- Keep `validation.md` as the credential-free internal access and validation runbook. It uses placeholders only, contains no active target or credential values, and is distinct from `playground.md` current assignments and `commands.md` historical records.
+- Keep `validation.md` as the credential-free internal access and validation runbook and the sole validation tracker. It uses placeholders only, contains no active target or credential values, and holds all validation activity, findings, blockers, current validation state, validation status by chapter and subsection, and the dated validation log. It is distinct from `playground.md` current assignments and `commands.md` historical records.
 - Treat `lab_commands/` as read-only supporting command-reference material. Its commands are not successful training commands and must not be recorded in `commands.md` unless they also appear in the source training material and are successfully executed.
 
 ## Navigation Status Markers
 
 Use these status markers consistently in `mkdocs.yml` navigation labels:
 
-- `📋` for completed or currently validated pages.
-- `⏳` for pages still in progress.
+- `📋` for pages whose validation is confirmed, including approved documented exceptions.
+- `⏳` for pages before validation begins or while validation is unconfirmed.
 - `📄` for reference pages.
 
 ## Writing Rules
@@ -109,7 +117,7 @@ Use Material admonitions when they improve clarity:
 
 - Commands and expected results must remain in pairs.
 - Each command must have its own paired expected-result admonition.
-- **Command-result lifecycle:** Before validation, every expected-result block must contain exactly `Validation pending; no captured output is available.` This is a temporary pre-validation notice, not output.
+- **Command-result lifecycle:** Before validation, every expected-result block must contain exactly `Validation pending; no captured output is available.` This is a temporary public migration/pre-validation notice, not output and not a validation journal. Never mention failed validation attempts, internal status, blockers, or other internal notes in public expected-result blocks; keep that content in `validation.md`.
 - Hide source-provided fixtures until successful execution validates them.
 - Only successful execution may replace the pending notice with captured literal output or a faithful literal excerpt. Do not use representative, descriptive, inferred, synthetic, assumed, or unverified output; do not use placeholders, invented values, or redaction placeholders in student-facing results.
 - Use `No output.` only when successful execution proves the command produces no output.
@@ -149,11 +157,14 @@ Use Material admonitions when they improve clarity:
 
 ## Tracking Files
 
-- Update `migration.md` after each material change to record the current phase, active page, next action, status by chapter and subsection, open findings, blockers, and a dated session log.
-- Track subsections for all 10 Ubuntu Basic chapters in `migration.md`, not just top-level chapters.
-- Use these migration statuses: `Not started`, `Structured`, `Formatting`, `Ready for validation`, `Validating`, `Blocked`, and `Complete`.
-- Mark a chapter as `Complete` only after all commands in that chapter have been run and their results have been documented.
-- Keep unvalidated pages marked `⏳` in `mkdocs.yml`; use `📋` only for completed or currently validated pages.
+- Keep `migration.md` scoped to the initial migration from `ubuntu_basic_lab.md` only: chapter and subsection coverage for all 10 Ubuntu Basic chapters, structure and formatting readiness, source-material migration work, and a dated migration history.
+- Update `migration.md` when structural source-migration work changes a page's coverage or migration readiness.
+- Use these migration statuses in `migration.md`: `Not started`, `Structured`, `Formatting`, and `Ready for validation`.
+- Do not record validation activity, validation results, validation status, blockers, attempts, environment facts, ongoing lab state, or a validation session log in `migration.md`.
+- Keep `validation.md` as the sole validation tracker: record all validation activity, findings, blockers, attempts, current validation state, validation status by chapter and subsection, and the dated validation log there.
+- Use these validation statuses in `validation.md`: `Ready for validation`, `Validating`, `Blocked`, and `Complete`.
+- Mark a chapter as validation `Complete` in `validation.md` only after all commands in that chapter have been run and their results have been documented.
+- Keep pages marked `⏳` in `mkdocs.yml` until validation is confirmed; use `📋` once validation is confirmed, including approved documented exceptions.
 - Deliberately resynchronize `playground.md` from `students_bofa_ubuntu_basic.json` whenever a lab assignment is added, changed, or reassigned. Use the synchronized `playground.md` as the current execution context; it is not part of the training content.
 - Update `commands.md` for successful training commands executed by the agent locally or remotely, including during live interactive training sessions.
 - Record only commands from the training material that actually succeeded.
