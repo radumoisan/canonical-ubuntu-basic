@@ -18,7 +18,11 @@
 
     ??? example "Expected result"
         ```shell
-        Expanded Security Maintenance for Applications is not enabled.
+        Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-1066-gcp x86_64)
+
+         * Documentation:  https://help.ubuntu.com
+         * Management:     https://landscape.canonical.com
+         * Support:        https://ubuntu.com/pro
         ```
 
 2. From `LABHOST`, connect to `LABVM` using the source-lab LABVM password: `canonical_lab`.
@@ -38,8 +42,8 @@ Run `exit` once to return from `LABVM` to `LABHOST`. Run `exit` a second time to
 
 ## :material-book-open-page-variant-outline: Expected initial state
 
-- `LABHOST`: Ubuntu 22.04.5, 4 vCPUs, about 16 GB of memory, and 40 GiB root storage.
-- `LABVM` root filesystem had 328 MiB available (87% used) after the Chapter 3 package repair; capacity and disk layout are validated separately for each assigned environment.
+- The `LABHOST` and `LABVM` hardware, disk layout, and available capacity vary by assignment.
+- Run the read-only checks in the next section to confirm the actual state of your environment before starting the course.
 
 ## :material-book-open-page-variant-outline: Check your environment
 
@@ -61,15 +65,20 @@ lsblk
 ```
 
 ??? example "Expected result"
-    ```shell
+    ```text
     NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+    loop0     7:0    0    74M  1 loop /snap/core22/2437
+    loop1     7:1    0  66.8M  1 loop /snap/core24/1643
+    loop2     7:2    0 344.5M  1 loop /snap/google-cloud-cli/491
+    loop3     7:3    0 115.3M  1 loop /snap/lxd/40338
+    loop4     7:4    0  50.1M  1 loop /snap/snapd/27710
     sda       8:0    0    40G  0 disk
-    ├─sda1    8:1    0  39.9G  0 part /
-    ├─sda14   8:14   0     4M  0 part
-    └─sda15   8:15   0   106M  0 part /boot/efi
+    |-sda1    8:1    0  39.9G  0 part /
+    |-sda14   8:14   0     4M  0 part
+    `-sda15   8:15   0   106M  0 part /boot/efi
     ```
 
-    Device details can vary. Verify the root filesystem is on `sda1` and the disk is about 40 GB.
+Device names and sizes vary by environment. Use the listing to identify the block device that backs `/`.
 
 ```bash
 # Show the LABVM operating-system release.
@@ -78,7 +87,6 @@ lsb_release -d
 
 ??? example "Expected result"
     ```shell
-    No LSB modules are available.
     Description:	Ubuntu 24.04.2 LTS
     ```
 
@@ -98,9 +106,9 @@ free -h
 ```
 
 ??? example "Expected result"
-    ```shell
+    ```text
                    total        used        free      shared  buff/cache   available
-    Mem:           3.8Gi       415Mi       3.4Gi       956Ki       277Mi       3.4Gi
+    Mem:           3.8Gi       402Mi       3.4Gi       960Ki       282Mi       3.4Gi
     Swap:             0B          0B          0B
     ```
 
@@ -110,13 +118,13 @@ lsblk
 ```
 
 ??? example "Expected result"
-    ```shell
+    ```text
     NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-    vda     253:0    0  3.5G  0 disk
-    ├─vda1  253:1    0  2.5G  0 part /
-    ├─vda14 253:14   0    4M  0 part
-    ├─vda15 253:15   0  106M  0 part /boot/efi
-    └─vda16 259:0    0  913M  0 part /boot
+    vda     253:0    0  8.5G  0 disk
+    |-vda1  253:1    0  7.5G  0 part /
+    |-vda14 253:14   0    4M  0 part
+    |-vda15 253:15   0  106M  0 part /boot/efi
+    `-vda16 259:0    0  913M  0 part /boot
     vdb     253:16   0   10G  0 disk
     vdc     253:32   0   10G  0 disk
     ```
@@ -127,15 +135,20 @@ ping -c 3 ubuntu.com
 ```
 
 ??? example "Expected result"
-    ```shell
-    3 packets transmitted, 3 received, 0% packet loss
+    ```text
+    PING ubuntu.com (185.125.190.29) 56(84) bytes of data.
+    64 bytes from website-content-cache-3.ps5.canonical.com (185.125.190.29): icmp_seq=1 ttl=60 time=13.7 ms
+    64 bytes from website-content-cache-3.ps5.canonical.com (185.125.190.29): icmp_seq=2 ttl=60 time=13.7 ms
+    64 bytes from website-content-cache-3.ps5.canonical.com (185.125.190.29): icmp_seq=3 ttl=60 time=13.7 ms
+
+    --- ubuntu.com ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+    rtt min/avg/max/mdev = 13.693/13.703/13.715/0.009 ms
     ```
+
+    Latency and timing values vary with network conditions. Three replies with 0% packet loss confirm name resolution and outbound connectivity.
 
 ## :material-book-open-page-variant-outline: Safety
 
 !!! warning
     `/dev/vdb` and `/dev/vdc` are intentionally disposable lab disks. Later storage exercises partition, format, and overwrite them. Do not use them for personal data.
-
-## :material-book-open-page-variant-outline: Validated tools
-
-- `bzip2` is available after the user-approved `sudo apt install -y bzip2` dependency installation.

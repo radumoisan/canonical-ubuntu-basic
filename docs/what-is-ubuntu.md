@@ -142,5 +142,3 @@ For more information, visit <http://www.ubuntu.com>.
         ```
 
     The package and upstream kernel versions can differ between lab images.
-
-> End of the lab. Do not continue with the next topic.

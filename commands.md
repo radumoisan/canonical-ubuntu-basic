@@ -1674,3 +1674,45 @@ uname -a
 ```bash
 cat /proc/version_signature
 ```
+
+## Prerequisites Current-Assignment Validation (2026-08-31)
+
+The following source commands were validated on the user-approved replacement assignment on 2026-08-31.
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+ssh <LABHOST_USER>@<LABHOST_PUBLIC_IP>
+```
+
+```bash
+ssh ubuntu@192.168.100.4
+```
+
+```bash
+lsb_release -d
+```
+
+```bash
+lsblk
+```
+
+```bash
+lsb_release -d
+```
+
+```bash
+nproc
+```
+
+```bash
+free -h
+```
+
+```bash
+lsblk
+```
+
+```bash
+ping -c 3 ubuntu.com
+```
