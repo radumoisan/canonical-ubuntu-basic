@@ -2191,3 +2191,117 @@ chmod 775 test02
 ```bash
 ls -l
 ```
+
+## Chapter 5: Logging and Initialization Current-Assignment Validation (2026-09-01)
+
+The following source commands were validated on the user-approved current assignment on 2026-09-01. All 27 page commands executed successfully in page order; the two no-match `grep` searches and the stopped-`cron` status inspection produced the documented observational non-zero exit statuses. The accepted sudo adaptations (`sudo cat /var/lib/logrotate/status` and the four `sudo dmesg` forms) are recorded in their executed page form. Pager exits, preflight, recovery verification, and cleanup commands are not recorded.
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+grep NetworkManager /var/log/syslog
+```
+
+```bash
+grep -i "error" /var/log/syslog
+```
+
+```bash
+ls /etc/logrotate.d/
+```
+
+```bash
+sudo logrotate /etc/logrotate.conf
+```
+
+```bash
+sudo cat /var/lib/logrotate/status
+```
+
+```bash
+sudo logrotate -vf /etc/logrotate.conf
+```
+
+```bash
+sudo dmesg
+```
+
+```bash
+sudo dmesg | less
+```
+
+```bash
+sudo dmesg | grep -i vda
+```
+
+```bash
+sudo dmesg | grep vda > vda.txt
+```
+
+```bash
+grep error /var/log/syslog
+```
+
+```bash
+head -n 10 /var/log/syslog
+```
+
+```bash
+tail -n 10 /var/log/syslog
+```
+
+```bash
+ls -l /var/log
+```
+
+```bash
+ls -l /boot/
+```
+
+```bash
+man systemctl
+```
+
+```bash
+sudo systemctl stop cron
+```
+
+```bash
+sudo systemctl status cron
+```
+
+```bash
+sudo systemctl start cron
+```
+
+```bash
+sudo systemctl status cron
+```
+
+```bash
+systemctl list-units -t service
+```
+
+```bash
+systemctl list-units -t service | grep -i ssh
+```
+
+```bash
+systemctl --failed
+```
+
+```bash
+man journalctl
+```
+
+```bash
+journalctl -u ssh.service
+```
+
+```bash
+systemctl show ssh.service
+```
+
+```bash
+sudo systemctl restart ssh
+```
