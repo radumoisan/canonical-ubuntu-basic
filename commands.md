@@ -1716,3 +1716,360 @@ lsblk
 ```bash
 ping -c 3 ubuntu.com
 ```
+
+## Chapter 2: CLI Environment Current-Assignment Validation Segment (2026-08-31)
+
+The following source commands were validated on the user-approved current assignment on 2026-08-31. This segment covered sections 2.2.1, 2.3.1, the 2.4 shell-variable examples, and 2.4.1, executed in one `LABVM` session in page order. Duplicate successful commands ran more than once but are recorded once.
+
+Connection wrapper: [redacted; executed against the assigned lab VM]
+
+```bash
+man ls
+```
+
+```bash
+mkdir mydir1
+```
+
+```bash
+cd mydir1
+```
+
+```bash
+mkdir mydir2
+```
+
+```bash
+cd mydir2
+```
+
+```bash
+cd ..
+```
+
+```bash
+rmdir mydir2
+```
+
+```bash
+touch file1
+```
+
+```bash
+cp file1 file2
+```
+
+```bash
+mkdir mynewdir
+```
+
+```bash
+cp -a mydir1/* mynewdir
+```
+
+```bash
+man man
+```
+
+```bash
+man rsync
+```
+
+```bash
+NAME=Marvin
+```
+
+```bash
+NAMES="Marvin Ford Arthur Trillian"
+```
+
+```bash
+unset NAME
+```
+
+```bash
+NAME=
+```
+
+```bash
+export NAME=Marvin
+```
+
+```bash
+echo $NAME
+```
+
+```bash
+NAMES="$NAMES Zaphod"
+```
+
+```bash
+readonly NAMES
+```
+
+```bash
+echo $PATH
+```
+
+```bash
+env
+```
+
+```bash
+MYNAME="john"
+```
+
+```bash
+echo $MYNAME
+```
+
+```bash
+PART1="My name is"
+```
+
+```bash
+PART2="john"
+```
+
+```bash
+echo $PART1
+```
+
+```bash
+echo $PART2
+```
+
+```bash
+STUDENTNAME=$PART1$PART2
+```
+
+```bash
+echo $STUDENTNAME
+```
+
+```bash
+unset PART1
+```
+
+```bash
+unset PART2
+```
+
+```bash
+unset STUDENTNAME
+```
+
+```bash
+x=5
+```
+
+```bash
+echo $x
+```
+
+```bash
+bash
+```
+
+```bash
+exit
+```
+
+```bash
+export x=5
+```
+
+```bash
+ls -al > ~/all_files.txt
+```
+
+```bash
+ls -al /tmp >> ~/all_files.txt
+```
+
+```bash
+wc -l < /etc/passwd
+```
+
+```bash
+ls -al | less
+```
+
+```bash
+ls > mylist
+```
+
+```bash
+ls /usr/bin | head -5 | tail -1
+```
+
+```bash
+grep list mylist
+```
+
+```bash
+ls -lt /usr/bin | head
+```
+
+```bash
+du | sort -nr | head
+```
+
+```bash
+cat >redirection.txt <<EOF
+Hello world!
+EOF
+```
+
+```bash
+less --help | grep -i examine
+```
+
+```bash
+ls; pwd; whoami
+```
+
+```bash
+ping -c1 google.com && echo "That's good, able to ping google.com" || \
+echo "That's bad unable to ping google.com"
+```
+
+```bash
+echo sp{el,il,al}
+```
+
+```bash
+mkdir {2014..2016}-0{0..9} {2014..2016}-{10..12}
+```
+
+```bash
+cd ~
+```
+
+```bash
+cd ~ubuntu
+```
+
+```bash
+echo hello >~/hello.txt
+```
+
+```bash
+echo $SHELL
+```
+
+```bash
+D=`date`
+```
+
+```bash
+echo $D
+```
+
+```bash
+echo ${D}d vs echo $Dd
+```
+
+```bash
+echo ${TODAY:=`date +%A`}
+```
+
+```bash
+echo "The date and time is: $(date)"
+```
+
+```bash
+echo "The date and time is `date`"
+```
+
+```bash
+echo $(env | grep ^LC_)
+```
+
+```bash
+printf "%s\n" $(env | grep ^LC_)
+```
+
+```bash
+cd /tmp; ls -al
+```
+
+```bash
+cd /tmp && ls -al
+```
+
+```bash
+cd /tmp || echo "Could not change to /tmp"
+```
+
+```bash
+cd /tmp && ls -al || echo "Could not change to /tmp"
+```
+
+```bash
+cd /tmp && ls -al || { echo "Could not change to /tmp. Going home instead"; cd ~; pwd; }
+```
+
+```bash
+(cd /tmp && ls -al) || (cd /tmp && { ls -al | wc -l; })
+```
+
+```bash
+ls -ltr /etc | tail
+```
+
+```bash
+history | grep ls
+```
+
+```bash
+file=data.txt
+```
+
+```bash
+echo ${file%.*}
+```
+
+```bash
+echo ${file#*.}
+```
+
+```bash
+X=5
+```
+
+```bash
+echo $((X+1))
+```
+
+```bash
+echo $(($X+1))
+```
+
+```bash
+echo $((X>15))
+```
+
+```bash
+cd /usr/bin
+```
+
+```bash
+cd ~
+```
+
+```bash
+nano
+```
+
+```bash
+cd ~
+```
+
+```bash
+nano fileone.txt
+```
+
+```bash
+nano shells.txt
+```
