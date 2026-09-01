@@ -505,6 +505,18 @@ rmdir dirone/
 rm file1.txt
 ```
 
+```bash
+df -h /
+```
+
+```bash
+sudo apt-get --fix-broken install -y
+```
+
+```bash
+sudo dpkg --audit
+```
+
 ## Chapter 4: Identity and Ownership
 
 Connection wrapper: [redacted; executed against the assigned lab VM]

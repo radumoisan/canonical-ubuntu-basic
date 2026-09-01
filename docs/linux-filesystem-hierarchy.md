@@ -4,7 +4,7 @@
     Define the Linux Filesystem Hierarchy Standard, explain the Ubuntu filesystem hierarchy, and identify Linux file types.
 
 !!! note
-    Results were captured on this `LABVM`. Directory listings vary with its state.
+    Directory listings vary with the state of your environment.
 
 ## :material-book-open-page-variant-outline: 3.1 The Filesystem Hierarchy Standard
 
@@ -158,7 +158,7 @@ ls
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM:
+    Literal excerpt:
 
     ```text
     bin
@@ -201,7 +201,7 @@ ls lib
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM:
+    Literal excerpt:
 
     ```text
     apparmor
@@ -278,7 +278,7 @@ ls cache
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM:
+    Literal excerpt:
 
     ```text
     PackageKit
@@ -334,7 +334,7 @@ sudo apt install tree -y
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM:
+    Literal excerpt:
 
     ```text
     WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
@@ -387,7 +387,7 @@ tree -L 1 /
 ```
 
 ??? example "Expected result"
-    Literal first-20-line excerpt from this LABVM:
+    Literal first-20-line excerpt:
 
     ```text
     /
@@ -420,7 +420,7 @@ tree -L 2 /
 ```
 
 ??? example "Expected result"
-    Literal first-20-line excerpt from this LABVM:
+    Literal first-20-line excerpt:
 
     ```text
     /
@@ -444,8 +444,6 @@ tree -L 2 /
     │   └── vmlinuz.old -> vmlinuz-6.8.0-53-generic
     ├── dev
     ```
-
-> End of the lab. Do not continue with the next topic.
 
 ## :material-book-open-page-variant-outline: 3.3 Linux File Types
 
@@ -541,7 +539,7 @@ ls -l /dev/
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM:
+    Literal excerpt:
 
     ```text
     total 0
@@ -623,8 +621,6 @@ rm file1.txt
 ??? example "Expected result"
     No output.
 
-> End of the lab. Do not continue with the next topic.
-
 ## :material-book-open-page-variant-outline: Package Troubleshooting
 
 !!! warning
@@ -657,7 +653,7 @@ sudo apt-get --fix-broken install -y
 ```
 
 ??? example "Expected result"
-    Literal excerpt from this LABVM:
+    Literal excerpt:
 
     ```text
     Correcting dependencies... Done
